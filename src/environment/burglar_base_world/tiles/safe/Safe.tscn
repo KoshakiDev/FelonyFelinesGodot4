@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/components/CircleProgressBar/CircleProgressBar.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/environment/burglar_base_world/tiles/safe/safe.png" type="Texture" id=2]
+[ext_resource path="res://src/environment/burglar_base_world/tiles/safe/safe.png" type="Texture2D" id=2]
 [ext_resource path="res://src/environment/burglar_base_world/tiles/safe/Safe.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -10,7 +10,7 @@ extents = Vector2( 23, 10 )
 [node name="Safe" type="Node2D"]
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2( 0, -32 )
 texture = ExtResource( 2 )
 

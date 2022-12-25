@@ -1,17 +1,17 @@
 extends Control
 
-export var max_separation:float = 400.0
-export var split_line_thickness:float = 3.0
-export var split_line_color:Color = Color.black
-export var adaptive_split_line_thickness:bool = true
+@export var max_separation:float = 400.0
+@export var split_line_thickness:float = 3.0
+@export var split_line_color:Color = Color.BLACK
+@export var adaptive_split_line_thickness:bool = true
 
-onready var player1 = Global.brother_1
-onready var player2 = Global.brother_2
-onready var viewport1 = $ViewportContainer/Viewport1
-onready var viewport2 = $ViewportContainer2/Viewport2
-onready var view = $View
-onready var camera1 = $ViewportContainer/Viewport1/Camera1
-onready var camera2 = $ViewportContainer2/Viewport2/Camera2
+@onready var player1 = Global.brother_1
+@onready var player2 = Global.brother_2
+@onready var viewport1 = $SubViewportContainer/Viewport1
+@onready var viewport2 = $ViewportContainer2/Viewport2
+@onready var view = $View
+@onready var camera1 = $SubViewportContainer/Viewport1/Camera1
+@onready var camera2 = $ViewportContainer2/Viewport2/Camera2
 
 func _ready():
 	visible = true
@@ -30,10 +30,10 @@ func setup():
 	viewport2.world_2d = viewport1.world_2d
 	_on_size_changed()
 	_update_splitscreen()
-	get_viewport().connect("size_changed", self, "_on_size_changed")
+	get_viewport().connect("size_changed",Callable(self,"_on_size_changed"))
 
-	view.material.set_shader_param("viewport1", viewport1.get_texture())
-	view.material.set_shader_param("viewport2", viewport2.get_texture())
+	view.material.set_shader_parameter("viewport1", viewport1.get_texture())
+	view.material.set_shader_parameter("viewport2", viewport2.get_texture())
 
 func _physics_process(delta):
 	_move_cameras()
@@ -76,13 +76,13 @@ func _update_splitscreen():
 	else:
 		thickness = split_line_thickness
 
-	view.material.set_shader_param("split_active", _get_split_state())
-	view.material.set_shader_param("is_player1_dead", player1.health_manager.is_dead())
-	view.material.set_shader_param("is_player2_dead", player2.health_manager.is_dead())
-	view.material.set_shader_param("player1_position", player1_position)
-	view.material.set_shader_param("player2_position", player2_position)
-	view.material.set_shader_param("split_line_thickness", thickness)
-	view.material.set_shader_param("split_line_color", split_line_color)
+	view.material.set_shader_parameter("split_active", _get_split_state())
+	view.material.set_shader_parameter("is_player1_dead", player1.health_manager.is_dead())
+	view.material.set_shader_parameter("is_player2_dead", player2.health_manager.is_dead())
+	view.material.set_shader_parameter("player1_position", player1_position)
+	view.material.set_shader_parameter("player2_position", player2_position)
+	view.material.set_shader_parameter("split_line_thickness", thickness)
+	view.material.set_shader_parameter("split_line_color", split_line_color)
 	
 
 func _get_split_state():
@@ -93,12 +93,12 @@ func _get_split_state():
 func _on_size_changed():
 	var screen_size = get_viewport().get_visible_rect().size
 
-	$ViewportContainer.rect_size = screen_size
-	$ViewportContainer2.rect_size = screen_size
+	$SubViewportContainer.size = screen_size
+	$ViewportContainer2.size = screen_size
 	viewport1.size = screen_size
 	viewport2.size = screen_size
-	view.rect_size = screen_size
-	view.material.set_shader_param("viewport_size", screen_size)
+	view.size = screen_size
+	view.material.set_shader_parameter("viewport_size", screen_size)
 
 func _compute_position_difference_in_world():
 	if not player2.health_manager.is_dead() and player1.health_manager.is_dead(): return Vector2.ZERO

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/cat_pain.wav-cbc0119c728a25bb50dc1da6ba178daf.sample"
+type="AudioStreamWAV"
+uid="uid://dxoq4k7mua2er"
+path="res://.godot/imported/cat_pain.wav-cbc0119c728a25bb50dc1da6ba178daf.sample"
 
 [deps]
 
 source_file="res://assets/sfx/cat_pain.wav"
-dest_files=[ "res://.import/cat_pain.wav-cbc0119c728a25bb50dc1da6ba178daf.sample" ]
+dest_files=["res://.godot/imported/cat_pain.wav-cbc0119c728a25bb50dc1da6ba178daf.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

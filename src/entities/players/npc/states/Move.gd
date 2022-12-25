@@ -4,7 +4,7 @@ extends State
 func enter(msg := {}) -> void:
 	if msg.has("Accel"):
 		owner.play_animation("Accel", "Movement")
-		yield(owner.get_animation_player("Movement"), "animation_finished")
+		await owner.get_animation_player("Movement").animation_finished
 	if !owner.is_extra_resistance_on:
 		owner.play_animation("Run_2", "Movement")
 	else:

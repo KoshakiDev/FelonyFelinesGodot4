@@ -20,7 +20,7 @@ func setup():
 		wave_survived = 0
 	if final_score == null:
 		final_score = 0
-	$InfoPos/Info.bbcode_text = "[center]LAST WAVE: " + str(wave_survived) +"[/center]\n[center]LAST SCORE: " + str(final_score) + "[/center]" 
+	$InfoPos/Info.text = "[center]LAST WAVE: " + str(wave_survived) +"[/center]\n[center]LAST SCORE: " + str(final_score) + "[/center]" 
 #
 #func _input(event):
 #	if event is InputEventKey:
@@ -28,7 +28,7 @@ func setup():
 #			back_to_menu()
 #
 #func back_to_menu():
-#	SceneChanger.change_scene("res://src/menu/Menu.tscn", "fade")
+#	SceneChanger.change_scene_to_file("res://src/menu/Menu.tscn", "fade")
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
 ##func _process(delta):
 ##	pass

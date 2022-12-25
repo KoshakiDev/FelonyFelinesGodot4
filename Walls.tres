@@ -1,51 +1,51 @@
 [gd_resource type="TileSet" load_steps=17 format=2]
 
-[ext_resource path="res://assets/environment/texture/TX Tileset Wall.png" type="Texture" id=1]
+[ext_resource path="res://assets/environment/texture/TX Tileset Wall.png" type="Texture2D" id=1]
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
-points = PoolVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
+points = PackedVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
-points = PoolVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
+points = PackedVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=20]
-points = PoolVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
+points = PackedVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=21]
-points = PoolVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
+points = PackedVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=22]
-points = PoolVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
+points = PackedVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=23]
-points = PoolVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
+points = PackedVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=24]
-points = PoolVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
+points = PackedVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=25]
-points = PoolVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
+points = PackedVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=26]
-points = PoolVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
+points = PackedVector2Array( 64, 128, 0, 128, 0, 64, 64, 64 )
 
 [sub_resource type="ConvexPolygonShape2D" id=27]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+points = PackedVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=28]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+points = PackedVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=29]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+points = PackedVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=30]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+points = PackedVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=31]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+points = PackedVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=32]
-points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
+points = PackedVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [resource]
 0/name = "TX Tileset Wall.png 0"

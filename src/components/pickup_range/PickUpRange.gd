@@ -1,17 +1,23 @@
 extends Area2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-onready var anim_player = $AnimationPlayer
+@onready var anim_player = $AnimationPlayer
+@onready var despawn_timer = $DespawnTimer
+signal despawn
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	anim_player.play("Animate")
-	pass # Replace with function body.
+	connect("area_entered", Callable(self, "delete_self"))
 
+func delete_self(area):
+	queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func setup_timer(wait_time):
+	despawn_timer.connect("timeout", Callable(self, "timeout"))	
+	despawn_timer.one_shot = true
+	despawn_timer.wait_time = wait_time
+	despawn_timer.start()
+	
+func timeout():
+	emit_signal("despawn")
+

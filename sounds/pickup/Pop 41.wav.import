@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Pop 41.wav-224f5925b6afb1e26850f36a9e38a37e.sample"
+type="AudioStreamWAV"
+uid="uid://2k0v4wbc3cbc"
+path="res://.godot/imported/Pop 41.wav-224f5925b6afb1e26850f36a9e38a37e.sample"
 
 [deps]
 
 source_file="res://sounds/pickup/Pop 41.wav"
-dest_files=[ "res://.import/Pop 41.wav-224f5925b6afb1e26850f36a9e38a37e.sample" ]
+dest_files=["res://.godot/imported/Pop 41.wav-224f5925b6afb1e26850f36a9e38a37e.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

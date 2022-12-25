@@ -1,11 +1,11 @@
 extends "res://src/entities/base_templates/base_npc/base_npc.gd"
 
-export var cooldown_duration: float = 5
+@export var cooldown_duration: float = 5
 
-export var dash_duration: float = 3
-export var dash_speed: int = 30
+@export var dash_duration: float = 3
+@export var dash_speed: int = 30
 
-onready var hitbox = $Areas/Hitbox
+@onready var hitbox = $Areas/Hitbox
 
 func _ready():
 	hitbox.init(self)

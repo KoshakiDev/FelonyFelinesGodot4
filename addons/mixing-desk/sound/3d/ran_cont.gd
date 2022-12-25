@@ -1,18 +1,18 @@
-extends Spatial
+extends Node3D
 
 var dvols = []
 var dpitches = []
 var soundlist = []
 var root
-export(NodePath) var spawn_node
-export var autoplay : bool
-export var volume_range : float
-export var pitch_range : float
-export var sound_number : int
+@export var spawn_node: NodePath
+@export var autoplay : bool
+@export var volume_range : float
+@export var pitch_range : float
+@export var sound_number : int
 
 func _ready():
 	for i in get_children():
-		dvols.append(i.unit_db)
+		dvols.append(i.volume_db)
 		dpitches.append(i.pitch_scale)
 		soundlist.append(i)
 	if spawn_node:
@@ -21,7 +21,7 @@ func _ready():
 		elif typeof(spawn_node) == TYPE_OBJECT:
 			root = spawn_node
 	else:
-		root = Spatial.new()
+		root = Node3D.new()
 		add_child(root)
 		root.name = "root"
 	if autoplay:
@@ -63,8 +63,8 @@ func _randomise(sound):
 	var dpitch = dpitches[sound.get_index()]
 	var newvol = (dvol + _range(volume_range))
 	var newpitch = (dpitch + _range(pitch_range))
-	sound.unit_db = newvol
+	sound.volume_db = newvol
 	sound.pitch_scale = newpitch
 	
 func _range(item : float) -> float:
-	return rand_range(-item,item)
+	return randf_range(-item,item)

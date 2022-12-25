@@ -4,7 +4,7 @@ extends State
 
 func enter(msg := {}) -> void:
 	if owner.get_animation_player("Movement").current_animation == "Decel_1" or owner.get_animation_player("Movement").current_animation == "Decel_2":
-		yield(owner.get_animation_player("Movement"), "animation_finished")
+		await owner.get_animation_player("Movement").animation_finished
 	owner.play_animation("Idle", "Movement")
 
 func physics_update(_delta: float) -> void:

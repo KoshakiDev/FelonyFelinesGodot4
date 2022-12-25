@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://dplk7imim57n0"]
 
-[ext_resource path="res://src/components/bullet-related/bullet type/BaseProjectile.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/items/weapons/range/bullets/bullet.png" type="Texture" id=2]
+[ext_resource type="PackedScene" uid="uid://pm3xpehnv2ck" path="res://src/components/bullet-related/bullet type/BaseProjectile.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://ch1hxfjmjnj3q" path="res://assets/items/weapons/range/bullets/bullet.png" id="2"]
 
-[node name="PlayerBullet2" instance=ExtResource( 1 )]
+[node name="PlayerBullet" instance=ExtResource("1")]
 collision_layer = 32
 collision_mask = 129
 
-[node name="Sprite" parent="." index="1"]
-texture = ExtResource( 2 )
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2")

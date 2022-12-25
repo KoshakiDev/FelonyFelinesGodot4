@@ -1,8 +1,6 @@
 extends CanvasLayer
 
-"""
-THIS IS FOR THE BURGLAR WORLD
-"""
+#THIS IS FOR THE BURGLAR WORLD
 
 func _ready():
 	visible = true

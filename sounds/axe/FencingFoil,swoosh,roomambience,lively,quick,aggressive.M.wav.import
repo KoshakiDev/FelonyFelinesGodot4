@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/FencingFoil,swoosh,roomambience,lively,quick,aggressive.M.wav-768f2fd4b452044a841f10daf6d9022e.sample"
+type="AudioStreamWAV"
+uid="uid://dubj6d0tdayyi"
+path="res://.godot/imported/FencingFoil,swoosh,roomambience,lively,quick,aggressive.M.wav-768f2fd4b452044a841f10daf6d9022e.sample"
 
 [deps]
 
 source_file="res://sounds/axe/FencingFoil,swoosh,roomambience,lively,quick,aggressive.M.wav"
-dest_files=[ "res://.import/FencingFoil,swoosh,roomambience,lively,quick,aggressive.M.wav-768f2fd4b452044a841f10daf6d9022e.sample" ]
+dest_files=["res://.godot/imported/FencingFoil,swoosh,roomambience,lively,quick,aggressive.M.wav-768f2fd4b452044a841f10daf6d9022e.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

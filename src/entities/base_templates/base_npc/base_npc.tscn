@@ -15,7 +15,7 @@ operator = 6
 [sub_resource type="VisualShaderNodeVectorOp" id=4]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanUniform" id=5]
+[sub_resource type="VisualShaderNodeBooleanParameter" id=5]
 uniform_name = "active"
 
 [sub_resource type="VisualShader" id=6]
@@ -30,7 +30,7 @@ void vertex() {
 }
 
 void fragment() {
-// Texture:3
+// Texture2D:3
 	vec3 n_out3p0;
 	float n_out3p1;
 	{
@@ -76,7 +76,7 @@ nodes/fragment/9/node = SubResource( 5 )
 nodes/fragment/9/position = Vector2( 400, 0 )
 nodes/fragment/11/node = SubResource( 1 )
 nodes/fragment/11/position = Vector2( 400, 120 )
-nodes/fragment/connections = PoolIntArray( 3, 1, 0, 1, 3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1 )
+nodes/fragment/connections = PackedInt32Array( 3, 1, 0, 1, 3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1 )
 
 [sub_resource type="ShaderMaterial" id=7]
 resource_local_to_scene = true
@@ -98,7 +98,7 @@ ONLY USED BY NON-PLAYABLE CHARACTERS, NOT BY PLAYERS"
 
 [node name="AttackRangeShape" type="CollisionShape2D" parent="Areas/AttackRange" index="0"]
 
-[node name="Sprite" parent="Visuals" index="0"]
+[node name="Sprite2D" parent="Visuals" index="0"]
 material = SubResource( 7 )
 
 [node name="Attack" type="Node2D" parent="SoundMachine" index="4"]

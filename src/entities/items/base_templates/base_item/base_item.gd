@@ -1,49 +1,54 @@
 extends Node2D
 
-export var entity_type = "ITEM"
-export var item_type = "WEAPON"
-export var entity_name = "NAME"
+@export_group("Item Variables")
+@export var entity_type = "ITEM"
+@export var item_type = "WEAPON"
+@export var entity_name = "NAME"
 
-onready var item_pickup_area = $Position2D/PickUpRange
-onready var despawn_timer = $Position2D/PickUpRange/DespawnTimer
-onready var sprite = $Position2D/Visuals/Sprite
-onready var animation_machine = $Position2D/AnimationMachine
-onready var sound_machine = $Position2D/SoundMachine
+@export var despawnable: bool = true
+@export var despawn_time: int = 5
 
-
-export var despawnable: bool = true
-export var despawn_time: int = 5
-export var in_inventory: bool = false
-
-
-onready var item_drop_sound = $Position2D/SoundMachine/ItemDrop
+@onready var state_machine = $Marker2D/StateMachine
+@onready var item_pickup_area = $Marker2D/PickUpRange
+@onready var sprite = $Marker2D/Visuals/Sprite2D
+@onready var animation_machine = $Marker2D/AnimationMachine
+@onready var sound_machine = $Marker2D/SoundMachine
 
 func _ready():
-	if !in_inventory:
-		setup_despawn()
-	else:
-		item_pickup_area.queue_free()
-
-var weapon_owner: Node2D
-
-func init(weapon_owner: Node2D) -> void:
-	self.weapon_owner = weapon_owner
+	sound_machine.play_sound("ItemDrop")
+	#item_pickup_area.connect("area_entered", Callable(self, "pickup_item"))
+	item_pickup_area.connect("despawn", Callable(self, "despawn"))
+	if despawnable:
+		item_pickup_area.setup_timer(despawn_time)
 	
+var item_owner: Node2D
+var player_id = ""
 
-func action():
-	pass
+func init(set_owner: Node2D) -> void:
+	self.item_owner = set_owner
+	if item_owner.get("player_id") != null:
+		player_id = item_owner.player_id
+	
+	
+#To-do: the pickup item area does not work for some reason inside the base range weapon
+func pickup_item():
+	print("despawn cancelled")
+	cancel_despawn()
+	sound_machine.play_sound("Pickup")
 
 func set_inactive():
 	visible = false
+	state_machine.transition_to("Disabled")
+	#print("set inactive")
+	
+func set_active():
+	visible = true
+	state_machine.transition_to("Idle")
+	#print("set active")
+	
+func despawn():
+	print("I was despawned")
+	queue_free()
 
 func cancel_despawn():
-	despawn_timer.stop()
 	item_pickup_area.queue_free()
-
-func setup_despawn():
-	if despawnable:
-		despawn_timer.wait_time = despawn_time
-		despawn_timer.start()
-
-func _on_DespawnTimer_timeout():
-	queue_free()

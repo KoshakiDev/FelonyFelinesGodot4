@@ -1,18 +1,18 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/environment/texture/TX Plant.png" type="Texture" id=2]
+[ext_resource path="res://assets/environment/texture/TX Plant.png" type="Texture2D" id=2]
 
 [sub_resource type="OccluderPolygon2D" id=2]
-polygon = PoolVector2Array( 84.8845, 152.879, 73.6688, 152.879, 73.6688, 151.87, 84.8845, 151.87 )
+polygon = PackedVector2Array( 84.8845, 152.879, 73.6688, 152.879, 73.6688, 151.87, 84.8845, 151.87 )
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
-points = PoolVector2Array( 85.1088, 153.188, 74.1175, 153.188, 74.1175, 144.888, 85.1088, 144.888 )
+points = PackedVector2Array( 85.1088, 153.188, 74.1175, 153.188, 74.1175, 144.888, 85.1088, 144.888 )
 
 [sub_resource type="ConvexPolygonShape2D" id=4]
-points = PoolVector2Array( 53.416, 152.717, 41.1685, 152.717, 41.1685, 142.488, 53.416, 142.488 )
+points = PackedVector2Array( 53.416, 152.717, 41.1685, 152.717, 41.1685, 142.488, 53.416, 142.488 )
 
 [sub_resource type="ConvexPolygonShape2D" id=5]
-points = PoolVector2Array( 53.436, 118.859, 42.6151, 118.859, 42.6151, 110.461, 53.436, 110.461 )
+points = PackedVector2Array( 53.436, 118.859, 42.6151, 118.859, 42.6151, 110.461, 53.436, 110.461 )
 
 [sub_resource type="TileSet" id=1]
 1/name = "Tree Large"
@@ -195,7 +195,7 @@ show_collision = true
 collision_use_kinematic = true
 collision_mask = 33
 format = 1
-tile_data = PoolIntArray( 196610, 2, 0 )
+tile_data = PackedInt32Array( 196610, 2, 0 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 192.0, 257.0 ],
 "_edit_vertical_guides_": [ 129.0, 193.0 ]

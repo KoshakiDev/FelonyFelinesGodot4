@@ -1,18 +1,18 @@
 extends "res://src/entities/base_templates/base_entity/base_entity.gd"
 
-onready var attack_range = $Areas/AttackRange
+@onready var attack_range = $Areas/AttackRange
 
 # Non-Player Variables
-export var ITEM_DROP_PERCENT = 50
+@export var ITEM_DROP_PERCENT = 50
 var current_bodies_in_attack_range = []
 
 ##SOUNDS:
-onready var attack_sound = $SoundMachine/Attack
+@onready var attack_sound = $SoundMachine/Attack
 
 
 func _ready():
-	attack_range.connect("body_entered", self, "_on_AttackRange_body_entered")
-	attack_range.connect("body_exited", self, "_on_AttackRange_body_exited")	
+	attack_range.connect("body_entered",Callable(self,"_on_AttackRange_body_entered"))
+	attack_range.connect("body_exited",Callable(self,"_on_AttackRange_body_exited"))	
 
 func attack(target):
 	pass
@@ -21,7 +21,7 @@ func search_for_target():
 	pass
 
 func hurt(attacker_area):
-	.hurt(attacker_area)
+	super.hurt(attacker_area)
 	#Global.frame_freeze(0.5, 2)
 
 func _on_AttackRange_body_entered(body):

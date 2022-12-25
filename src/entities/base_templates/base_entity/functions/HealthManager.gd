@@ -5,10 +5,10 @@ signal max_health_changed(new_max_health)
 signal health_changed(new_health)
 signal no_health
 
-export(float) var max_health = 1 setget set_max_health
-onready var health = max_health setget set_health
+@export var max_health: float = 1 : set = set_max_health
+@onready var health = max_health : set = set_health
 
-onready var regeneration_timer = $Regeneration
+@onready var regeneration_timer = $Regeneration
 
 func set_max_health(new_max_health):
 	max_health = new_max_health

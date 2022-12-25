@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://assets/fonts/Cowboys 2.0.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/Cowboys 2.0.otf" type="FontFile" id=1]
 [ext_resource path="res://src/menu/DeathScreen.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="FontFile" id=1]
 size = 48
 font_data = ExtResource( 1 )
 
@@ -13,17 +13,17 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 300.0 ]
 }
 
-[node name="InfoPos" type="Position2D" parent="."]
+[node name="InfoPos" type="Marker2D" parent="."]
 
 [node name="Info" type="RichTextLabel" parent="InfoPos"]
-margin_left = -272.0
-margin_top = -56.0
-margin_right = 272.0
-margin_bottom = 74.0
+offset_left = -272.0
+offset_top = -56.0
+offset_right = 272.0
+offset_bottom = 74.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "[center]WAVE SURVIVED: 999[/center]
+text = "[center]WAVE SURVIVED: 999[/center]
 [center]FINAL SCORE: 9999[/center]"
 text = "WAVE SURVIVED: 999
 FINAL SCORE: 9999"

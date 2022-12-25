@@ -1,17 +1,23 @@
 extends Area2D
 
 
-var attacker = null
-export var damage_value: float = 1
-export var knockback_value: float  = 1
+@onready var collision_shape = $HitboxShape
 
-func turn_off_hitbox():
+@export_group("Damage Variables")
+@export var damage_value: float = 1
+@export var knockback_value: float  = 1
+
+
+const empty_bitmask = 0b00000000000000000000
+
+func _ready():
+	if collision_layer == empty_bitmask && collision_mask == empty_bitmask:
+		print("WARNING: Hitbox has no layer and mask!")
+
+func turn_off():
 	monitorable = false
 	monitoring = false
-
-func turn_on_hitbox():
-	monitorable = true
-	monitoring = true
-
-func init(_attacker):
-	attacker = _attacker
+	
+func turn_on():
+	monitorable = false
+	monitoring = false

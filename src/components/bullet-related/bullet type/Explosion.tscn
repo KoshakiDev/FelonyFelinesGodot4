@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/items/Explosion_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/items/Explosion_0.png" type="Texture2D" id=2]
 [ext_resource path="res://src/components/bullet-related/bullet type/Explosion.gd" type="Script" id=3]
 [ext_resource path="res://addons/mixing-desk/sound/2d/ran_cont.gd" type="Script" id=4]
 [ext_resource path="res://sounds/rocket/boom.wav" type="AudioStream" id=5]
@@ -13,14 +13,14 @@ radius = 125.0
 resource_name = "Explode"
 length = 1.61
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:scale")
+tracks/0/path = NodePath("../Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1e-05, 1e-05 ), Vector2( 2, 2 ), Vector2( 1e-05, 1e-05 ) ]
 }
@@ -31,8 +31,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.6 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 1.6 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
 "method": "queue_free"
@@ -45,8 +45,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.1, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
@@ -54,14 +54,14 @@ tracks/2/keys = {
 [sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Sprite:scale")
+tracks/0/path = NodePath("../Sprite2D:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
@@ -72,8 +72,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ true ]
 }
@@ -94,7 +94,7 @@ root_node = NodePath("../CollisionShape2D")
 anims/Explode = SubResource( 1 )
 anims/RESET = SubResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="." index="2"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
 texture = ExtResource( 2 )
 
 [node name="Boom" type="Node2D" parent="." index="3"]

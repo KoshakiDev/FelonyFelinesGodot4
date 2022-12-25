@@ -9,8 +9,8 @@ var target
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	connect("body_entered", self, "in_shadow")
-	connect("body_exited", self, "out_shadow")
+	connect("body_entered",Callable(self,"in_shadow"))
+	connect("body_exited",Callable(self,"out_shadow"))
 
 func _physics_process(delta):
 	if target == null:

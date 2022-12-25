@@ -7,6 +7,6 @@
 resource_local_to_scene = true
 shader = ExtResource( 2 )
 
-[node name="StackedSprite" type="MultiMeshInstance"]
+[node name="StackedSprite" type="MultiMeshInstance3D"]
 material_override = SubResource( 4 )
 script = ExtResource( 1 )

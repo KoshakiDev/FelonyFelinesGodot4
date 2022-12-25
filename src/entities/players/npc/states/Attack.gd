@@ -37,7 +37,7 @@ func physics_update(_delta: float) -> void:
 #
 #func enter(msg := {}) -> void:
 #	if owner.movement_player.current_animation == "Decel_1" or owner.movement_player.current_animation == "Decel_2":
-#		yield(owner.movement_player, "animation_finished")
+#		await owner.movement_player.animation_finished
 #	owner.play_animation("Idle", "Movement")
 #	print("transitioned to attack")
 #

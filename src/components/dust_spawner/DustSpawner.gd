@@ -1,17 +1,10 @@
-extends Position2D
+extends Marker2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-export var DUST_SCENE: PackedScene
-
+signal dust_effect
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	self.connect("dust_effect", Callable(VFXManager, "create_dust_effect"))
 
 func spawn_dust() -> void:
-	var dust: Sprite = DUST_SCENE.instance()
-	dust.position = global_position
-	Global.misc.add_child(dust)
+	emit_signal("dust_effect", global_position)

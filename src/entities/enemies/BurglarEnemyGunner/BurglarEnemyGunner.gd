@@ -1,24 +1,24 @@
 extends "res://src/entities/base_templates/base_npc/base_npc.gd"
 
-onready var handgun = $Visuals/Sprite/HandGun
+@onready var handgun = $Visuals/Sprite2D/HandGun
 
 var label: Label
-onready var bullet_spawner = $Visuals/Sprite/HandGun/BulletSpawner
+@onready var bullet_spawner = $Visuals/Sprite2D/HandGun/BulletSpawner
 
-onready var vision_direction = $Visuals/VisionDirection
+@onready var vision_direction = $Visuals/VisionDirection
 
 var target = null
-onready var vision_area = $Visuals/VisionDirection/VisionArea
+@onready var vision_area = $Visuals/VisionDirection/VisionArea
 
-onready var search_directions = $SearchDirections
+@onready var search_directions = $SearchDirections
 
 func _ready():
 	if $Debug.has_node("Label"):
 		label = $Debug/Label
-	vision_area.connect("target_detected", self, "target_detected")
-	vision_area.connect("target_lost", self, "target_lost")
+	vision_area.connect("target_detected",Callable(self,"target_detected"))
+	vision_area.connect("target_lost",Callable(self,"target_lost"))
 
-	bullet_spawner.connect("shot_fired", self, "shot_fired")
+	bullet_spawner.connect("shot_fired",Callable(self,"shot_fired"))
 
 func adjust_rotation(direction):
 	vision_direction.look_at(vision_direction.global_position + direction)

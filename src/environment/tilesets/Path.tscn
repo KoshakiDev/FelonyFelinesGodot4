@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://test folder/tileset_repaint.png" type="Texture" id=1]
+[ext_resource path="res://test folder/tileset_repaint.png" type="Texture2D" id=1]
 
 [sub_resource type="TileSet" id=1]
 0/name = "tileset_repaint.png 0"
@@ -25,7 +25,7 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[node name="Path" type="TileMap"]
+[node name="Path3D" type="TileMap"]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1

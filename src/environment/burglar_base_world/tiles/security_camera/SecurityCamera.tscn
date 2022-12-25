@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://src/environment/burglar_base_world/tiles/security_camera/security_camera.png" type="Texture" id=1]
+[ext_resource path="res://src/environment/burglar_base_world/tiles/security_camera/security_camera.png" type="Texture2D" id=1]
 [ext_resource path="res://src/environment/burglar_base_world/tiles/security_camera/SecurityCamera.gd" type="Script" id=2]
 [ext_resource path="res://src/environment/burglar_base_world/tiles/VisionArea.tscn" type="PackedScene" id=3]
 
@@ -22,7 +22,7 @@ extents = Vector2( 96, 32 )
 [node name="SecurityCamera" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color( 1, 1, 1, 0.498039 )
 position = Vector2( 0, -115 )
 z_index = 1

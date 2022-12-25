@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var label = $RichTextLabel
+@onready var label = $RichTextLabel
 
 
 

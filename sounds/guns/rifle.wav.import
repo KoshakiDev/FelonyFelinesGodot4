@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/rifle.wav-0b286b97f571147724fc6d070786afc5.sample"
+type="AudioStreamWAV"
+uid="uid://c5m3g75j8y8ph"
+path="res://.godot/imported/rifle.wav-0b286b97f571147724fc6d070786afc5.sample"
 
 [deps]
 
 source_file="res://sounds/guns/rifle.wav"
-dest_files=[ "res://.import/rifle.wav-0b286b97f571147724fc6d070786afc5.sample" ]
+dest_files=["res://.godot/imported/rifle.wav-0b286b97f571147724fc6d070786afc5.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

@@ -6,20 +6,20 @@ extends Node
 # Emitted when transitioning to a new state.
 signal transitioned(state_name)
 
-export var initial_state := NodePath()
+@export var initial_state := NodePath()
 
-onready var state: State = get_node(initial_state)
+@onready var state: State = get_node(initial_state)
 
 
 #Self-addition of body
-var body: KinematicBody = null
+var body: CharacterBody3D = null
 
-func init(_body_to_move: KinematicBody):
+func init(_body_to_move: CharacterBody3D):
 	body = _body_to_move
 ##
 
 func _ready() -> void:
-	yield(owner, "ready")
+	await owner.ready
 	# The state machine assigns itself to the State objects' state_machine property.
 	for child in get_children():
 		child.state_machine = self

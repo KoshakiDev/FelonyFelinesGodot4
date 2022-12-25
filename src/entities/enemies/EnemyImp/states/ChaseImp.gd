@@ -1,7 +1,7 @@
 extends State
 
-export var neighborhood_distance = 300
-export var desired_separation = 50
+@export var neighborhood_distance = 300
+@export var desired_separation = 50
 
 func ent_dist(entity1, entity2):
 	return (entity1.global_position - entity2.global_position).length()

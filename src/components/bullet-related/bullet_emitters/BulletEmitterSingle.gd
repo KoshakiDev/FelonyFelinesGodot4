@@ -2,7 +2,8 @@ class_name BulletEmitterSingle
 extends BulletEmitter
 
 # The spread of the bullets in degree
-export var spread := 10
+@export var spread := 10
 
-func shoot(position: Vector2, dir: Vector2, speed: float, bullet_damage_value: int, knockback_value: int):
-	shoot_single(position, dir.rotated(deg2rad(rand_range(-spread, spread))), speed, bullet_damage_value, knockback_value)
+func shoot(bullet_instance: Projectile, bullet_scene : PackedScene):
+	bullet_instance.direction = bullet_instance.direction.rotated(deg_to_rad(randf_range(-spread, spread)))
+	shoot_single(bullet_instance, bullet_scene)

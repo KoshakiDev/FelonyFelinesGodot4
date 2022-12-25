@@ -5,12 +5,12 @@ extends "res://src/environment/burglar_base_world/tiles/doors/base_door/BaseDoor
 # var a = 2
 # var b = "text"
 
-onready var interaction_zone = $InteractionZone
+@onready var interaction_zone = $InteractionZone
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	turn_off_entrance()
-	interaction_zone.connect("minigame_success", self, "minigame_success")
+	interaction_zone.connect("minigame_success",Callable(self,"minigame_success"))
 	
 
 func turn_on_entrance():

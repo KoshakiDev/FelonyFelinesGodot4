@@ -5,7 +5,7 @@ extends "res://src/environment/burglar_base_world/minigames/base/Base.gd"
 # var a = 2
 # var b = "text"
 
-onready var text = $Text
+@onready var text = $Text
 
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta):

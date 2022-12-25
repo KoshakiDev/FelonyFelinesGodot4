@@ -1,68 +1,46 @@
 extends "res://src/components/hitbox-hurtbox/hitbox/Hitbox.gd"
+class_name Projectile
 
 
 const MAX_DISTANCE := 2000
 
-
 # Internal state
-var dir: Vector2 = Vector2.RIGHT
+
+# global_position
+var direction: Vector2 = Vector2.RIGHT
 var speed: float = 1.0
-var shooting: bool = false
+# damage_value
+# knockback_value
 
-export var is_player_bullet:bool = true
-
-onready var start_pos := global_position
-
-var is_projectile = true
+@onready var start_position := global_position
 
 
 func _ready() -> void:
-	shooting = true
-	connect("area_entered", self, "_on_Bullet_area_entered")
-	connect("body_entered", self, "_on_Bullet_body_entered")
-	connect("body_exited", self, "_on_Bullet_body_exited")
+	super._ready()
+	connect("area_entered",Callable(self,"_on_Bullet_area_entered"))
+	connect("body_entered",Callable(self,"_on_Bullet_body_entered"))
 
-
-func setup(dir, speed, damage_value, knockback_value) -> void:
-	#print(dir)
-	self.dir = dir
-	self.speed = speed
-	self.damage_value = damage_value
-	self.knockback_value = knockback_value
-	rotation = (dir - Vector2.ZERO).angle()
+func setup(
+		set_position,
+		set_direction, 
+		set_speed, 
+		set_damage_value, 
+		set_knockback_value) -> void:
+	global_position = set_position
+	direction = set_direction
+	speed = set_speed
+	damage_value = set_damage_value
+	knockback_value = set_knockback_value
+	rotation = (direction - Vector2.ZERO).angle()
 	
 	
 func _physics_process(delta: float) -> void:
-	if shooting:
-		position += dir * speed * delta
-		if start_pos.distance_to(global_position) > MAX_DISTANCE:
-			queue_free()
-		if current_body != null:
-			var tile_pos = current_body.world_to_map(position)
-			var tile_in_front = current_body.get_cellv(tile_pos + Vector2(0, 1))
-			if tile_in_front == 0:
-				queue_free()
+	position += direction * speed * delta
+	if start_position.distance_to(global_position) > MAX_DISTANCE:
+		queue_free()
 
-func _on_Bullet_area_entered(area):
-	var areaParent = area.owner
-	#print(area)
-	if areaParent.get("entity_type") == null:
-		return
-	if is_player_bullet:
-		if areaParent.entity_type == "PLAYER": return
-		elif areaParent.entity_type == "ITEM":
-			return
-	else:
-		if areaParent.entity_type == "ENEMY": return
-	
+func _on_Bullet_area_entered(_area):
 	queue_free()
-	pass
 
-var current_body
-
-func _on_Bullet_body_entered(body):
-	if body.get_name() == "Walls" or body.get_name() == "Plants": 
-		current_body = body
-
-func _on_Bullet_body_exited(body):
-	current_body = null
+func _on_Bullet_body_entered(_body):
+	queue_free()

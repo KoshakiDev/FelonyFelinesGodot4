@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1y7coyhr3lqs"]
+
+[ext_resource type="Script" path="res://src/components/item_manager/ItemManager.gd" id="1_smel2"]
+
+[node name="ItemManager" type="Marker2D"]
+script = ExtResource("1_smel2")

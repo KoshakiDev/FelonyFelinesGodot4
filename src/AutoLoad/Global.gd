@@ -1,25 +1,19 @@
 extends Node
 
-onready var FRICTION = 0.1
-onready var ACCEL = 0.1
+@onready var FRICTION = 0.1
+@onready var ACCEL = 0.1
 
 var ROTATION_SPEED = PI / 45
 
 
-var brother_1
-var brother_2
+const empty_bitmask = 0b00000000000000000000
 
-var navigation
 
-var entity_world
+var world
 var main
 var items
 var enemies
 var players
-var player
-var projectiles
-var misc
-var misc_2
 var root
 var UI_layer
 
@@ -51,16 +45,21 @@ func _ready():
 	points = 0
 	root = get_parent()
 	normalize_item_drop_weights()
-	
+
+
 func frame_freeze(time_scale, duration):
 	Engine.time_scale = time_scale
-	yield(get_tree().create_timer(duration * time_scale), "timeout")
+	await get_tree().create_timer(duration * time_scale).timeout
 	Engine.time_scale = 1.0
 
 func player_died():
-	if Global.brother_1.health_manager.is_dead() and Global.brother_2.health_manager.is_dead():
-		brother_1.respawn_radius.deactivate_respawn_radius()
-		brother_2.respawn_radius.deactivate_respawn_radius()
+	var counter = 0
+	for player in players.get_children():
+		if player.health_manager.is_dead():
+			counter += 1
+	if counter == 2:
+		for player in players.get_children():
+			player.respawn_radius.deactivate_respawn_radius()
 		emit_signal("all_dead")
 
 func reparent(child: Node, new_parent: Node):
@@ -114,7 +113,7 @@ func normalize_item_drop_weights():
 
 
 func get_closest_enemy(position: Vector2):
-	var closest_enemy: KinematicBody2D
+	var closest_enemy: CharacterBody2D
 	var closest_distance = 999999999
 	
 	for enemy in enemies.get_children():
@@ -133,11 +132,9 @@ func get_brother():
 	#for player in entity_world.get_children():
 
 func get_closest_player(position: Vector2):
-	var closest_player: KinematicBody2D
+	var closest_player: CharacterBody2D
 	var closest_distance = 999999999
 	
-	if players == null:
-		players = player
 	
 	for player in players.get_children():
 		if player.health_manager.is_dead(): continue
@@ -150,7 +147,7 @@ func get_closest_player(position: Vector2):
 	return closest_player
 
 func get_farthest_player(position: Vector2):
-	var farthest_player: KinematicBody2D
+	var farthest_player: CharacterBody2D
 	var farthest_distance = 0
 
 	for player in players.get_children():

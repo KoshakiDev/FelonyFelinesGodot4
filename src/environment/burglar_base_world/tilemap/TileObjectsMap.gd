@@ -24,15 +24,15 @@ func replace_tiles_with_instances():
 	replace(FLAG, 13)
 
 func get_occupied_cells():
-	var occupied_tiles = get_used_cells_by_id(0) + get_used_cells_by_id(1)
+	var occupied_tiles = get_used_cells(0) + get_used_cells(1)
 	return occupied_tiles
 
 func replace(INSTANCE, id: int):
 	var tile_pos
-	var tiles = get_used_cells_by_id(id)
+	var tiles = get_used_cells(id)
 	for tile in tiles:
-		var new_instance = INSTANCE.instance()
-		tile_pos = map_to_world(tile)
+		var new_instance = INSTANCE.instantiate()
+		tile_pos = map_to_local(tile)
 		tile_pos.x += cell_size.x / 2
 		tile_pos.y += cell_size.y
 		new_instance.set_position(tile_pos)

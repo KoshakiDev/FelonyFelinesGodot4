@@ -1,10 +1,10 @@
 extends Area2D
 
-onready var respawn_timer = $RespawnTimer
-onready var anim_player = $AnimationPlayer
-onready var progress_sprite := $SpriteContainer/ProgressSprite
+@onready var respawn_timer = $RespawnTimer
+@onready var anim_player = $AnimationPlayer
+@onready var progress_sprite := $SpriteContainer/ProgressSprite
 
-export var respawn_time = 2.5
+@export var respawn_time = 2.5
 
 
 func _ready():
@@ -12,14 +12,14 @@ func _ready():
 	setup_timer()
 	progress_sprite.material = progress_sprite.material.duplicate()
 
-func _process(delta: float) -> void:
-	progress_sprite.material.set_shader_param("progress", 1.0 - respawn_timer.time_left / respawn_time)
+func _process(_delta: float) -> void:
+	progress_sprite.material.set_shader_parameter("progress", 1.0 - respawn_timer.time_left / respawn_time)
 
 func activate_respawn_radius():
 	monitoring = true
 	visible = true
 	anim_player.play("Not Healing")
-	progress_sprite.material.set_shader_param("progress", 0)
+	progress_sprite.material.set_shader_parameter("progress", 0)
 	setup_timer()
 
 func deactivate_respawn_radius():

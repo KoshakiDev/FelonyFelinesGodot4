@@ -1,8 +1,8 @@
 extends State
 
-onready var cooldown_timer = $Cooldown
+@onready var cooldown_timer = $Cooldown
 
-export var cooldown_duration: int = 5
+@export var cooldown_duration: int = 5
 
 
 func enter(msg := {}) -> void:
@@ -15,7 +15,7 @@ func enter(msg := {}) -> void:
 	owner.attack_sound.play()
 	owner.play_animation("Attack", "Animations")
 	owner.turn_on_hitbox()
-	yield(owner.animation_machine.find("Animations"), "animation_finished")
+	await owner.animation_machine.find("Animations").animation_finished
 	owner.turn_off_hitbox()
 	state_machine.transition_to("Chase")
 	

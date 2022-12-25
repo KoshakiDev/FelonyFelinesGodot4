@@ -1,6 +1,6 @@
 extends Area2D
 
-onready var suspicion_timer = $SuspicionTimer
+@onready var suspicion_timer = $SuspicionTimer
 
 var target = null
 
@@ -12,15 +12,15 @@ signal target_detected(target)
 signal begin_suspicion
 signal target_lost
 
-export var normal_color = Color(0, 1, 0, 0.74902)
-export var suspicion_color = Color(1, 0.796078, 0, 0.74902)
-export var detected_color = Color(1, 0, 0, 0.74902)
+@export var normal_color = Color(0, 1, 0, 0.74902)
+@export var suspicion_color = Color(1, 0.796078, 0, 0.74902)
+@export var detected_color = Color(1, 0, 0, 0.74902)
 
 func _ready():
-	connect("body_entered", self, "target_entered_vision_area")
-	connect("body_exited", self, "target_exited_vision_area")
+	connect("body_entered",Callable(self,"target_entered_vision_area"))
+	connect("body_exited",Callable(self,"target_exited_vision_area"))
 	suspicion_timer.one_shot = true
-	suspicion_timer.connect("timeout", self, "timeout")
+	suspicion_timer.connect("timeout",Callable(self,"timeout"))
 	reset_to_normal()
 
 func reset_to_normal():

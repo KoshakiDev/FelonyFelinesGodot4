@@ -1,8 +1,8 @@
 extends State
 
-func enter(msg := {}) -> void:
+func enter(_msg := {}) -> void:
 	if owner.get_animation_player("Movement").current_animation == "Decel":
-		yield(owner.get_animation_player("Movement"), "animation_finished")
+		await owner.get_animation_player("Movement").animation_finished
 	owner.play_animation("Idle", "Movement")
 
 func physics_update(_delta: float) -> void:

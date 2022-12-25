@@ -2,17 +2,21 @@ class_name BulletEmitterSpread
 extends BulletEmitter
 
 # the amount of bullets shot in a spread
-export var amount := 3
+@export var amount := 3
 # the angle between each of the bullets in degree
-export var spread_angle: float = 5
+@export var spread_angle: float = 5
 
-func shoot(position: Vector2, dir: Vector2, speed: float, bullet_damage_value: int, knockback_value: int):
-	spread_shoot(position, dir, speed, bullet_damage_value, knockback_value)
+func shoot(bullet_instance: Projectile, bullet_scene : PackedScene):
+	spread_shoot(bullet_instance, bullet_scene)
 
 
-func spread_shoot(position: Vector2, dir: Vector2, speed: float, bullet_damage_value: int, knockback_value: int):
+func spread_shoot(bullet_instance : Projectile, bullet_scene : PackedScene):
 	var directions = []
-	var angle := deg2rad(spread_angle)
+	var angle := deg_to_rad(spread_angle)
 	var start_angle := amount/2.0 * angle
+	
+	var saved_direction = bullet_instance.direction
 	for i in range(amount):
-		shoot_single(position, dir.rotated(start_angle - angle * i), speed, bullet_damage_value, knockback_value)
+		bullet_instance.direction = bullet_instance.direction.rotated(start_angle - angle * i)
+		shoot_single(bullet_instance, bullet_scene)
+		bullet_instance.direction = saved_direction

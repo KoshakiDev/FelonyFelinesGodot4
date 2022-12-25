@@ -1,6 +1,6 @@
 extends Node
 
-onready var children = get_children()
+@onready var children = get_children()
 
 func _ready():
 	pass
@@ -10,7 +10,8 @@ func get_node_name(node):
 
 func find(node_name):
 	for node in children:
-		if get_node_name(node) == node_name:
+		if node.name == node_name:
+		#if get_node_name(node) == node_name:
 			return node
 	
 func play_animation(animation, node_name):

@@ -32,7 +32,7 @@ func enemy_drop():
 		
 		#print(scene)
 		
-		instance_scene(load(scene).instance())
+		instance_scene(load(scene).instantiate())
 
 func instance_scene(instance):
 	instance.global_position = owner.global_position
@@ -40,7 +40,7 @@ func instance_scene(instance):
 
 func update_points() -> void:
 	var points = 100
-	var points_effect := points_effect_packed.instance()
+	var points_effect := points_effect_packed.instantiate()
 	points_effect.init(points)
 	Global.misc.add_child(points_effect)
 	points_effect.global_position = owner.global_position

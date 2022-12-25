@@ -17,28 +17,28 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 5569.0 ]
 }
 
-[node name="World" type="Node2D" parent="."]
+[node name="World3D" type="Node2D" parent="."]
 
-[node name="TileMap" parent="World" instance=ExtResource( 4 )]
+[node name="TileMap" parent="World3D" instance=ExtResource( 4 )]
 bake_navigation = true
 
-[node name="EntityWorld" type="YSort" parent="World"]
+[node name="EntityWorld" type="Node2D" parent="World3D"]
 
-[node name="Items" type="YSort" parent="World/EntityWorld"]
+[node name="Items" type="Node2D" parent="World3D/EntityWorld"]
 
-[node name="Spawners" type="YSort" parent="World/EntityWorld"]
+[node name="Spawners" type="Node2D" parent="World3D/EntityWorld"]
 
-[node name="Objects" type="YSort" parent="World/EntityWorld"]
+[node name="Objects" type="Node2D" parent="World3D/EntityWorld"]
 
-[node name="Players" type="YSort" parent="World/EntityWorld"]
+[node name="Players" type="Node2D" parent="World3D/EntityWorld"]
 
-[node name="Projectiles" type="YSort" parent="World/EntityWorld"]
+[node name="Projectiles" type="Node2D" parent="World3D/EntityWorld"]
 
-[node name="Enemies" type="YSort" parent="World/EntityWorld"]
+[node name="Enemies" type="Node2D" parent="World3D/EntityWorld"]
 
-[node name="Misc" type="YSort" parent="World/EntityWorld"]
+[node name="Misc" type="Node2D" parent="World3D/EntityWorld"]
 
-[node name="Misc2" type="Node2D" parent="World"]
+[node name="Misc2" type="Node2D" parent="World3D"]
 
 [node name="InfoAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Idle = SubResource( 4 )

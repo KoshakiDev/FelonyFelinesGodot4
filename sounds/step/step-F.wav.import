@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/step-F.wav-c5a729965bb9fd40252978492cc67d75.sample"
+type="AudioStreamWAV"
+uid="uid://b3robiyfnefiw"
+path="res://.godot/imported/step-F.wav-c5a729965bb9fd40252978492cc67d75.sample"
 
 [deps]
 
 source_file="res://sounds/step/step-F.wav"
-dest_files=[ "res://.import/step-F.wav-c5a729965bb9fd40252978492cc67d75.sample" ]
+dest_files=["res://.godot/imported/step-F.wav-c5a729965bb9fd40252978492cc67d75.sample"]
 
 [params]
 

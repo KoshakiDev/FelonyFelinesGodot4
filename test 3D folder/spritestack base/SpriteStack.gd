@@ -1,9 +1,9 @@
-tool
-extends MultiMeshInstance
+@tool
+extends MultiMeshInstance3D
 
-export var stack_sheet : Texture = null setget setStackSheet
-export var cols : int = 1 setget setCols
-export var rows : int = 1 setget setRows
+@export var stack_sheet : Texture2D = null : set = setStackSheet
+@export var cols : int = 1 : set = setCols
+@export var rows : int = 1 : set = setRows
 
 func setStackSheet(param1):
 	stack_sheet = param1
@@ -33,22 +33,22 @@ func _ready():
 	surface_tool.begin(Mesh.PRIMITIVE_TRIANGLES);
 	
 	# Top left.
-	surface_tool.add_color(Color.transparent);
+	surface_tool.add_color(Color.TRANSPARENT);
 	surface_tool.add_uv(Vector2(0, 0))
 	surface_tool.add_vertex(Vector3(-uv_width, 0, uv_height));
 	
 	# Bottom left
-	surface_tool.add_color(Color.transparent);
+	surface_tool.add_color(Color.TRANSPARENT);
 	surface_tool.add_uv(Vector2(0, 1))
 	surface_tool.add_vertex(Vector3(-uv_width, 0, -uv_height));
 	
 	# Bottom right.
-	surface_tool.add_color(Color.transparent);
+	surface_tool.add_color(Color.TRANSPARENT);
 	surface_tool.add_uv(Vector2(1, 1))
 	surface_tool.add_vertex(Vector3(uv_width, 0, -uv_height));
 	
 	# Top right.
-	surface_tool.add_color(Color.transparent);
+	surface_tool.add_color(Color.TRANSPARENT);
 	surface_tool.add_uv(Vector2(1, 0))
 	surface_tool.add_vertex(Vector3(uv_width, 0, uv_height));
 
@@ -63,13 +63,13 @@ func _ready():
 	surface_tool.add_index(2);
 	surface_tool.add_index(3);
 
-	# Get the resulting mesh from the surface tool, and apply it to the MeshInstance.
+	# Get the resulting mesh from the surface tool, and apply it to the MeshInstance3D.
 	multimesh = MultiMesh.new()
 	multimesh.color_format = MultiMesh.COLOR_FLOAT
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
 	multimesh.mesh = surface_tool.commit();
 	material_override = material_override.duplicate()
-	material_override.set_shader_param('stack_sheet', stack_sheet)
+	material_override.set_shader_parameter('stack_sheet', stack_sheet)
 	
 	# Need to move up 2x pixels or the stack looks squished
 	var up_unit = px + px
@@ -78,13 +78,13 @@ func _ready():
 	
 	multimesh.instance_count = rows
 	for i in range(0, rows):
-		multimesh.set_instance_transform(i, Transform(Basis(), Vector3(0, i * up_unit, 0)))
+		multimesh.set_instance_transform(i, Transform3D(Basis(), Vector3(0, i * up_unit, 0)))
 		multimesh.set_instance_color(
 			i, 
 			Color(
-				# Sprite width in UV
+				# Sprite2D width in UV
 				1.0, 
-				# Sprite height in UV
+				# Sprite2D height in UV
 				1.0 / rows, 
 				# Layer index this instance should render
 				rows - i - 1))

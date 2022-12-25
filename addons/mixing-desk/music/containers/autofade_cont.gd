@@ -2,20 +2,20 @@ extends Node
 
 var cont = "autofade"
 enum play_type {random, all}
-export(play_type) var play_style
-export var toggle : bool = false
-export(NodePath) var target_node
-export(String) var target_property
-export(float) var min_range = 0.0
-export(float) var max_range = 1.0
-export(bool) var invert
-export(float, 0.0, 1.0) var track_speed
+@export var play_style: play_type
+@export var toggle : bool = false
+@export var target_node: NodePath
+@export var target_property: String
+@export var min_range: float = 0.0
+@export var max_range: float = 1.0
+@export var reverse: bool
+@export var track_speed # (float, 0.0, 1.0)
 
 var param
 var target
 
 func _ready():
-	get_node("../..").connect("beat", self, "_update")
+	get_node("../..").connect("beat",Callable(self,"_update"))
 	target = get_node(target_node)
 	init_volume()
 
@@ -47,7 +47,7 @@ func init_volume():
 
 func _get_range_vol() -> float:
 	var vol: float = param
-	if !invert:
+	if !reverse:
 		vol -= min_range
 	else:
 		vol *= -1

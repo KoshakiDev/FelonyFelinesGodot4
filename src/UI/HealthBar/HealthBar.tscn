@@ -1,59 +1,64 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://daq5d3mtctle"]
 
-[ext_resource path="res://src/UI/healthBar.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://src/UI/healthBar.gd" id="1"]
 
-[sub_resource type="Gradient" id=3]
-offsets = PoolRealArray( 0.42515, 0.45509, 0.640719, 0.688623, 1 )
-colors = PoolColorArray( 1, 0.363281, 0.363281, 1, 0.968627, 1, 0, 1, 0.968627, 1, 0, 1, 0.54902, 1, 0.364706, 1, 0.54902, 1, 0.364706, 1 )
+[sub_resource type="Gradient" id="3"]
+offsets = PackedFloat32Array(0.42515, 0.45509, 0.640719, 0.688623, 1)
+colors = PackedColorArray(1, 0.363281, 0.363281, 1, 0.968627, 1, 0, 1, 0.968627, 1, 0, 1, 0.54902, 1, 0.364706, 1, 0.54902, 1, 0.364706, 1)
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("..:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "twinkle"
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("..:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0.5, 0.5, 0.5, 1 ), Color( 1, 1, 1, 1 ), Color( 0.5, 0.5, 0.5, 1 ), Color( 1, 1, 1, 1 ), Color( 0.5, 0.5, 0.5, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 1), Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 1), Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q5dd4"]
+_data = {
+"RESET": SubResource("2"),
+"twinkle": SubResource("1")
 }
 
 [node name="HealthBar" type="Node2D"]
 
-[node name="HealthBarVisual" type="TextureProgress" parent="."]
-margin_left = -16.0
-margin_top = -16.0
-margin_right = 16.0
-margin_bottom = 16.0
+[node name="HealthBarVisual" type="TextureProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
 value = 100.0
-script = ExtResource( 1 )
-gradient = SubResource( 3 )
-
-[node name="Tween" type="Tween" parent="HealthBarVisual"]
+script = ExtResource("1")
+gradient = SubResource("3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HealthBarVisual"]
-root_node = NodePath("../Tween")
-anims/RESET = SubResource( 2 )
-anims/twinkle = SubResource( 1 )
+root_node = NodePath("")
+libraries = {
+"": SubResource("AnimationLibrary_q5dd4")
+}
 
 [connection signal="value_changed" from="HealthBarVisual" to="HealthBarVisual" method="_on_value_changed"]

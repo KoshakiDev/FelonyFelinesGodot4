@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Juicy Crack and Break_VM 01.wav-24ac7968d9e715d0fb3271e03757fc9a.sample"
+type="AudioStreamWAV"
+uid="uid://diudbgaarx5fv"
+path="res://.godot/imported/Juicy Crack and Break_VM 01.wav-24ac7968d9e715d0fb3271e03757fc9a.sample"
 
 [deps]
 
 source_file="res://sounds/imp/Juicy Crack and Break_VM 01.wav"
-dest_files=[ "res://.import/Juicy Crack and Break_VM 01.wav-24ac7968d9e715d0fb3271e03757fc9a.sample" ]
+dest_files=["res://.godot/imported/Juicy Crack and Break_VM 01.wav-24ac7968d9e715d0fb3271e03757fc9a.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

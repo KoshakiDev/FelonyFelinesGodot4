@@ -1,73 +1,100 @@
 #BASE CLASS FOR ALL ENTITIES
-extends KinematicBody2D 
+extends CharacterBody2D 
 class_name Entity
 
-"""
-Functionality:
-	- Name
-	- Type
-	- Health
-	- Movement
-	- Sprite direction
-	- Plays animations
-	- Plays sound
-"""
-export var entity_name = "NAME"
-export var entity_type = "TYPE"
+@export_group("Entity Variables")
+@export var entity_name = "NAME"
+@export var entity_type = "TYPE"
+@onready var health_manager = $HealthManager
 
-onready var health_manager = $HealthManager
-onready var movement = $Movement
+@export_group("Movement")
+@export var base_speed: float = 500
+@export_range(0, 1) var speed_percentage: float = 1
+@export var acceleration: float = 0.1
+@export var friction: float = 0.1
+#renamed from intended_velocity to internal_force
+var internal_forces: Vector2
+#renamed from knockback to external_force
+var external_forces: Vector2
+@onready var physics_collider = $PhysicsCollider
 
-onready var animation_machine = $AnimationMachine
-onready var state_machine = $StateMachine
-onready var sound_machine = $SoundMachine
-onready var listener = $Listener2D
 
-#Physics Variables
-onready var physics_collider = $PhysicsCollider
+
+
+@onready var animation_machine = $AnimationMachine
+@onready var state_machine = $StateMachine
+@onready var sound_machine = $SoundMachine
+@onready var listener = $AudioListener2D
 
 #Visual Variables
-onready var visuals = $Visuals
-onready var sprite = $Visuals/Sprite
-const hit_effect = preload("res://src/components/hit/HitEffect.tscn")
+@onready var visuals = $Visuals
+@onready var sprite = $Visuals/Sprite2D
 
 
-#Area Variables
-onready var hurtbox = $Areas/Hurtbox
+#Area3D Variables
+@onready var hurtbox = $Areas/Hurtbox
 var can_get_hit = true
 
 #Healthbar
-onready var health_bar = $HealthBar/HealthBarVisual
+@onready var health_bar = $HealthBar/HealthBarVisual
 
-#Navigation
-onready var nav_agent = $NavigationAgent2D
+#Node3D
+@onready var nav_agent = $NavigationAgent2D
 
-#Debug Variables
-var line2d: Line2D
+
+signal pain(attack_direction, facing_direction)
+signal hit_effect(effect_position)
 
 func _ready():
-	if $Debug.has_node("Line2D"):
-		line2d = $Debug/Line2D
-	health_manager.connect("health_changed", health_bar, "set_value")
-	health_manager.connect("max_health_changed", health_bar, "set_max")
+	self.connect("hit_effect", Callable(VFXManager, "create_hit_effect"))
+	health_manager.connect("health_changed",Callable(health_bar,"set_value"))
+	health_manager.connect("max_health_changed",Callable(health_bar,"set_max"))
 	health_manager.emit_signal("max_health_changed", health_manager.max_health)
 	health_manager.emit_signal("health_changed", health_manager.health)
 
-	hurtbox.connect("area_entered", self, "hurt")
+	hurtbox.connect("area_entered", Callable(self,"hurt"))
 
-func _physics_process(delta):
-	if movement.vector_to_movement_direction(movement.get_intended_velocity()).x != 0:
-		visuals.scale.x = movement.vector_to_movement_direction(movement.get_intended_velocity()).x
-	move_and_slide(movement.get_actual_velocity())
+func _physics_process(_delta):
+	velocity = internal_forces + external_forces
+	apply_friction()
+	if vector_to_movement_direction(internal_forces).x != 0:
+		visuals.scale.x = vector_to_movement_direction(internal_forces).x
+	move_and_slide()
+	
+func apply_internal_force(force_direction: Vector2):
+	internal_forces = internal_forces.lerp(force_direction.normalized() * base_speed * speed_percentage, acceleration)
+
+func apply_external_force(force_direction: Vector2, force_magnitude):
+	external_forces += force_direction.normalized() * force_magnitude
+	
+func apply_friction():
+	external_forces = external_forces.lerp(Vector2.ZERO, friction)
+	internal_forces = internal_forces.lerp(Vector2.ZERO, friction)
+
+func vector_to_movement_direction(input_vector : Vector2) -> Vector2:
+	if input_vector == Vector2.ZERO:
+		return Vector2.ZERO
+	var aspect = abs(input_vector.aspect())
+	var result = input_vector.sign()
+	if aspect < 0.557852 or aspect > 1.79259:
+		result[int(aspect > 1.0)] = 0
+	return result
+
+
+
 
 func hurt(attacker_area):
 	if health_manager.is_dead() or !can_get_hit:
 		return
 	var knockback_direction = global_position - attacker_area.global_position
-	movement.apply_knockback(knockback_direction, attacker_area.knockback_value)
+	apply_external_force(knockback_direction, attacker_area.knockback_value)
+	
 	health_manager.take_damage(attacker_area.damage_value)
-	create_hit_effect()
 	sound_machine.play_sound("Damage")
+	
+	emit_signal("hit_effect", attacker_area.global_position)
+	emit_signal("pain", knockback_direction.x, visuals.scale.x)
+	
 	
 	if state_machine.has_node("Pain"):
 		if (knockback_direction.x > 0 and visuals.scale.x > 0) or (knockback_direction.x < 0 and visuals.scale.x < 0):
@@ -78,22 +105,14 @@ func hurt(attacker_area):
 	
 
 func turn_off_all():
-	hurtbox.monitorable = false
-	hurtbox.monitoring = false
+	hurtbox.turn_off()
+	can_get_hit = false
+	health_bar.turn_off()
 
 func turn_on_all():
-	hurtbox.monitorable = true
-	hurtbox.monitoring = true
-
-"""
-The effect must be created by an Effect Manager from the world, not from the entity
-"""
-# There must be a better way to make this
-func create_hit_effect():
-	var effect = hit_effect.instance()
-	Global.misc.add_child(effect)
-	effect.global_position = global_position
-	
+	hurtbox.turn_on()
+	can_get_hit = true
+	health_bar.turn_on()
 
 #Kept in because of ease of use
 func play_animation(animation, node_name):

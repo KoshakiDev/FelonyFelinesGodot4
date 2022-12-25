@@ -1,7 +1,7 @@
 extends Node2D
 
 var base_speed = 500
-export var speed_percentage: float = 1
+@export var speed_percentage: float = 1
 
 var actual_velocity: Vector2
 var intended_velocity: Vector2
@@ -24,7 +24,7 @@ func vector_to_movement_direction(input_vector : Vector2) -> Vector2:
 
 func move(force: Vector2):
 	var force_direction = force.normalized()
-	intended_velocity = intended_velocity.linear_interpolate(force_direction * base_speed * speed_percentage, Global.ACCEL)
+	intended_velocity = intended_velocity.lerp(force_direction * base_speed * speed_percentage, Global.ACCEL)
 
 func apply_knockback(force: Vector2, knockback_value):
 	var force_direction = force.normalized()
@@ -35,5 +35,5 @@ func _physics_process(delta):
 	apply_friction()
 
 func apply_friction():
-	knockback = knockback.linear_interpolate(Vector2.ZERO, Global.FRICTION)
-	intended_velocity = intended_velocity.linear_interpolate(Vector2.ZERO, Global.FRICTION)
+	knockback = knockback.lerp(Vector2.ZERO, Global.FRICTION)
+	intended_velocity = intended_velocity.lerp(Vector2.ZERO, Global.FRICTION)

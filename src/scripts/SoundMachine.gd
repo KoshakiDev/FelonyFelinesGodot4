@@ -1,6 +1,6 @@
 extends Node
 
-onready var children = get_children()
+@onready var children = get_children()
 
 func _ready():
 	pass
@@ -10,12 +10,13 @@ func get_node_name(node):
 
 func find(node_name):
 	for node in children:
-		if get_node_name(node) == node_name:
+		if node.name == node_name:
+		#if get_node_name(node) == node_name:
 			return node
 	
 func play_sound(node_name):
 	#randomize()
-	#var pitch_scale = rand_range(0.8, 1.5)
+	#var pitch_scale = randf_range(0.8, 1.5)
 	#find(node_name).pitch_scale = pitch_scale
 	find(node_name).play()
 

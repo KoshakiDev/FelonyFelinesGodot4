@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/cat_death.wav-4d2b43e622bf9ac830997672034858bf.sample"
+type="AudioStreamWAV"
+uid="uid://gt8fv20vm3kx"
+path="res://.godot/imported/cat_death.wav-4d2b43e622bf9ac830997672034858bf.sample"
 
 [deps]
 
 source_file="res://assets/sfx/cat_death.wav"
-dest_files=[ "res://.import/cat_death.wav-4d2b43e622bf9ac830997672034858bf.sample" ]
+dest_files=["res://.godot/imported/cat_death.wav-4d2b43e622bf9ac830997672034858bf.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

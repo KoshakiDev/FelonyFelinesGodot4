@@ -10,4 +10,4 @@ damage_value = 20.0
 knockback_value = 50.0
 recoil = 15.0
 
-[node name="Hitbox" parent="Position2D/Visuals/Sprite" index="0" instance=ExtResource( 3 )]
+[node name="Hitbox" parent="Marker2D/Visuals/Sprite2D" index="0" instance=ExtResource( 3 )]

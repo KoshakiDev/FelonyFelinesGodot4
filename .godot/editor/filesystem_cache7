@@ -1,0 +1,533 @@
+0b7126e0c6e86d3ec295a72f5aa6e0bd
+::res://::1671962870
+default_env.tres::Environment::-1::1671814409::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1671814117::0::1::::<><>::
+FEARLESS FELINES.png::CompressedTexture2D::3533113782573262188::1671814117::1671814425::1::::<><>::
+icon.png::CompressedTexture2D::282672130955889680::1671814117::1671814425::1::::<><>::
+ng reminder.png::CompressedTexture2D::3502449336535674763::1671814117::1671814425::1::::<><>::
+README.md::TextFile::-1::1671814117::0::1::::<><>::
+splashscreen.png::CompressedTexture2D::8824943515326723708::1671814117::1671814425::1::::<><>::
+Walls.tres::TileSet::-1::1671814409::0::1::::<><>::res://assets/environment/texture/TX Tileset Wall.png
+::res://addons/::1671865272
+::res://addons/mixing-desk/::1671814425
+icon.png::CompressedTexture2D::7019975913335184304::1671814117::1671814425::1::::<><>::
+mixing_desk.gd::GDScript::-1::1671814409::0::1::::<>EditorPlugin<>::
+plugin.cfg::TextFile::-1::1671814117::0::1::::<><>::
+::res://addons/mixing-desk/music/::1671814425
+mdm_icon.png::CompressedTexture2D::6679383166634646358::1671814117::1671814425::1::::<><>::
+mixing_desk_music.gd::GDScript::-1::1671814409::0::1::::<><>::
+song.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+song_icon.png::CompressedTexture2D::5986397890559832541::1671814117::1671814425::1::::<><>::
+transition_song.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+::res://addons/mixing-desk/music/containers/::1671814117
+autofade_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+autolayer_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+concat_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+core_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+ran_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+rollover_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+seq_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+::res://addons/mixing-desk/music/icons/::1671814425
+autofade_cont_icon.png::CompressedTexture2D::5947884993805411888::1671814117::1671814425::1::::<><>::
+autolayer_cont_icon.png::CompressedTexture2D::4727633920040939279::1671814117::1671814425::1::::<><>::
+concat_cont_icon.png::CompressedTexture2D::1969046149162341593::1671814117::1671814425::1::::<><>::
+core_cont_icon.png::CompressedTexture2D::5681764618608333065::1671814117::1671814425::1::::<><>::
+mdm_icon.png::CompressedTexture2D::8674180752377117162::1671814117::1671814425::1::::<><>::
+ran_cont_icon.png::CompressedTexture2D::6196352423334557935::1671814117::1671814425::1::::<><>::
+rollover_cont_icon.png::CompressedTexture2D::2874930440065942673::1671814117::1671814425::1::::<><>::
+seq_cont_icon.png::CompressedTexture2D::6593910691610859859::1671814117::1671814425::1::::<><>::
+song_icon.png::CompressedTexture2D::8702114888817829992::1671814117::1671814425::1::::<><>::
+tran_song_icon.png::CompressedTexture2D::4391431040122527024::1671814117::1671814425::1::::<><>::
+::res://addons/mixing-desk/sound/::1671814425
+multi_sound.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+snd_icon.png::CompressedTexture2D::5918499326071254842::1671814117::1671814425::1::::<><>::
+::res://addons/mixing-desk/sound/2d/::1671814117
+concat_cont.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+multi_sound.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+polysound.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+ran_cont.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+scatter_cont.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+spawn_sound.gd::GDScript::-1::1671814409::0::1::::<>AudioStreamPlayer2D<>::
+::res://addons/mixing-desk/sound/3d/::1671814117
+concat_cont.gd::GDScript::-1::1671814409::0::1::::<>Node3D<>::
+multi_sound.gd::GDScript::-1::1671814409::0::1::::<>Node3D<>::
+polysound.gd::GDScript::-1::1671814409::0::1::::<>Node3D<>::
+ran_cont.gd::GDScript::-1::1671814409::0::1::::<>Node3D<>::
+scatter_cont.gd::GDScript::-1::1671814409::0::1::::<>Node3D<>::
+spawn_sound.gd::GDScript::-1::1671814409::0::1::::<>AudioStreamPlayer3D<>::
+::res://addons/mixing-desk/sound/nonspatial/::1671814117
+concat_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+multi_sound.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+polysound.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+ran_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+scatter_cont.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+spawn_sound.gd::GDScript::-1::1671814409::0::1::::<>AudioStreamPlayer<>::
+::res://addons/vision_cone_2d/::1671865274
+cone_editor_helper.gd::GDScript::-1::1670667510::0::1::::<>Node2D<>::
+icon.png::CompressedTexture2D::5865447064778430434::1670667510::1671865274::1::::<><>::
+plugin.cfg::TextFile::-1::1670667510::0::1::::<><>::
+vision_cone_2d.gd::GDScript::-1::1671799209::0::1::::VisionCone2D<>Node2D<>::
+vision_cone_2d_template.tscn::PackedScene::714248761521250687::1671799209::0::1::::<><>::res://addons/vision_cone_2d/vision_cone_2d.gd<>res://addons/vision_cone_2d/cone_editor_helper.gd
+vision_cone_entry.gd::GDScript::-1::1670667510::0::1::::<>EditorPlugin<>::
+::res://addons/vision_cone_2d/examples/::1671799209
+enemy.gd::GDScript::-1::1670667510::0::1::::<>CharacterBody2D<>::
+enemy.tscn::PackedScene::3814154241619058624::1670667510::0::1::::<><>::uid://kf8tqdlm8c5t<>res://addons/vision_cone_2d/examples/enemy.gd
+example.tscn::PackedScene::5204717988226123136::1671799209::0::1::::<><>::uid://bulute7i5ksyy<>uid://hm3o2foxwd2m<>res://addons/vision_cone_2d/examples/player_movement.gd
+player_movement.gd::GDScript::-1::1670667510::0::1::::<>CharacterBody2D<>::
+wall.tscn::PackedScene::517820941949250254::1670667510::0::1::::<><>::
+::res://assets/::1671814117
+::res://assets/effects/::1671814425
+Dust.png::CompressedTexture2D::7635970119858957902::1671814117::1671814425::1::::<><>::
+::res://assets/entities/::1671814117
+::res://assets/entities/enemies/::1671814117
+::res://assets/entities/enemies/ball/::1671814425
+chief_chub_ball_sheet_128x128_8x11.png::CompressedTexture2D::430901643391606071::1671814117::1671814425::1::::<><>::
+::res://assets/entities/enemies/gunner/::1671814425
+sergeant_sir_giant_128x128_5x9.png::CompressedTexture2D::1517790010477631631::1671814117::1671814425::1::::<><>::
+sergeant_sir_giant_hand_gun_64x64.png::CompressedTexture2D::1838052393195173921::1671814117::1671814425::1::::<><>::
+::res://assets/entities/enemies/imp/::1671814425
+deputy_dent_imp_sheet_80x80_4x10.png::CompressedTexture2D::6726621930312778632::1671814117::1671814425::1::::<><>::
+::res://assets/entities/players/::1671814425
+blue_brother_sheet_96x96.png::CompressedTexture2D::3083173770378880284::1671814117::1671814425::1::::<><>::
+red_brother_sheet_96x96.png::CompressedTexture2D::3470039508426900775::1671814117::1671814425::1::::<><>::
+::res://assets/environment/::1671814425
+Navigation_debug_texture.png::CompressedTexture2D::6122328275903802565::1671814117::1671814425::1::::<><>::
+::res://assets/environment/texture/::1671814425
+TX Plant.png::CompressedTexture2D::1111577167274449455::1671814117::1671814425::1::::<><>::
+TX Player.png::CompressedTexture2D::3667515842197814726::1671814117::1671814425::1::::<><>::
+TX Props.png::CompressedTexture2D::821112615336780196::1671814117::1671814425::1::::<><>::
+TX Shadow Plant.png::CompressedTexture2D::735806611115477989::1671814117::1671814425::1::::<><>::
+TX Shadow.png::CompressedTexture2D::7214178307085000449::1671814117::1671814425::1::::<><>::
+TX Struct.png::CompressedTexture2D::1731122946382903706::1671814117::1671814425::1::::<><>::
+TX Tileset Grass Yellow.png::CompressedTexture2D::3019219633331300799::1671814117::1671814425::1::::<><>::
+TX Tileset Grass.png::CompressedTexture2D::6838233120471789399::1671814117::1671814425::1::::<><>::
+TX Tileset Stone Ground.png::CompressedTexture2D::8514633858786887480::1671814117::1671814425::1::::<><>::
+TX Tileset Wall.png::CompressedTexture2D::7184941825961515450::1671814117::1671814425::1::::<><>::
+::res://assets/fonts/::1671952032
+Cowboys 2.0.otf::FontFile::5097574606241593059::1671814117::1671814425::1::::<><>::
+cowboys.tres::FontFile::-1::1671814409::0::1::::<><>::res://assets/fonts/Cowboys 2.0.otf
+windows_command_font.tres::FontFile::3055680754009254241::1671952032::0::1::::<><>::uid://r3fyfol08rdn
+windows_command_prompt.ttf::FontFile::1251359647756301487::1671814117::1671814425::1::::<><>::
+::res://assets/items/::1671814425
+Explosion_0.png::CompressedTexture2D::1657974658620159615::1671814117::1671814425::1::::<><>::
+::res://assets/items/pickups/::1671814117
+::res://assets/items/pickups/medkit/::1671814425
+medkit_sheet_32x32.png::CompressedTexture2D::5266346739241629953::1671814117::1671814425::1::::<><>::
+::res://assets/items/weapons/::1671814117
+::res://assets/items/weapons/melee/::1671814117
+::res://assets/items/weapons/melee/axe/::1671814425
+axe.png::CompressedTexture2D::6317250250795852612::1671814117::1671814425::1::::<><>::
+axe_slash-sheet.png::CompressedTexture2D::6730497427832545042::1671814117::1671814425::1::::<><>::
+::res://assets/items/weapons/range/::1671814117
+::res://assets/items/weapons/range/assault_rifle/::1671814425
+rifle.png::CompressedTexture2D::3709949521112167637::1671814117::1671814425::1::::<><>::
+::res://assets/items/weapons/range/bullets/::1671814425
+bullet.png::CompressedTexture2D::5318303463744925732::1671814117::1671814425::1::::<><>::
+enemy_bullet.png::CompressedTexture2D::8769435433225414800::1671814117::1671814425::1::::<><>::
+rocket.png::CompressedTexture2D::4821624418924381120::1671814117::1671814425::1::::<><>::
+::res://assets/items/weapons/range/minigun/::1671814425
+minigun.png::CompressedTexture2D::9212530741657173772::1671814117::1671814425::1::::<><>::
+::res://assets/items/weapons/range/muzzle_flashes/::1671814425
+minigun_flash.png::CompressedTexture2D::7130782509721664002::1671814117::1671814425::1::::<><>::
+revolver_flash.png::CompressedTexture2D::3222620690184575467::1671814117::1671814425::1::::<><>::
+shotgun_flash.png::CompressedTexture2D::4476185923337179293::1671814117::1671814425::1::::<><>::
+::res://assets/items/weapons/range/revolver/::1671814425
+Revolver.png::CompressedTexture2D::62920494174627830::1671814117::1671814425::1::::<><>::
+::res://assets/items/weapons/range/rocket_launcher/::1671814425
+rocket_launcher.png::CompressedTexture2D::1643723399919196243::1671814117::1671814425::1::::<><>::
+::res://assets/items/weapons/range/shotgun/::1671814425
+shotgun.png::CompressedTexture2D::869014957461626793::1671814117::1671814425::1::::<><>::
+::res://assets/sfx/::1671814426
+cat_death.wav::AudioStreamWAV::462369974750673131::1671814117::1671814425::1::::<><>::
+cat_pain.wav::AudioStreamWAV::8803530578457616197::1671814117::1671814425::1::::<><>::
+combat_intro.wav::AudioStreamWAV::1708187697105339367::1671814117::1671814426::1::::<><>::
+combat_loop.wav::AudioStreamWAV::5695727590589888776::1671814117::1671814426::1::::<><>::
+explosion-4.wav::AudioStreamWAV::729846416121601458::1671814117::1671814425::1::::<><>::
+Explosion_00.wav::AudioStreamWAV::7983341637373051084::1671814117::1671814425::1::::<><>::
+Explosion_01.wav::AudioStreamWAV::3020184764693989308::1671814117::1671814425::1::::<><>::
+Explosion_02.wav::AudioStreamWAV::8134976125738046311::1671814117::1671814425::1::::<><>::
+Explosion_03.wav::AudioStreamWAV::7160478632172644093::1671814117::1671814425::1::::<><>::
+Hit_02.wav::AudioStreamWAV::4944418453500774347::1671814117::1671814425::1::::<><>::
+Jump_01.wav::AudioStreamWAV::3511132884467909984::1671814117::1671814425::1::::<><>::
+Pickup_01.wav::AudioStreamWAV::6094659502716653519::1671814117::1671814425::1::::<><>::
+powerdown02.wav::AudioStreamWAV::4319269818298886049::1671814117::1671814425::1::::<><>::
+Shoot_01.wav::AudioStreamWAV::5232106081029162155::1671814117::1671814425::1::::<><>::
+special04.wav::AudioStreamWAV::7581079565939032932::1671814117::1671814425::1::::<><>::
+::res://assets/sfx/sounds/::1671814425
+playerbullet.wav::AudioStreamWAV::3499489738323443235::1671814117::1671814425::1::::<><>::
+player_hit.wav::AudioStreamWAV::1464432793370851677::1671814117::1671814425::1::::<><>::
+sheriffbullet.wav::AudioStreamWAV::8789180682692455996::1671814117::1671814425::1::::<><>::
+sheriff_hit.wav::AudioStreamWAV::7154374324554551964::1671814117::1671814425::1::::<><>::
+::res://assets/UI/::1671814117
+::res://assets/UI/healthbar/::1671881349
+HealthBar_Player.png::CompressedTexture2D::2664084661654273759::1671814117::1671881349::1::::<><>::
+health_bar_fill_player.png::CompressedTexture2D::8371181925727366071::1671814117::1671881349::1::::<><>::
+::res://sounds/::1671814117
+::res://sounds/axe/::1671814425
+FencingFoil,swoosh,roomambience,lively,quick,aggressive.M.wav::AudioStreamWAV::8565705311197432040::1671814117::1671814425::1::::<><>::
+Socapex - small knock.wav::AudioStreamWAV::3751451415360814211::1671814117::1671814425::1::::<><>::
+Socapex - Swordsmall.wav::AudioStreamWAV::2435870483471217560::1671814117::1671814425::1::::<><>::
+::res://sounds/baller/::1671814425
+EFX INT Siren Whistle 02.wav::AudioStreamWAV::1287707905702608978::1671814117::1671814425::1::::<><>::
+Fart_Long_Fienup_002.wav::AudioStreamWAV::6538375248642052956::1671814117::1671814425::1::::<><>::
+::res://sounds/guns/::1671814425
+154934__klawykogut__empty-gun-shot.wav::AudioStreamWAV::4659394882878348102::1671814117::1671814425::1::::<><>::
+cg1.wav::AudioStreamWAV::7954843327520117299::1671814117::1671814425::1::::<><>::
+pistol.wav::AudioStreamWAV::1499097544615341249::1671814117::1671814425::1::::<><>::
+rifle.wav::AudioStreamWAV::6904991727682118265::1671814117::1671814425::1::::<><>::
+shotgun.wav::AudioStreamWAV::4291133713882695827::1671814117::1671814425::1::::<><>::
+::res://sounds/hit/::1671814425
+EFX SD Heads Hit Together 02.wav::AudioStreamWAV::2745536645870181896::1671814117::1671814425::1::::<><>::
+Ilmarinen,blacksmith,forge,hammer,anvil,strike,loose,ringing,splash,iron,thin.M.wav::AudioStreamWAV::8203811263367732890::1671814117::1671814425::1::::<><>::
+::res://sounds/hits/::1671814425
+hit_1.wav::AudioStreamWAV::625361912259076607::1671814117::1671814425::1::::<><>::
+hit_2.wav::AudioStreamWAV::8959898310309678469::1671814117::1671814425::1::::<><>::
+hit_3.wav::AudioStreamWAV::1722949227928018114::1671814117::1671814425::1::::<><>::
+hit_4.wav::AudioStreamWAV::4669131098896187900::1671814117::1671814425::1::::<><>::
+hit_5.wav::AudioStreamWAV::955447270687014251::1671814117::1671814425::1::::<><>::
+hit_6.wav::AudioStreamWAV::8169516081356990162::1671814117::1671814425::1::::<><>::
+hit_7.wav::AudioStreamWAV::314006477991521407::1671814117::1671814425::1::::<><>::
+hit_8.wav::AudioStreamWAV::15450255772780365::1671814117::1671814425::1::::<><>::
+hit_9.wav::AudioStreamWAV::3617882240953826165::1671814117::1671814425::1::::<><>::
+hit_10.wav::AudioStreamWAV::6108574184080379772::1671814117::1671814425::1::::<><>::
+::res://sounds/imp/::1671814426
+EFX INT Dog Wimper 26 A.M.wav::AudioStreamWAV::5757323414598844431::1671814117::1671814426::1::::<><>::
+Juicy Crack and Break_VM 01.wav::AudioStreamWAV::7762244607200719487::1671814117::1671814425::1::::<><>::
+::res://sounds/lose/::1671814426
+EFX EXT GROUP Battle Celebration 02 A.wav::AudioStreamWAV::8355113362188641286::1671814117::1671814426::1::::<><>::
+::res://sounds/medkit/::1671814425
+Celery,Bite,Crunch,Slow,Bone,Break,Stick,Creak,Various07.wav::AudioStreamWAV::6497543522779862422::1671814117::1671814425::1::::<><>::
+::res://sounds/pickup/::1671814425
+Pop 31.wav::AudioStreamWAV::5490224322124266026::1671814117::1671814425::1::::<><>::
+Pop 41.wav::AudioStreamWAV::1917299539470698828::1671814117::1671814425::1::::<><>::
+::res://sounds/rocket/::1671814425
+boom.wav::AudioStreamWAV::2037053310691361371::1671814117::1671814425::1::::<><>::
+rocket_launch.wav::AudioStreamWAV::206108651334741527::1671814117::1671814425::1::::<><>::
+::res://sounds/step/::1671814425
+step-A.wav::AudioStreamWAV::400755044386114285::1671814117::1671814425::1::::<><>::
+step-B.wav::AudioStreamWAV::5201235702916872654::1671814117::1671814425::1::::<><>::
+step-C.wav::AudioStreamWAV::1900822616388782923::1671814117::1671814425::1::::<><>::
+step-D.wav::AudioStreamWAV::2987297524211112204::1671814117::1671814425::1::::<><>::
+step-E.wav::AudioStreamWAV::6845317924594802311::1671814117::1671814425::1::::<><>::
+step-F.wav::AudioStreamWAV::4387655008576479306::1671814117::1671814425::1::::<><>::
+step-G.wav::AudioStreamWAV::3883127228900967831::1671814117::1671814425::1::::<><>::
+::res://sounds/weapons/::1671814117
+::res://sounds/weapons/drop/::1671814425
+Bouncing Metal Rattle Scrap Debris_UC 06.wav::AudioStreamWAV::861085030182768237::1671814117::1671814425::1::::<><>::
+Chain Metal Drop On Floor_VS 02.wav::AudioStreamWAV::3838937098361784993::1671814117::1671814425::1::::<><>::
+Drop Fall Metal Rattle Scrap Debris_UC 10.wav::AudioStreamWAV::6282159140968844537::1671814117::1671814425::1::::<><>::
+::res://sounds/weapons/gunner/::1671814425
+EFX EXT .50 Cal Pistol Shots 02 A.wav::AudioStreamWAV::2091561396122642332::1671814117::1671814425::1::::<><>::
+::res://src/::1671814117
+::res://src/AutoLoad/::1671954527
+Global.gd::GDScript::-1::1671950035::0::1::::<>Node<>::
+ngio.gd::GDScript::-1::1671954527::0::1::::<>Node<>::
+SceneChanger.gd::GDScript::-1::1671814409::0::1::::<>CanvasLayer<>::
+SceneChanger.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/AutoLoad/SceneChanger.gd
+Shake.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+VFXManager.gd::GDScript::-1::1671887759::0::1::::<>Node<>::
+::res://src/components/::1671956785
+::res://src/components/base_effect/::1671814117
+Effect.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+Effect.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/base_effect/Effect.gd
+::res://src/components/bullet-related/::1671962841
+BulletEmitter.gd::GDScript::-1::1671962699::0::1::::BulletEmitter<>Resource<>::
+BulletSpawner.gd::GDScript::-1::1671962425::0::1::::BulletSpawner<>Marker2D<>::
+BulletSpawner.tscn::PackedScene::4781558437908540842::1671962841::0::1::::<><>::res://src/components/bullet-related/BulletSpawner.gd<>uid://dplk7imim57n0
+::res://src/components/bullet-related/bullet type/::1671962841
+BaseProjectile.gd::GDScript::-1::1671907269::0::1::::Projectile<>Area2D<>::
+BaseProjectile.tscn::PackedScene::1079347131042223506::1671905879::0::1::::<><>::res://src/components/bullet-related/bullet type/BaseProjectile.gd<>uid://k8bvo4y6ng0
+EnemyBullet.tscn::PackedScene::6061136544410008413::1671893793::0::1::::<><>::uid://pm3xpehnv2ck<>uid://dw68k5lhqkyyq
+Explosion.gd::GDScript::-1::1671814409::0::1::::<>Area2D<>::
+Explosion.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn<>res://assets/items/Explosion_0.png<>res://src/components/bullet-related/bullet type/Explosion.gd<>res://addons/mixing-desk/sound/2d/ran_cont.gd<>res://sounds/rocket/boom.wav
+PlayerBullet.tscn::PackedScene::8235467615382257923::1671962841::0::1::::<><>::uid://pm3xpehnv2ck<>uid://ch1hxfjmjnj3q
+Rocket.gd::GDScript::-1::1671814409::0::1::::<>Area2D<>::
+Rocket.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/bullet-related/bullet type/BaseProjectile.tscn<>res://assets/items/weapons/range/bullets/rocket.png<>res://src/components/bullet-related/bullet type/Rocket.gd<>res://src/components/bullet-related/bullet type/Explosion.tscn
+::res://src/components/bullet-related/bullet_emitters/::1671962529
+BulletEmitterSingle.gd::GDScript::-1::1671962529::0::1::::BulletEmitterSingle<>BulletEmitter<>::
+BulletEmitterSpread.gd::GDScript::-1::1671962523::0::1::::BulletEmitterSpread<>BulletEmitter<>::
+::res://src/components/CircleProgressBar/::1671814117
+CircleProgressBar.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+CircleProgressBar.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://test folder/Respawn_Radius.png<>res://src/components/CircleProgressBar/CircleProgressBar.gd
+::res://src/components/dust_spawner/::1671892086
+DustSpawner.gd::GDScript::-1::1671887623::0::1::::<>Marker2D<>::
+DustSpawner.tscn::PackedScene::5974761030418061199::1671892086::0::1::::<><>::res://src/components/dust_spawner/DustSpawner.gd
+::res://src/components/dust_spawner/dust_types/::1671814117
+::res://src/components/dust_spawner/dust_types/player/::1671814117
+Dust.gd::GDScript::-1::1671814409::0::1::::<>Sprite2D<>::
+Dust.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/dust_spawner/dust_types/player/Dust.gd<>res://assets/effects/Dust.png
+::res://src/components/dynamic_splitscreen/::1671814117
+camera_controller.gd::GDScript::-1::1671814409::0::1::::<>Control<>::
+SplitScreenCamera.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+SplitScreenCamera.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/dynamic_splitscreen/camera_controller.gd<>res://icon.png<>res://src/components/dynamic_splitscreen/SplitScreenCamera.gd<>res://src/components/dynamic_splitscreen/split_screen_2d.gdshader
+split_screen_2d.gdshader::Shader::-1::1671814117::0::1::::<><>::
+::res://src/components/explosion/::1671814117
+ExplosionEffect.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/base_effect/Effect.tscn<>res://test folder/ExplosionEffect.png
+::res://src/components/hit/::1671893793
+HitEffect.tscn::PackedScene::3293440357155324602::1671893793::0::1::::<><>::res://src/components/base_effect/Effect.tscn<>uid://cm2tn6jum881n
+::res://src/components/hitbox-hurtbox/::1671814117
+::res://src/components/hitbox-hurtbox/hitbox/::1671952340
+Hitbox.gd::GDScript::-1::1671951623::0::1::::<>Area2D<>::
+Hitbox.tscn::PackedScene::22650350064343857::1671952340::0::1::::<><>::res://src/components/hitbox-hurtbox/hitbox/Hitbox.gd
+::res://src/components/hitbox-hurtbox/hurtbox/::1671893793
+Hurtbox.gd::GDScript::-1::1671893556::0::1::::<>Area2D<>::
+Hurtbox.tscn::PackedScene::5518540051687544657::1671893793::0::1::::<><>::res://src/components/hitbox-hurtbox/hurtbox/Hurtbox.gd
+::res://src/components/item_manager/::1671962720
+ItemManager.gd::GDScript::-1::1671962074::0::1::::<>Node2D<>::
+ItemManager.tscn::PackedScene::1876402288786700718::1671962720::0::1::::<><>::res://src/components/item_manager/ItemManager.gd
+::res://src/components/item_pickup/::1671957106
+ItemPickup.gd::GDScript::-1::1671957106::0::1::::<>Area2D<>::
+ItemPickup.tscn::PackedScene::7725216322113248646::1671950721::0::1::::<><>::res://src/components/item_pickup/ItemPickup.gd
+::res://src/components/pickup_range/::1671962026
+PickUpRange.gd::GDScript::-1::1671962026::0::1::::<>Area2D<>::
+PickUpRange.tscn::PackedScene::8810273956466207824::1671950721::0::1::::<><>::uid://dtefpgq5qaxxs<>res://src/components/pickup_range/PickUpRange.gd
+::res://src/components/respawn_radius/::1671901733
+Respawn.gd::GDScript::-1::1671901733::0::1::::<>Area2D<>::
+Respawn.tscn::PackedScene::6357900331343748436::1671891420::0::1::::<><>::res://src/components/respawn_radius/Respawn.gd<>uid://dtefpgq5qaxxs
+::res://src/components/spawners/::1671814117
+::res://src/components/spawners/enemy/::1671814117
+EnemySpawner.gd::GDScript::-1::1671814409::0::1::::<>Marker2D<>::
+EnemySpawner.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/spawners/enemy/EnemySpawner.gd
+::res://src/entities/::1671814117
+::res://src/entities/base_templates/::1671814117
+::res://src/entities/base_templates/base_entity/::1671893882
+base_entity.gd::GDScript::-1::1671893882::0::1::::Entity<>CharacterBody2D<>::
+base_entity.tscn::PackedScene::4191534366963278025::1671893882::0::1::::<><>::uid://k8jcegpswqwi<>res://src/scripts/AnimationMachine.gd<>res://src/scripts/SoundMachine.gd<>uid://2c1jhaw0hcut<>res://addons/mixing-desk/sound/2d/ran_cont.gd<>res://src/scripts/StatesMachine.gd<>res://src/entities/base_templates/base_entity/functions/HealthManager.gd<>res://src/entities/base_templates/base_entity/PhysicsColliderDefault.tres<>res://src/entities/base_templates/base_entity/base_entity.gd<>uid://bfd7t8cljbaei<>uid://do48tqj5ces5w<>uid://bitcma70do8jw<>uid://ckvhsv6vjqrtx<>uid://fyem2310wst6<>uid://c4r6nelpqynsp<>uid://cgdrueqtix1ck<>uid://bvlaskct3lg5l<>uid://b3robiyfnefiw<>res://src/entities/base_templates/base_entity/NavigationManager.gd
+NavigationManager.gd::GDScript::-1::1671814409::0::1::::<>NavigationAgent2D<>::
+PhysicsColliderDefault.tres::CapsuleShape2D::-1::1671814409::0::1::::<><>::
+::res://src/entities/base_templates/base_entity/functions/::1671958900
+HealthManager.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+Movement.gd::GDScript::-1::1671958900::0::1::::<>Node2D<>::
+NavigationManager.gd::GDScript::-1::1671814117::0::1::::<>RefCounted<>::
+SpriteDirectionManager.gd::GDScript::-1::1671814117::0::1::::<>RefCounted<>::
+::res://src/entities/base_templates/base_npc/::1671814117
+base_npc.gd::GDScript::-1::1671814409::0::1::::<><>::
+base_npc.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/entities/base_templates/base_entity/base_entity.tscn<>res://src/entities/base_templates/base_npc/base_npc.gd<>res://addons/mixing-desk/sound/2d/ran_cont.gd
+::res://src/entities/enemies/::1671814117
+::res://src/entities/enemies/BurglarEnemyGunner/::1671814117
+BurglarEnemyGunner.gd::GDScript::-1::1671814409::0::1::::<><>::
+BurglarEnemyGunner.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/bullet-related/BulletSpawner.tscn<>res://src/entities/base_templates/base_npc/base_npc.tscn<>res://src/entities/enemies/EnemyGunner/states/AttackGunner.gd<>res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd<>res://src/components/dust_spawner/DustSpawner.tscn<>res://src/components/bullet-related/bullet type/EnemyBullet.tscn<>res://src/entities/enemies/SharedStates/Chase.gd<>res://src/entities/enemies/BurglarEnemyGunner/BurglarEnemyGunner.gd<>res://src/entities/enemies/SharedStates/Idle.gd<>res://assets/entities/enemies/gunner/sergeant_sir_giant_hand_gun_64x64.png<>res://assets/entities/enemies/gunner/sergeant_sir_giant_128x128_5x9.png<>res://src/entities/enemies/SharedStates/Pain.gd<>res://sounds/weapons/gunner/EFX EXT .50 Cal Pistol Shots 02 A.wav<>res://src/environment/burglar_base_world/tiles/VisionArea.tscn<>res://src/entities/enemies/BurglarEnemyGunner/states/Search.gd<>res://src/entities/enemies/BurglarEnemyGunner/states/Knockout.gd
+Knockout.gd::GDScript::-1::1671814409::0::1::::<>Node<>::
+::res://src/entities/enemies/BurglarEnemyGunner/states/::1671814117
+AttackGunner.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+Knockout.gd::GDScript::-1::1671814409::0::1::::<><>::
+Search.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+::res://src/entities/enemies/EnemyBall/::1671814117
+EnemyBaller.gd::GDScript::-1::1671814409::0::1::::<><>::
+EnemyBaller.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/entities/base_templates/base_npc/base_npc.tscn<>res://src/entities/enemies/EnemyBall/states/AttackBall.gd<>res://src/entities/enemies/SharedStates/Chase.gd<>res://src/entities/enemies/SharedStates/Death.gd<>res://src/entities/enemies/EnemyBall/EnemyBaller.gd<>res://src/entities/enemies/SharedStates/Idle.gd<>res://assets/entities/enemies/ball/chief_chub_ball_sheet_128x128_8x11.png<>res://src/entities/enemies/SharedStates/Pain.gd<>res://src/components/dust_spawner/DustSpawner.tscn<>res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn<>res://sounds/baller/EFX INT Siren Whistle 02.wav<>res://sounds/hit/Ilmarinen,blacksmith,forge,hammer,anvil,strike,loose,ringing,splash,iron,thin.M.wav<>res://sounds/hit/EFX SD Heads Hit Together 02.wav
+::res://src/entities/enemies/EnemyBall/states/::1671814117
+AttackBall.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+::res://src/entities/enemies/EnemyBoss/::1671956801
+EnemyBoss.tscn::PackedScene::-1::1671956801::0::1::::<><>::res://src/entities/base_templates/base_npc/base_npc.tscn<>uid://ca1xpxawdkewv<>uid://danhuydml27p6<>uid://1y7coyhr3lqs
+::res://src/entities/enemies/EnemyGunner/::1671814117
+EnemyGunner.gd::GDScript::-1::1671814409::0::1::::<><>::
+EnemyGunner.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/dust_spawner/DustSpawner.tscn<>res://src/entities/base_templates/base_npc/base_npc.tscn<>res://src/components/bullet-related/BulletSpawner.tscn<>res://src/components/bullet-related/bullet type/EnemyBullet.tscn<>res://src/entities/enemies/EnemyGunner/states/AttackGunner.gd<>res://src/entities/enemies/SharedStates/Chase.gd<>res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd<>res://src/entities/enemies/SharedStates/Death.gd<>res://src/entities/enemies/EnemyGunner/EnemyGunner.gd<>res://src/entities/enemies/SharedStates/Idle.gd<>res://assets/entities/enemies/gunner/sergeant_sir_giant_hand_gun_64x64.png<>res://assets/entities/enemies/gunner/sergeant_sir_giant_128x128_5x9.png<>res://src/entities/enemies/SharedStates/Pain.gd<>res://sounds/weapons/gunner/EFX EXT .50 Cal Pistol Shots 02 A.wav
+::res://src/entities/enemies/EnemyGunner/states/::1671814117
+AttackGunner.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+::res://src/entities/enemies/EnemyImp/::1671814117
+EnemyImp.gd::GDScript::-1::1671814409::0::1::::<><>::
+EnemyImp.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/entities/base_templates/base_npc/base_npc.tscn<>res://src/entities/enemies/EnemyImp/EnemyImp.gd<>res://src/entities/enemies/EnemyImp/states/AttackImp.gd<>res://src/entities/enemies/SharedStates/Death.gd<>res://src/entities/enemies/SharedStates/Chase.gd<>res://src/entities/enemies/SharedStates/Idle.gd<>res://assets/entities/enemies/imp/deputy_dent_imp_sheet_80x80_4x10.png<>res://src/entities/enemies/SharedStates/Pain.gd<>res://src/components/dust_spawner/DustSpawner.tscn<>res://sounds/imp/Juicy Crack and Break_VM 01.wav<>res://sounds/imp/EFX INT Dog Wimper 26 A.M.wav<>res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn
+::res://src/entities/enemies/EnemyImp/states/::1671814117
+AttackImp.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+ChaseImp.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+Pain.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+::res://src/entities/enemies/SharedStates/::1671814117
+Chase.gd::GDScript::-1::1671814409::0::1::::<><>::
+Death.gd::GDScript::-1::1671814409::0::1::::<><>::
+Idle.gd::GDScript::-1::1671814409::0::1::::<><>::
+Pain.gd::GDScript::-1::1671814409::0::1::::<><>::
+::res://src/entities/items/::1671814117
+::res://src/entities/items/base_templates/::1671814117
+::res://src/entities/items/base_templates/base_item/::1671962048
+base_item.gd::GDScript::-1::1671962048::0::1::::<>Node2D<>::
+base_item.tscn::PackedScene::6065120666557644682::1671961892::0::1::::<><>::res://src/entities/items/base_templates/base_item/base_item.gd<>res://src/scripts/AnimationMachine.gd<>res://src/scripts/StatesMachine.gd<>res://src/scripts/SoundMachine.gd<>res://src/entities/items/base_templates/base_item/states/Dropped.gd<>res://src/entities/items/base_templates/base_item/states/Idle.gd<>uid://dxr06pe6sxdw7<>res://src/entities/items/base_templates/base_item/states/Disabled.gd<>res://addons/mixing-desk/sound/2d/ran_cont.gd<>uid://ckhrgsqgv010y<>uid://2k0v4wbc3cbc
+::res://src/entities/items/base_templates/base_item/states/::1671958782
+Disabled.gd::GDScript::-1::1671902400::0::1::::<>State<>::
+Dropped.gd::GDScript::-1::1671901772::0::1::::<>State<>::
+Idle.gd::GDScript::-1::1671958782::0::1::::<>State<>::
+::res://src/entities/items/base_templates/base_melee_weapon/::1671814117
+BaseMeleeWeapon.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+BaseMeleeWeapon.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/entities/items/base_templates/base_item/base_item.tscn<>res://src/entities/items/base_templates/base_melee_weapon/BaseMeleeWeapon.gd<>res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn
+::res://src/entities/items/base_templates/base_range_weapon/::1671961892
+BaseRangeWeapon.gd::GDScript::-1::1671959570::0::1::::<>Node2D<>::
+BaseRangeWeapon.tscn::PackedScene::2432742324990895972::1671961892::0::1::::<><>::uid://csn8we332roa1<>uid://caehtlvgbvtxy<>res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.gd<>res://src/entities/items/base_templates/base_range_weapon/states/Shoot.gd<>res://src/entities/items/base_templates/base_range_weapon/states/Empty.gd<>uid://buxuy6rd0joov<>res://addons/mixing-desk/sound/2d/ran_cont.gd<>uid://b7nbs2iei151k
+::res://src/entities/items/base_templates/base_range_weapon/states/::1671961995
+Empty.gd::GDScript::-1::1671961556::0::1::::<>State<>::
+Shoot.gd::GDScript::-1::1671961995::0::1::::<>State<>::
+::res://src/entities/items/medkit/::1671814117
+Medkit.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+Medkit.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/entities/items/base_templates/base_item/base_item.tscn<>res://src/entities/items/medkit/Medkit.gd<>res://assets/items/pickups/medkit/medkit_sheet_32x32.png<>res://addons/mixing-desk/sound/2d/ran_cont.gd<>res://sounds/medkit/Celery,Bite,Crunch,Slow,Bone,Break,Stick,Creak,Various07.wav
+::res://src/entities/items/weapons/::1671814117
+::res://src/entities/items/weapons/melee/::1671814117
+::res://src/entities/items/weapons/melee/axe/::1671814117
+Axe.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/entities/items/base_templates/base_melee_weapon/BaseMeleeWeapon.tscn<>res://assets/items/weapons/melee/axe/axe.png<>res://assets/items/weapons/melee/axe/axe_slash-sheet.png<>res://addons/mixing-desk/sound/2d/ran_cont.gd<>res://sounds/axe/FencingFoil,swoosh,roomambience,lively,quick,aggressive.M.wav<>res://addons/mixing-desk/sound/nonspatial/ran_cont.gd<>res://sounds/guns/154934__klawykogut__empty-gun-shot.wav
+::res://src/entities/items/weapons/melee/stick/::1671814117
+Stick.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/entities/items/base_templates/base_melee_weapon/BaseMeleeWeapon.tscn<>res://test folder/stick.png
+::res://src/entities/items/weapons/range/::1671814117
+::res://src/entities/items/weapons/range/minigun/::1671962841
+Minigun.tscn::PackedScene::7186560962465383653::1671962841::0::1::::<><>::uid://bawo57y00ukg7<>uid://d4ivbg4ke8xom<>res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd<>uid://c8ug7fydg7dbu<>uid://dllndwe0ip5it<>res://addons/mixing-desk/sound/2d/ran_cont.gd
+::res://src/entities/items/weapons/range/revolver/::1671962720
+Revolver.tscn::PackedScene::5600287412480935386::1671962720::0::1::::<><>::uid://5qj52cqyg6a<>uid://bawo57y00ukg7<>res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd<>uid://vmf6gw7j8dtx<>uid://bl6cdejqe2dlr
+::res://src/entities/items/weapons/range/rocket_launcher/::1671814117
+RocketLauncher.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn<>res://assets/items/weapons/range/rocket_launcher/rocket_launcher.png<>res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd<>res://addons/mixing-desk/sound/2d/ran_cont.gd<>res://sounds/rocket/rocket_launch.wav<>res://src/components/bullet-related/bullet type/Rocket.tscn<>res://assets/items/weapons/range/bullets/rocket.png
+::res://src/entities/items/weapons/range/shotgun/::1671962858
+Shotgun.tscn::PackedScene::195336981979499290::1671962858::0::1::::<><>::uid://bawo57y00ukg7<>uid://mm7sxdatvunh<>res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd<>uid://b41kemf6owevt<>uid://b2ewl0gwplyud<>res://addons/mixing-desk/sound/2d/ran_cont.gd
+::res://src/entities/players/::1671814117
+::res://src/entities/players/npc/::1671956801
+PlayerNPC.gd::GDScript::-1::1671814409::0::1::::<><>::
+PlayerNPC.tscn::PackedScene::-1::1671956801::0::1::::<><>::res://src/entities/base_templates/base_npc/base_npc.tscn<>res://src/entities/players/npc/states/Attack.gd<>res://src/entities/players/npc/states/Death.gd<>res://src/entities/players/npc/states/Move.gd<>res://src/entities/players/npc/states/Idle.gd<>uid://1y7coyhr3lqs<>uid://bpo6bqss4dr64<>uid://crehpac15c240<>uid://dicfgi5duiu35<>uid://cwt2xpek87i0s<>res://src/entities/players/npc/PlayerNPC.gd
+::res://src/entities/players/npc/states/::1671814117
+Attack.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+Death.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+Idle.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+Move.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+::res://src/entities/players/player/::1671962841
+player.gd::GDScript::-1::1671958911::0::1::::<>CharacterBody2D<>::
+player.tscn::PackedScene::812093940474844706::1671962841::0::1::::<><>::uid://b0yn7ugd4dedl<>uid://crehpac15c240<>uid://dicfgi5duiu35<>uid://1y7coyhr3lqs<>uid://cwt2xpek87i0s<>uid://ck44ggug3q4v6<>res://src/entities/players/player/states/Death.gd<>res://src/entities/players/player/states/Move.gd<>res://src/entities/players/player/states/Idle.gd<>uid://bj6rolkifwjlc<>res://src/entities/players/player/Player.gd<>res://src/entities/players/player/states/Pain.gd<>res://src/entities/players/player/states/Interacting.gd
+::res://src/entities/players/player/states/::1671901756
+Death.gd::GDScript::-1::1671901739::0::1::::<>State<>::
+Hide.gd::GDScript::-1::1671814409::0::1::::<>State<>::
+Idle.gd::GDScript::-1::1671901752::0::1::::<>State<>::
+Interacting.gd::GDScript::-1::1671901756::0::1::::<>State<>::
+Move.gd::GDScript::-1::1671901748::0::1::::<>State<>::
+Pain.gd::GDScript::-1::1671891721::0::1::::<>State<>::
+::res://src/environment/::1671814117
+LaunchScene.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/levels/Level_2.tscn<>res://src/components/dynamic_splitscreen/SplitScreenCamera.tscn<>res://src/UI/pause/Pause.tscn<>res://src/environment/UILayer.gd
+NavigationTileMap.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://assets/environment/Navigation_debug_texture.png
+UILayer.gd::GDScript::-1::1671814409::0::1::::<>CanvasLayer<>::
+::res://src/environment/base_world/::1671814117
+base_world.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+base_world.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://sounds/lose/EFX EXT GROUP Battle Celebration 02 A.wav<>res://src/environment/base_world/base_world.gd<>res://src/environment/NavigationTileMap.tscn
+::res://src/environment/burglar_base_world/::1671962841
+burglar_base_world.gd::GDScript::-1::1671962718::0::1::::<>Node2D<>::
+burglar_base_world.tscn::PackedScene::8788324942007320081::1671962841::0::1::::<><>::res://src/environment/burglar_base_world/burglar_base_world.gd<>uid://ltnclilplvt7<>res://src/environment/burglar_base_world/UILayer.gd<>uid://danhuydml27p6<>res://src/UI/BurglarUI/BurglarUI.tscn<>uid://c1vf3k0628qo<>uid://cl126ejxkbqj7
+UILayer.gd::GDScript::-1::1671954761::0::1::::<>CanvasLayer<>::
+::res://src/environment/burglar_base_world/minigames/::1671814117
+::res://src/environment/burglar_base_world/minigames/base/::1671814117
+Base.gd::GDScript::-1::1671814409::0::1::::<>Control<>::
+Base.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/minigames/base/Base.gd
+::res://src/environment/burglar_base_world/minigames/lock_minigame/::1671814117
+LockMinigame.gd::GDScript::-1::1671814409::0::1::::<>Control<>::
+LockMinigame.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/minigames/base/Base.tscn<>res://src/environment/burglar_base_world/minigames/lock_minigame/LockMinigame.gd<>res://src/environment/burglar_base_world/tiles/vision.png
+::res://src/environment/burglar_base_world/minigames/note/::1671814117
+NoteMinigame.gd::GDScript::-1::1671814409::0::1::::<>Control<>::
+NoteMinigame.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/minigames/base/Base.tscn<>res://src/environment/burglar_base_world/minigames/note/NoteMinigame.gd<>res://src/environment/burglar_base_world/tiles/vision.png
+::res://src/environment/burglar_base_world/tilemap/::1671814117
+TileFloorMap.gd::GDScript::-1::1671814409::0::1::::<>TileMap<>::
+TileFloorMap.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tilemap/TileFloorMap.gd<>res://src/environment/burglar_base_world/tiles/vision.png
+TileObjectsMap.gd::GDScript::-1::1671814409::0::1::::<>TileMap<>::
+TileObjectsMap.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tilemap/TileObjectsMap.gd<>res://src/environment/burglar_base_world/tiles/tilesheet_temp.png
+::res://src/environment/burglar_base_world/tiles/::1671814425
+cardboard-box.png::CompressedTexture2D::7663694814626675055::1671814117::1671814425::1::::<><>::
+TestBox.gd::GDScript::-1::1671814409::0::1::::<>StaticBody2D<>::
+TestBox.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tiles/cardboard-box.png<>res://src/environment/burglar_base_world/tiles/TestBox.gd
+TestTallBox.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tiles/test_wall.png<>res://src/environment/burglar_base_world/tiles/TestBox.tscn
+test_wall.png::CompressedTexture2D::5474590445442892851::1671814117::1671814425::1::::<><>::
+tilesheet_temp.png::CompressedTexture2D::7925129070685467727::1671814117::1671814425::1::::<><>::
+vision.png::CompressedTexture2D::7848164565453089364::1671814117::1671814425::1::::<><>::
+VisionArea.gd::GDScript::-1::1671814409::0::1::::<>Area2D<>::
+VisionArea.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tiles/VisionArea.gd<>res://src/environment/burglar_base_world/tiles/vision.png
+::res://src/environment/burglar_base_world/tiles/doors/::1671814117
+::res://src/environment/burglar_base_world/tiles/doors/base_door/::1671814425
+BaseDoor.gd::GDScript::-1::1671814409::0::1::::<>StaticBody2D<>::
+BaseDoor.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tiles/doors/base_door/door1-Sheet.png<>res://src/environment/burglar_base_world/tiles/doors/base_door/BaseDoor.gd
+door1-Sheet.png::CompressedTexture2D::7139834727222084555::1671814117::1671814425::1::::<><>::
+door1.png::CompressedTexture2D::3617105210868258784::1671814117::1671814425::1::::<><>::
+door2.png::CompressedTexture2D::5357465064623227121::1671814117::1671814425::1::::<><>::
+::res://src/environment/burglar_base_world/tiles/doors/locked_door/::1671814117
+LockedDoor.gd::GDScript::-1::1671814409::0::1::::<>StaticBody2D<>::
+LockedDoor.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tiles/doors/base_door/BaseDoor.tscn<>res://src/environment/burglar_base_world/tiles/interaction_zone/InteractionZone.tscn<>res://src/environment/burglar_base_world/tiles/doors/locked_door/LockedDoor.gd<>res://src/environment/burglar_base_world/minigames/lock_minigame/LockMinigame.tscn
+::res://src/environment/burglar_base_world/tiles/floor/::1671814117
+Floor.tscn::PackedScene::-1::1671814409::0::1::::<><>::
+::res://src/environment/burglar_base_world/tiles/interaction_zone/::1671814117
+InteractionZone.gd::GDScript::-1::1671814409::0::1::::<><>::
+InteractionZone.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tiles/interaction_zone/InteractionZone.gd
+::res://src/environment/burglar_base_world/tiles/note/::1671814425
+Note.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+Note.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tiles/interaction_zone/InteractionZone.tscn<>res://src/environment/burglar_base_world/minigames/note/NoteMinigame.tscn<>res://src/environment/burglar_base_world/tiles/note/Note.gd<>res://src/environment/burglar_base_world/tiles/note/Sprite2D-0003.png
+Sprite-0003.png::CompressedTexture2D::4252851906964657547::1671814117::1671814425::1::::<><>::
+::res://src/environment/burglar_base_world/tiles/safe/::1671814425
+Safe.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+safe.png::CompressedTexture2D::6846278636983726299::1671814117::1671814425::1::::<><>::
+Safe.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/components/CircleProgressBar/CircleProgressBar.tscn<>res://src/environment/burglar_base_world/tiles/safe/safe.png<>res://src/environment/burglar_base_world/tiles/safe/Safe.gd
+::res://src/environment/burglar_base_world/tiles/security_camera/::1671814425
+SecurityCamera.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+SecurityCamera.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tiles/security_camera/security_camera.png<>res://src/environment/burglar_base_world/tiles/security_camera/SecurityCamera.gd<>res://src/environment/burglar_base_world/tiles/VisionArea.tscn
+security_camera.jpeg::CompressedTexture2D::4918084442949789129::1671814117::1671814425::1::::<><>::
+security_camera.png::CompressedTexture2D::5543844939682717907::1671814117::1671814425::1::::<><>::
+::res://src/environment/burglar_base_world/tiles/shadow/::1671814117
+Shadow.gd::GDScript::-1::1671814409::0::1::::<>Area2D<>::
+Shadow.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/burglar_base_world/tiles/shadow/Shadow.gd<>res://src/environment/burglar_base_world/tiles/vision.png
+::res://src/environment/debug_levels/::1671814117
+debug 2.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/base_world/base_world.tscn<>res://src/entities/items/weapons/range/shotgun/Shotgun.tscn<>res://src/entities/players/player/Player.tscn<>res://src/entities/enemies/EnemyImp/EnemyImp.tscn<>res://src/entities/items/medkit/Medkit.tscn<>res://src/entities/items/weapons/range/revolver/Revolver.tscn<>res://src/entities/items/weapons/range/minigun/Minigun.tscn<>res://src/entities/items/weapons/melee/axe/Axe.tscn
+::res://src/environment/levels/::1671814117
+Level_1.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://deleted enemies/player.tscn<>res://src/environment/tilesets/Plants.tscn<>res://src/environment/base_world/base_world.tscn<>res://src/environment/tilesets/Path.tscn<>res://src/entities/items/medkit/Medkit.tscn<>res://src/environment/tilesets/Walls.tscn<>res://src/entities/items/weapons/range/revolver/Revolver.tscn<>res://src/environment/tilesets/Ground.tscn<>res://src/components/spawners/enemy/EnemySpawner.tscn<>res://assets/fonts/windows_command_prompt.ttf<>res://src/environment/post-processing/Default.tres
+Level_2.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/tilesets/Walls.tscn<>res://src/entities/items/weapons/range/revolver/Revolver.tscn<>res://src/entities/players/player/Player.tscn<>res://src/components/spawners/enemy/EnemySpawner.tscn<>res://src/entities/items/weapons/melee/axe/Axe.tscn<>res://src/environment/base_world/base_world.tscn<>res://src/environment/tilesets/Path.tscn<>res://src/entities/items/weapons/range/minigun/Minigun.tscn<>res://src/environment/tilesets/Plants.tscn<>res://src/environment/tilesets/Ground.tscn<>res://src/entities/items/weapons/range/rocket_launcher/RocketLauncher.tscn<>res://src/entities/items/medkit/Medkit.tscn
+::res://src/environment/post-processing/::1671814117
+Default.tres::Environment::-1::1671814409::0::1::::<><>::
+::res://src/environment/tilesets/::1671814117
+Ground.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://test folder/tileset_repaint.png
+GroundYellow.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://assets/environment/texture/TX Tileset Grass.png<>res://assets/environment/texture/TX Tileset Grass Yellow.png
+Path.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://test folder/tileset_repaint.png
+Plants.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://assets/environment/texture/TX Plant.png
+Walls.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://Walls.tres
+::res://src/menu/::1671814425
+DeathScreen.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+DeathScreen.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://assets/fonts/Cowboys 2.0.otf<>res://src/menu/DeathScreen.gd
+FELONY FELINES.png::CompressedTexture2D::4026440679598859710::1671814117::1671814425::1::::<><>::
+Menu.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+Menu.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/menu/Menu.gd<>res://ng reminder.png<>res://src/menu/menu_world/MenuWorld.tscn<>res://FEARLESS FELINES.png<>res://src/menu/DeathScreen.tscn
+::res://src/menu/menu_world/::1671814117
+MenuWorld.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/tilesets/Path.tscn<>res://src/environment/tilesets/Plants.tscn<>res://src/entities/players/player/Player.tscn<>res://src/environment/base_world/base_world.tscn<>res://src/environment/tilesets/Ground.tscn<>res://src/environment/tilesets/Walls.tscn
+::res://src/ScreenEffects/::1671814117
+PointEffect.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+PointEffect.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/ScreenEffects/PointEffect.gd<>res://assets/fonts/windows_command_prompt.ttf
+::res://src/scripts/::1671956500
+AnimationMachine.gd::GDScript::-1::1671956500::0::1::::<>Node<>::
+SoundMachine.gd::GDScript::-1::1671885639::0::1::::<>Node<>::
+State.gd::GDScript::-1::1671814409::0::1::::State<>Node<>::
+StatesMachine.gd::GDScript::-1::1671906909::0::1::::StateMachine<>Node<>::
+::res://src/shaders/::1671814117
+Shader.tres::VisualShader::-1::1671814409::0::1::::<><>::
+::res://src/UI/::1671901701
+healthBar.gd::GDScript::-1::1671901701::0::1::::<>TextureProgressBar<>::
+::res://src/UI/BurglarUI/::1671814425
+alarm-Sheet.png::CompressedTexture2D::8120267130530470913::1671814117::1671814425::1::::<><>::
+BurglarUI.gd::GDScript::-1::1671814409::0::1::::<>Control<>::
+BurglarUI.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/UI/BurglarUI/alarm-Sheet.png<>res://src/UI/BurglarUI/BurglarUI.gd
+::res://src/UI/HealthBar/::1671883907
+HealthBar.tscn::PackedScene::211591778010797958::1671883907::0::1::::<><>::res://src/UI/healthBar.gd
+::res://src/UI/pause/::1671814117
+Pause.gd::GDScript::-1::1671814409::0::1::::<>Control<>::
+Pause.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://assets/fonts/windows_command_prompt.ttf<>res://src/UI/pause/Pause.gd
+::res://src/UI/player_healthbar/::1671954855
+Ammo_Bar.gd::GDScript::-1::1671814409::0::1::::<>Node2D<>::
+Ammo_Bar.tscn::PackedScene::5536368612534798557::1671954855::0::1::::<><>::uid://ch1hxfjmjnj3q<>uid://bjsgu6uxa313b<>res://src/UI/player_healthbar/Ammo_Bar.gd
+PlayerHealthBar.tscn::PackedScene::770563146855700836::1671883907::0::1::::<><>::uid://daq5d3mtctle<>uid://bd7rc5oy0r1c2<>uid://drjce4vfgo0t4
+::res://test 3D folder/::1671814117
+::res://test 3D folder/base 3D entity/::1671814117
+BaseEntity.gd::GDScript::-1::1671814409::0::1::::<>CharacterBody3D<>::
+BaseEntity.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://test 3D folder/base 3D entity/BaseEntity.gd<>res://test 3D folder/base 3D entity/components/Movement.gd<>res://src/scripts/StatesMachine.gd<>res://src/entities/base_templates/base_entity/functions/HealthManager.gd<>res://src/entities/base_templates/base_entity/functions/SpriteDirectionManager.gd
+::res://test 3D folder/base 3D entity/components/::1671814117
+Movement.gd::GDScript::-1::1671814409::0::1::::<>Node3D<>::
+::res://test 3D folder/camera3d/::1671814117
+CameraPivot.gd::GDScript::-1::1671814409::0::1::::<>Node3D<>::
+CameraPivot.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://test 3D folder/camera3d/CameraPivot.gd
+::res://test 3D folder/player3D/::1671814117
+Player3D.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://test 3D folder/base 3D entity/BaseEntity.tscn<>res://assets/entities/players/blue_brother_sheet_96x96.png<>res://src/entities/players/player/states/Death.gd<>res://src/entities/players/player/states/Idle.gd<>res://src/entities/players/player/states/Move.gd<>res://src/entities/players/player/states/Pain.gd
+::res://test 3D folder/spritestack base/::1671814117
+SpriteStack.gd::GDScript::-1::1671814409::0::1::::<>MultiMeshInstance3D<>::
+SpriteStack.gdshader::Shader::-1::1671814117::0::1::::<><>::
+SpriteStack.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://test 3D folder/spritestack base/SpriteStack.gd<>res://test 3D folder/spritestack base/SpriteStack.gdshader
+::res://test 3D folder/test 3d world/::1671814117
+TestWorld.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://test 3D folder/player3D/Player3D.tscn<>res://test 3D folder/camera3d/CameraPivot.tscn
+::res://test folder/::1671814425
+ExplosionEffect.png::CompressedTexture2D::2084633880939774621::1671814117::1671814425::1::::<><>::
+HitEffect.png::CompressedTexture2D::5672024171638705933::1671814117::1671814425::1::::<><>::
+Respawn_Radius.png::CompressedTexture2D::8501438304332006332::1671814117::1671814425::1::::<><>::
+stick.png::CompressedTexture2D::420132017984934670::1671814117::1671814425::1::::<><>::
+test.tscn::PackedScene::-1::1671814409::0::1::::<><>::res://src/environment/base_world/base_world.tscn<>res://src/entities/players/player/player.tscn<>res://src/entities/items/weapons/range/shotgun/Shotgun.tscn<>res://src/entities/items/weapons/range/minigun/Minigun.tscn<>res://src/entities/items/weapons/range/rocket_launcher/RocketLauncher.tscn<>res://src/environment/tilesets/Walls.tscn
+tileset_repaint.png::CompressedTexture2D::6317546150156371662::1671814117::1671814425::1::::<><>::
+::res://test folder/test enemy sprites/::1671814425
+red_ranger_test.png::CompressedTexture2D::4827939675774998481::1671814117::1671814425::1::::<><>::
+::res://test folder/test tileset trees/::1671814117

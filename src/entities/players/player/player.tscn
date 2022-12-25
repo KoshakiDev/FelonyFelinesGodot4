@@ -1,561 +1,622 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=3 uid="uid://ltnclilplvt7"]
 
-[ext_resource path="res://src/entities/base_templates/base_entity/base_entity.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/components/dust_spawner/DustSpawner.tscn" type="PackedScene" id=2]
-[ext_resource path="res://src/components/item_pickup/ItemPickup.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/components/weapon_manager/WeaponManager.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/components/respawn_radius/Respawn.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/UI/player_healthbar/Ammo_Bar.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/entities/players/player/states/Death.gd" type="Script" id=7]
-[ext_resource path="res://src/entities/players/player/states/Move.gd" type="Script" id=8]
-[ext_resource path="res://src/entities/players/player/states/Idle.gd" type="Script" id=9]
-[ext_resource path="res://assets/entities/players/blue_brother_sheet_96x96.png" type="Texture" id=10]
-[ext_resource path="res://src/entities/players/player/Player.gd" type="Script" id=11]
-[ext_resource path="res://src/entities/players/player/states/Pain.gd" type="Script" id=12]
-[ext_resource path="res://addons/mixing-desk/sound/2d/ran_cont.gd" type="Script" id=13]
-[ext_resource path="res://sounds/pickup/Pop 31.wav" type="AudioStream" id=14]
-[ext_resource path="res://sounds/pickup/Pop 41.wav" type="AudioStream" id=15]
-[ext_resource path="res://src/entities/players/player/states/Interacting.gd" type="Script" id=17]
+[ext_resource type="PackedScene" uid="uid://b0yn7ugd4dedl" path="res://src/entities/base_templates/base_entity/base_entity.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://crehpac15c240" path="res://src/components/dust_spawner/DustSpawner.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://dicfgi5duiu35" path="res://src/components/item_pickup/ItemPickup.tscn" id="3"]
+[ext_resource type="PackedScene" uid="uid://1y7coyhr3lqs" path="res://src/components/item_manager/ItemManager.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://cwt2xpek87i0s" path="res://src/components/respawn_radius/Respawn.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://ck44ggug3q4v6" path="res://src/UI/player_healthbar/Ammo_Bar.tscn" id="6"]
+[ext_resource type="Script" path="res://src/entities/players/player/states/Death.gd" id="7"]
+[ext_resource type="Script" path="res://src/entities/players/player/states/Move.gd" id="8"]
+[ext_resource type="Script" path="res://src/entities/players/player/states/Idle.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://bj6rolkifwjlc" path="res://assets/entities/players/blue_brother_sheet_96x96.png" id="10"]
+[ext_resource type="Script" path="res://src/entities/players/player/Player.gd" id="11"]
+[ext_resource type="Script" path="res://src/entities/players/player/states/Pain.gd" id="12"]
+[ext_resource type="Script" path="res://src/entities/players/player/states/Interacting.gd" id="17"]
 
-[sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 12, 27 )
+[sub_resource type="RectangleShape2D" id="23"]
+size = Vector2(24, 54)
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id="8"]
 resource_name = "Accel"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ 16, 17, 18 ]
+"values": [16, 17, 18]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = false
 tracks/1/path = NodePath("AnimationMachine/Movement")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = false
 tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 }
 tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Visuals/DustSpawner")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "spawn_dust"
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
-} ]
+"args": [],
+"method": &"spawn_dust"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Sprite2D/InventoryPosition/ItemManager:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(13, 13), Vector2(14, 15), Vector2(15, 17)]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id="9"]
 resource_name = "Death"
 length = 0.9
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 48, 49, 50, 51, 52, 53, 54, 55, 55 ]
+"values": [48, 49, 50, 51, 52, 53, 54, 55, 55]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("AnimationMachine/Movement")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.9 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ "Death_loop", -1, 1.0, false ],
-"method": "play"
-} ]
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Death_loop", -1, 1.0, false],
+"method": &"play"
+}]
 }
 tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Visuals/DustSpawner")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "spawn_dust"
+"times": PackedFloat32Array(0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
-} ]
+"args": [],
+"method": &"spawn_dust"
+}]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id="10"]
 resource_name = "Death_loop"
 length = 0.001
-loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ 55 ]
+"values": [55]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id="12"]
 resource_name = "Decel"
 length = 0.3
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ 24, 25, 26 ]
+"values": [24, 25, 26]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("AnimationMachine/Movement")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ "Idle", -1, 1.0, false ],
-"method": "play"
-} ]
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Idle", -1, 1.0, false],
+"method": &"play"
+}]
 }
 tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Visuals/DustSpawner")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.11, 0.13, 0.15, 0.17, 0.19, 0.21 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "spawn_dust"
+"times": PackedFloat32Array(0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.11, 0.13, 0.15, 0.17, 0.19, 0.21),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
-} ]
+"args": [],
+"method": &"spawn_dust"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Sprite2D/InventoryPosition/ItemManager:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(13, 17), Vector2(13, 15), Vector2(13, 13)]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id="27"]
 resource_name = "Hide"
 length = 6.0
-loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5, 3.1, 4.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 1.5, 3.1, 4.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ 34, 33, 42, 41 ]
+"values": [34, 33, 42, 41]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Visuals/Sprite:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 0.498039, 0.498039, 0.498039, 1 ) ]
+"values": [Color(0.498039, 0.498039, 0.498039, 1)]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id="26"]
 resource_name = "Hit_Back"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ 40, 41, 42 ]
+"values": [40, 41, 42]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id="25"]
 resource_name = "Hit_Front"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ 32, 33, 34 ]
+"values": [32, 33, 34]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id="13"]
 resource_name = "Idle"
 length = 0.6
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5 ]
+"values": [0, 1, 2, 3, 4, 5]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Visuals/Sprite:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D/InventoryPosition/ItemManager:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, 13)]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id="15"]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 0 ]
+"values": [0]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Visuals/Sprite:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/Sprite2D/InventoryPosition/ItemManager:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(13, 13)]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id="16"]
 resource_name = "Respawn"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 52, 51, 50, 49, 48 ]
+"values": [52, 51, 50, 49, 48]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id="18"]
 resource_name = "Run"
 length = 0.6
-loop = true
+loop_mode = 1
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 8, 9, 10, 11, 12, 13 ]
+"values": [8, 9, 10, 11, 12, 13]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Visuals/DustSpawner")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.2, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "spawn_dust"
+"times": PackedFloat32Array(0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
-} ]
+"args": [],
+"method": &"spawn_dust"
+}]
 }
 tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("SoundMachine")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.1, 0.4 ),
-"transitions": PoolRealArray( 1, 1 ),
-"values": [ {
-"args": [ "Footstep" ],
-"method": "play_sound"
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": ["Footstep"],
+"method": &"play_sound"
 }, {
-"args": [ "Footstep" ],
-"method": "play_sound"
-} ]
+"args": ["Footstep"],
+"method": &"play_sound"
+}]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Visuals/Sprite:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/Sprite2D/InventoryPosition/ItemManager:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(16, 8), Vector2(16, 16), Vector2(16, 17), Vector2(16, 8), Vector2(16, 16), Vector2(16, 17)]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_acu3i"]
+_data = {
+"Accel": SubResource("8"),
+"Death": SubResource("9"),
+"Death_loop": SubResource("10"),
+"Decel": SubResource("12"),
+"Hide": SubResource("27"),
+"Hit_Back": SubResource("26"),
+"Hit_Front": SubResource("25"),
+"Idle": SubResource("13"),
+"RESET": SubResource("15"),
+"Respawn": SubResource("16"),
+"Run": SubResource("18")
+}
+
+[sub_resource type="Animation" id="28"]
 resource_name = "Hidden"
 length = 0.001
-loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Visuals/Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("../Visuals/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 0.498039, 0.498039, 0.498039, 1 ) ]
+"values": [Color(0.498039, 0.498039, 0.498039, 1)]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id="29"]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Visuals/Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("../Visuals/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id="30"]
 resource_name = "Unhidden"
 length = 0.001
-loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("../Visuals/Sprite:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
+tracks/0/path = NodePath("../Visuals/Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="CapsuleShape2D" id=24]
-radius = 5.0
-height = 8.0
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6irfs"]
+_data = {
+"Hidden": SubResource("28"),
+"RESET": SubResource("29"),
+"Unhidden": SubResource("30")
+}
 
-[node name="Player" groups=["PLAYER"] instance=ExtResource( 1 )]
+[sub_resource type="CapsuleShape2D" id="24"]
+radius = 4.0
+height = 26.0
+
+[node name="Player" groups=["PLAYER"] instance=ExtResource("1")]
 collision_layer = 2
 collision_mask = 5
-script = ExtResource( 11 )
-entity_type = "PLAYER"
+script = ExtResource("11")
 player_id = "_1"
+entity_type = "PLAYER"
+metadata/_edit_vertical_guides_ = [6.0, 13.0, 6.0]
+
+[node name="StateMachine" parent="." index="0"]
+initial_state = NodePath("Idle")
+
+[node name="Interacting" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("17")
+
+[node name="Idle" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("9")
+
+[node name="Move" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("8")
+
+[node name="Death" type="Node" parent="StateMachine" index="3"]
+script = ExtResource("7")
+
+[node name="Pain" type="Node" parent="StateMachine" index="4"]
+script = ExtResource("12")
 
 [node name="Hurtbox" parent="Areas" index="0"]
 collision_layer = 64
+collision_mask = 16
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
-position = Vector2( 0, -27 )
-shape = SubResource( 23 )
+position = Vector2(0, -27)
+shape = SubResource("23")
 
-[node name="ItemPickup" parent="Areas" index="1" instance=ExtResource( 3 )]
+[node name="ItemPickup" parent="Areas" index="1" instance=ExtResource("3")]
 visible = false
 
-[node name="Respawn" parent="Areas" index="2" instance=ExtResource( 5 )]
+[node name="Respawn" parent="Areas" index="2" instance=ExtResource("5")]
 visible = false
 show_behind_parent = true
-position = Vector2( 0, -20 )
+position = Vector2(0, -20)
 respawn_time = 4.0
 
-[node name="Sprite" parent="Visuals" index="0"]
-position = Vector2( 0, -48 )
-texture = ExtResource( 10 )
+[node name="Sprite2D" parent="Visuals" index="0"]
+position = Vector2(0, -48)
+texture = ExtResource("10")
 hframes = 8
 vframes = 7
 
-[node name="WeaponManager" parent="Visuals/Sprite" index="0" instance=ExtResource( 4 )]
-position = Vector2( 10, 16 )
+[node name="InventoryPosition" type="Marker2D" parent="Visuals/Sprite2D" index="0"]
 
-[node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource( 2 )]
+[node name="ItemManager" parent="Visuals/Sprite2D/InventoryPosition" index="0" instance=ExtResource("4")]
+position = Vector2(13, 13)
 
-[node name="HealthManager" parent="." index="2"]
+[node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource("2")]
+
+[node name="HealthManager" parent="." index="3"]
 max_health = 100.0
 
 [node name="Movement" type="AnimationPlayer" parent="AnimationMachine" index="0"]
 root_node = NodePath("../..")
-anims/Accel = SubResource( 8 )
-anims/Death = SubResource( 9 )
-anims/Death_loop = SubResource( 10 )
-anims/Decel = SubResource( 12 )
-anims/Hide = SubResource( 27 )
-anims/Hit_Back = SubResource( 26 )
-anims/Hit_Front = SubResource( 25 )
-anims/Idle = SubResource( 13 )
-anims/RESET = SubResource( 15 )
-anims/Respawn = SubResource( 16 )
-anims/Run = SubResource( 18 )
+libraries = {
+"": SubResource("AnimationLibrary_acu3i")
+}
 
 [node name="Hidden" type="AnimationPlayer" parent="AnimationMachine" index="1"]
-anims/Hidden = SubResource( 28 )
-anims/RESET = SubResource( 29 )
-anims/Unhidden = SubResource( 30 )
+libraries = {
+"": SubResource("AnimationLibrary_6irfs")
+}
 
-[node name="StateMachine" parent="." index="5"]
-initial_state = NodePath("Idle")
+[node name="HealthBar" parent="." index="6"]
+position = Vector2(0, -85)
 
-[node name="Interacting" type="Node" parent="StateMachine" index="0"]
-script = ExtResource( 17 )
+[node name="AmmoBar" parent="." index="8" instance=ExtResource("6")]
+position = Vector2(-32, -93)
+scale = Vector2(0.5, 0.5)
 
-[node name="Idle" type="Node" parent="StateMachine" index="1"]
-script = ExtResource( 9 )
-
-[node name="Move" type="Node" parent="StateMachine" index="2"]
-script = ExtResource( 8 )
-
-[node name="Death" type="Node" parent="StateMachine" index="3"]
-script = ExtResource( 7 )
-
-[node name="Pain" type="Node" parent="StateMachine" index="4"]
-script = ExtResource( 12 )
-
-[node name="Pickup" type="Node2D" parent="SoundMachine" index="4"]
-script = ExtResource( 13 )
-pitch_range = 0.05
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundMachine/Pickup" index="0"]
-stream = ExtResource( 14 )
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="SoundMachine/Pickup" index="1"]
-stream = ExtResource( 15 )
-
-[node name="HealthBar" parent="." index="7"]
-position = Vector2( 0, -85 )
-
-[node name="AmmoBar" parent="." index="8" instance=ExtResource( 6 )]
-position = Vector2( -32, -93 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="PhysicsCollider" parent="." index="11"]
-shape = SubResource( 24 )
+[node name="PhysicsCollider" parent="." index="10"]
+shape = SubResource("24")
 
 [editable path="Areas/Hurtbox"]

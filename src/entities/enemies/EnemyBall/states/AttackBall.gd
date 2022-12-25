@@ -1,7 +1,7 @@
 extends State
 
-onready var duration_timer = $DashDurationTimer
-onready var cooldown_timer = $Cooldown
+@onready var duration_timer = $DashDurationTimer
+@onready var cooldown_timer = $Cooldown
 
 func enter(msg := {}) -> void:
 	if !cooldown_timer.is_stopped():
@@ -46,7 +46,7 @@ func end_dash():
 	if is_dashing():
 		owner.set_animation(0.3, "Animations")
 	else:
-		yield(owner.animation_machine.find("Animations"), "animation_finished")
+		await owner.animation_machine.find("Animations").animation_finished
 		state_machine.transition_to("Chase")
 		pass
 

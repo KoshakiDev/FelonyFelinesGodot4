@@ -6,7 +6,7 @@
 [ext_resource path="res://src/entities/enemies/SharedStates/Death.gd" type="Script" id=4]
 [ext_resource path="res://src/entities/enemies/SharedStates/Chase.gd" type="Script" id=5]
 [ext_resource path="res://src/entities/enemies/SharedStates/Idle.gd" type="Script" id=6]
-[ext_resource path="res://assets/entities/enemies/imp/deputy_dent_imp_sheet_80x80_4x10.png" type="Texture" id=7]
+[ext_resource path="res://assets/entities/enemies/imp/deputy_dent_imp_sheet_80x80_4x10.png" type="Texture2D" id=7]
 [ext_resource path="res://src/entities/enemies/SharedStates/Pain.gd" type="Script" id=8]
 [ext_resource path="res://src/components/dust_spawner/DustSpawner.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sounds/imp/Juicy Crack and Break_VM 01.wav" type="AudioStream" id=10]
@@ -33,7 +33,7 @@ operator = 6
 [sub_resource type="VisualShaderNodeVectorOp" id=4]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanUniform" id=5]
+[sub_resource type="VisualShaderNodeBooleanParameter" id=5]
 uniform_name = "active"
 
 [sub_resource type="VisualShader" id=6]
@@ -48,7 +48,7 @@ void vertex() {
 }
 
 void fragment() {
-// Texture:3
+// Texture2D:3
 	vec3 n_out3p0;
 	float n_out3p1;
 	{
@@ -94,7 +94,7 @@ nodes/fragment/9/node = SubResource( 5 )
 nodes/fragment/9/position = Vector2( 400, 0 )
 nodes/fragment/11/node = SubResource( 1 )
 nodes/fragment/11/position = Vector2( 400, 120 )
-nodes/fragment/connections = PoolIntArray( 3, 1, 0, 1, 3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1 )
+nodes/fragment/connections = PackedInt32Array( 3, 1, 0, 1, 3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1 )
 
 [sub_resource type="ShaderMaterial" id=7]
 resource_local_to_scene = true
@@ -105,14 +105,14 @@ shader_param/active = false
 resource_name = "Attack"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 11, 12, 13, 14, 15 ]
 }
@@ -123,8 +123,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0.1, 0.3 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "spawn_dust"
@@ -144,22 +144,22 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.7 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.7 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
 "method": "delete_enemy"
 } ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Visuals/Sprite:frame")
+tracks/1/path = NodePath("Visuals/Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 30, 31, 32, 33, 34, 35, 36 ]
 }
@@ -168,14 +168,14 @@ tracks/1/keys = {
 resource_name = "Hit_Back"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 1,
 "values": [ 34, 33, 32 ]
 }
@@ -184,14 +184,14 @@ tracks/0/keys = {
 resource_name = "Hit_Front"
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 1,
 "values": [ 34, 33, 32 ]
 }
@@ -201,14 +201,14 @@ resource_name = "Idle"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
@@ -216,14 +216,14 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=14]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0 ]
 }
@@ -234,8 +234,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ false ]
 }
@@ -246,8 +246,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ false ]
 }
@@ -258,8 +258,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ true ]
 }
@@ -270,8 +270,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 0, -56 ) ]
 }
@@ -281,14 +281,14 @@ resource_name = "Run"
 length = 0.6
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Visuals/Sprite:frame")
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 20, 23, 24, 26, 27, 28 ]
 }
@@ -299,8 +299,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ Vector2( 0, -56 ), Vector2( 0, -70 ), Vector2( 0, -85 ), Vector2( 0, -70 ), Vector2( 0, -56 ) ]
 }
@@ -311,8 +311,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0.4, 0.5, 0.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "spawn_dust"
@@ -331,8 +331,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.4 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.4 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [ "Footstep" ],
 "method": "play_sound"
@@ -375,7 +375,7 @@ knockback_value = 500.0
 position = Vector2( 0, -25 )
 shape = SubResource( 20 )
 
-[node name="Sprite" parent="Visuals" index="0"]
+[node name="Sprite2D" parent="Visuals" index="0"]
 material = SubResource( 7 )
 position = Vector2( 0, -37 )
 texture = ExtResource( 7 )

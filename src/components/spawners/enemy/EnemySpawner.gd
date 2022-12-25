@@ -1,6 +1,6 @@
-extends Position2D
+extends Marker2D
 
-onready var spawn_area = $Area2D/CollisionShape2D.shape.extents
+@onready var spawn_area = $Area2D/CollisionShape2D.shape.extents
 
 #var enemyLoad = [preload("res://src/entities/enemies/EnemyGunner/EnemyGunner.tscn"),
 #			 preload("res://src/entities/enemies/EnemyBall/EnemyBall.tscn"),
@@ -11,16 +11,16 @@ var enemyLoad = [preload("res://src/entities/enemies/EnemyGunner/EnemyGunner.tsc
 			preload("res://src/entities/enemies/EnemyImp/EnemyImp.tscn")]
 
 
-#onready var enemies = $"../YSort"
+#onready var enemies = $"../Node2D"
 
 func random_pos():
-	var offset = Vector2(rand_range(-spawn_area.x, spawn_area.x), rand_range(-spawn_area.y, spawn_area.y))
+	var offset = Vector2(randf_range(-spawn_area.x, spawn_area.x), randf_range(-spawn_area.y, spawn_area.y))
 	return global_position + offset
 
 func add_enemies(count):
 	randomize()
 	var imp_counter = 0
 	for i in range(count):
-		var enemy = enemyLoad[randi() % enemyLoad.size()].instance()
+		var enemy = enemyLoad[randi() % enemyLoad.size()].instantiate()
 		Global.enemies.add_child(enemy)
 		enemy.global_position = random_pos()

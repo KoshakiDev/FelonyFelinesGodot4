@@ -4,10 +4,10 @@ extends State
 Knockout State for Burglar mode enemies
 """
 
-onready var timer = $Timer
+@onready var timer = $Timer
 
 func _ready():
-	timer.connect("timeout", self, "timeout")
+	timer.connect("timeout",Callable(self,"timeout"))
 
 func enter(msg := {}) -> void:
 	owner.turn_off_all()

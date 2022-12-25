@@ -8,7 +8,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.connect("update_alarm_count", self, "update_alarm_count")
+	Global.connect("update_alarm_count",Callable(self,"update_alarm_count"))
 
 func update_alarm_count():
 	var children = get_children()

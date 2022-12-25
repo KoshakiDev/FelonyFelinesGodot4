@@ -1,18 +1,18 @@
 extends Node2D
 
 #onready var info_text = $UILayer/InfoPos/Info
-onready var timer = $WaveTimer
+@onready var timer = $WaveTimer
 
 
-onready var entity_world = $World/EntityWorld
+@onready var entity_world = $World3D/EntityWorld
 
-onready var enemies = $World/EntityWorld/Enemies
-onready var projectiles = $World/EntityWorld/Projectiles
-onready var players = $World/EntityWorld/Players
-onready var items = $World/EntityWorld/Items
-onready var spawners = $World/EntityWorld/Spawners.get_children()
-onready var misc = $World/EntityWorld/Misc
-onready var misc_2 = $World/Misc2
+@onready var enemies = $World3D/EntityWorld/Enemies
+@onready var projectiles = $World3D/EntityWorld/Projectiles
+@onready var players = $World3D/EntityWorld/Players
+@onready var items = $World3D/EntityWorld/Items
+@onready var spawners = $World3D/EntityWorld/Spawners.get_children()
+@onready var misc = $World3D/EntityWorld/Misc
+@onready var misc_2 = $World3D/Misc2
 
 #var wave_num = 0
 #var points = 0
@@ -39,17 +39,17 @@ func _ready():
 	Global.set("misc", misc)
 	Global.set("misc_2", misc_2)
 	
-	#yield(get_tree().root, "ready")
+	#await get_tree().root.ready
 	
 	#Global.UI_layer.update_board(points, wave_num, enemy_count)
 	
 	#update_wave()
-	Global.connect("all_dead", self, "all_players_dead")
+	Global.connect("all_dead",Callable(self,"all_players_dead"))
 	
 #func update_board():
 #	print(points)
-##	info_text.bbcode_text = "[center]WAVE: " + str(wave_num) + "[/center]\n[center]POINTS: " + str(points) + "[/center]\n[center]LEFT: " + str(enemy_count) + "[/center]"
-#	info_text.bbcode_text = "[wave amp=10 freq=2][color=black]WAVE: %s \nPOINTS: %s \nLEFT: %s " % [str(wave_num), str(points), str(enemy_count)]
+##	info_text.text = "[center]WAVE: " + str(wave_num) + "[/center]\n[center]POINTS: " + str(points) + "[/center]\n[center]LEFT: " + str(enemy_count) + "[/center]"
+#	info_text.text = "[wave amp=10 freq=2][color=black]WAVE: %s \nPOINTS: %s \nLEFT: %s " % [str(wave_num), str(points), str(enemy_count)]
 
 func update_points(point_amount):
 	Global.points += point_amount
@@ -60,7 +60,7 @@ func update_wave():
 	is_wave_updating = true
 	Global.UI_layer.update_board()
 	timer.start()
-	yield(timer, "timeout")
+	await timer.timeout
 	
 	Global.wave_num += 1
 	
@@ -76,7 +76,7 @@ func update_wave():
 func all_players_dead():
 	$Dead.play()
 	#timer.start()
-	#yield(timer, "timeout")
+	#await timer.timeout
 	
 	#show_death_screen()
 	Global.final_score = Global.points
@@ -86,7 +86,7 @@ func all_players_dead():
 	back_to_menu()
 
 func show_death_screen():
-	SceneChanger.change_scene("res://src/menu/DeathScreen.tscn", "fade")
+	SceneChanger.change_scene_to_file("res://src/menu/DeathScreen.tscn", "fade")
 
 func back_to_menu():
-	SceneChanger.change_scene("res://src/menu/Menu.tscn", "fade")
+	SceneChanger.change_scene_to_file("res://src/menu/Menu.tscn", "fade")

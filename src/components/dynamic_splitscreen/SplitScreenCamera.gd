@@ -1,12 +1,12 @@
 extends Node
 
-export var enable_splitscreen = true
+@export var enable_splitscreen = true
 
-export var current_world_path := NodePath()
+@export var current_world_path := NodePath()
 
-onready var viewport1 = $Cameras/ViewportContainer/Viewport1
+@onready var viewport1 = $Cameras/SubViewportContainer/Viewport1
 
-onready var cameras = $Cameras
+@onready var cameras = $Cameras
 
 func _ready():
 	if current_world_path: 

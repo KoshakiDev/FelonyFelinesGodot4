@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/rocket_launch.wav-039d4ec76fedee7a5ff5733984b61dda.sample"
+type="AudioStreamWAV"
+uid="uid://c63tx00gcust"
+path="res://.godot/imported/rocket_launch.wav-039d4ec76fedee7a5ff5733984b61dda.sample"
 
 [deps]
 
 source_file="res://sounds/rocket/rocket_launch.wav"
-dest_files=[ "res://.import/rocket_launch.wav-039d4ec76fedee7a5ff5733984b61dda.sample" ]
+dest_files=["res://.godot/imported/rocket_launch.wav-039d4ec76fedee7a5ff5733984b61dda.sample"]
 
 [params]
 
