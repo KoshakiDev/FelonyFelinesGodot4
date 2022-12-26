@@ -1,6 +1,7 @@
 class_name BulletEmitter
 extends Resource
 
+var bullet_spawner_reference: BulletSpawner
 	
 func shoot(_bullet_instance : Projectile, bullet_scene : PackedScene):
 	pass

@@ -10,12 +10,12 @@ func enter(msg := {}) -> void:
 	start_cooldown_timer()
 	calculate_dash_direction()
 	owner.play_animation("Attack", "Animations")
-	owner.attack_sound.play()
-	owner._turn_on_hitbox()
+	owner.sound_machine.play_sound("Attack")
+	owner.hitbox.turn_on()
 
 func exit() -> void:
 	owner.dash_direction = Vector2.ZERO
-	owner._turn_off_hitbox()
+	owner.hitbox.turn_off()
 
 func physics_update(delta):
 	if owner.health_manager.is_dead():

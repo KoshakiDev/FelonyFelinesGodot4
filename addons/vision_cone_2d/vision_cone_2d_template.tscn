@@ -5,7 +5,7 @@
 
 [node name="VisionCone2D" type="Node2D" node_paths=PackedStringArray("write_collision_polygon", "write_polygon2d")]
 script = ExtResource("1_eakwj")
-collision_layer_mask = 2
+collision_layer_mask = 1
 write_collision_polygon = NodePath("VisionConeArea/VisionConeCollider")
 write_polygon2d = NodePath("VisionConeRenderer")
 

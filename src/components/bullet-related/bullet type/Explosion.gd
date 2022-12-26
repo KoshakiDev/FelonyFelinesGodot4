@@ -5,7 +5,9 @@ extends "res://src/components/hitbox-hurtbox/hitbox/Hitbox.gd"
 # var a = 2
 # var b = "text"
 
+@onready var bullet_spawner = $BulletSpawner
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimationPlayer.play("Explode")
+	bullet_spawner.shoot()

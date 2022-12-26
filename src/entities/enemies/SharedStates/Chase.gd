@@ -1,7 +1,6 @@
 extends State
-"""
-Shared Chase state for enemies
-"""
+
+#Shared Chase state for enemies
 
 func enter(msg := {}) -> void:
 	owner.play_animation("Run", "Animations")
@@ -10,20 +9,20 @@ func physics_update(delta: float) -> void:
 	if owner.health_manager.is_dead():
 		state_machine.transition_to("Death")
 		return
-	"""
-	if owner.nav_agent.is_navigation_finished():
-		owner.nav_agent.can_update_path = true
-		print("navigation finished")
-		state_machine.transition_to("Idle")
-		return
-	"""
+	
+#	if owner.nav_agent.is_navigation_finished():
+#		owner.nav_agent.can_update_path = true
+#		print("navigation finished")
+#		state_machine.transition_to("Idle")
+#		return
+	
 	
 	var target = owner.search_for_target()
 	if target == null:
 		state_machine.transition_to("Idle")
 		return
 	
-	if owner.is_target_in_aim(target) and owner.current_bodies_in_attack_range.size() > 0:
+	if owner.current_bodies_in_attack_range.size() > 0:
 		state_machine.transition_to("Attack")
 		return
 	if owner.nav_agent.can_update_path:
@@ -33,6 +32,6 @@ func physics_update(delta: float) -> void:
 		
 	var target_global_position = owner.nav_agent.get_next_location()
 	var direction = owner.global_position.direction_to(target_global_position)
-	owner.movement.move(direction)
-	owner.nav_agent.set_velocity(owner.movement.intended_velocity)
+	owner.apply_internal_force(direction)
+	owner.nav_agent.set_velocity(owner.internal_forces)
 	

@@ -1,510 +1,451 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=3 uid="uid://udiltd8e0a33"]
 
-[ext_resource path="res://src/entities/base_templates/base_npc/base_npc.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/entities/enemies/EnemyBall/states/AttackBall.gd" type="Script" id=2]
-[ext_resource path="res://src/entities/enemies/SharedStates/Chase.gd" type="Script" id=3]
-[ext_resource path="res://src/entities/enemies/SharedStates/Death.gd" type="Script" id=4]
-[ext_resource path="res://src/entities/enemies/EnemyBall/EnemyBaller.gd" type="Script" id=5]
-[ext_resource path="res://src/entities/enemies/SharedStates/Idle.gd" type="Script" id=6]
-[ext_resource path="res://assets/entities/enemies/ball/chief_chub_ball_sheet_128x128_8x11.png" type="Texture2D" id=7]
-[ext_resource path="res://src/entities/enemies/SharedStates/Pain.gd" type="Script" id=8]
-[ext_resource path="res://src/components/dust_spawner/DustSpawner.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn" type="PackedScene" id=10]
-[ext_resource path="res://sounds/baller/EFX INT Siren Whistle 02.wav" type="AudioStream" id=11]
-[ext_resource path="res://sounds/hit/Ilmarinen,blacksmith,forge,hammer,anvil,strike,loose,ringing,splash,iron,thin.M.wav" type="AudioStream" id=12]
-[ext_resource path="res://sounds/hit/EFX SD Heads Hit Together 02.wav" type="AudioStream" id=13]
+[ext_resource type="PackedScene" uid="uid://dj4imexibaje1" path="res://src/entities/base_templates/base_npc/base_npc.tscn" id="1"]
+[ext_resource type="Script" path="res://src/entities/enemies/EnemyBall/states/AttackBall.gd" id="2"]
+[ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Chase.gd" id="3"]
+[ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Death.gd" id="4"]
+[ext_resource type="Script" path="res://src/entities/enemies/EnemyBall/EnemyBaller.gd" id="5"]
+[ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Idle.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://gey5fras4jrj" path="res://assets/entities/enemies/ball/chief_chub_ball_sheet_128x128_8x11.png" id="7"]
+[ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Pain.gd" id="8"]
+[ext_resource type="PackedScene" uid="uid://crehpac15c240" path="res://src/components/dust_spawner/DustSpawner.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://k8bvo4y6ng0" path="res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn" id="10"]
+[ext_resource type="AudioStream" uid="uid://sl1mjnrov603" path="res://sounds/baller/EFX INT Siren Whistle 02.wav" id="11"]
+[ext_resource type="AudioStream" uid="uid://do48tqj5ces5w" path="res://sounds/hit/Ilmarinen,blacksmith,forge,hammer,anvil,strike,loose,ringing,splash,iron,thin.M.wav" id="12"]
+[ext_resource type="AudioStream" uid="uid://bfd7t8cljbaei" path="res://sounds/hit/EFX SD Heads Hit Together 02.wav" id="13"]
 
-[sub_resource type="RectangleShape2D" id=16]
-extents = Vector2( 35.5, 46 )
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bl7n"]
+size = Vector2(71, 92)
 
-[sub_resource type="CircleShape2D" id=17]
-radius = 300.0
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_exxui"]
 
-[sub_resource type="CircleShape2D" id=21]
-radius = 34.0147
-
-[sub_resource type="VisualShaderNodeColorConstant" id=1]
-
-[sub_resource type="VisualShaderNodeTexture" id=2]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_vlxkg"]
 source = 2
 
-[sub_resource type="VisualShaderNodeVectorOp" id=3]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_exvhj"]
 operator = 6
 
-[sub_resource type="VisualShaderNodeVectorOp" id=4]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_yh5qn"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanParameter" id=5]
-uniform_name = "active"
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_5kqns"]
+parameter_name = "active"
 
-[sub_resource type="VisualShader" id=6]
+[sub_resource type="VisualShader" id="VisualShader_8na33"]
 code = "shader_type canvas_item;
 uniform bool active;
 
 
 
-void vertex() {
-// Output:0
-
-}
-
 void fragment() {
+	vec4 n_out3p0;
 // Texture2D:3
-	vec3 n_out3p0;
-	float n_out3p1;
-	{
-		vec4 _tex_read = texture(TEXTURE , UV.xy);
-		n_out3p0 = _tex_read.rgb;
-		n_out3p1 = _tex_read.a;
-	}
+	n_out3p0 = texture(TEXTURE, UV);
 
-// BooleanUniform:9
+
+// BooleanParameter:9
 	bool n_out9p0 = active;
 
-// Color:11
-	vec3 n_out11p0 = vec3(1.000000, 1.000000, 1.000000);
-	float n_out11p1 = 1.000000;
+
+// ColorConstant:11
+	vec4 n_out11p0 = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+
 
 // VectorOp:6
-	vec3 n_out6p0 = vec3(n_out9p0 ? 1.0 : 0.0) * n_out11p0;
+	vec3 n_out6p0 = vec3(n_out9p0 ? 1.0 : 0.0) * vec3(n_out11p0.xyz);
+
 
 // VectorOp:5
-	vec3 n_out5p0 = max(n_out3p0, n_out6p0);
+	vec3 n_out5p0 = max(vec3(n_out3p0.xyz), n_out6p0);
+
 
 // Output:0
 	COLOR.rgb = n_out5p0;
-	COLOR.a = n_out3p1;
 
-}
-
-void light() {
-// Output:0
 
 }
 "
 mode = 1
 flags/light_only = false
-nodes/fragment/0/position = Vector2( 1040, 60 )
-nodes/fragment/3/node = SubResource( 2 )
-nodes/fragment/3/position = Vector2( 600, -40 )
-nodes/fragment/5/node = SubResource( 3 )
-nodes/fragment/5/position = Vector2( 860, -60 )
-nodes/fragment/6/node = SubResource( 4 )
-nodes/fragment/6/position = Vector2( 600, 100 )
-nodes/fragment/9/node = SubResource( 5 )
-nodes/fragment/9/position = Vector2( 400, 0 )
-nodes/fragment/11/node = SubResource( 1 )
-nodes/fragment/11/position = Vector2( 400, 120 )
-nodes/fragment/connections = PackedInt32Array( 3, 1, 0, 1, 3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1 )
+nodes/fragment/0/position = Vector2(1040, 60)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_vlxkg")
+nodes/fragment/3/position = Vector2(600, -40)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_exvhj")
+nodes/fragment/5/position = Vector2(860, -60)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_yh5qn")
+nodes/fragment/6/position = Vector2(600, 100)
+nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_5kqns")
+nodes/fragment/9/position = Vector2(400, 0)
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_exxui")
+nodes/fragment/11/position = Vector2(400, 120)
+nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1)
 
-[sub_resource type="ShaderMaterial" id=7]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mq1a2"]
 resource_local_to_scene = true
-shader = SubResource( 6 )
-shader_param/active = false
+shader = SubResource("VisualShader_8na33")
+shader_parameter/active = false
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id="Animation_st4mp"]
 resource_name = "Attack"
 length = 1.4
 tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("StateMachine/Attack")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0.2, 1.1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "start_dash"
+"times": PackedFloat32Array(0.2, 1.1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"start_dash"
 }, {
-"args": [  ],
-"method": "end_dash"
-} ]
+"args": [],
+"method": &"end_dash"
+}]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Visuals/Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 11, 12, 13, 22, 23, 24, 25, 26, 27, 28, 29, 33, 34, 35 ]
+"values": [11, 12, 13, 22, 23, 24, 25, 26, 27, 28, 29, 33, 34, 35]
 }
 tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0.1, 1.2 ),
-"transitions": PackedFloat32Array( 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "_turn_on_hitbox"
+"times": PackedFloat32Array(0.1, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"_turn_on_hitbox"
 }, {
-"args": [  ],
-"method": "_turn_off_hitbox"
-} ]
+"args": [],
+"method": &"_turn_off_hitbox"
+}]
 }
 tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("Visuals/DustSpawner")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PackedFloat32Array( 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "spawn_dust"
+"times": PackedFloat32Array(0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
-} ]
+"args": [],
+"method": &"spawn_dust"
+}]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id="Animation_81oof"]
 resource_name = "Death"
 length = 1.2
 tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("StateMachine/Death")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 1.2 ),
-"transitions": PackedFloat32Array( 1 ),
-"values": [ {
-"args": [  ],
-"method": "delete_enemy"
-} ]
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"delete_enemy"
+}]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Visuals/Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 87 ]
+"values": [77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 87]
 }
 tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Visuals/DustSpawner")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0.2, 0.8, 0.9, 1 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "spawn_dust"
+"times": PackedFloat32Array(0.2, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
-} ]
+"args": [],
+"method": &"spawn_dust"
+}]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id="Animation_kd4lp"]
 resource_name = "Hit_Back"
 length = 0.3
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ 66, 67, 68 ]
+"values": [66, 67, 68]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id="Animation_me1l1"]
 resource_name = "Hit_Front"
 length = 0.3
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2 ),
-"transitions": PackedFloat32Array( 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ 55, 56, 57 ]
+"values": [55, 56, 57]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id="Animation_v6uhq"]
 resource_name = "Idle"
 length = 0.5
-loop = true
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4 ]
+"values": [0, 1, 2, 3, 4]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id="Animation_bak78"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 0 ]
+"values": [0]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("../StateMachine/Death:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ false ]
+"values": [false]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
 tracks/2/path = NodePath("../Dash:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = false
 tracks/2/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ false ]
+"values": [false]
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("../Hurtbox/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 0, -48 ) ]
+"values": [Vector2(0, -48)]
 }
 tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
 tracks/4/path = NodePath("../Hurtbox/CollisionShape2D:shape:extents")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
 tracks/4/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 38.5, 48 ) ]
+"values": [Vector2(38.5, 48)]
 }
 tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
 tracks/5/path = NodePath("../Hurtbox/CollisionShape2D:disabled")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
 tracks/5/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ false ]
+"values": [false]
 }
 tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
 tracks/6/path = NodePath("../Hitbox/CollisionShape2D:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
 tracks/6/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ true ]
+"values": [true]
 }
 tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
 tracks/7/path = NodePath("Visuals/Sprite2D:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
 tracks/7/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 0 ]
+"values": [0]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id="Animation_xqgcc"]
 resource_name = "Run"
 length = 0.6
-loop = true
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Visuals/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 44, 45, 46, 47, 48, 49 ]
+"values": [44, 45, 46, 47, 48, 49]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Visuals/DustSpawner")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0.1, 0.2, 0.4, 0.5 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
-"values": [ {
-"args": [  ],
-"method": "spawn_dust"
+"times": PackedFloat32Array(0.1, 0.2, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
+"args": [],
+"method": &"spawn_dust"
 }, {
-"args": [  ],
-"method": "spawn_dust"
-} ]
+"args": [],
+"method": &"spawn_dust"
+}]
 }
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qo8of"]
+_data = {
+"Attack": SubResource("Animation_st4mp"),
+"Death": SubResource("Animation_81oof"),
+"Hit_Back": SubResource("Animation_kd4lp"),
+"Hit_Front": SubResource("Animation_me1l1"),
+"Idle": SubResource("Animation_v6uhq"),
+"RESET": SubResource("Animation_bak78"),
+"Run": SubResource("Animation_xqgcc")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5u5sf"]
 resource_local_to_scene = true
 radius = 5.0
 height = 28.0
 
-[node name="EnemyBaller" groups=["ENEMY"] instance=ExtResource( 1 )]
+[node name="EnemyBaller" groups=["ENEMY"] instance=ExtResource("1")]
 collision_layer = 4
 collision_mask = 7
-script = ExtResource( 5 )
-entity_name = "BALL"
-entity_type = "ENEMY"
+script = ExtResource("5")
 cooldown_duration = 2.0
 dash_duration = 1.5
 dash_speed = 35
+entity_name = "BALL"
+entity_type = "ENEMY"
 
-[node name="Hurtbox" parent="Areas" index="0"]
-visible = false
-collision_layer = 128
-
-[node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
-position = Vector2( -1.5, -46 )
-shape = SubResource( 16 )
-
-[node name="AttackRange" parent="Areas" index="1"]
-visible = false
-collision_mask = 2
-
-[node name="AttackRangeShape" parent="Areas/AttackRange" index="0"]
-position = Vector2( 0, -32 )
-shape = SubResource( 17 )
-
-[node name="Hitbox" parent="Areas" index="2" instance=ExtResource( 10 )]
-position = Vector2( 0, -44 )
-collision_layer = 0
-collision_mask = 64
-damage_value = 10.0
-
-[node name="CollisionShape2D" parent="Areas/Hitbox" index="0"]
-position = Vector2( 0, 11 )
-shape = SubResource( 21 )
-
-[node name="Sprite2D" parent="Visuals" index="0"]
-material = SubResource( 7 )
-position = Vector2( 0, -55 )
-texture = ExtResource( 7 )
-hframes = 11
-vframes = 8
-
-[node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource( 9 )]
-
-[node name="HealthManager" parent="." index="2"]
-max_health = 75.0
-
-[node name="Movement" parent="." index="3"]
-speed_percentage = 0.25
-
-[node name="Animations" type="AnimationPlayer" parent="AnimationMachine" index="0"]
-root_node = NodePath("../..")
-anims/Attack = SubResource( 9 )
-anims/Death = SubResource( 10 )
-anims/Hit_Back = SubResource( 19 )
-anims/Hit_Front = SubResource( 20 )
-anims/Idle = SubResource( 11 )
-anims/RESET = SubResource( 12 )
-anims/Run = SubResource( 13 )
-
-[node name="StateMachine" parent="." index="5"]
+[node name="StateMachine" parent="." index="0"]
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" index="0"]
-script = ExtResource( 6 )
+script = ExtResource("6")
 
 [node name="Chase" type="Node" parent="StateMachine" index="1"]
-script = ExtResource( 3 )
+script = ExtResource("3")
 
 [node name="Attack" type="Node" parent="StateMachine" index="2"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="DashDurationTimer" type="Timer" parent="StateMachine/Attack" index="0"]
 wait_time = 0.215
@@ -514,28 +455,60 @@ one_shot = true
 one_shot = true
 
 [node name="Death" type="Node" parent="StateMachine" index="3"]
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="Pain" type="Node" parent="StateMachine" index="4"]
-script = ExtResource( 8 )
+script = ExtResource("8")
+
+[node name="Hurtbox" parent="Areas" index="0"]
+visible = false
+collision_layer = 128
+
+[node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
+position = Vector2(-1.5, -46)
+shape = SubResource("RectangleShape2D_3bl7n")
+
+[node name="Hitbox" parent="Areas" index="2" instance=ExtResource("10")]
+position = Vector2(0, -44)
+collision_mask = 64
+damage_value = 10.0
+
+[node name="Sprite2D" parent="Visuals" index="0"]
+material = SubResource("ShaderMaterial_mq1a2")
+position = Vector2(0, -55)
+texture = ExtResource("7")
+hframes = 11
+vframes = 8
+
+[node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource("9")]
+
+[node name="HealthManager" parent="." index="3"]
+max_health = 75.0
+
+[node name="Animations" type="AnimationPlayer" parent="AnimationMachine" index="0"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_qo8of")
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="SoundMachine/Damage" index="0"]
-stream = ExtResource( 13 )
+stream = ExtResource("13")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundMachine/Pain" index="0"]
-stream = ExtResource( 12 )
+stream = ExtResource("12")
 
 [node name="Attack" parent="SoundMachine" index="4"]
 pitch_range = 0.1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundMachine/Attack" index="0"]
-stream = ExtResource( 11 )
+stream = ExtResource("11")
 
-[node name="HealthBar" parent="." index="7"]
-position = Vector2( 0, -118 )
+[node name="HealthBar" parent="." index="6"]
+position = Vector2(0, -118)
 
-[node name="PhysicsCollider" parent="." index="10"]
-shape = SubResource( 8 )
+[node name="PhysicsCollider" parent="." index="9"]
+shape = SubResource("CapsuleShape2D_5u5sf")
 
 [editable path="Areas/Hurtbox"]
+[editable path="Areas/VisionCone2D"]
 [editable path="Areas/Hitbox"]

@@ -19,5 +19,5 @@ func turn_off():
 	monitoring = false
 	
 func turn_on():
-	monitorable = false
-	monitoring = false
+	monitorable = true
+	monitoring = true

@@ -1,18 +1,22 @@
 extends State
 
-"""
-Shared Death state for Enemies
-"""
+#Shared Death state for Enemies
 
-const points_effect_packed := preload("res://src/ScreenEffects/PointEffect.tscn")
 
 func enter(msg := {}) -> void:
 	owner.turn_off_all()
 	owner.sound_machine.play_sound("Death")
 	owner.play_animation("Death", "Animations")
-	#update_points()
-	pass
 	
+	var points_amount = 1
+	owner.emit_signal("points_effect", owner.global_position, points_amount)
+	
+	#update_points()
+
+func update_points() -> void:
+	pass
+	#owner.emit_signal("update_points", points_amount)
+
 
 func enemy_drop():
 	# drop is a number between 0 and 99
@@ -36,15 +40,8 @@ func enemy_drop():
 
 func instance_scene(instance):
 	instance.global_position = owner.global_position
-	Global.items.add_child(instance)
+	Global.world.add_child(instance)
 
-func update_points() -> void:
-	var points = 100
-	var points_effect := points_effect_packed.instantiate()
-	points_effect.init(points)
-	Global.misc.add_child(points_effect)
-	points_effect.global_position = owner.global_position
-	Global.main.update_points(points)
 
 func delete_enemy():
 	enemy_drop()

@@ -1,122 +1,129 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://cn14fyfi67sit"]
 
-[ext_resource path="res://src/ScreenEffects/PointEffect.gd" type="Script" id=1]
-[ext_resource path="res://assets/fonts/windows_command_prompt.ttf" type="FontFile" id=2]
+[ext_resource type="Script" path="res://src/ScreenEffects/PointEffect.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://bjsgu6uxa313b" path="res://assets/fonts/windows_command_font.tres" id="2_u5dni"]
 
-[sub_resource type="FontFile" id=3]
-size = 32
-outline_size = 2
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="Animation_bqeoc"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ Vector2( 1, 1 ) ]
+"values": [Vector2(1, 1)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("RichTextLabel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ false ]
+"values": [false]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("RichTextLabel2:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="Animation_o5hji"]
 resource_name = "show"
 step = 0.025
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.2, 0.5, 0.65, 1 ),
-"transitions": PackedFloat32Array( 0.5, 0.5, 0.5, 2, 1 ),
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.65, 1),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 2, 1),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 2, 2 ), Vector2( 3, 3 ), Vector2( 3, 3 ), Vector2( 0, 0 ) ]
+"values": [Vector2(0, 0), Vector2(2, 2), Vector2(3, 3), Vector2(3, 3), Vector2(0, 0)]
 }
 tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("RichTextLabel:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ true, false ]
+"values": [true, false]
 }
 tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("RichTextLabel2:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"times": PackedFloat32Array( 0, 1 ),
-"transitions": PackedFloat32Array( 1, 1 ),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ true, false ]
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_amf7w"]
+_data = {
+"RESET": SubResource("Animation_bqeoc"),
+"show": SubResource("Animation_o5hji")
 }
 
 [node name="PointEffect" type="Node2D"]
-position = Vector2( 7.62939e-06, 1 )
+position = Vector2(7.62939e-06, 1)
 z_index = 1000
 z_as_relative = false
-script = ExtResource( 1 )
+script = ExtResource("1")
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 visible = false
-offset_left = -35.0
-offset_top = -15.0
-offset_right = 165.0
-offset_bottom = 25.0
 clip_contents = false
-custom_fonts/normal_font = SubResource( 3 )
+offset_left = -17.0
+offset_top = -7.0
+offset_right = 79.0
+offset_bottom = 43.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("2_u5dni")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 text = "[tornado radius=2 freq=10]+100[/tornado]"
-text = "+100"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 visible = false
-offset_left = -35.0
-offset_top = -15.0
-offset_right = 165.0
-offset_bottom = 25.0
 clip_contents = false
-custom_fonts/normal_font = SubResource( 3 )
+offset_left = -17.0
+offset_top = -7.0
+offset_right = 59.0
+offset_bottom = 24.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("2_u5dni")
+theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "+100"
+text = "+100
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 1 )
-anims/show = SubResource( 2 )
+libraries = {
+"": SubResource("AnimationLibrary_amf7w")
+}

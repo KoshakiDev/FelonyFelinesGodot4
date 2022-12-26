@@ -1,8 +1,18 @@
 extends State
 
-"""
-Shared Pain state for Enemies
-"""
+#Shared Pain state for Enemies
+
+func _ready():
+	owner.connect("pain", Callable(self, "pain"))
+
+func pain(attack_direction, facing_direction):
+	if ((attack_direction > 0 and facing_direction > 0) or 
+			(attack_direction < 0 and facing_direction < 0)):
+		state_machine.transition_to("Pain", {Back = true})
+	elif ((attack_direction > 0 and facing_direction < 0) or 
+			(attack_direction < 0 and facing_direction > 0)):
+		state_machine.transition_to("Pain", {Front = true})
+
 
 func enter(msg := {}) -> void:
 	if msg.has("Front"):

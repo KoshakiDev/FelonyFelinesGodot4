@@ -1,47 +1,70 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxheossotvwa8"]
+[gd_scene load_steps=20 format=3 uid="uid://dfr1ny4r4ece8"]
 
 [ext_resource type="Script" path="res://src/environment/burglar_base_world/burglar_base_world.gd" id="2"]
-[ext_resource type="PackedScene" uid="uid://ltnclilplvt7" path="res://src/entities/players/player/player.tscn" id="3"]
 [ext_resource type="Script" path="res://src/environment/burglar_base_world/UILayer.gd" id="4"]
 [ext_resource type="PackedScene" uid="uid://danhuydml27p6" path="res://src/entities/items/weapons/range/minigun/Minigun.tscn" id="4_8k5y0"]
 [ext_resource type="PackedScene" path="res://src/UI/BurglarUI/BurglarUI.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://c1vf3k0628qo" path="res://src/entities/items/weapons/range/shotgun/Shotgun.tscn" id="5_ok6qj"]
+[ext_resource type="PackedScene" uid="uid://bp1i8bk2wpxux" path="res://src/entities/enemies/EnemyGunner/EnemyGunner.tscn" id="6_hlshw"]
+[ext_resource type="PackedScene" uid="uid://csml1kvjwgdf5" path="res://src/entities/items/medkit/Medkit.tscn" id="6_hsc3w"]
 [ext_resource type="PackedScene" uid="uid://cl126ejxkbqj7" path="res://src/entities/items/weapons/range/revolver/Revolver.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://cj4fplft47vvo" path="res://src/entities/items/weapons/melee/axe/Axe.tscn" id="7_eudtm"]
+[ext_resource type="PackedScene" uid="uid://ceusv5lr4l4po" path="res://src/environment/burglar_base_world/tiles/TestBox.tscn" id="7_xa5ww"]
+[ext_resource type="PackedScene" uid="uid://ltnclilplvt7" path="res://src/entities/players/player/Player_1.tscn" id="9_7rlsb"]
+[ext_resource type="PackedScene" uid="uid://ctp1ea0dv4m00" path="res://src/environment/burglar_base_world/tiles/TestTallBox.tscn" id="9_rcj48"]
+[ext_resource type="PackedScene" uid="uid://dhn2bcuyl51ko" path="res://src/entities/players/player/Player_2.tscn" id="10_xv8jp"]
+[ext_resource type="PackedScene" uid="uid://3qc04gg2f73k" path="res://src/entities/items/weapons/range/rocket_launcher/RocketLauncher.tscn" id="12_143ar"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4nxuh"]
+resource_name = "Weapons"
+scenes/1/scene = ExtResource("12_143ar")
+scenes/2/scene = ExtResource("7_eudtm")
+scenes/3/scene = ExtResource("4_8k5y0")
+scenes/4/scene = ExtResource("7")
+scenes/5/scene = ExtResource("5_ok6qj")
+scenes/6/scene = ExtResource("6_hsc3w")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vn3kh"]
+resource_name = "Boxes"
+scenes/1/scene = ExtResource("7_xa5ww")
+scenes/2/scene = ExtResource("9_rcj48")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ex3vh"]
+resource_name = "Player"
+scenes/1/scene = ExtResource("9_7rlsb")
+scenes/3/scene = ExtResource("10_xv8jp")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_woe85"]
+resource_name = "Enemies"
+scenes/1/scene = ExtResource("6_hlshw")
+
+[sub_resource type="TileSet" id="TileSet_aq6jc"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetScenesCollectionSource_vn3kh")
+sources/3 = SubResource("TileSetScenesCollectionSource_woe85")
+sources/0 = SubResource("TileSetScenesCollectionSource_4nxuh")
+sources/2 = SubResource("TileSetScenesCollectionSource_ex3vh")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("2")
 
-[node name="World" type="Node2D" parent="."]
+[node name="World" type="TileMap" parent="."]
 y_sort_enabled = true
-
-[node name="Players" type="Node2D" parent="World"]
-y_sort_enabled = true
-
-[node name="Player" parent="World/Players" instance=ExtResource("3")]
-position = Vector2(-258, 127)
-metadata/_edit_horizontal_guides_ = [-26.0, -35.0]
-
-[node name="Camera2D" type="Camera2D" parent="World/Players/Player"]
-offset = Vector2(0, -64)
-current = true
-zoom = Vector2(2, 2)
-
-[node name="Items" type="Node2D" parent="World"]
-y_sort_enabled = true
-
-[node name="Minigun" parent="World/Items" instance=ExtResource("4_8k5y0")]
-
-[node name="Revolver" parent="World/Items" instance=ExtResource("7")]
-position = Vector2(-89, 158)
-
-[node name="Shotgun" parent="World/Items" instance=ExtResource("5_ok6qj")]
-position = Vector2(-170, 85)
-
-[node name="Enemies" type="Node2D" parent="World"]
-y_sort_enabled = true
+tile_set = SubResource("TileSet_aq6jc")
+format = 2
+layer_0/name = "Objects"
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(131078, 1, 65536, 131077, 1, 65536, 131076, 1, 65536, 131075, 1, 131072, 196611, 1, 131072, 262147, 1, 131072, 327683, 1, 131072, 393219, 1, 131072, 458755, 1, 131072, 131079, 1, 131072, 131080, 1, 131072, 131081, 1, 131072, 131082, 1, 131072, 196618, 1, 131072, 262154, 1, 131072, 327690, 1, 131072, 327691, 1, 65536, 327692, 1, 65536, 327693, 1, 65536, 327694, 1, 65536, 262146, 1, 65536, 262145, 1, 65536, 262144, 1, 65536, 327679, 1, 131072, 327678, 1, 131072, 262149, 3, 65536, 262150, 3, 65536, 262151, 3, 65536, 262152, 3, 65536, 262153, 3, 65536, 327684, 3, 65536, 327685, 3, 65536, 327686, 3, 65536, 327687, 3, 65536, 327688, 3, 65536, 327689, 3, 65536, 458756, 3, 65536, 458757, 3, 65536, 458758, 3, 65536, 393225, 3, 65536, 393224, 3, 65536, 393223, 3, 65536, 524292, 3, 65536, 589828, 3, 65536, 589829, 3, 65536, 655365, 3, 65536, 589830, 3, 65536, 589831, 3, 65536, 393215, 2, 65536, 65537, 2, 196608, 458750, 0, 262144, 393216, 0, 65536, 458749, 0, 196608, 786438, 1, 65536, 786439, 1, 65536, 786440, 1, 65536, 786437, 1, 65536)
+layer_1/name = "Ground"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = -1
+layer_1/tile_data = PackedInt32Array()
 
 [node name="UILayer" type="CanvasLayer" parent="."]
-visible = false
 script = ExtResource("4")
 
 [node name="Control" parent="UILayer" instance=ExtResource("5")]

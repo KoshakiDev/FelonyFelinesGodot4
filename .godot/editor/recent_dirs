@@ -1,3 +1,8 @@
+res://src/components/bullet-related/bullet type
+res://src/entities/players/player
+res://src/entities/items/weapons/melee/axe/states
+res://src/entities/items/medkit/states
+res://src/components/dynamic_splitscreen/remkae test
 res://src/entities/items/base_templates/base_range_weapon/states
 res://src/entities/items/base_templates/base_item/states
 res://src/AutoLoad

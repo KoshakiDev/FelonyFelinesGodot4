@@ -20,6 +20,9 @@ class_name VisionCone2D
 ## Use this if you want to have logic on things entering the cone (you probably do, unless you're just visualizing the cone without acting on it)
 @export var write_collision_polygon: CollisionPolygon2D
 
+@onready var vision_area := $VisionConeArea
+
+
 @export_group("Visualization")
 ## Optional shape used to render the cone. This can then be textured and colored to customize the visual aspect
 ## or it can be null if you don't need to visualize the cone, but maybe just use it for AI

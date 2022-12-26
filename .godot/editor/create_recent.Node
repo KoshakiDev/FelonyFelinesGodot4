@@ -1,6 +1,12 @@
-Marker2D
+Timer
+Camera2D
 Node
+TileMap
+VisionCone2D (vision_cone_2d.gd)
+SubViewport
+TextureRect
+RemoteTransform2D
+Marker2D
 AudioStreamPlayer2D
 State (State.gd)
 StateMachine (StatesMachine.gd)
-Camera2D

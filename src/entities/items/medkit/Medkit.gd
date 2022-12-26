@@ -1,15 +1,13 @@
 extends "res://src/entities/items/base_templates/base_item/base_item.gd"
 
 
-signal ammo_changed(new_ammo)
-
+@export_group("Medkit Settings")
 @export var heal_value = 20
-
 @export var ammo = 1
-
 @onready var ammo_pack_amount = 1
 
-@onready var eat_sound = $Marker2D/SoundMachine/Eat
+signal ammo_changed(new_ammo)
+
 
 func _ready():
 	animation_machine.play_animation("Idle", "AnimationPlayer")
@@ -27,12 +25,8 @@ func reduce_ammo() -> void:
 	emit_signal("ammo_changed", ammo)
 
 func action() -> void:
-	if is_out_of_ammo():
-		$Marker2D/SoundMachine/Denied.play()
+	if item_owner.health_manager.is_full_health():
 		return
-	if weapon_owner.health_manager.health == weapon_owner.health_manager.max_health:
-		return
-	weapon_owner.health_manager.heal(heal_value)
+	item_owner.health_manager.heal(heal_value)
 	reduce_ammo()
-	eat_sound.play()
-	#sound_machine.play_sound("Shot")
+	sound_machine.play_sound("Eat")

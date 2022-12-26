@@ -38,9 +38,10 @@ func _ready() -> void:
 	if !bullet_emitter:
 		printerr("emitter in BulletSpawner is not a BulletEmitter!")
 		queue_free()
+	bullet_emitter.bullet_spawner_reference = self
 
 func setup_animation_player():
-	if shoot_anim_player_p != null:
+	if shoot_anim_player_p != NodePath():
 		shoot_anim_player = get_node(shoot_anim_player_p)
 		if not shoot_anim_player.has_animation("Shoot"):
 			printerr("Weapon %s does not have a valid Shoot animation in %s"

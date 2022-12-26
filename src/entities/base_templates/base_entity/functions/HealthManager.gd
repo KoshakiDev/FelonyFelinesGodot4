@@ -40,6 +40,9 @@ func heal(heal_value):
 func take_damage(damage_value):
 	set_health(health - damage_value)
 
+func is_full_health():
+	return health == max_health
+
 func is_dead():
 	return is_equal_approx(health, 0)
 

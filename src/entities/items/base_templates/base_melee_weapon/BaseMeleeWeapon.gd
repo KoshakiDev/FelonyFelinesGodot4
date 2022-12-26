@@ -1,18 +1,45 @@
 extends "res://src/entities/items/base_templates/base_item/base_item.gd"
 
-
-@export var damage_value: float =  20
-@export var knockback_value: float = 50
+@export_group("Melee Settings")
 @export var recoil: float = 15
+@export var attack_delay: float = 0.5
 
-@onready var swoosh_sound = $Marker2D/SoundMachine/Swoosh
+@onready var hitbox = $Marker2D/Visuals/Sprite2D/Hitbox
+
+var timer: Timer
+
+var can_attack = true
 
 func _ready():
-	$Marker2D/Visuals/Sprite2D/Hitbox.turn_off_hitbox()
+	super._ready()
+	$Marker2D/Visuals/Sprite2D/Hitbox.turn_on()
+	setup_attack_delay_timer()
+
+func set_inactive():
+	super.set_inactive()
+	hitbox.turn_off()
+
+func setup_attack_delay_timer():
+	timer = Timer.new()
+	add_child(timer)
+	timer.wait_time = attack_delay
+	timer.one_shot = true
+	timer.autostart = false
+	timer.connect("timeout",Callable(self,"reload_timer_finished"))
+
+func reload_timer_finished():
+	can_attack = true
 
 func action()-> void:
+	if !can_attack:
+		return
 	animation_machine.play_animation("Attack", "AnimationPlayer")
-	if weapon_owner.has_node("Movement"):
-		weapon_owner.movement.apply_knockback(-1 * weapon_owner.movement.intended_velocity, recoil) 
 	
-	swoosh_sound.play()
+	if item_owner.has_method("apply_external_force"):
+		item_owner.apply_external_force(-1 * item_owner.internal_forces, recoil) 
+	
+	sound_machine.play_sound("Swoosh")
+	Shake.shake(2.5, .5)
+	timer.start()
+	can_attack = false
+

@@ -43,7 +43,7 @@ func return_ammo_count():
 
 func add_item(new_item):
 	new_item.cancel_despawn()
-	#check_duplicant(new_item)
+	check_duplicant(new_item)
 	new_item.position = Vector2.ZERO
 	new_item.connect("switch_to_next_item", Callable(self, "switch_to_next_item"))
 	new_item.connect("switch_to_prev_item", Callable(self, "switch_to_prev_item"))

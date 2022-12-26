@@ -1,29 +1,30 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://ceusv5lr4l4po"]
 
-[ext_resource path="res://src/environment/burglar_base_world/tiles/cardboard-box.png" type="Texture2D" id=1]
-[ext_resource path="res://src/environment/burglar_base_world/tiles/TestBox.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://dhgl60uxalmw2" path="res://src/environment/burglar_base_world/tiles/cardboard-box.png" id="1"]
+[ext_resource type="Script" path="res://src/environment/burglar_base_world/tiles/TestBox.gd" id="2"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p0nee"]
+size = Vector2(64, 64)
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32, 64 )
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0wm0"]
+size = Vector2(64, 64)
 
 [node name="TestBox" type="StaticBody2D"]
-script = ExtResource( 2 )
+position = Vector2(0, 32)
+script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2( 0, -47 )
-texture = ExtResource( 1 )
+position = Vector2(0, -47)
+texture = ExtResource("1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -32 )
-shape = SubResource( 1 )
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_p0nee")
 
 [node name="TurnTransparent" type="Area2D" parent="."]
+position = Vector2(0, -96)
 collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TurnTransparent"]
-position = Vector2( 0, -128 )
-shape = SubResource( 2 )
+shape = SubResource("RectangleShape2D_j0wm0")

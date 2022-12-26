@@ -1,13 +1,8 @@
 extends State
 
-var counter = 0;
-
 func enter(_msg := {}) -> void:
 	owner.animation_machine.play_animation("Idle", "AnimationPlayer")
 	#print("I am entering idle")
-
-func handle_input(_event: InputEvent) -> void:
-	pass
 	
 func physics_update(_delta: float) -> void:
 	if Input.is_action_pressed("action" + owner.player_id):

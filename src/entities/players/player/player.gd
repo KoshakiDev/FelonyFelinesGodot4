@@ -66,13 +66,18 @@ func setup_player():
 	#Global.set("brother" + player_id, self)
 	#connect("player_died",Callable(Global,"player_died"))
 
+func _input(event):
+	if event.is_action_pressed("escape") && health_manager.is_dead():
+		respawn_player()
+		health_manager.heal(100)
 
-func adjust_weapon_rotation(direction):
+
+func adjust_rotation_to_direction(direction):
+	super.adjust_rotation_to_direction(direction)
 	item_manager.look_at(item_manager.global_position + direction)
 
 func _physics_process(_delta):
 	super._physics_process(_delta)
-	adjust_weapon_rotation(vector_to_movement_direction(internal_forces))
 	#print(weapon_manager.weapons)
 
 func hurt(attacker_area):
@@ -96,9 +101,9 @@ func respawn_player():
 func turn_off_all():
 	super.turn_off_all()
 	ammo_bar.visible = false
-	if item_manager.cur_weapon != null:
-		if item_manager.cur_weapon.item_type == "RANGE":
-			item_manager.cur_weapon.stop_shooting()
+	
+	if item_manager.cur_item != null:
+		item_manager.cur_item.set_inactive()
 	item_manager.visible = false
 	respawn_radius.activate_respawn_radius()
 	set_collision_layer_value(1, false)
@@ -107,6 +112,8 @@ func turn_off_all():
 func turn_on_all():
 	super.turn_on_all()
 	ammo_bar.visible = true
+	if item_manager.cur_item != null:
+		item_manager.cur_item.set_active()
 	item_manager.visible = true
 	respawn_radius.deactivate_respawn_radius()
 	set_collision_layer_value(1, true)

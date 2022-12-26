@@ -6,6 +6,8 @@ extends BulletEmitter
 # the angle between each of the bullets in degree
 @export var spread_angle: float = 5
 
+
+
 func shoot(bullet_instance: Projectile, bullet_scene : PackedScene):
 	spread_shoot(bullet_instance, bullet_scene)
 

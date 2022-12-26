@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource path="res://src/environment/tilesets/Path.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/environment/tilesets/Plants.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/entities/players/player/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://src/environment/base_world/base_world.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/environment/tilesets/Ground.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/environment/tilesets/Walls.tscn" type="PackedScene" id=10]
+[ext_resource type="PackedScene" path="res://src/environment/tilesets/Path.tscn" id="3"]
+[ext_resource type="PackedScene" path="res://src/environment/tilesets/Plants.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://ltnclilplvt7" path="res://src/entities/players/player/Player_1.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://src/environment/base_world/base_world.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://src/environment/tilesets/Ground.tscn" id="8"]
+[ext_resource type="PackedScene" path="res://src/environment/tilesets/Walls.tscn" id="10"]
 
 [node name="MenuWorld" instance=ExtResource( 6 )]
 

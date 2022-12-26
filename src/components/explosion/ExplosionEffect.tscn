@@ -1,60 +1,68 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://2a6qnjsr18v2"]
 
-[ext_resource path="res://src/components/base_effect/Effect.tscn" type="PackedScene" id=1]
-[ext_resource path="res://test folder/ExplosionEffect.png" type="Texture2D" id=2]
+[ext_resource type="PackedScene" path="res://src/components/base_effect/Effect.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://4x2u6pwll6ij" path="res://test folder/ExplosionEffect.png" id="2"]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id="1"]
 resource_name = "Animate"
 length = 1.2
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
-"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 }
 tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"times": PackedFloat32Array( 1.2 ),
-"transitions": PackedFloat32Array( 1 ),
-"values": [ {
-"args": [  ],
-"method": "queue_free"
-} ]
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id="2"]
 length = 0.001
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PackedFloat32Array( 0 ),
-"transitions": PackedFloat32Array( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ 0 ]
+"values": [0]
 }
 
-[node name="Effect" instance=ExtResource( 1 )]
-scale = Vector2( 2.5, 2.5 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s0d2r"]
+_data = {
+"Animate": SubResource("1"),
+"RESET": SubResource("2")
+}
+
+[node name="Effect" instance=ExtResource("1")]
+scale = Vector2(2.5, 2.5)
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource( 2 )
+position = Vector2(0, -13)
+texture = ExtResource("2")
 hframes = 12
 
 [node name="AnimationPlayer" parent="." index="1"]
-anims/Animate = SubResource( 1 )
-anims/RESET = SubResource( 2 )
+libraries = {
+"": SubResource("AnimationLibrary_s0d2r")
+}

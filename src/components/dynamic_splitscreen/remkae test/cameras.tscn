@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://0sgvqeq170a0"]
+
+[ext_resource type="Script" path="res://src/components/dynamic_splitscreen/camera_controller.gd" id="1_ici1l"]
+[ext_resource type="Shader" path="res://src/components/dynamic_splitscreen/split_screen_2d.gdshader" id="2_1kkg2"]
+[ext_resource type="Texture2D" uid="uid://ea6tlodrrbau" path="res://icon.png" id="3_n6p32"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhg47"]
+shader = ExtResource("2_1kkg2")
+shader_parameter/hide_object_1 = null
+shader_parameter/hide_object_2 = null
+shader_parameter/object_1_position = null
+shader_parameter/object_2_position = null
+shader_parameter/split_active = null
+shader_parameter/split_line_color = null
+shader_parameter/split_line_thickness = null
+shader_parameter/viewport_size = null
+
+[node name="Cameras" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ici1l")
+object_1_path = NodePath("../../World/Players/Player1")
+object_2_path = NodePath("../../World/Players/Player2")
+
+[node name="SubViewport1" type="SubViewport" parent="."]
+
+[node name="Camera1" type="Camera2D" parent="SubViewport1"]
+position = Vector2(833, 1556)
+offset = Vector2(0, -64)
+
+[node name="SubViewport2" type="SubViewport" parent="."]
+
+[node name="Camera2" type="Camera2D" parent="SubViewport2"]
+position = Vector2(1162, 526)
+offset = Vector2(0, -64)
+
+[node name="View" type="TextureRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_mhg47")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_n6p32")

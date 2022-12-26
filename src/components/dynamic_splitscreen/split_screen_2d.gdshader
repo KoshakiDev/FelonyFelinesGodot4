@@ -2,15 +2,15 @@ shader_type canvas_item;
 render_mode unshaded;
 
 uniform vec2 viewport_size;         // size in pixels of the viewport. Cannot be access from the shader in GLES2
-uniform sampler2D viewport1 : hint_albedo;
-uniform sampler2D viewport2 : hint_albedo;
+uniform sampler2D viewport1 ;//: hint_albedo;
+uniform sampler2D viewport2 ;//: hint_albedo;
 uniform bool split_active;          // true: split screen, false: use view1
 
-uniform bool is_player1_dead;          // true: player1 is dead, false: not dead
-uniform bool is_player2_dead;          // true: player2 is dead, false: not dead
+uniform bool hide_object_1;          // true: player1 is dead, false: not dead
+uniform bool hide_object_2;          // true: player2 is dead, false: not dead
 
-uniform vec2 player1_position;      // position of player 1 un UV coordinates
-uniform vec2 player2_position;      // position of player 2 un UV coordinates
+uniform vec2 object_1_position;      // position of player 1 un UV coordinates
+uniform vec2 object_2_position;      // position of player 2 un UV coordinates
 uniform float split_line_thickness; // width of the split boder
 uniform vec4 split_line_color;      // color of the split border
 
@@ -31,17 +31,17 @@ void fragment()
 	float width = viewport_size.x;
 	float height = viewport_size.y;
 
-	if (is_player1_dead && !is_player2_dead) 
+	if (hide_object_1 && !hide_object_2) 
 	{
 		COLOR = vec4(view2, 1.0);
 	} 
-	else if (is_player2_dead && !is_player1_dead) 
+	else if (hide_object_2 && !hide_object_1) 
 	{
 		COLOR = vec4(view1, 1.0);
 	} 
 	else if (split_active) 
 	{
-		vec2 dx = player2_position - player1_position;
+		vec2 dx = object_2_position - object_1_position;
 		float split_slope;
 //		
 		if (dx.y != 0.0) 
@@ -72,7 +72,7 @@ void fragment()
 			// Check on which side of the split UV is and select the proper view
 			if (UV.y > split_current_y) 
 			{
-				if (player1_position.y < player2_position.y) 
+				if (object_1_position.y < object_2_position.y) 
 				{
 					COLOR = vec4(view1, 1.0);
 				} 
@@ -81,7 +81,7 @@ void fragment()
 					COLOR = vec4(view2, 1.0);
 				}
 			} else {
-				if (player1_position.y > player2_position.y) 
+				if (object_1_position.y > object_2_position.y) 
 				{
 					COLOR = vec4(view1, 1.0);
 				} 

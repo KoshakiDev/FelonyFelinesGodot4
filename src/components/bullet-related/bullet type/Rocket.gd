@@ -2,14 +2,23 @@ extends "res://src/components/bullet-related/bullet type/BaseProjectile.gd"
 
 @export var EXPLOSION_SCENE: PackedScene
 
+@onready var timer = $Timer
+
+func _ready():
+	super._ready()
+	timer.connect("timeout", Callable(self, "timeout"))
+	timer.start()
+
+func timeout():
+	explode()
+
 func _on_Bullet_area_entered(area):
 	explode()
 
 func explode():
-	print("boom")
 	var boom: Area2D = EXPLOSION_SCENE.instantiate()
 	boom.position = global_position
-	Global.misc.add_child(boom)
+	Global.world.add_child(boom)
 	queue_free()
 
 

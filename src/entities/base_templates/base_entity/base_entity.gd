@@ -57,10 +57,14 @@ func _ready():
 func _physics_process(_delta):
 	velocity = internal_forces + external_forces
 	apply_friction()
-	if vector_to_movement_direction(internal_forces).x != 0:
-		visuals.scale.x = vector_to_movement_direction(internal_forces).x
+	adjust_rotation_to_direction(vector_to_movement_direction(internal_forces))
 	move_and_slide()
+
+func adjust_rotation_to_direction(direction):
+	if direction.x != 0:
+		visuals.scale.x = direction.x
 	
+
 func apply_internal_force(force_direction: Vector2):
 	internal_forces = internal_forces.lerp(force_direction.normalized() * base_speed * speed_percentage, acceleration)
 
@@ -84,6 +88,7 @@ func vector_to_movement_direction(input_vector : Vector2) -> Vector2:
 
 
 func hurt(attacker_area):
+	print("I was hurt")
 	if health_manager.is_dead() or !can_get_hit:
 		return
 	var knockback_direction = global_position - attacker_area.global_position
@@ -97,11 +102,7 @@ func hurt(attacker_area):
 	
 	
 	if state_machine.has_node("Pain"):
-		if (knockback_direction.x > 0 and visuals.scale.x > 0) or (knockback_direction.x < 0 and visuals.scale.x < 0):
-			state_machine.transition_to("Pain", {Back = true})
-		elif (knockback_direction.x > 0 and visuals.scale.x < 0) or (knockback_direction.x < 0 and visuals.scale.x > 0):
-			state_machine.transition_to("Pain", {Front = true})
-	
+		pass
 	
 
 func turn_off_all():

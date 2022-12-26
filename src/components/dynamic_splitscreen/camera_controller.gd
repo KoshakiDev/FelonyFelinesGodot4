@@ -1,49 +1,61 @@
+@tool
 extends Control
 
+@export_group("Split Screen Settings")
 @export var max_separation:float = 400.0
 @export var split_line_thickness:float = 3.0
 @export var split_line_color:Color = Color.BLACK
 @export var adaptive_split_line_thickness:bool = true
 
-@onready var player1 = Global.brother_1
-@onready var player2 = Global.brother_2
-@onready var viewport1 = $SubViewportContainer/Viewport1
-@onready var viewport2 = $ViewportContainer2/Viewport2
 @onready var view = $View
-@onready var camera1 = $SubViewportContainer/Viewport1/Camera1
-@onready var camera2 = $ViewportContainer2/Viewport2/Camera2
+@onready var viewport_1 = $SubViewport1
+@onready var viewport_2 = $SubViewport2
+@onready var camera_1 = $SubViewport1/Camera1
+@onready var camera_2 = $SubViewport2/Camera2
+
+@export_group("Target Objects")
+@export var object_1_path: NodePath
+@export var object_2_path: NodePath
+
+var object_1: Node2D
+var object_2: Node2D
+
 
 func _ready():
 	visible = true
 	setup()
-	pass
+
 
 func setup():
-	#print(player1, player2)
-	if player1 == null or player2 == null:
-		printerr("SPLIT SCREEN ERROR: Player(s) are null!")
+	if object_1_path == null or object_2_path == null:
+		printerr("SPLIT SCREEN ERROR: Object path(s) are null!")
 		set_physics_process(false)
 		return
 	
-	Shake.set_camera(camera1, camera2)
+	object_1 = get_node(object_1_path)
+	object_2 = get_node(object_1_path)
 	
-	viewport2.world_2d = viewport1.world_2d
+	Shake.set_camera(camera_1, camera_2)
+	
+	viewport_2.world_2d = viewport_1.world_2d
 	_on_size_changed()
 	_update_splitscreen()
 	get_viewport().connect("size_changed",Callable(self,"_on_size_changed"))
 
-	view.material.set_shader_parameter("viewport1", viewport1.get_texture())
-	view.material.set_shader_parameter("viewport2", viewport2.get_texture())
+	camera_1.set_current(true)
+	await RenderingServer.frame_post_draw
+	view.material.set_shader_parameter("viewport1", viewport_1.get_texture())
+	
+	camera_2.set_current(true)
+	await RenderingServer.frame_post_draw
+	view.material.set_shader_parameter("viewport2", viewport_2.get_texture())
 
+	
+
+	
 func _physics_process(delta):
 	_move_cameras()
 	_update_splitscreen()
-
-func get_player1_position():
-	return player1.global_position + player1.player_visual_middle
-
-func get_player2_position():
-	return player2.global_position + player1.player_visual_middle
 
 func _move_cameras():
 	var position_difference = _compute_position_difference_in_world()
@@ -51,36 +63,41 @@ func _move_cameras():
 	var distance = clamp(position_difference.length(), 0, max_separation)
 
 	position_difference = position_difference.normalized() * distance
-	#player_visual_middle
-	camera1.global_position = get_player1_position() + position_difference / 2.0
-	camera2.global_position = get_player2_position() - position_difference / 2.0
+	
+	camera_1.global_position = object_1.global_position + position_difference / 2.0
+	camera_2.global_position = object_2.global_position - position_difference / 2.0
 
-#	camera1.global_position = player1.global_position + position_difference / 2.0
-#	camera2.global_position = player2.global_position - position_difference / 2.0
+func _compute_position_difference_in_world():
+	return object_1.global_position - object_2.global_position
+
 
 func _update_splitscreen():
 	var screen_size = get_viewport().get_visible_rect().size
-	
-	var topLeft1 = camera1.get_camera_screen_center() - screen_size / 2.0
-	var topLeft2 = camera2.get_camera_screen_center() - screen_size / 2.0
-	
-	var player1_position = (get_player1_position() - topLeft1) / screen_size
-	var player2_position = (get_player2_position() - topLeft2) / screen_size
-		
-	var thickness
+
+	var topLeft1 = camera_1.get_screen_center_position() - screen_size / 2.0
+	var topLeft2 = camera_2.get_screen_center_position() - screen_size / 2.0
+
+	var object_1_position = (object_1.global_position - topLeft1) / screen_size
+	var object_2_position = (object_2.global_position - topLeft2) / screen_size
+
+	var thickness = 0.0
 	if adaptive_split_line_thickness:
 		var position_difference = _compute_position_difference_in_world()
 		var distance = position_difference.length()
-		thickness = lerp(0, split_line_thickness, (distance - max_separation) / max_separation)
+		
+		print(split_line_thickness)
+		print((distance - max_separation) / max_separation)
+		thickness = lerp(0, split_line_thickness, 
+				(distance - max_separation) / max_separation)
 		thickness = clamp(thickness, 0, split_line_thickness)
 	else:
 		thickness = split_line_thickness
 
 	view.material.set_shader_parameter("split_active", _get_split_state())
-	view.material.set_shader_parameter("is_player1_dead", player1.health_manager.is_dead())
-	view.material.set_shader_parameter("is_player2_dead", player2.health_manager.is_dead())
-	view.material.set_shader_parameter("player1_position", player1_position)
-	view.material.set_shader_parameter("player2_position", player2_position)
+	view.material.set_shader_parameter("hide_object_1", false)
+	view.material.set_shader_parameter("hide_object_2", false)
+	view.material.set_shader_parameter("object_1_position", object_1_position)
+	view.material.set_shader_parameter("object_2_position", object_2_position)
 	view.material.set_shader_parameter("split_line_thickness", thickness)
 	view.material.set_shader_parameter("split_line_color", split_line_color)
 	
@@ -92,16 +109,8 @@ func _get_split_state():
 	
 func _on_size_changed():
 	var screen_size = get_viewport().get_visible_rect().size
-
-	$SubViewportContainer.size = screen_size
-	$ViewportContainer2.size = screen_size
-	viewport1.size = screen_size
-	viewport2.size = screen_size
+	viewport_1.size = screen_size
+	viewport_2.size = screen_size
 	view.size = screen_size
 	view.material.set_shader_parameter("viewport_size", screen_size)
-
-func _compute_position_difference_in_world():
-	if not player2.health_manager.is_dead() and player1.health_manager.is_dead(): return Vector2.ZERO
-	if player2.health_manager.is_dead() and not player1.health_manager.is_dead(): return Vector2.ZERO
 	
-	return player2.global_transform.origin - player1.global_transform.origin

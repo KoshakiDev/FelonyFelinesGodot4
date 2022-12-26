@@ -1,15 +1,12 @@
 extends "res://src/entities/base_templates/base_npc/base_npc.gd"
 
 @onready var handgun = $Visuals/Sprite2D/HandGun
-
-var label: Label
 @onready var bullet_spawner = $Visuals/Sprite2D/HandGun/BulletSpawner
 
 func _ready():
-	if $Debug.has_node("Label"):
-		label = $Debug/Label
-	
+	super._ready()
 	bullet_spawner.connect("shot_fired",Callable(self,"shot_fired"))
+
 
 func attack(target):
 	var look_dir = (target.global_position - global_position).normalized()
@@ -22,10 +19,13 @@ func attack(target):
 		handgun.rotation = PI - (target.global_position - global_position).angle()
 	elif visuals.scale.x == 1:
 		handgun.rotation = (target.global_position - global_position).angle()
-	bullet_spawner.set_shooting(true)
+	bullet_spawner.shoot()
+
+var recoil = 10
 
 func shot_fired():
-	attack_sound.play()
+	apply_external_force(-1 * internal_forces, recoil) 
+	sound_machine.play_sound("Attack")
 	
 func search_for_target():
 	return Global.get_closest_player(global_position)

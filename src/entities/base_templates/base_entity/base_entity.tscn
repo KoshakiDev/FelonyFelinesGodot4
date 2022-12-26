@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="5"]
 [ext_resource type="Script" path="res://src/scripts/StatesMachine.gd" id="6"]
 [ext_resource type="Script" path="res://src/entities/base_templates/base_entity/functions/HealthManager.gd" id="7"]
-[ext_resource type="Shape2D" path="res://src/entities/base_templates/base_entity/PhysicsColliderDefault.tres" id="8"]
+[ext_resource type="Shape2D" uid="uid://cmgty2gte800b" path="res://src/entities/base_templates/base_entity/PhysicsColliderDefault.tres" id="8"]
 [ext_resource type="Script" path="res://src/entities/base_templates/base_entity/base_entity.gd" id="9"]
 [ext_resource type="AudioStream" uid="uid://bfd7t8cljbaei" path="res://sounds/hit/EFX SD Heads Hit Together 02.wav" id="10"]
 [ext_resource type="AudioStream" uid="uid://do48tqj5ces5w" path="res://sounds/hit/Ilmarinen,blacksmith,forge,hammer,anvil,strike,loose,ringing,splash,iron,thin.M.wav" id="11"]
@@ -103,7 +103,7 @@ volume_db = -10.0
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(0, -4)
 rotation = -1.5708
 shape = ExtResource("8")
 

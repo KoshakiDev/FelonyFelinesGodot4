@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://dogomrmgfmpeb"]
 
-[ext_resource path="res://src/entities/items/base_templates/base_item/base_item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/entities/items/base_templates/base_melee_weapon/BaseMeleeWeapon.gd" type="Script" id=2]
-[ext_resource path="res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn" type="PackedScene" id=3]
+[ext_resource type="PackedScene" uid="uid://csn8we332roa1" path="res://src/entities/items/base_templates/base_item/base_item.tscn" id="1"]
+[ext_resource type="Script" path="res://src/entities/items/base_templates/base_melee_weapon/BaseMeleeWeapon.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://k8bvo4y6ng0" path="res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn" id="3"]
 
-[node name="BaseMeleeWeapon" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
-damage_value = 20.0
-knockback_value = 50.0
-recoil = 15.0
+[node name="BaseMeleeWeapon" instance=ExtResource("1")]
+script = ExtResource("2")
+recoil = 15
+attack_delay = 0.5
 
-[node name="Hitbox" parent="Marker2D/Visuals/Sprite2D" index="0" instance=ExtResource( 3 )]
+[node name="Hitbox" parent="Marker2D/Visuals/Sprite2D" index="0" instance=ExtResource("3")]

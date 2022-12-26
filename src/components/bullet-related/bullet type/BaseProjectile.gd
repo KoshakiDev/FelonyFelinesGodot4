@@ -14,9 +14,11 @@ var speed: float = 1.0
 
 @onready var start_position := global_position
 
+signal dust_effect(effect_position)
 
 func _ready() -> void:
 	super._ready()
+	connect("dust_effect", Callable(VFXManager, "create_dust_effect"))
 	connect("area_entered",Callable(self,"_on_Bullet_area_entered"))
 	connect("body_entered",Callable(self,"_on_Bullet_body_entered"))
 
@@ -40,7 +42,9 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func _on_Bullet_area_entered(_area):
+	emit_signal("dust_effect", global_position)
 	queue_free()
 
 func _on_Bullet_body_entered(_body):
+	emit_signal("dust_effect", global_position)
 	queue_free()
