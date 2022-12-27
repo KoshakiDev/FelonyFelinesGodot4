@@ -1,4 +1,6 @@
 Timer
+CollisionShape2D
+AnimationPlayer
 Camera2D
 Node
 TileMap

@@ -9,7 +9,7 @@ func _ready():
 	anim_player.play("Animate")
 	connect("area_entered", Callable(self, "delete_self"))
 
-func delete_self(area):
+func delete_self(_area):
 	queue_free()
 
 func setup_timer(wait_time):

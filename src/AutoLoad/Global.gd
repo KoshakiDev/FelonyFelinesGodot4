@@ -11,9 +11,6 @@ const empty_bitmask = 0b00000000000000000000
 
 var world
 var main
-var items
-var enemies
-var players
 var root
 var UI_layer
 
@@ -52,15 +49,15 @@ func frame_freeze(time_scale, duration):
 	await get_tree().create_timer(duration * time_scale).timeout
 	Engine.time_scale = 1.0
 
-func player_died():
-	var counter = 0
-	for player in players.get_children():
-		if player.health_manager.is_dead():
-			counter += 1
-	if counter == 2:
-		for player in players.get_children():
-			player.respawn_radius.deactivate_respawn_radius()
-		emit_signal("all_dead")
+#func player_died():
+#	var counter = 0
+#	for player in players.get_children():
+#		if player.health_manager.is_dead():
+#			counter += 1
+#	if counter == 2:
+#		for player in players.get_children():
+#			player.respawn_radius.deactivate_respawn_radius()
+#		emit_signal("all_dead")
 
 func reparent(child: Node, new_parent: Node):
 	var old_parent = child.get_parent()
@@ -75,21 +72,21 @@ func random_vector2(n):
 	return Vector2(rng.randf_range(-n, n), rng.randf_range(-n, n))
 
 
-func get_all_enemies():
-	var enemies_result = {
-		"BALL":[],
-		"GUNNER":[],
-		"IMP": []
-	}
-
-	var enemy_names = enemies_result.keys()
-	for entity in enemies.get_children():
-		if not entity.is_in_group("ENTITY"):
-			continue
-		if entity.entity_name in enemy_names:
-			enemies_result[entity.entity_name].append(entity)
-	#print(enemies_result)
-	return enemies_result
+#func get_all_enemies():
+#	var enemies_result = {
+#		"BALL":[],
+#		"GUNNER":[],
+#		"IMP": []
+#	}
+#
+#	var enemy_names = enemies_result.keys()
+#	for entity in enemies.get_children():
+#		if not entity.is_in_group("ENTITY"):
+#			continue
+#		if entity.entity_name in enemy_names:
+#			enemies_result[entity.entity_name].append(entity)
+#	#print(enemies_result)
+#	return enemies_result
 
 func normalize_item_drop_weights():
 	var sum = 0
@@ -112,50 +109,50 @@ func normalize_item_drop_weights():
 			ITEM_DROP_WEIGHTS[key] = round(ITEM_DROP_WEIGHTS[key])
 
 
-func get_closest_enemy(position: Vector2):
-	var closest_enemy: CharacterBody2D
-	var closest_distance = 999999999
-	
-	for enemy in enemies.get_children():
-		var distance = (position - enemy.global_position).length()
-		if distance < closest_distance:
-			closest_enemy = enemy
-			closest_distance = distance
-	
-	return closest_enemy
+#func get_closest_enemy(position: Vector2):
+#	var closest_enemy: CharacterBody2D
+#	var closest_distance = 999999999
+#
+#	for enemy in enemies.get_children():
+#		var distance = (position - enemy.global_position).length()
+#		if distance < closest_distance:
+#			closest_enemy = enemy
+#			closest_distance = distance
+#
+#	return closest_enemy
 
-func get_brother():
-	for player in players.get_children():
-		if player.entity_type == "PLAYER":
-			return player
-		#if not player.is_in_group("PLAYER"): continue
-	#for player in entity_world.get_children():
+#func get_brother():
+#	for player in players.get_children():
+#		if player.entity_type == "PLAYER":
+#			return player
+#		#if not player.is_in_group("PLAYER"): continue
+#	#for player in entity_world.get_children():
 
-func get_closest_player(position: Vector2):
-	var closest_player: CharacterBody2D
-	var closest_distance = 999999999
-	
-	
-	for player in players.get_children():
-		if player.health_manager.is_dead(): continue
-		
-		var distance = (position - player.global_position).length()
-		if distance < closest_distance:
-			closest_player = player
-			closest_distance = distance
-	
-	return closest_player
+#func get_closest_player(position: Vector2):
+#	var closest_player: CharacterBody2D
+#	var closest_distance = 999999999
+#
+#
+#	for player in players.get_children():
+#		if player.health_manager.is_dead(): continue
+#
+#		var distance = (position - player.global_position).length()
+#		if distance < closest_distance:
+#			closest_player = player
+#			closest_distance = distance
+#
+#	return closest_player
 
-func get_farthest_player(position: Vector2):
-	var farthest_player: CharacterBody2D
-	var farthest_distance = 0
-
-	for player in players.get_children():
-		if player.health_manager.is_dead(): continue
-		
-		var distance = (position - player.global_position).length()
-		if distance > farthest_distance:
-			farthest_player = player
-			farthest_distance = distance
-	
-	return farthest_player
+#func get_farthest_player(position: Vector2):
+#	var farthest_player: CharacterBody2D
+#	var farthest_distance = 0
+#
+#	for player in players.get_children():
+#		if player.health_manager.is_dead(): continue
+#
+#		var distance = (position - player.global_position).length()
+#		if distance > farthest_distance:
+#			farthest_player = player
+#			farthest_distance = distance
+#
+#	return farthest_player

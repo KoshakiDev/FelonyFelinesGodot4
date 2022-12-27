@@ -24,9 +24,7 @@ func create_dust_effect(effect_position):
 	create_effect(dust_effect, effect_position)
 
 func create_points_effect(effect_position, points_amount):
-	print("points created")
 	instantiate_effect(points_effect)
 	new_effect.init(points_amount)
 	add_effect_to_world(effect_position)
-	#create_effect(points_effect, effect_position)
 	

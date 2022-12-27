@@ -24,8 +24,8 @@ func _ready():
 var item_owner: Node2D
 var player_id = ""
 
-func init(set_owner: Node2D) -> void:
-	self.item_owner = set_owner
+func init(set_item_owner: Node2D) -> void:
+	item_owner = set_item_owner
 	if item_owner.get("player_id") != null:
 		player_id = item_owner.player_id
 	

@@ -3,7 +3,7 @@ extends Resource
 
 var bullet_spawner_reference: BulletSpawner
 	
-func shoot(_bullet_instance : Projectile, bullet_scene : PackedScene):
+func shoot(_bullet_instance : Projectile, _bullet_scene : PackedScene):
 	pass
 
 func shoot_single(bullet_instance : Projectile, bullet_scene : PackedScene):
@@ -16,5 +16,5 @@ func shoot_single(bullet_instance : Projectile, bullet_scene : PackedScene):
 		bullet_instance.damage_value, 
 		bullet_instance.knockback_value)
 	
-	
-	Global.world.add_child(new_bullet)
+	Global.world.call_deferred("add_child", new_bullet)
+	#Global.world.add_child(new_bullet)

@@ -6,12 +6,28 @@
 offsets = PackedFloat32Array(0.42515, 0.45509, 0.640719, 0.688623, 1)
 colors = PackedColorArray(1, 0.363281, 0.363281, 1, 0.968627, 1, 0, 1, 0.968627, 1, 0, 1, 0.54902, 1, 0.364706, 1, 0.54902, 1, 0.364706, 1)
 
-[sub_resource type="Animation" id="2"]
+[sub_resource type="Animation" id="Animation_5ua71"]
+resource_name = "twinkle"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.498039, 0.498039, 0.498039, 1), Color(1, 1, 1, 1), Color(0.498039, 0.498039, 0.498039, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eue4l"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..:self_modulate")
+tracks/0/path = NodePath("..:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -21,27 +37,10 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="1"]
-resource_name = "twinkle"
-length = 0.2
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 1), Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 1), Color(1, 1, 1, 1), Color(0.5, 0.5, 0.5, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_q5dd4"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_krvny"]
 _data = {
-"RESET": SubResource("2"),
-"twinkle": SubResource("1")
+"RESET": SubResource("Animation_eue4l"),
+"twinkle": SubResource("Animation_5ua71")
 }
 
 [node name="HealthBar" type="Node2D"]
@@ -56,9 +55,8 @@ script = ExtResource("1")
 gradient = SubResource("3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HealthBarVisual"]
-root_node = NodePath("")
 libraries = {
-"": SubResource("AnimationLibrary_q5dd4")
+"": SubResource("AnimationLibrary_krvny")
 }
 
 [connection signal="value_changed" from="HealthBarVisual" to="HealthBarVisual" method="_on_value_changed"]

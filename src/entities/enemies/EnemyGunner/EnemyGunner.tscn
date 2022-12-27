@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bp1i8bk2wpxux"]
+[gd_scene load_steps=31 format=3 uid="uid://bp1i8bk2wpxux"]
 
 [ext_resource type="PackedScene" uid="uid://crehpac15c240" path="res://src/components/dust_spawner/DustSpawner.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dj4imexibaje1" path="res://src/entities/base_templates/base_npc/base_npc.tscn" id="2"]
@@ -15,24 +15,24 @@
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Pain.gd" id="13"]
 [ext_resource type="AudioStream" uid="uid://42fyfp683vm7" path="res://sounds/weapons/gunner/EFX EXT .50 Cal Pistol Shots 02 A.wav" id="14"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5yfbn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mmbr"]
 size = Vector2(90, 122)
 
-[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_oe47g"]
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_kked1"]
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_bobj6"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_p8fnv"]
 source = 2
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_235ar"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_a6dxw"]
 operator = 6
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_6373b"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_eb0c7"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_6n18v"]
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_tdejb"]
 parameter_name = "active"
 
-[sub_resource type="VisualShader" id="VisualShader_rat87"]
+[sub_resource type="VisualShader" id="VisualShader_gbd7l"]
 code = "shader_type canvas_item;
 uniform bool active;
 
@@ -69,30 +69,30 @@ void fragment() {
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1040, 60)
-nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_bobj6")
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_p8fnv")
 nodes/fragment/3/position = Vector2(600, -40)
-nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_235ar")
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_a6dxw")
 nodes/fragment/5/position = Vector2(860, -60)
-nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_6373b")
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_eb0c7")
 nodes/fragment/6/position = Vector2(600, 100)
-nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_6n18v")
+nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_tdejb")
 nodes/fragment/9/position = Vector2(400, 0)
-nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_oe47g")
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_kked1")
 nodes/fragment/11/position = Vector2(400, 120)
 nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b52lj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pdq1n"]
 resource_local_to_scene = true
-shader = SubResource("VisualShader_rat87")
+shader = SubResource("VisualShader_gbd7l")
 shader_parameter/active = false
 
-[sub_resource type="Resource" id="Resource_bkc5j"]
+[sub_resource type="Resource" id="Resource_t184q"]
 resource_local_to_scene = true
 script = ExtResource("7")
 amount = 3
 spread_angle = 5
 
-[sub_resource type="Animation" id="Animation_5j56w"]
+[sub_resource type="Animation" id="Animation_dfad7"]
 resource_name = "Death"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -144,7 +144,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_q2efc"]
+[sub_resource type="Animation" id="Animation_d8p3f"]
 resource_name = "Hit_Back"
 length = 0.5
 tracks/0/type = "value"
@@ -160,7 +160,7 @@ tracks/0/keys = {
 "values": [27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_3n63r"]
+[sub_resource type="Animation" id="Animation_o1fks"]
 resource_name = "Hit_Front"
 length = 0.5
 tracks/0/type = "value"
@@ -176,7 +176,7 @@ tracks/0/keys = {
 "values": [18, 19, 20]
 }
 
-[sub_resource type="Animation" id="Animation_31mds"]
+[sub_resource type="Animation" id="Animation_3ivri"]
 resource_name = "Idle"
 length = 0.5
 loop_mode = 1
@@ -193,7 +193,7 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
-[sub_resource type="Animation" id="Animation_6bl1p"]
+[sub_resource type="Animation" id="Animation_moy1x"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -220,7 +220,7 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_qp550"]
+[sub_resource type="Animation" id="Animation_owoig"]
 resource_name = "Run"
 length = 0.8
 loop_mode = 1
@@ -283,24 +283,21 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iwny2"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6y4s"]
 _data = {
-"Death": SubResource("Animation_5j56w"),
-"Hit_Back": SubResource("Animation_q2efc"),
-"Hit_Front": SubResource("Animation_3n63r"),
-"Idle": SubResource("Animation_31mds"),
-"RESET": SubResource("Animation_6bl1p"),
-"Run": SubResource("Animation_qp550")
+"Death": SubResource("Animation_dfad7"),
+"Hit_Back": SubResource("Animation_d8p3f"),
+"Hit_Front": SubResource("Animation_o1fks"),
+"Idle": SubResource("Animation_3ivri"),
+"RESET": SubResource("Animation_moy1x"),
+"Run": SubResource("Animation_owoig")
 }
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cr22j"]
-radius = 5.0
-height = 64.0
 
 [node name="EnemyGunner" groups=["ENEMY"] instance=ExtResource("2")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("9")
+speed_percentage = 0.8
 
 [node name="StateMachine" parent="." index="0"]
 initial_state = NodePath("Idle")
@@ -326,14 +323,13 @@ collision_mask = 8
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
 position = Vector2(1, -61)
-shape = SubResource("RectangleShape2D_5yfbn")
+shape = SubResource("RectangleShape2D_5mmbr")
 
 [node name="VisionCone2D" parent="Areas" index="1"]
-rotation = 1.5708
 z_index = -1
 
 [node name="Sprite2D" parent="Visuals" index="0"]
-material = SubResource("ShaderMaterial_b52lj")
+material = SubResource("ShaderMaterial_pdq1n")
 position = Vector2(0, -56)
 texture = ExtResource("12")
 hframes = 9
@@ -350,7 +346,7 @@ bullet_scene = ExtResource("4")
 shot_delay = 1.0
 bullet_speed = 225.0
 knockback_value = 1000
-bullet_emitter = SubResource("Resource_bkc5j")
+bullet_emitter = SubResource("Resource_t184q")
 
 [node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource("1")]
 
@@ -360,7 +356,7 @@ max_health = 100.0
 [node name="Animations" type="AnimationPlayer" parent="AnimationMachine" index="0"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_iwny2")
+"": SubResource("AnimationLibrary_g6y4s")
 }
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundMachine/Attack" index="0"]
@@ -371,9 +367,6 @@ volume_db = -12.0
 position = Vector2(0, -133)
 
 [node name="Line2D" type="Line2D" parent="Debug" index="0"]
-
-[node name="PhysicsCollider" parent="." index="9"]
-shape = SubResource("CapsuleShape2D_cr22j")
 
 [node name="NavigationAgent2D" parent="." index="11"]
 radius = 200.0

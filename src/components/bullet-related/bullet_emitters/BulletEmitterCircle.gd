@@ -14,7 +14,7 @@ func shoot(bullet_instance: Projectile, bullet_scene : PackedScene):
 
 
 func spread_shoot(bullet_instance : Projectile, bullet_scene : PackedScene):
-	var directions = []
+	#var directions = []
 	var angle := deg_to_rad(spread_angle)
 	var start_angle := 0.0
 	#var start_angle := amount/2.0 * angle
@@ -22,8 +22,6 @@ func spread_shoot(bullet_instance : Projectile, bullet_scene : PackedScene):
 	var sector_angle := angle / amount
 	var saved_direction = bullet_instance.direction
 	for i in range(amount):
-		print(i)
-		
 		bullet_instance.direction = bullet_instance.direction.rotated(start_angle - sector_angle * i)
 		shoot_single(bullet_instance, bullet_scene)
 		bullet_instance.direction = saved_direction

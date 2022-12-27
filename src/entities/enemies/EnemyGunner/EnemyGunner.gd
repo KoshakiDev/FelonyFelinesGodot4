@@ -26,6 +26,3 @@ var recoil = 10
 func shot_fired():
 	apply_external_force(-1 * internal_forces, recoil) 
 	sound_machine.play_sound("Attack")
-	
-func search_for_target():
-	return Global.get_closest_player(global_position)

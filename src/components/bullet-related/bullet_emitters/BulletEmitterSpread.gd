@@ -13,7 +13,7 @@ func shoot(bullet_instance: Projectile, bullet_scene : PackedScene):
 
 
 func spread_shoot(bullet_instance : Projectile, bullet_scene : PackedScene):
-	var directions = []
+	#var directions = []
 	var angle := deg_to_rad(spread_angle)
 	var start_angle := amount/2.0 * angle
 	

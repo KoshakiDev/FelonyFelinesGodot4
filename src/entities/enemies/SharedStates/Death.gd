@@ -3,7 +3,7 @@ extends State
 #Shared Death state for Enemies
 
 
-func enter(msg := {}) -> void:
+func enter(_msg := {}) -> void:
 	owner.turn_off_all()
 	owner.sound_machine.play_sound("Death")
 	owner.play_animation("Death", "Animations")

@@ -23,12 +23,12 @@ func _ready() -> void:
 	connect("body_entered",Callable(self,"_on_Bullet_body_entered"))
 
 func setup(
-		set_position,
+		set_bullet_position,
 		set_direction, 
 		set_speed, 
 		set_damage_value, 
 		set_knockback_value) -> void:
-	global_position = set_position
+	global_position = set_bullet_position
 	direction = set_direction
 	speed = set_speed
 	damage_value = set_damage_value

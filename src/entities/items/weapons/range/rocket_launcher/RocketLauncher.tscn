@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://3qc04gg2f73k"]
+[gd_scene load_steps=13 format=3 uid="uid://3qc04gg2f73k"]
 
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://xoh5cgnlfqmd" path="res://assets/items/weapons/range/rocket_launcher/rocket_launcher.png" id="2"]
@@ -51,6 +51,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(25, -2)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Visuals/Sprite2D/Rocket:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Shoot"
@@ -91,8 +115,72 @@ tracks/2/keys = {
 "values": [Vector2(34, -3), Vector2(34, -3), Vector2(2, -2), Vector2(30, -2), Vector2(26, -2)]
 }
 
+[sub_resource type="Animation" id="Animation_vrka0"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11, -3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Visuals/Sprite2D/Rocket:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(25, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Visuals/Sprite2D/Rocket:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Visuals/Sprite2D/Rocket:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sr5xs"]
 _data = {
+"Idle": SubResource("Animation_vrka0"),
 "RESET": SubResource("3"),
 "Shoot": SubResource("2")
 }

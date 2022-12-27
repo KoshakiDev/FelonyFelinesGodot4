@@ -44,7 +44,6 @@ text = "The signal from the vision cone area is connected to the enemy script, w
 [node name="Enemy2" parent="." instance=ExtResource("1_d5bxy")]
 position = Vector2(301, 705)
 rotation = -1.5708
-alert_color = Color(0.6, 0.270588, 0.247059, 0.368627)
 is_rotating = true
 rotation_speed = 1.0
 

@@ -11,10 +11,10 @@ func _ready():
 	turn_transparent_area.connect("body_entered",Callable(self,"turn_transparent"))
 	turn_transparent_area.connect("body_exited",Callable(self,"turn_opaque"))
 
-func turn_transparent(body):
+func turn_transparent(_body):
 	modulate.a /= 2
 	
-func turn_opaque(body):
+func turn_opaque(_body):
 	modulate.a *= 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

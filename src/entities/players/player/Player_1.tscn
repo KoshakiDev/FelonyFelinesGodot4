@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ltnclilplvt7"]
+[gd_scene load_steps=31 format=3 uid="uid://ltnclilplvt7"]
 
 [ext_resource type="PackedScene" uid="uid://b0yn7ugd4dedl" path="res://src/entities/base_templates/base_entity/base_entity.tscn" id="1_u2ocy"]
 [ext_resource type="Script" path="res://src/entities/players/player/Player.gd" id="2_plh2e"]
@@ -535,10 +535,6 @@ _data = {
 "Unhidden": SubResource("30")
 }
 
-[sub_resource type="CapsuleShape2D" id="24"]
-radius = 4.0
-height = 26.0
-
 [node name="Player1" groups=["PLAYER"] instance=ExtResource("1_u2ocy")]
 collision_layer = 2
 collision_mask = 5
@@ -614,9 +610,6 @@ position = Vector2(0, -85)
 [node name="AmmoBar" parent="." index="8" instance=ExtResource("13_k2i8p")]
 position = Vector2(-32, -93)
 scale = Vector2(0.5, 0.5)
-
-[node name="PhysicsCollider" parent="." index="10"]
-shape = SubResource("24")
 
 [node name="Camera" type="Camera2D" parent="." index="13"]
 offset = Vector2(0, -64)

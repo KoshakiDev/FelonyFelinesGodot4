@@ -88,7 +88,6 @@ func vector_to_movement_direction(input_vector : Vector2) -> Vector2:
 
 
 func hurt(attacker_area):
-	print("I was hurt")
 	if health_manager.is_dead() or !can_get_hit:
 		return
 	var knockback_direction = global_position - attacker_area.global_position
@@ -99,10 +98,6 @@ func hurt(attacker_area):
 	
 	emit_signal("hit_effect", attacker_area.global_position)
 	emit_signal("pain", knockback_direction.x, visuals.scale.x)
-	
-	
-	if state_machine.has_node("Pain"):
-		pass
 	
 
 func turn_off_all():

@@ -2,10 +2,10 @@ extends State
 #Shared Idle state for Enemies
 
 
-func enter(msg := {}) -> void:
+func enter(_msg := {}) -> void:
 	owner.play_animation("Idle", "Animations")
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if owner.health_manager.is_dead():
 		state_machine.transition_to("Death")
 		return
