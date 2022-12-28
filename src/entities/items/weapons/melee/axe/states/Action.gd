@@ -1,10 +1,10 @@
 extends State
 
 
-#Range Weapon Shooting State
+#Melee Weapon Shooting State
 
 func enter(_msg := {}) -> void:
-	pass
+	owner.action()
 
 func physics_update(_delta: float) -> void:
 	if Input.is_action_just_released("action" + owner.player_id):

@@ -1,38 +1,34 @@
-[gd_scene load_steps=31 format=3 uid="uid://bp1i8bk2wpxux"]
+[gd_scene load_steps=26 format=3 uid="uid://bp1i8bk2wpxux"]
 
 [ext_resource type="PackedScene" uid="uid://crehpac15c240" path="res://src/components/dust_spawner/DustSpawner.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dj4imexibaje1" path="res://src/entities/base_templates/base_npc/base_npc.tscn" id="2"]
-[ext_resource type="PackedScene" uid="uid://caehtlvgbvtxy" path="res://src/components/bullet-related/BulletSpawner.tscn" id="3"]
-[ext_resource type="PackedScene" uid="uid://csmcbesr4a25f" path="res://src/components/bullet-related/bullet type/EnemyBullet.tscn" id="4"]
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/states/AttackGunner.gd" id="5"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Chase.gd" id="6"]
-[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd" id="7"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Death.gd" id="8"]
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/EnemyGunner.gd" id="9"]
+[ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/ItemHolder.gd" id="9_u82ke"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Idle.gd" id="10"]
-[ext_resource type="Texture2D" uid="uid://1gmppixe4m4p" path="res://assets/entities/enemies/gunner/sergeant_sir_giant_hand_gun_64x64.png" id="11"]
 [ext_resource type="Texture2D" uid="uid://vvh1rme2js3x" path="res://assets/entities/enemies/gunner/sergeant_sir_giant_128x128_5x9.png" id="12"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Pain.gd" id="13"]
-[ext_resource type="AudioStream" uid="uid://42fyfp683vm7" path="res://sounds/weapons/gunner/EFX EXT .50 Cal Pistol Shots 02 A.wav" id="14"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mmbr"]
-size = Vector2(90, 122)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjgie"]
+size = Vector2(90, 94)
 
-[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_kked1"]
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_pagbf"]
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_p8fnv"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_oj11v"]
 source = 2
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_a6dxw"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_2je17"]
 operator = 6
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_eb0c7"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_nxy6y"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_tdejb"]
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_02l7k"]
 parameter_name = "active"
 
-[sub_resource type="VisualShader" id="VisualShader_gbd7l"]
+[sub_resource type="VisualShader" id="VisualShader_hawsr"]
 code = "shader_type canvas_item;
 uniform bool active;
 
@@ -69,30 +65,24 @@ void fragment() {
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1040, 60)
-nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_p8fnv")
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_oj11v")
 nodes/fragment/3/position = Vector2(600, -40)
-nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_a6dxw")
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_2je17")
 nodes/fragment/5/position = Vector2(860, -60)
-nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_eb0c7")
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_nxy6y")
 nodes/fragment/6/position = Vector2(600, 100)
-nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_tdejb")
+nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_02l7k")
 nodes/fragment/9/position = Vector2(400, 0)
-nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_kked1")
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_pagbf")
 nodes/fragment/11/position = Vector2(400, 120)
 nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pdq1n"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ir6cb"]
 resource_local_to_scene = true
-shader = SubResource("VisualShader_gbd7l")
+shader = SubResource("VisualShader_hawsr")
 shader_parameter/active = false
 
-[sub_resource type="Resource" id="Resource_t184q"]
-resource_local_to_scene = true
-script = ExtResource("7")
-amount = 3
-spread_angle = 5
-
-[sub_resource type="Animation" id="Animation_dfad7"]
+[sub_resource type="Animation" id="Animation_2bjel"]
 resource_name = "Death"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -144,7 +134,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_d8p3f"]
+[sub_resource type="Animation" id="Animation_wjsm0"]
 resource_name = "Hit_Back"
 length = 0.5
 tracks/0/type = "value"
@@ -160,7 +150,7 @@ tracks/0/keys = {
 "values": [27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_o1fks"]
+[sub_resource type="Animation" id="Animation_7esrt"]
 resource_name = "Hit_Front"
 length = 0.5
 tracks/0/type = "value"
@@ -176,7 +166,7 @@ tracks/0/keys = {
 "values": [18, 19, 20]
 }
 
-[sub_resource type="Animation" id="Animation_3ivri"]
+[sub_resource type="Animation" id="Animation_22l7n"]
 resource_name = "Idle"
 length = 0.5
 loop_mode = 1
@@ -192,8 +182,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/Sprite2D/ItemHolder:position")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 8), Vector2(0, 11), Vector2(0, 7)]
+}
 
-[sub_resource type="Animation" id="Animation_moy1x"]
+[sub_resource type="Animation" id="Animation_3ysoa"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -210,17 +212,17 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/Sprite2D/HandGun:rotation")
+tracks/1/path = NodePath("Visuals/Sprite2D/ItemHolder:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(0, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_owoig"]
+[sub_resource type="Animation" id="Animation_ayk38"]
 resource_name = "Run"
 length = 0.8
 loop_mode = 1
@@ -282,22 +284,35 @@ tracks/2/keys = {
 "method": &"play_sound"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/Sprite2D/ItemHolder:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5), Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5)]
+}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_g6y4s"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_grivx"]
 _data = {
-"Death": SubResource("Animation_dfad7"),
-"Hit_Back": SubResource("Animation_d8p3f"),
-"Hit_Front": SubResource("Animation_o1fks"),
-"Idle": SubResource("Animation_3ivri"),
-"RESET": SubResource("Animation_moy1x"),
-"Run": SubResource("Animation_owoig")
+"Death": SubResource("Animation_2bjel"),
+"Hit_Back": SubResource("Animation_wjsm0"),
+"Hit_Front": SubResource("Animation_7esrt"),
+"Idle": SubResource("Animation_22l7n"),
+"RESET": SubResource("Animation_3ysoa"),
+"Run": SubResource("Animation_ayk38")
 }
 
 [node name="EnemyGunner" groups=["ENEMY"] instance=ExtResource("2")]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("9")
-speed_percentage = 0.8
+alert_color = Color(0.6, 0.270588, 0.247059, 0.368627)
+friction = 0.5
 
 [node name="StateMachine" parent="." index="0"]
 initial_state = NodePath("Idle")
@@ -318,35 +333,26 @@ script = ExtResource("8")
 script = ExtResource("13")
 
 [node name="Hurtbox" parent="Areas" index="0"]
+position = Vector2(0, -48)
 collision_layer = 128
 collision_mask = 8
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
-position = Vector2(1, -61)
-shape = SubResource("RectangleShape2D_5mmbr")
+shape = SubResource("RectangleShape2D_kjgie")
 
 [node name="VisionCone2D" parent="Areas" index="1"]
 z_index = -1
 
 [node name="Sprite2D" parent="Visuals" index="0"]
-material = SubResource("ShaderMaterial_pdq1n")
+material = SubResource("ShaderMaterial_ir6cb")
 position = Vector2(0, -56)
 texture = ExtResource("12")
 hframes = 9
 vframes = 5
 
-[node name="HandGun" type="Sprite2D" parent="Visuals/Sprite2D" index="0"]
-position = Vector2(0, 34)
-texture = ExtResource("11")
-offset = Vector2(22, -9)
-
-[node name="BulletSpawner" parent="Visuals/Sprite2D/HandGun" index="0" instance=ExtResource("3")]
-position = Vector2(52, -10)
-bullet_scene = ExtResource("4")
-shot_delay = 1.0
-bullet_speed = 225.0
-knockback_value = 1000
-bullet_emitter = SubResource("Resource_t184q")
+[node name="ItemHolder" type="Marker2D" parent="Visuals/Sprite2D" index="0"]
+position = Vector2(0, 8)
+script = ExtResource("9_u82ke")
 
 [node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource("1")]
 
@@ -356,20 +362,24 @@ max_health = 100.0
 [node name="Animations" type="AnimationPlayer" parent="AnimationMachine" index="0"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_g6y4s")
+"": SubResource("AnimationLibrary_grivx")
 }
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SoundMachine/Attack" index="0"]
-stream = ExtResource("14")
-volume_db = -12.0
 
 [node name="HealthBar" parent="." index="6"]
 position = Vector2(0, -133)
+
+[node name="Debug" type="Node2D" parent="." index="7"]
 
 [node name="Line2D" type="Line2D" parent="Debug" index="0"]
 
 [node name="NavigationAgent2D" parent="." index="11"]
 radius = 200.0
+
+[node name="ForgetTimer" parent="." index="12"]
+wait_time = 2.5
+
+[node name="UpdateInternalForceTimer" parent="." index="13"]
+wait_time = 2.5
 
 [editable path="Areas/Hurtbox"]
 [editable path="Areas/VisionCone2D"]

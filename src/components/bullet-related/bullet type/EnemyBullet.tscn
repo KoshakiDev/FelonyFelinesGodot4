@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://csmcbesr4a25f"]
 
 [ext_resource type="PackedScene" uid="uid://pm3xpehnv2ck" path="res://src/components/bullet-related/bullet type/BaseProjectile.tscn" id="1"]
-[ext_resource type="Texture2D" uid="uid://dw68k5lhqkyyq" path="res://assets/items/weapons/range/bullets/enemy_bullet.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://ch1hxfjmjnj3q" path="res://assets/items/weapons/range/bullets/bullet.png" id="2_rfuee"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rnw5j"]
-radius = 11.0
-height = 34.0
+radius = 4.0
+height = 20.0
 
 [node name="EnemyBullet" instance=ExtResource("1")]
 collision_layer = 48
@@ -16,4 +16,8 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_rnw5j")
 
 [node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("3")
+modulate = Color(1, 0.286275, 0.584314, 1)
+texture = ExtResource("2_rfuee")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2"]
+visible = false

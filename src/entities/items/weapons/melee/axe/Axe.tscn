@@ -1,11 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cj4fplft47vvo"]
+[gd_scene load_steps=10 format=3 uid="uid://cj4fplft47vvo"]
 
 [ext_resource type="PackedScene" uid="uid://dogomrmgfmpeb" path="res://src/entities/items/base_templates/base_melee_weapon/BaseMeleeWeapon.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://cwaegodo5x7qm" path="res://assets/items/weapons/melee/axe/axe.png" id="2"]
 [ext_resource type="Script" path="res://src/entities/items/weapons/melee/axe/states/Action.gd" id="2_emepa"]
 [ext_resource type="Texture2D" uid="uid://c25kkrswu6ete" path="res://assets/items/weapons/melee/axe/axe_slash-sheet.png" id="3"]
-[ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4"]
-[ext_resource type="AudioStream" uid="uid://dubj6d0tdayyi" path="res://sounds/axe/FencingFoil,swoosh,roomambience,lively,quick,aggressive.M.wav" id="5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xhcnf"]
 size = Vector2(21, 30)
@@ -247,12 +245,5 @@ frame = 1
 libraries = {
 "": SubResource("AnimationLibrary_4af0r")
 }
-
-[node name="Swoosh" type="Node2D" parent="Marker2D/SoundMachine" index="0"]
-script = ExtResource("4")
-pitch_range = 0.3
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Marker2D/SoundMachine/Swoosh" index="0"]
-stream = ExtResource("5")
 
 [editable path="Marker2D/Visuals/Sprite2D/Hitbox"]

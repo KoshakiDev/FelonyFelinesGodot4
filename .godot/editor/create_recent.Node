@@ -1,14 +1,15 @@
 Timer
-CollisionShape2D
-AnimationPlayer
-Camera2D
+Sprite2D
+AudioStreamPlayer2D
+Marker2D
 Node
+AnimationPlayer
+CollisionShape2D
+Camera2D
 TileMap
 VisionCone2D (vision_cone_2d.gd)
 SubViewport
 TextureRect
 RemoteTransform2D
-Marker2D
-AudioStreamPlayer2D
 State (State.gd)
 StateMachine (StatesMachine.gd)

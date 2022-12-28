@@ -106,7 +106,7 @@ func turn_off_all():
 		item_manager.cur_item.set_inactive()
 	item_manager.visible = false
 	respawn_radius.activate_respawn_radius()
-	set_collision_layer_value(1, false)
+	collision_layer -= pow(2, 2-1)
 	emit_signal("player_died")
 
 func turn_on_all():
@@ -116,5 +116,5 @@ func turn_on_all():
 		item_manager.cur_item.set_active()
 	item_manager.visible = true
 	respawn_radius.deactivate_respawn_radius()
-	set_collision_layer_value(1, true)
+	collision_layer += pow(2, 2-1)
 	ammo_bar.update_ammo_bar(item_manager.return_ammo_count())

@@ -1,0 +1,141 @@
+[gd_scene load_steps=13 format=3 uid="uid://dvaldvot3fvdv"]
+
+[ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1_5figc"]
+[ext_resource type="Texture2D" uid="uid://1gmppixe4m4p" path="res://assets/entities/enemies/gunner/sergeant_sir_giant_hand_gun_64x64.png" id="2_mtwu8"]
+[ext_resource type="Script" path="res://src/entities/items/weapons/range/sergeant_hand_gun/SergeantHandGun.gd" id="2_w2kta"]
+[ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4_3sprx"]
+[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd" id="4_ese6x"]
+[ext_resource type="PackedScene" uid="uid://csmcbesr4a25f" path="res://src/components/bullet-related/bullet type/EnemyBullet.tscn" id="4_i8pwl"]
+[ext_resource type="AudioStream" uid="uid://42fyfp683vm7" path="res://sounds/weapons/gunner/EFX EXT .50 Cal Pistol Shots 02 A.wav" id="5_gu6la"]
+
+[sub_resource type="Resource" id="Resource_kmxyn"]
+script = ExtResource("4_ese6x")
+amount = 3
+spread_angle = 5
+
+[sub_resource type="Animation" id="Animation_3ni4t"]
+resource_name = "Shoot"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-10, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.261799, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_xjeeo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_er4cv"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r4ixb"]
+_data = {
+"Idle": SubResource("Animation_er4cv"),
+"RESET": SubResource("Animation_xjeeo"),
+"Shoot": SubResource("Animation_3ni4t")
+}
+
+[node name="SergeantHandGun" instance=ExtResource("1_5figc")]
+script = ExtResource("2_w2kta")
+item_type = "WEAPON"
+despawn_time = 5
+
+[node name="StateMachine" parent="Marker2D" index="0"]
+initial_state = NodePath("Disabled")
+
+[node name="PickUpRange" parent="Marker2D" index="1"]
+visible = false
+delete_pickup_range = true
+
+[node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
+texture = ExtResource("2_mtwu8")
+offset = Vector2(22, -9)
+
+[node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0"]
+position = Vector2(52, -11)
+bullet_scene = ExtResource("4_i8pwl")
+shot_delay = 0.5
+bullet_speed = 200.0
+knockback_value = 1000
+bullet_emitter = SubResource("Resource_kmxyn")
+
+[node name="AnimationPlayer" parent="Marker2D/AnimationMachine" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_r4ixb")
+}
+
+[node name="Shot" type="Node2D" parent="Marker2D/SoundMachine" index="3"]
+position = Vector2(-14, 3)
+script = ExtResource("4_3sprx")
+pitch_range = 0.2
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="Marker2D/SoundMachine/Shot" index="0"]
+stream = ExtResource("5_gu6la")
+volume_db = -12.0

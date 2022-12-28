@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dogomrmgfmpeb"]
+[gd_scene load_steps=6 format=3 uid="uid://dogomrmgfmpeb"]
 
 [ext_resource type="PackedScene" uid="uid://csn8we332roa1" path="res://src/entities/items/base_templates/base_item/base_item.tscn" id="1"]
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_melee_weapon/BaseMeleeWeapon.gd" id="2"]
 [ext_resource type="PackedScene" uid="uid://k8bvo4y6ng0" path="res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn" id="3"]
+[ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4_3x5wg"]
+[ext_resource type="AudioStream" uid="uid://dubj6d0tdayyi" path="res://sounds/axe/FencingFoil,swoosh,roomambience,lively,quick,aggressive.M.wav" id="5_8slrt"]
 
 [node name="BaseMeleeWeapon" instance=ExtResource("1")]
 script = ExtResource("2")
@@ -10,3 +12,10 @@ recoil = 15
 attack_delay = 0.5
 
 [node name="Hitbox" parent="Marker2D/Visuals/Sprite2D" index="0" instance=ExtResource("3")]
+
+[node name="Swoosh" type="Node2D" parent="Marker2D/SoundMachine" index="2"]
+script = ExtResource("4_3x5wg")
+pitch_range = 0.3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Marker2D/SoundMachine/Swoosh" index="0"]
+stream = ExtResource("5_8slrt")

@@ -80,12 +80,13 @@ alert_color = Color(0.6, 0.270588, 0.247059, 0.368627)
 ITEM_DROP_PERCENT = 50
 
 [node name="VisionCone2D" parent="Areas" index="1" instance=ExtResource("3_hbwcn")]
+position = Vector2(0, -4)
 rotation = -1.5708
-angle_deg = 120.0
+angle_deg = 90.0
 ray_count = 50
 
 [node name="VisionConeArea" parent="Areas/VisionCone2D" index="1"]
-collision_mask = 3
+collision_mask = 3585
 
 [node name="DebugDraw" parent="Areas/VisionCone2D" index="2"]
 is_visible = false
@@ -96,14 +97,18 @@ material = SubResource("7")
 [node name="Attack" type="Node2D" parent="SoundMachine" index="4"]
 script = ExtResource("4")
 
-[node name="NavigationAgent2D" parent="." index="11"]
+[node name="NavigationAgent2D" parent="." index="10"]
 path_desired_distance = 20.0
 target_desired_distance = 20.0
 path_max_distance = 60.0
 
-[node name="ForgetTimer" type="Timer" parent="." index="12"]
+[node name="ForgetTimer" type="Timer" parent="." index="11"]
 wait_time = 5.0
 one_shot = true
+
+[node name="UpdateInternalForceTimer" type="Timer" parent="." index="12"]
+wait_time = 4.0
+autostart = true
 
 [editable path="Areas/Hurtbox"]
 [editable path="Areas/VisionCone2D"]

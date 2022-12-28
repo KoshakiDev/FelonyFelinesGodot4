@@ -19,6 +19,9 @@ func _ready():
 		switch_to_item_slot(cur_slot)
 
 func _input(event):
+	if cur_item != null:
+		if cur_item.is_empty():
+			switch_to_next_item()
 	if event.is_action_pressed("next_weapon" + player_id):
 		switch_to_next_item()
 	if event.is_action_pressed("prev_weapon" + player_id):
@@ -68,32 +71,27 @@ func add_duplicant_to_existing_item(new_item):
 	var dupe_item = get_duplicant(new_item)
 	if dupe_item.item_type == "RANGE" or dupe_item.item_type == "MEDKIT":
 		dupe_item.add_ammo_pack()
-		owner.ammo_bar.update_ammo_bar(return_ammo_count())
+		ammo_bar.update_ammo_bar(return_ammo_count())
 	
 
 func is_duplicant(new_item):
 	var dupe_item = get_duplicant(new_item)
 	return dupe_item != null
 
+func switch_to_item_with_displacement_number(displacement_number):
+	update_children()
+	if item_slots_size == 0:
+		return
+	cur_slot = posmod((cur_slot + displacement_number), item_slots_size)
+	switch_to_item_slot(cur_slot)
+	if cur_item.is_empty():
+		switch_to_item_with_displacement_number(displacement_number)
 
 func switch_to_next_item():
-	update_children()
-	
-	if item_slots_size == 0:
-		return
-	
-	cur_slot = posmod((cur_slot + 1), item_slots_size)
-	
-	switch_to_item_slot(cur_slot)
+	switch_to_item_with_displacement_number(1)
 
 func switch_to_prev_item():
-	update_children()
-	
-	if item_slots_size == 0:
-		return
-	
-	cur_slot = posmod((cur_slot - 1), item_slots_size)
-	switch_to_item_slot(cur_slot)
+	switch_to_item_with_displacement_number(-1)
 
 
 func switch_to_item_slot(slot_ind: int):
@@ -108,6 +106,7 @@ func switch_to_item_slot(slot_ind: int):
 		cur_item.connect("ammo_changed",Callable(ammo_bar,"update_ammo_bar"))
 		cur_item.emit_signal("ammo_changed", return_ammo_count())
 	
+	ammo_bar.update_ammo_bar(return_ammo_count())
 
 func disable_all_items():
 	for item in items:

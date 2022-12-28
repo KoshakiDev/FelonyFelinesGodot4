@@ -9,8 +9,7 @@ player_id = "_2"
 [node name="Sprite2D" parent="Visuals" index="0"]
 texture = ExtResource("2_vnbh3")
 
-[node name="Camera" parent="." index="13"]
+[node name="Camera" parent="." index="12"]
 current = false
-zoom = Vector2(2, 2)
 
 [editable path="Areas/Hurtbox"]

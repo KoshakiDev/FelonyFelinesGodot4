@@ -25,12 +25,21 @@ var enemy_count = 0
 
 var ITEM_DROP_WEIGHTS = {
 	"weapons/melee/axe/Axe": 4,
-#	"weapons/range/assault rifle/AssaultRifle": 2,
+	"weapons/melee/bat/BaseballBat": 4,
 	"weapons/range/shotgun/Shotgun": 3,
 	"medkit/Medkit": 5,
 	"weapons/range/minigun/Minigun": 1,
 	"weapons/range/revolver/Revolver": 5,
 	"weapons/range/rocket_launcher/RocketLauncher": 1
+}
+
+var ITEM_NAME_TO_PATH = {
+	"AXE": "weapons/melee/axe/Axe",
+	"SHOTGUN": "weapons/range/shotgun/Shotgun",
+	"MEDKIT": "medkit/Medkit",
+	"MINIGUN": "weapons/range/minigun/Minigun",
+	"REVOLVER": "weapons/range/revolver/Revolver",
+	"RPG": "weapons/range/rocket_launcher/RocketLauncher"
 }
 
 signal all_dead
@@ -71,6 +80,42 @@ func random_vector2(n):
 	rng.randomize()
 	return Vector2(rng.randf_range(-n, n), rng.randf_range(-n, n))
 
+func drop_specific_weapon(drop_position, weapon_name):
+	var scene = str("res://src/entities/items/", ITEM_NAME_TO_PATH[weapon_name], ".tscn")
+	instance_scene(load(scene), drop_position)
+
+
+
+func drop_weapon(drop_position, ITEM_DROP_PERCENT):
+	# drop is a number between 0 and 99
+	var drop = randi() % 100
+	# if drop is strictly less than our percentage, then drop something
+	if drop < ITEM_DROP_PERCENT:
+		var drop_list = []
+		for key in ITEM_DROP_WEIGHTS:
+			for _i in range(ITEM_DROP_WEIGHTS[key]):
+				drop_list.append(key)
+
+		# index is a number between 0 and list size - 1
+		var index = randi() % drop_list.size()
+		# load the scene at index
+		var scene = str("res://src/entities/items/", drop_list[index], ".tscn")
+		
+		instance_scene(load(scene), drop_position)
+
+
+func instance_scene(_instance_scene, instance_position):
+	var new_instance = _instance_scene.instantiate()
+	new_instance.global_position = instance_position
+	Global.world.call_deferred("add_child", new_instance)
+
+
+func update_board():
+	enemy_count -= 1
+	if enemy_count == 0:
+		main.update_wave()
+	#main.update_board()
+	#UI_layer.update_board()
 
 #func get_all_enemies():
 #	var enemies_result = {

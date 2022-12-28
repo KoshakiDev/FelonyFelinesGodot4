@@ -12,6 +12,7 @@ var can_attack = true
 
 func _ready():
 	super._ready()
+	animation_machine.play_animation("Idle", "AnimationPlayer")
 	$Marker2D/Visuals/Sprite2D/Hitbox.turn_on()
 	setup_attack_delay_timer()
 
@@ -26,6 +27,10 @@ func setup_attack_delay_timer():
 	timer.one_shot = true
 	timer.autostart = false
 	timer.connect("timeout",Callable(self,"reload_timer_finished"))
+
+func is_empty():
+	super.is_empty()
+	return false
 
 func reload_timer_finished():
 	can_attack = true

@@ -31,7 +31,7 @@ func physics_update(_delta: float) -> void:
 	
 	if owner.nav_agent.is_navigation_finished():
 		owner.nav_agent.can_update_path = true
-		print("navigation finished")
+		owner.forget_last_position()
 		state_machine.transition_to("Idle")
 		return
 	

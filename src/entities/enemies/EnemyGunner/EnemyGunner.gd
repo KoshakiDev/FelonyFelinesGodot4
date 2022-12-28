@@ -1,28 +1,31 @@
 extends "res://src/entities/base_templates/base_npc/base_npc.gd"
 
-@onready var handgun = $Visuals/Sprite2D/HandGun
-@onready var bullet_spawner = $Visuals/Sprite2D/HandGun/BulletSpawner
+signal drop_specific_weapon(drop_position, weapon_name)
+@onready var item_holder = $Visuals/Sprite2D/ItemHolder
 
 func _ready():
 	super._ready()
-	bullet_spawner.connect("shot_fired",Callable(self,"shot_fired"))
+	item_holder.init(self)
+	connect("drop_specific_weapon", Callable(Global, "drop_specific_weapon"))
 
+func turn_on_all():
+	super.turn_on_all()
+	item_holder.visible = true
+
+func turn_off_all():
+	super.turn_off_all()
+	item_holder.visible = false
 
 func attack(target):
-	var look_dir = (target.global_position - global_position).normalized()
-	if look_dir.x < 0:
-		visuals.scale.x = -1
-	else:
-		visuals.scale.x = 1
+	var look_direction = (target.global_position - global_position).normalized()
+	adjust_rotation_to_direction(look_direction)
+	item_holder.shoot()
+
+func adjust_rotation_to_direction(direction):
+	super.adjust_rotation_to_direction(direction)
 	
 	if visuals.scale.x == -1:
-		handgun.rotation = PI - (target.global_position - global_position).angle()
+		item_holder.rotation = PI - direction.angle()
 	elif visuals.scale.x == 1:
-		handgun.rotation = (target.global_position - global_position).angle()
-	bullet_spawner.shoot()
-
-var recoil = 10
-
-func shot_fired():
-	apply_external_force(-1 * internal_forces, recoil) 
-	sound_machine.play_sound("Attack")
+		item_holder.rotation = direction.angle()
+	

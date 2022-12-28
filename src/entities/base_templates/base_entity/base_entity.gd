@@ -12,9 +12,7 @@ class_name Entity
 @export_range(0, 1) var speed_percentage: float = 1
 @export var acceleration: float = 0.1
 @export var friction: float = 0.1
-#renamed from intended_velocity to internal_force
-var internal_forces: Vector2
-#renamed from knockback to external_force
+var internal_forces: Vector2 = Vector2.RIGHT
 var external_forces: Vector2
 @onready var physics_collider = $PhysicsCollider
 
@@ -61,8 +59,10 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func adjust_rotation_to_direction(direction):
-	if direction.x != 0:
-		visuals.scale.x = direction.x
+	if direction.x < 0:
+		visuals.scale.x = -1
+	else:
+		visuals.scale.x = 1
 	
 
 func apply_internal_force(force_direction: Vector2):

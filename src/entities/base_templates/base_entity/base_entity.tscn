@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://src/entities/base_templates/base_entity/NavigationManager.gd" id="20"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj4fd"]
-radius = 4.0
+radius = 2.0
 
 [node name="BaseEntity" type="CharacterBody2D" groups=["ENTITY"]]
 script = ExtResource("9")
@@ -100,8 +100,6 @@ volume_db = -10.0
 
 [node name="HealthBar" parent="." instance=ExtResource("1")]
 
-[node name="Debug" type="Node2D" parent="."]
-
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="PhysicsCollider" type="CollisionShape2D" parent="."]
@@ -112,6 +110,7 @@ shape = SubResource("CircleShape2D_uj4fd")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
+radius = 50.0
 script = ExtResource("20")
 
 [node name="UpdatePathTimer" type="Timer" parent="NavigationAgent2D"]

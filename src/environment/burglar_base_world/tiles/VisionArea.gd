@@ -12,9 +12,7 @@ signal target_detected(target)
 signal begin_suspicion
 signal target_lost
 
-@export var normal_color = Color(0, 1, 0, 0.74902)
-@export var suspicion_color = Color(1, 0.796078, 0, 0.74902)
-@export var detected_color = Color(1, 0, 0, 0.74902)
+
 
 func _ready():
 	connect("body_entered",Callable(self,"target_entered_vision_area"))

@@ -28,7 +28,9 @@ func init(set_item_owner: Node2D) -> void:
 	item_owner = set_item_owner
 	if item_owner.get("player_id") != null:
 		player_id = item_owner.player_id
-	
+
+func is_empty():
+	pass
 	
 #To-do: the pickup item area does not work for some reason inside the base range weapon
 func pickup_item():

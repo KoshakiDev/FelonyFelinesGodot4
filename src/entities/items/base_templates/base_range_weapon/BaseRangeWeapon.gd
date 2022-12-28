@@ -22,6 +22,10 @@ func add_ammo_pack() -> void:
 	emit_signal("ammo_changed", ammo)
 	return
 
+func is_empty():
+	super.is_empty()
+	return is_out_of_ammo()
+
 func is_out_of_ammo() -> bool:
 	return ammo <= 0
 

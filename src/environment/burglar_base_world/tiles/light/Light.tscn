@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn1cc1um0jsvb"]
+
+[ext_resource type="Texture2D" uid="uid://dnxdup5tfdwvt" path="res://src/environment/burglar_base_world/tiles/light/light.png" id="1_fei6o"]
+[ext_resource type="Script" path="res://src/environment/burglar_base_world/tiles/light/Light.gd" id="1_mgi53"]
+[ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="2_48v1v"]
+[ext_resource type="Texture2D" uid="uid://cr20rokpyp612" path="res://src/environment/burglar_base_world/tiles/light/shadow.png" id="2_cj3xo"]
+
+[node name="Light" type="Node2D" node_paths=PackedStringArray("vision_renderer")]
+script = ExtResource("1_mgi53")
+vision_renderer = NodePath("VisionCone2D/VisionConeRenderer")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.498039)
+position = Vector2(0, -128)
+texture = ExtResource("1_fei6o")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.176471)
+texture = ExtResource("2_cj3xo")
+
+[node name="VisionCone2D" parent="." instance=ExtResource("2_48v1v")]
+z_index = -1
+angle_deg = 359.0
+ray_count = 50
+max_distance = 250.0
+
+[node name="VisionConeRenderer" parent="VisionCone2D" index="0"]
+color = Color(1, 1, 1, 0.286275)
+
+[node name="VisionConeArea" parent="VisionCone2D" index="1"]
+collision_mask = 3
+
+[node name="DebugDraw" parent="VisionCone2D" index="2"]
+is_visible = false
+
+[editable path="VisionCone2D"]

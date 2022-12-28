@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cl126ejxkbqj7"]
+[gd_scene load_steps=12 format=3 uid="uid://cl126ejxkbqj7"]
 
 [ext_resource type="Texture2D" uid="uid://5qj52cqyg6a" path="res://assets/items/weapons/range/revolver/Revolver.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="2"]
 [ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="3"]
 [ext_resource type="AudioStream" uid="uid://vmf6gw7j8dtx" path="res://sounds/guns/pistol.wav" id="4"]
 [ext_resource type="Texture2D" uid="uid://bl6cdejqe2dlr" path="res://assets/items/weapons/range/muzzle_flashes/revolver_flash.png" id="5"]
+[ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="5_4kio4"]
 
 [sub_resource type="Resource" id="3"]
 resource_local_to_scene = true
@@ -113,7 +114,7 @@ tracks/1/path = NodePath("../Visuals/Sprite2D/Flash:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.04),
+"times": PackedFloat32Array(0, 0.12),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -170,5 +171,10 @@ libraries = {
 "": SubResource("AnimationLibrary_xmwhx")
 }
 
-[node name="Shot" type="AudioStreamPlayer" parent="Marker2D/SoundMachine" index="0"]
+[node name="Shot" type="Node2D" parent="Marker2D/SoundMachine" index="0"]
+position = Vector2(-14, 3)
+script = ExtResource("5_4kio4")
+pitch_range = 0.2
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="Marker2D/SoundMachine/Shot" index="0"]
 stream = ExtResource("4")

@@ -256,6 +256,9 @@ escape={
 2d_physics/layer_7="player_hurtbox"
 2d_physics/layer_8="enemy_hurtbox"
 2d_physics/layer_9="item_pick_up"
+2d_physics/layer_10="in_light_1"
+2d_physics/layer_11="in_light_2"
+2d_physics/layer_12="in_light_3"
 
 [physics]
 
