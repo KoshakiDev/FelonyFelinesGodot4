@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://csml1kvjwgdf5"]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="PackedScene" uid="uid://csn8we332roa1" path="res://src/entities/items/base_templates/base_item/base_item.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://src/entities/items/base_templates/base_item/base_item.tscn" id="1"]
 [ext_resource type="Script" path="res://src/entities/items/medkit/Medkit.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://chbb7xl1tuqk4" path="res://assets/items/pickups/medkit/medkit_sheet_32x32.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://chbb7xl1tuqk4" path="res://assets/items/weapons/range/pickups/medkit/medkit_sheet_32x32.png" id="3"]
 [ext_resource type="Script" path="res://src/entities/items/medkit/states/Action.gd" id="3_dyai4"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4"]
 [ext_resource type="AudioStream" uid="uid://cytpue7kb8t4y" path="res://sounds/medkit/Celery,Bite,Crunch,Slow,Bone,Break,Stick,Creak,Various07.wav" id="5"]

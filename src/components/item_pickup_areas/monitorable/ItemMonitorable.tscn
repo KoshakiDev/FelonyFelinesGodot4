@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3]
 
-[ext_resource type="Texture2D" uid="uid://dtefpgq5qaxxs" path="res://assets/effects/Respawn_Radius.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dtefpgq5qaxxs" path="res://assets/UI/Respawn_Radius.png" id="1"]
 [ext_resource type="Script" path="res://src/components/item_pickup_areas/monitorable/ItemMonitorable.gd" id="2"]
 
 [sub_resource type="CircleShape2D" id="1"]

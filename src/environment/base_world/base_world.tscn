@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3]
+[gd_scene load_steps=26 format=3 uid="uid://c650qlfktosck"]
 
 [ext_resource type="Script" path="res://src/environment/base_world/base_world.gd" id="1_8sg6m"]
 [ext_resource type="PackedScene" path="res://src/entities/items/weapons/range/rocket_launcher/RocketLauncher.tscn" id="2_8dc8r"]

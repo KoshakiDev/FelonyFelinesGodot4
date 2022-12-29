@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf0y46ci8xo2k"]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://src/components/circle_progress_bar/CircleProgress.gd" id="1_qn1ix"]
-[ext_resource type="Texture2D" uid="uid://dtefpgq5qaxxs" path="res://assets/effects/Respawn_Radius.png" id="2_mygwg"]
+[ext_resource type="Texture2D" uid="uid://dtefpgq5qaxxs" path="res://assets/UI/Respawn_Radius.png" id="2_mygwg"]
 [ext_resource type="Material" uid="uid://c8qaj0pmeagi1" path="res://src/shaders/CircleProgress.tres" id="3_mklwy"]
 
 [node name="SpriteContainer" type="Node2D"]

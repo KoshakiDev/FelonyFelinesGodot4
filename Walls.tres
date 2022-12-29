@@ -1,9 +1,0 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://d4npnvn31ekoq"]
-
-[ext_resource type="Texture2D" uid="uid://damo7bd5gyrvm" path="res://assets/environment/texture/TX Tileset Wall.png" id="1"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ywgeo"]
-texture = ExtResource("1")
-
-[resource]
-sources/0 = SubResource("TileSetAtlasSource_ywgeo")

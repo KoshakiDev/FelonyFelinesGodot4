@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3]
+[gd_scene load_steps=26 format=3 uid="uid://bhppar5m7rr10"]
 
 [ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dj4imexibaje1" path="res://src/entities/base_templates/base_npc/base_npc.tscn" id="2"]
@@ -11,24 +11,24 @@
 [ext_resource type="Texture2D" uid="uid://vvh1rme2js3x" path="res://assets/entities/enemies/gunner/sergeant_sir_giant_128x128_5x9.png" id="12"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Pain.gd" id="13"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2lb3"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfgox"]
 size = Vector2(90, 94)
 
-[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_dpvnq"]
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_xr8md"]
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hyyo6"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_l1u3x"]
 source = 2
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_sfim7"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_21plk"]
 operator = 6
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dfk7v"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_hay61"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_ewe12"]
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_bfr4q"]
 parameter_name = "active"
 
-[sub_resource type="VisualShader" id="VisualShader_vhc54"]
+[sub_resource type="VisualShader" id="VisualShader_kq0jh"]
 code = "shader_type canvas_item;
 uniform bool active;
 
@@ -65,24 +65,24 @@ void fragment() {
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1040, 60)
-nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_hyyo6")
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_l1u3x")
 nodes/fragment/3/position = Vector2(600, -40)
-nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_sfim7")
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_21plk")
 nodes/fragment/5/position = Vector2(860, -60)
-nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_dfk7v")
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_hay61")
 nodes/fragment/6/position = Vector2(600, 100)
-nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_ewe12")
+nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_bfr4q")
 nodes/fragment/9/position = Vector2(400, 0)
-nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_dpvnq")
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_xr8md")
 nodes/fragment/11/position = Vector2(400, 120)
 nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6jgh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2grj0"]
 resource_local_to_scene = true
-shader = SubResource("VisualShader_vhc54")
+shader = SubResource("VisualShader_kq0jh")
 shader_parameter/active = false
 
-[sub_resource type="Animation" id="Animation_jk83h"]
+[sub_resource type="Animation" id="Animation_c3okk"]
 resource_name = "Death"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -134,7 +134,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_xjbbb"]
+[sub_resource type="Animation" id="Animation_yxu1g"]
 resource_name = "Hit_Back"
 length = 0.5
 tracks/0/type = "value"
@@ -150,7 +150,7 @@ tracks/0/keys = {
 "values": [27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_h15n1"]
+[sub_resource type="Animation" id="Animation_nwy0f"]
 resource_name = "Hit_Front"
 length = 0.5
 tracks/0/type = "value"
@@ -166,7 +166,7 @@ tracks/0/keys = {
 "values": [18, 19, 20]
 }
 
-[sub_resource type="Animation" id="Animation_u2mbi"]
+[sub_resource type="Animation" id="Animation_p8l4j"]
 resource_name = "Idle"
 length = 0.5
 loop_mode = 1
@@ -195,7 +195,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8), Vector2(0, 11), Vector2(0, 7)]
 }
 
-[sub_resource type="Animation" id="Animation_hjivk"]
+[sub_resource type="Animation" id="Animation_gvos0"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -222,7 +222,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_fm40l"]
+[sub_resource type="Animation" id="Animation_c55ar"]
 resource_name = "Run"
 length = 0.8
 loop_mode = 1
@@ -297,14 +297,14 @@ tracks/3/keys = {
 "values": [Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5), Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a6r3n"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bgkst"]
 _data = {
-"Death": SubResource("Animation_jk83h"),
-"Hit_Back": SubResource("Animation_xjbbb"),
-"Hit_Front": SubResource("Animation_h15n1"),
-"Idle": SubResource("Animation_u2mbi"),
-"RESET": SubResource("Animation_hjivk"),
-"Run": SubResource("Animation_fm40l")
+"Death": SubResource("Animation_c3okk"),
+"Hit_Back": SubResource("Animation_yxu1g"),
+"Hit_Front": SubResource("Animation_nwy0f"),
+"Idle": SubResource("Animation_p8l4j"),
+"RESET": SubResource("Animation_gvos0"),
+"Run": SubResource("Animation_c55ar")
 }
 
 [node name="EnemyGunner" groups=["ENEMY"] instance=ExtResource("2")]
@@ -337,13 +337,13 @@ collision_layer = 128
 collision_mask = 8
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
-shape = SubResource("RectangleShape2D_u2lb3")
+shape = SubResource("RectangleShape2D_gfgox")
 
 [node name="VisionCone2D" parent="Areas" index="1"]
 z_index = -1
 
 [node name="Sprite2D" parent="Visuals" index="0"]
-material = SubResource("ShaderMaterial_o6jgh")
+material = SubResource("ShaderMaterial_2grj0")
 position = Vector2(0, -56)
 texture = ExtResource("12")
 hframes = 9
@@ -361,7 +361,7 @@ max_health = 100.0
 [node name="Animations" type="AnimationPlayer" parent="AnimationMachine" index="0"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_a6r3n")
+"": SubResource("AnimationLibrary_bgkst")
 }
 
 [node name="HealthBar" parent="." index="6"]

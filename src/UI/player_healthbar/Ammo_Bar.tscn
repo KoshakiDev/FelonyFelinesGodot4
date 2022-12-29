@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck44ggug3q4v6"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Texture2D" uid="uid://ch1hxfjmjnj3q" path="res://assets/items/weapons/range/bullets/bullet.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://ch1hxfjmjnj3q" path="res://assets/items/weapons/range/bullets/bullet_regular.png" id="2"]
 [ext_resource type="FontFile" uid="uid://bjsgu6uxa313b" path="res://assets/fonts/windows_command_font.tres" id="2_ia7vs"]
 [ext_resource type="Script" path="res://src/UI/player_healthbar/Ammo_Bar.gd" id="3"]
 
