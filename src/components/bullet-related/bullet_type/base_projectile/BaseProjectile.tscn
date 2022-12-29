@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg6meevnmlfp1"]
+
+[ext_resource type="Script" path="res://src/components/bullet-related/bullet_type/base_projectile/BaseProjectile.gd" id="2_2aeoc"]
+[ext_resource type="PackedScene" uid="uid://k8bvo4y6ng0" path="res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn" id="3"]
+
+[node name="BaseProjectile" instance=ExtResource("3")]
+collision_layer = 32
+collision_mask = 1
+script = ExtResource("2_2aeoc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="2"]

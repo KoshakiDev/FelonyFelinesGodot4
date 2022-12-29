@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://caehtlvgbvtxy"]
+[gd_scene load_steps=3 format=3 uid="uid://egcgkllhejfm"]
 
 [ext_resource type="Script" path="res://src/components/bullet-related/BulletSpawner.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://dplk7imim57n0" path="res://src/components/bullet-related/bullet type/PlayerBullet.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://c432r8c1hl1y7" path="res://src/components/bullet-related/bullet_type/regular_bullet/RegularBullet.tscn" id="2_xnayp"]
 
 [node name="BulletSpawner" type="Marker2D"]
 script = ExtResource("1")
-bullet_scene = ExtResource("2")
+bullet_scene = ExtResource("2_xnayp")
 bullet_speed = 400.0
 shoot_anim_player_p = NodePath("")
 bullet_emitter = null

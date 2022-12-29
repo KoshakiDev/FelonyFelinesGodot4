@@ -29,6 +29,8 @@ var shoot_anim_player: AnimationPlayer
 
 var timer: Timer
 
+var can_hit_players = false
+var can_hit_enemies = false
 
 func _ready() -> void:
 	if Engine.is_editor_hint():
@@ -80,7 +82,9 @@ func shoot() -> void:
 		shoot_direction, 
 		bullet_speed, 
 		bullet_damage_value, 
-		knockback_value)
+		knockback_value,
+		can_hit_enemies,
+		can_hit_players)
 		
 	bullet_emitter.shoot(bullet_instance, bullet_scene)
 	emit_signal("shot_fired")

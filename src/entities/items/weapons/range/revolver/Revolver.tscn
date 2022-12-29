@@ -147,9 +147,6 @@ entity_name = "REVOLVER"
 [node name="Marker2D" parent="." index="0"]
 position = Vector2(15, -2)
 
-[node name="PickUpRange" parent="Marker2D" index="1"]
-modulate = Color(0.393701, 1, 0, 1)
-
 [node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
 texture = ExtResource("1")
 

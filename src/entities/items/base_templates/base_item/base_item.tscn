@@ -1,22 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://csn8we332roa1"]
+[gd_scene load_steps=12 format=3]
 
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_item/base_item.gd" id="1"]
-[ext_resource type="Script" path="res://src/scripts/AnimationMachine.gd" id="2"]
-[ext_resource type="Script" path="res://src/scripts/StatesMachine.gd" id="2_mkblv"]
-[ext_resource type="Script" path="res://src/scripts/SoundMachine.gd" id="3"]
+[ext_resource type="Script" path="res://src/entities/scripts/AnimationMachine.gd" id="2"]
+[ext_resource type="Script" path="res://src/entities/scripts/state_machine/StatesMachine.gd" id="2_mkblv"]
+[ext_resource type="PackedScene" path="res://src/components/item_pickup_areas/monitorable/ItemMonitorable.tscn" id="2_stfo8"]
+[ext_resource type="Script" path="res://src/entities/scripts/SoundMachine.gd" id="3"]
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_item/states/Dropped.gd" id="3_8j8cn"]
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_item/states/Idle.gd" id="3_wtx13"]
-[ext_resource type="PackedScene" uid="uid://dxr06pe6sxdw7" path="res://src/components/pickup_range/PickUpRange.tscn" id="4"]
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_item/states/Disabled.gd" id="4_ee0ll"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="7"]
 [ext_resource type="AudioStream" uid="uid://ckhrgsqgv010y" path="res://sounds/pickup/Pop 31.wav" id="10_tvo8m"]
 [ext_resource type="AudioStream" uid="uid://2k0v4wbc3cbc" path="res://sounds/pickup/Pop 41.wav" id="11_oah26"]
 
-[node name="BaseItem" type="Node2D" groups=["ITEM"]]
+[node name="BaseItem" type="Node2D"]
 script = ExtResource("1")
 despawn_time = 20
 
 [node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="ItemMonitorable" parent="Marker2D" instance=ExtResource("2_stfo8")]
+
+[node name="Visuals" type="Node2D" parent="Marker2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D/Visuals"]
+
+[node name="AnimationMachine" type="Node" parent="Marker2D"]
+script = ExtResource("2")
 
 [node name="StateMachine" type="Node" parent="Marker2D"]
 script = ExtResource("2_mkblv")
@@ -30,15 +39,6 @@ script = ExtResource("4_ee0ll")
 
 [node name="Idle" type="Node" parent="Marker2D/StateMachine"]
 script = ExtResource("3_wtx13")
-
-[node name="PickUpRange" parent="Marker2D" instance=ExtResource("4")]
-
-[node name="Visuals" type="Node2D" parent="Marker2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Marker2D/Visuals"]
-
-[node name="AnimationMachine" type="Node" parent="Marker2D"]
-script = ExtResource("2")
 
 [node name="SoundMachine" type="Node2D" parent="Marker2D"]
 script = ExtResource("3")

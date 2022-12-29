@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://udiltd8e0a33"]
+[gd_scene load_steps=31 format=3]
 
 [ext_resource type="PackedScene" uid="uid://dj4imexibaje1" path="res://src/entities/base_templates/base_npc/base_npc.tscn" id="1"]
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyBall/states/AttackBall.gd" id="2"]
@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Idle.gd" id="6"]
 [ext_resource type="Texture2D" uid="uid://gey5fras4jrj" path="res://assets/entities/enemies/ball/chief_chub_ball_sheet_128x128_8x11.png" id="7"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Pain.gd" id="8"]
-[ext_resource type="PackedScene" uid="uid://crehpac15c240" path="res://src/components/dust_spawner/DustSpawner.tscn" id="9"]
+[ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://k8bvo4y6ng0" path="res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn" id="10"]
 [ext_resource type="AudioStream" uid="uid://sl1mjnrov603" path="res://sounds/baller/EFX INT Siren Whistle 02.wav" id="11"]
 [ext_resource type="AudioStream" uid="uid://do48tqj5ces5w" path="res://sounds/hit/Ilmarinen,blacksmith,forge,hammer,anvil,strike,loose,ringing,splash,iron,thin.M.wav" id="12"]

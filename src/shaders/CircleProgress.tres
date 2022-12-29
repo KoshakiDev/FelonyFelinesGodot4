@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c8qaj0pmeagi1"]
+
+[ext_resource type="Shader" path="res://src/shaders/CircleProgress.gdshader" id="1_qf4i2"]
+
+[resource]
+shader = ExtResource("1_qf4i2")
+shader_parameter/progress = 0.0

@@ -1,35 +1,30 @@
 extends Area2D
 
-@onready var respawn_timer = $RespawnTimer
 @onready var anim_player = $AnimationPlayer
-@onready var progress_sprite := $SpriteContainer/ProgressSprite
+#@onready var progress_sprite := $SpriteContainer/ProgressSprite
+
+@onready var circle_progress = $CircleProgress
 
 @export var respawn_time = 2.5
 
 
 func _ready():
 	deactivate_respawn_radius()
-	setup_timer()
-	progress_sprite.material = progress_sprite.material.duplicate()
+	circle_progress.setup_timer(respawn_time)
+	#progress_sprite.material = progress_sprite.material.duplicate()
 
-func _process(_delta: float) -> void:
-	progress_sprite.material.set_shader_parameter("progress", 1.0 - respawn_timer.time_left / respawn_time)
 
 func activate_respawn_radius():
 	monitoring = true
 	visible = true
 	anim_player.play("Not Healing")
-	progress_sprite.material.set_shader_parameter("progress", 0)
-	setup_timer()
+	circle_progress.reset_progress()
+	circle_progress.setup_timer(respawn_time)
 
 func deactivate_respawn_radius():
 	monitoring = false
 	visible = false
 
-func setup_timer():
-	respawn_timer.wait_time = respawn_time
-	respawn_timer.one_shot = true
-	respawn_timer.autostart = false
 	
 func _on_RespawnTimer_timeout():
 	deactivate_respawn_radius()
@@ -42,7 +37,7 @@ func _on_Respawn_body_entered(body):
 		return
 	if body.health_manager.is_dead():
 		return
-	respawn_timer.start()
+	circle_progress.start()
 	anim_player.play("Healing")
 	
 func _on_Respawn_body_exited(body):
@@ -52,5 +47,5 @@ func _on_Respawn_body_exited(body):
 		return
 	if body.health_manager.is_dead():
 		return
-	respawn_timer.stop()
+	circle_progress.stop()
 	anim_player.play("Not Healing")

@@ -1,8 +1,9 @@
 Timer
 Sprite2D
+Node
+Node2D
 AudioStreamPlayer2D
 Marker2D
-Node
 AnimationPlayer
 CollisionShape2D
 Camera2D

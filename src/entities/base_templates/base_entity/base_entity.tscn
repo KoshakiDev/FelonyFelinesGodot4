@@ -1,12 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://b0yn7ugd4dedl"]
+[gd_scene load_steps=20 format=3]
 
 [ext_resource type="PackedScene" uid="uid://k8jcegpswqwi" path="res://src/UI/player_healthbar/PlayerHealthBar.tscn" id="1"]
-[ext_resource type="Script" path="res://src/scripts/AnimationMachine.gd" id="2"]
-[ext_resource type="Script" path="res://src/scripts/SoundMachine.gd" id="3"]
+[ext_resource type="Script" path="res://src/entities/scripts/AnimationMachine.gd" id="2"]
+[ext_resource type="Script" path="res://src/entities/scripts/SoundMachine.gd" id="3"]
 [ext_resource type="AudioStream" uid="uid://2c1jhaw0hcut" path="res://sounds/step/step-C.wav" id="4"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="5"]
-[ext_resource type="Script" path="res://src/scripts/StatesMachine.gd" id="6"]
-[ext_resource type="Script" path="res://src/entities/base_templates/base_entity/functions/HealthManager.gd" id="7"]
+[ext_resource type="Script" path="res://src/entities/scripts/state_machine/StatesMachine.gd" id="6"]
+[ext_resource type="Script" path="res://src/entities/scripts/HealthManager.gd" id="7"]
 [ext_resource type="Script" path="res://src/entities/base_templates/base_entity/base_entity.gd" id="9"]
 [ext_resource type="AudioStream" uid="uid://bfd7t8cljbaei" path="res://sounds/hit/EFX SD Heads Hit Together 02.wav" id="10"]
 [ext_resource type="AudioStream" uid="uid://do48tqj5ces5w" path="res://sounds/hit/Ilmarinen,blacksmith,forge,hammer,anvil,strike,loose,ringing,splash,iron,thin.M.wav" id="11"]
@@ -17,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cgdrueqtix1ck" path="res://sounds/step/step-B.wav" id="17"]
 [ext_resource type="AudioStream" uid="uid://bvlaskct3lg5l" path="res://sounds/step/step-G.wav" id="18"]
 [ext_resource type="AudioStream" uid="uid://b3robiyfnefiw" path="res://sounds/step/step-F.wav" id="19"]
-[ext_resource type="Script" path="res://src/entities/base_templates/base_entity/NavigationManager.gd" id="20"]
+[ext_resource type="Script" path="res://src/entities/scripts/NavigationManager.gd" id="20"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj4fd"]
 radius = 2.0

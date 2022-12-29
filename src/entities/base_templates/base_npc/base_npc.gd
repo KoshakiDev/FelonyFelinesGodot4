@@ -16,8 +16,9 @@ signal drop_weapon(drop_position)
 signal update_board()
 
 var targets = []
-
 var last_target_position
+var sus_timer = $Areas/SusTimer
+
 @onready var forget_timer = $ForgetTimer
 @onready var update_internal_force_timer = $UpdateInternalForceTimer
 

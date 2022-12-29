@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b688jx7i2fdwq"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_y778v"]
+vertices = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+outlines = [PackedVector2Array(-32, 32, 32, 32, 32, -32, -32, -32)]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D"]
+navpoly = SubResource("NavigationPolygon_y778v")

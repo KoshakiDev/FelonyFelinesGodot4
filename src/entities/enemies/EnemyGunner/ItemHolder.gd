@@ -1,8 +1,6 @@
 extends Marker2D
 
 var gun: Node2D
-var enemy_bullet_scene = preload("res://src/components/bullet-related/bullet type/EnemyBullet.tscn")
-
 
 var EQUIP_ITEM_WEIGHTS = {
 	"weapons/range/shotgun/Shotgun": 10,
@@ -55,20 +53,18 @@ func choose_weapon():
 	
 func add_weapon():
 	add_child(gun)
-	gun.item_pickup_area.queue_free()
+	gun.cancel_despawn()
 	gun.ammo = 9999
 	if gun.entity_name == "RPG":
 		return
-	gun.bullet_spawner.bullet_scene = enemy_bullet_scene
-
+	gun.bullet_spawner.can_hit_players = true
+	gun.bullet_spawner.can_hit_enemies = false
 
 func _ready():
 	normalize_item_weights()
 	choose_weapon()
 	add_weapon()
-	
-	
-		
+
 func shoot():
 	gun.shoot()
 

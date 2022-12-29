@@ -28,8 +28,7 @@ var external_forces: Vector2
 @onready var visuals = $Visuals
 @onready var sprite = $Visuals/Sprite2D
 
-
-#Area3D Variables
+#Area Variables
 @onready var hurtbox = $Areas/Hurtbox
 var can_get_hit = true
 
@@ -44,18 +43,19 @@ signal pain(attack_direction, facing_direction)
 signal hit_effect(effect_position)
 
 func _ready():
-	self.connect("hit_effect", Callable(VFXManager, "create_hit_effect"))
-	health_manager.connect("health_changed",Callable(health_bar,"set_value"))
-	health_manager.connect("max_health_changed",Callable(health_bar,"set_max"))
-	health_manager.emit_signal("max_health_changed", health_manager.max_health)
-	health_manager.emit_signal("health_changed", health_manager.health)
+	connect("hit_effect", Callable(VFXManager, 
+		"create_hit_effect"))
+	setup_health()
+	hurtbox.connect("area_entered", 
+		Callable(self,"hurt"))
 
-	hurtbox.connect("area_entered", Callable(self,"hurt"))
+# Physics-Related Code
 
 func _physics_process(_delta):
 	velocity = internal_forces + external_forces
 	apply_friction()
-	adjust_rotation_to_direction(vector_to_movement_direction(internal_forces))
+	adjust_rotation_to_direction(
+		vector_to_movement_direction(internal_forces))
 	move_and_slide()
 
 func adjust_rotation_to_direction(direction):
@@ -84,21 +84,33 @@ func vector_to_movement_direction(input_vector : Vector2) -> Vector2:
 		result[int(aspect > 1.0)] = 0
 	return result
 
-
-
-
+# Hitbox-Hurtbox Code
 func hurt(attacker_area):
 	if health_manager.is_dead() or !can_get_hit:
 		return
 	var knockback_direction = global_position - attacker_area.global_position
-	apply_external_force(knockback_direction, attacker_area.knockback_value)
+	
+	apply_external_force(knockback_direction, 
+		attacker_area.knockback_value)
 	
 	health_manager.take_damage(attacker_area.damage_value)
 	sound_machine.play_sound("Damage")
 	
-	emit_signal("hit_effect", attacker_area.global_position)
-	emit_signal("pain", knockback_direction.x, visuals.scale.x)
-	
+	emit_signal("hit_effect", 
+		attacker_area.global_position)
+	emit_signal("pain", 
+		knockback_direction.x, visuals.scale.x)
+
+
+func setup_health():
+	health_manager.connect("health_changed",
+		Callable(health_bar,"set_value"))
+	health_manager.connect("max_health_changed",
+		Callable(health_bar,"set_max"))
+	health_manager.emit_signal("max_health_changed", 
+		health_manager.max_health)
+	health_manager.emit_signal("health_changed", 
+		health_manager.health)
 
 func turn_off_all():
 	hurtbox.turn_off()

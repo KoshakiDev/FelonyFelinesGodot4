@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc0k368chkwuw"]
+
+[ext_resource type="PackedScene" uid="uid://cg6meevnmlfp1" path="res://src/components/bullet-related/bullet_type/base_projectile/BaseProjectile.tscn" id="1_i71h1"]
+[ext_resource type="Texture2D" uid="uid://svyjhg18w2vn" path="res://assets/items/weapons/range/bullets/shrapnel.png" id="2_dil1t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nobdv"]
+radius = 4.0
+
+[node name="Shrapnel" instance=ExtResource("1_i71h1")]
+damage_value = 10.0
+knockback_value = 1000.0
+
+[node name="HitboxShape" parent="." index="0"]
+shape = SubResource("CircleShape2D_nobdv")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_dil1t")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpknfgkr7y8fb"]
+
+[ext_resource type="Script" path="res://src/components/item_pickup_areas/monitor/ItemMonitor.gd" id="1_w6v60"]
+
+[sub_resource type="CircleShape2D" id="22"]
+radius = 40.0
+
+[node name="ItemMonitor" type="Area2D"]
+collision_layer = 256
+collision_mask = 256
+monitorable = false
+script = ExtResource("1_w6v60")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("22")

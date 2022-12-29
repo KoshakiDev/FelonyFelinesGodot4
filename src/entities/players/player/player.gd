@@ -6,49 +6,25 @@ const blue_sprite = preload("res://assets/entities/players/blue_brother_sheet_96
 
 @onready var inventory_position = $Visuals/Sprite2D/InventoryPosition
 @onready var item_manager := $Visuals/Sprite2D/InventoryPosition/ItemManager
-@onready var dust_spawner = $Visuals/DustSpawner
+@onready var item_monitor := $Areas/ItemMonitor
 
-@onready var item_pickup = $Areas/ItemPickup
 @onready var respawn_radius = $Areas/Respawn
 
 @onready var ammo_bar = $AmmoBar
 
 var player_visual_middle = Vector2(0, -50)
 
-var is_resistance = false
 
 signal player_died
-#signal hidden
-signal unhidden
-##sounds
-
-var is_in_shadow = false
-var is_hidden = false : set = set_hidden
-
-
-func set_hidden(new_value):
-	is_hidden = new_value
-	if is_hidden:
-		emit_signal("hidden")
-	else:
-		emit_signal("unhidden")
 
 var interacting = false
-
-func hide():
-	animation_machine.play_animation("Hidden", "Hidden")
-
-
-func unhide():
-	animation_machine.play_animation("Unhidden", "Hidden")
-
 
 func _ready():
 	super._ready()
 	setup_player()
-	self.connect("hidden",Callable(self,"hide"))
-	self.connect("unhidden",Callable(self,"unhide"))
 	item_manager.init(self, ammo_bar)
+	item_monitor.connect("add_item_to_inventory", 
+		Callable(item_manager, "add_item"))
 
 func setup_player():
 	if player_id == "_1":

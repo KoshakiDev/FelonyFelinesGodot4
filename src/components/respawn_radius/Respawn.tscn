@@ -1,31 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwt2xpek87i0s"]
+[gd_scene load_steps=8 format=3 uid="uid://dtxhku5s85lf4"]
 
 [ext_resource type="Script" path="res://src/components/respawn_radius/Respawn.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://dtefpgq5qaxxs" path="res://test folder/Respawn_Radius.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://c1wxw4k8lcohs" path="res://src/components/circle_progress_bar/CircleProgress.tscn" id="2_wb126"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 64.0
-
-[sub_resource type="Shader" id="5"]
-code = "shader_type canvas_item;
-
-//const float PI = 3.14159;
-
-uniform float progress : hint_range(0, 1) = 0;
-
-void fragment(){
-	vec2 point = UV - vec2(.5);
-	float angle = (1. - atan(point.x, point.y) / PI) * .5;
-	if (angle <= progress) {
-		COLOR = texture(TEXTURE, UV);
-	} else {
-		COLOR = vec4(0.0, 0.0, 0.0, 0.0);
-	}
-}"
-
-[sub_resource type="ShaderMaterial" id="6"]
-shader = SubResource("5")
-shader_parameter/progress = 0.0
 
 [sub_resource type="Animation" id="4"]
 resource_name = "Healing"
@@ -33,7 +12,7 @@ length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteContainer:modulate")
+tracks/0/path = NodePath("CircleProgress:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -45,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteContainer:rotation")
+tracks/1/path = NodePath("CircleProgress:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -57,7 +36,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteContainer:scale")
+tracks/2/path = NodePath("CircleProgress:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -85,7 +64,7 @@ length = 4.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteContainer:rotation")
+tracks/0/path = NodePath("CircleProgress:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -97,7 +76,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteContainer:modulate")
+tracks/1/path = NodePath("CircleProgress:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -121,7 +100,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteContainer:scale")
+tracks/3/path = NodePath("CircleProgress:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -136,7 +115,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteContainer:rotation")
+tracks/0/path = NodePath("CircleProgress:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -148,7 +127,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteContainer:modulate")
+tracks/1/path = NodePath("CircleProgress:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -172,7 +151,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteContainer:scale")
+tracks/3/path = NodePath("CircleProgress:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -184,7 +163,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SpriteContainer/ProgressSprite:material:shader_param/progress")
+tracks/4/path = NodePath("CircleProgress/ProgressSprite:material:shader_param/progress")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -213,20 +192,7 @@ visible = false
 scale = Vector2(1.5, 1.5)
 shape = SubResource("1")
 
-[node name="RespawnTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="SpriteContainer" type="Node2D" parent="."]
-modulate = Color(0.498039, 1, 0.498039, 1)
-scale = Vector2(1.5, 1.5)
-
-[node name="BackgroundSprite" type="Sprite2D" parent="SpriteContainer"]
-texture = ExtResource("2")
-
-[node name="ProgressSprite" type="Sprite2D" parent="SpriteContainer"]
-modulate = Color(0.615686, 1, 0, 1)
-material = SubResource("6")
-texture = ExtResource("2")
+[node name="CircleProgress" parent="." instance=ExtResource("2_wb126")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -235,4 +201,3 @@ libraries = {
 
 [connection signal="body_entered" from="." to="." method="_on_Respawn_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Respawn_body_exited"]
-[connection signal="timeout" from="RespawnTimer" to="." method="_on_RespawnTimer_timeout"]

@@ -1,35 +1,6 @@
-res://src/entities/items/weapons/range/sergeant_hand_gun/SergeantHandGun.tscn
-res://src/entities/base_templates/base_entity/functions/Movement.gd
-res://src/entities/items/weapons/range/sergeant_hand_gun/SergeantHandGun.gd
-res://src/entities/items/weapons/range/revolver/Revolver.tscn
-res://src/entities/enemies/EnemyGunner/EnemyGunner.tscn
-res://src/entities/enemies/EnemyGunner/EnemyGunner.gd
-res://src/environment/burglar_base_world/burglar_base_world.tscn
-res://src/entities/items/weapons/range/minigun/Minigun.tscn
-res://src/entities/enemies/EnemyGunner/ItemHolder.gd
-res://src/components/bullet-related/bullet type/EnemyBullet.tscn
-res://src/entities/items/weapons/range/rocket_launcher/RocketLauncher.tscn
-res://src/entities/base_templates/base_entity/base_entity.gd
-res://src/entities/enemies/SharedStates/Idle.gd
-res://src/entities/base_templates/base_npc/base_npc.gd
-res://src/components/bullet-related/bullet type/BaseProjectile.tscn
-res://src/components/bullet-related/bullet type/PlayerBullet.tscn
-res://src/entities/enemies/SharedStates/Chase.gd
-res://src/AutoLoad/Global.gd
-res://src/entities/enemies/SharedStates/Death.gd
-res://src/components/item_manager/ItemManager.tscn
-res://src/components/item_manager/ItemManager.gd
-res://src/entities/players/player/Player_1.tscn
-res://src/entities/items/base_templates/base_item/base_item.tscn
-res://src/entities/items/base_templates/base_item/base_item.gd
-res://src/entities/items/base_templates/base_melee_weapon/BaseMeleeWeapon.gd
-res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.gd
-res://src/entities/items/weapons/range/shotgun/Shotgun.tscn
-res://src/environment/burglar_base_world/tiles/security_camera/SecurityCamera.tscn
-res://src/environment/burglar_base_world/tiles/security_camera/SecurityCamera.gd
-res://src/environment/burglar_base_world/tiles/VisionArea.gd
-res://src/environment/burglar_base_world/tiles/light/Light.tscn
-res://addons/vision_cone_2d/vision_cone_2d.gd
-res://src/environment/burglar_base_world/tiles/light/Light.gd
+res://src/environment/base_world/base_world.tscn
+res://src/shaders/CircleProgress.tres
+res://src/environment/objects/VisionArea.tscn
+res://src/environment/objects/VisionArea.gd
 res://src/entities/base_templates/base_npc/base_npc.tscn
-res://src/entities/players/player/Player.gd
+res://src/entities/base_templates/base_npc/base_npc.gd

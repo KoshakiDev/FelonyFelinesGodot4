@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://3qc04gg2f73k"]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://xoh5cgnlfqmd" path="res://assets/items/weapons/range/rocket_launcher/rocket_launcher.png" id="2"]
 [ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="3"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4"]
 [ext_resource type="AudioStream" uid="uid://c63tx00gcust" path="res://sounds/rocket/rocket_launch.wav" id="5"]
-[ext_resource type="PackedScene" uid="uid://kutq8lexluc3" path="res://src/components/bullet-related/bullet type/Rocket.tscn" id="6"]
+[ext_resource type="PackedScene" path="res://src/components/bullet-related/bullet_type/rocket/Rocket.tscn" id="6"]
 [ext_resource type="Texture2D" uid="uid://caxvpj5ipihhg" path="res://assets/items/weapons/range/bullets/rocket.png" id="7"]
 
 [sub_resource type="Resource" id="4"]

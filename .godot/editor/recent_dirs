@@ -1,10 +1,11 @@
-res://src/environment/burglar_base_world/tiles/light
-res://src/entities/items/weapons/range/sergeant_hand_gun
+res://src/shaders
+res://src/components/CircleProgressBar
+res://src/components/effects/dust_1
+res://src/components/effects/base_effect
 res://src/entities/items/base_templates/base_range_weapon
 res://src/entities/items/weapons/melee/bat/states
 res://src/entities/items/weapons/melee/bat
 res://src/entities/items/base_templates/base_melee_weapon
-res://src/components/bullet-related/bullet type
 res://src/entities/players/player
 res://src/entities/items/weapons/melee/axe/states
 res://src/entities/items/medkit/states

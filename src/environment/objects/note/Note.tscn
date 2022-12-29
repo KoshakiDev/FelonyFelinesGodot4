@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="PackedScene" path="res://src/environment/objects/interaction_zone/InteractionZone.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://src/environment/base_world/minigames/note/NoteMinigame.tscn" id="2"]
+[ext_resource type="Script" path="res://src/environment/objects/note/Note.gd" id="3"]
+[ext_resource type="Texture2D" path="res://src/environment/burglar_base_world/tiles/note/Sprite2D-0003.png" id="4"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+text = "This is custom text!"
+
+[node name="InteractionZone" parent="." instance=ExtResource( 1 )]
+WINDOW = ExtResource( 2 )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource( 4 )

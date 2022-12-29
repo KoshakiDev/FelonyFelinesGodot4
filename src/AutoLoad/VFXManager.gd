@@ -1,8 +1,8 @@
 extends Node
 
-const hit_effect = preload("res://src/components/hit/HitEffect.tscn")
-const dust_effect = preload("res://src/components/dust_spawner/dust_types/player/Dust.tscn")
-const points_effect := preload("res://src/ScreenEffects/PointEffect.tscn")
+const hit_effect = preload("res://src/components/effects/hit/HitEffect.tscn")
+const dust_effect = preload("res://src/components/effects/dust_1/Dust.tscn")
+const points_effect := preload("res://src/components/effects/point_effect/PointEffect.tscn")
 
 var new_effect = null
 

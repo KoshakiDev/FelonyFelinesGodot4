@@ -11,6 +11,8 @@ signal ammo_changed(new_ammo)
 
 func _ready() -> void:
 	super._ready()
+	bullet_spawner.can_hit_enemies = true
+	bullet_spawner.can_hit_players = false
 	bullet_spawner.connect("shot_fired",Callable(self,"shot_fired"))
 	#print(bullet_spawner)
 

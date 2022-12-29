@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://crehpac15c240"]
-
-[ext_resource type="Script" path="res://src/components/dust_spawner/DustSpawner.gd" id="1"]
-
-[node name="DustSpawner" type="Marker2D"]
-position = Vector2(0, -5)
-script = ExtResource("1")

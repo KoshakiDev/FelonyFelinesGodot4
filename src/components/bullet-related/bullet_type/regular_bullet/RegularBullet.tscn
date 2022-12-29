@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c432r8c1hl1y7"]
+
+[ext_resource type="PackedScene" uid="uid://cg6meevnmlfp1" path="res://src/components/bullet-related/bullet_type/base_projectile/BaseProjectile.tscn" id="1_lpp66"]
+[ext_resource type="Texture2D" uid="uid://ch1hxfjmjnj3q" path="res://assets/items/weapons/range/bullets/bullet.png" id="2_hxc5r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nlsf6"]
+radius = 5.0
+height = 20.0
+
+[node name="RegularBullet" instance=ExtResource("1_lpp66")]
+
+[node name="HitboxShape" parent="." index="0"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nlsf6")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_hxc5r")

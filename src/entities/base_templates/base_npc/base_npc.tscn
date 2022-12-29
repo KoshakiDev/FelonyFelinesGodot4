@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dj4imexibaje1"]
 
-[ext_resource type="PackedScene" uid="uid://b0yn7ugd4dedl" path="res://src/entities/base_templates/base_entity/base_entity.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://src/entities/base_templates/base_entity/base_entity.tscn" id="1"]
 [ext_resource type="Script" path="res://src/entities/base_templates/base_npc/base_npc.gd" id="3"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="3_hbwcn"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4"]
@@ -90,6 +90,8 @@ collision_mask = 3585
 
 [node name="DebugDraw" parent="Areas/VisionCone2D" index="2"]
 is_visible = false
+
+[node name="SusTimer" type="Timer" parent="Areas" index="2"]
 
 [node name="Sprite2D" parent="Visuals" index="0"]
 material = SubResource("7")

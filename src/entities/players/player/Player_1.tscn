@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ltnclilplvt7"]
+[gd_scene load_steps=31 format=3 uid="uid://bt3efkir0qj5a"]
 
 [ext_resource type="PackedScene" uid="uid://b0yn7ugd4dedl" path="res://src/entities/base_templates/base_entity/base_entity.tscn" id="1_u2ocy"]
 [ext_resource type="Script" path="res://src/entities/players/player/Player.gd" id="2_plh2e"]
@@ -7,11 +7,11 @@
 [ext_resource type="Script" path="res://src/entities/players/player/states/Move.gd" id="5_afmud"]
 [ext_resource type="Script" path="res://src/entities/players/player/states/Death.gd" id="6_fhuoi"]
 [ext_resource type="Script" path="res://src/entities/players/player/states/Pain.gd" id="7_8j86q"]
-[ext_resource type="PackedScene" uid="uid://dicfgi5duiu35" path="res://src/components/item_pickup/ItemPickup.tscn" id="8_jau4k"]
-[ext_resource type="PackedScene" uid="uid://cwt2xpek87i0s" path="res://src/components/respawn_radius/Respawn.tscn" id="9_28dc3"]
+[ext_resource type="PackedScene" uid="uid://dpknfgkr7y8fb" path="res://src/components/item_pickup_areas/monitor/ItemMonitor.tscn" id="9_4r514"]
+[ext_resource type="PackedScene" uid="uid://dtxhku5s85lf4" path="res://src/components/respawn_radius/Respawn.tscn" id="9_28dc3"]
 [ext_resource type="Texture2D" uid="uid://bpo6bqss4dr64" path="res://assets/entities/players/red_brother_sheet_96x96.png" id="10_ps3xb"]
 [ext_resource type="PackedScene" uid="uid://1y7coyhr3lqs" path="res://src/components/item_manager/ItemManager.tscn" id="11_djwxs"]
-[ext_resource type="PackedScene" uid="uid://crehpac15c240" path="res://src/components/dust_spawner/DustSpawner.tscn" id="12_mchds"]
+[ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="12_cwxe7"]
 [ext_resource type="PackedScene" uid="uid://ck44ggug3q4v6" path="res://src/UI/player_healthbar/Ammo_Bar.tscn" id="13_k2i8p"]
 
 [sub_resource type="RectangleShape2D" id="23"]
@@ -568,14 +568,13 @@ collision_mask = 16
 position = Vector2(0, -27)
 shape = SubResource("23")
 
-[node name="ItemPickup" parent="Areas" index="1" instance=ExtResource("8_jau4k")]
-visible = false
-
-[node name="Respawn" parent="Areas" index="2" instance=ExtResource("9_28dc3")]
+[node name="Respawn" parent="Areas" index="1" instance=ExtResource("9_28dc3")]
 visible = false
 show_behind_parent = true
 position = Vector2(0, -20)
 respawn_time = 4.0
+
+[node name="ItemMonitor" parent="Areas" index="2" instance=ExtResource("9_4r514")]
 
 [node name="Sprite2D" parent="Visuals" index="0"]
 position = Vector2(0, -48)
@@ -588,7 +587,7 @@ vframes = 7
 [node name="ItemManager" parent="Visuals/Sprite2D/InventoryPosition" index="0" instance=ExtResource("11_djwxs")]
 position = Vector2(13, 13)
 
-[node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource("12_mchds")]
+[node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource("12_cwxe7")]
 
 [node name="HealthManager" parent="." index="3"]
 max_health = 100.0

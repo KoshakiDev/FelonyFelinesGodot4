@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bawo57y00ukg7"]
 
 [ext_resource type="PackedScene" uid="uid://csn8we332roa1" path="res://src/entities/items/base_templates/base_item/base_item.tscn" id="1"]
-[ext_resource type="PackedScene" uid="uid://caehtlvgbvtxy" path="res://src/components/bullet-related/BulletSpawner.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://egcgkllhejfm" path="res://src/components/bullet-related/BulletSpawner.tscn" id="2"]
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.gd" id="3"]
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_range_weapon/states/Shoot.gd" id="3_8tv7v"]
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_range_weapon/states/Empty.gd" id="4_rjo7i"]
@@ -16,16 +16,17 @@ recoil = 50
 ammo_pack_amount = 5
 item_type = "RANGE"
 
+[node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0" instance=ExtResource("2")]
+shoot_anim_player_p = NodePath("../../../AnimationMachine/AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Marker2D/AnimationMachine" index="0"]
+root_node = NodePath("../../..")
+
 [node name="Action" type="Node" parent="Marker2D/StateMachine" index="3"]
 script = ExtResource("3_8tv7v")
 
 [node name="Empty" type="Node" parent="Marker2D/StateMachine" index="4"]
 script = ExtResource("4_rjo7i")
-
-[node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0" instance=ExtResource("2")]
-shoot_anim_player_p = NodePath("../../../AnimationMachine/AnimationPlayer")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Marker2D/AnimationMachine" index="0"]
 
 [node name="ItemDrop" parent="Marker2D/SoundMachine" index="0"]
 autoplay = true

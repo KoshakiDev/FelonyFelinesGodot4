@@ -9,7 +9,7 @@ extends Node2D
 @export var despawn_time: int = 5
 
 @onready var state_machine = $Marker2D/StateMachine
-@onready var item_pickup_area = $Marker2D/PickUpRange
+@onready var item_monitorable = $Marker2D/ItemMonitorable
 @onready var sprite = $Marker2D/Visuals/Sprite2D
 @onready var animation_machine = $Marker2D/AnimationMachine
 @onready var sound_machine = $Marker2D/SoundMachine
@@ -17,9 +17,9 @@ extends Node2D
 func _ready():
 	sound_machine.play_sound("ItemDrop")
 	#item_pickup_area.connect("area_entered", Callable(self, "pickup_item"))
-	item_pickup_area.connect("despawn", Callable(self, "despawn"))
+	item_monitorable.connect("despawn", Callable(self, "despawn"))
 	if despawnable:
-		item_pickup_area.setup_timer(despawn_time)
+		item_monitorable.setup_timer(despawn_time)
 	
 var item_owner: Node2D
 var player_id = ""
@@ -34,7 +34,6 @@ func is_empty():
 	
 #To-do: the pickup item area does not work for some reason inside the base range weapon
 func pickup_item():
-	print("despawn cancelled")
 	cancel_despawn()
 	sound_machine.play_sound("Pickup")
 
@@ -53,4 +52,4 @@ func despawn():
 	queue_free()
 
 func cancel_despawn():
-	item_pickup_area.queue_free()
+	item_monitorable.queue_free()
