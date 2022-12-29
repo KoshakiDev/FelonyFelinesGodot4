@@ -31,8 +31,6 @@ func turn_off_alert_state():
 	alert_state = false
 	
 func _physics_process(delta):
-	#print(alert_time_left)
 	if alert_time_left == null:
 		return
-	print("text updated")
-	alert_time_left.text = str(snapped(alert_timer.time_left, 0.01))
+	alert_time_left.text = str(snapped(float(alert_timer.time_left), 0.01))

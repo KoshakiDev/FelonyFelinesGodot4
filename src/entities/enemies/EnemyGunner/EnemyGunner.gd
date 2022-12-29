@@ -3,6 +3,8 @@ extends "res://src/entities/base_templates/base_npc/base_npc.gd"
 signal drop_specific_weapon(drop_position, weapon_name)
 @onready var item_holder = $Visuals/Sprite2D/ItemHolder
 
+@export var max_shooting_distance = 500
+
 func _ready():
 	super._ready()
 	item_holder.init(self)

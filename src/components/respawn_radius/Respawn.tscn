@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtxhku5s85lf4"]
 
 [ext_resource type="Script" path="res://src/components/respawn_radius/Respawn.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://c1wxw4k8lcohs" path="res://src/components/circle_progress_bar/CircleProgress.tscn" id="2_wb126"]
+[ext_resource type="PackedScene" uid="uid://7g4bebhu8p61" path="res://src/components/circle_progress_bar/CircleProgress.tscn" id="2_wb126"]
 
 [sub_resource type="CircleShape2D" id="1"]
 radius = 64.0

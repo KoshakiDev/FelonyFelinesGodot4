@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://7g4bebhu8p61"]
 
 [ext_resource type="Script" path="res://src/components/circle_progress_bar/CircleProgress.gd" id="1_qn1ix"]
 [ext_resource type="Texture2D" uid="uid://dtefpgq5qaxxs" path="res://assets/UI/Respawn_Radius.png" id="2_mygwg"]
 [ext_resource type="Material" uid="uid://c8qaj0pmeagi1" path="res://src/shaders/CircleProgress.tres" id="3_mklwy"]
 
-[node name="SpriteContainer" type="Node2D"]
+[node name="CircleProgressBar" type="Node2D"]
 modulate = Color(0.498039, 1, 0.498039, 1)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("1_qn1ix")

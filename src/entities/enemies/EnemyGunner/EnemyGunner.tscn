@@ -1,13 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://bhppar5m7rr10"]
+[gd_scene load_steps=30 format=3 uid="uid://bhppar5m7rr10"]
 
 [ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dj4imexibaje1" path="res://src/entities/base_templates/base_npc/base_npc.tscn" id="2"]
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/states/AttackGunner.gd" id="5"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Chase.gd" id="6"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Death.gd" id="8"]
+[ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/states/Knockout.gd" id="8_ua4bu"]
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/EnemyGunner.gd" id="9"]
+[ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/states/Alert.gd" id="9_ot546"]
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/ItemHolder.gd" id="9_u82ke"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Idle.gd" id="10"]
+[ext_resource type="PackedScene" uid="uid://7g4bebhu8p61" path="res://src/components/circle_progress_bar/CircleProgress.tscn" id="10_2ocm0"]
 [ext_resource type="Texture2D" uid="uid://vvh1rme2js3x" path="res://assets/entities/enemies/gunner/sergeant_sir_giant_128x128_5x9.png" id="12"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Pain.gd" id="13"]
 
@@ -297,12 +300,28 @@ tracks/3/keys = {
 "values": [Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5), Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5)]
 }
 
+[sub_resource type="Animation" id="Animation_pksxr"]
+resource_name = "Knockout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 44]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lphnf"]
 _data = {
 "Death": SubResource("Animation_plt4s"),
 "Hit_Back": SubResource("Animation_pe1kj"),
 "Hit_Front": SubResource("Animation_b0mgf"),
 "Idle": SubResource("Animation_wtx8p"),
+"Knockout": SubResource("Animation_pksxr"),
 "RESET": SubResource("Animation_6j272"),
 "Run": SubResource("Animation_4usen")
 }
@@ -311,6 +330,9 @@ _data = {
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("9")
+max_shooting_distance = 250
+acceleration = 0.2
+friction = 0.8
 
 [node name="StateMachine" parent="." index="0"]
 initial_state = NodePath("Idle")
@@ -330,6 +352,14 @@ script = ExtResource("8")
 [node name="Pain" type="Node" parent="StateMachine" index="4"]
 script = ExtResource("13")
 
+[node name="Knockout" type="Node" parent="StateMachine" index="5" node_paths=PackedStringArray("knockout_timer")]
+script = ExtResource("8_ua4bu")
+knockout_timer = NodePath("../../Areas/CircleProgressBar")
+wait_time = 10.0
+
+[node name="Alert" type="Node" parent="StateMachine" index="6"]
+script = ExtResource("9_ot546")
+
 [node name="Hurtbox" parent="Areas" index="0"]
 position = Vector2(0, -48)
 collision_layer = 128
@@ -344,6 +374,12 @@ z_index = -1
 [node name="SusTimer" parent="Areas" index="2"]
 wait_time = 0.5
 one_shot = true
+
+[node name="CircleProgressBar" parent="Areas" index="3" instance=ExtResource("10_2ocm0")]
+visible = false
+modulate = Color(0.878431, 0, 0.105882, 1)
+position = Vector2(0, -111)
+scale = Vector2(0.25, 0.25)
 
 [node name="Sprite2D" parent="Visuals" index="0"]
 material = SubResource("ShaderMaterial_lbejl")

@@ -56,6 +56,16 @@ func _process(_delta: float) -> void:
 	if debug_lines or debug_shape:
 		queue_redraw()
 
+func turn_off():
+	set_physics_process(false)
+	vision_area.monitoring = false
+	visible = false
+
+func turn_on():
+	set_physics_process(true)
+	vision_area.monitoring = true
+	visible = true
+
 func _physics_process(delta: float) -> void:
 	if Time.get_ticks_msec() - _last_redraw_time > minimum_recalculate_time_msec:
 		_last_redraw_time = Time.get_ticks_msec()

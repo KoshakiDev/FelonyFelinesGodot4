@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="1"]
 script = ExtResource("3")
-amount = 3
+amount = 6
 spread_angle = 5
 
 [sub_resource type="Animation" id="Animation_bolpj"]
@@ -154,8 +154,8 @@ texture = ExtResource("2")
 position = Vector2(24, -3)
 shot_delay = 0.5
 bullet_speed = 1200.0
-bullet_damage_value = 25
-knockback_value = 1000
+bullet_damage_value = 1
+knockback_value = 50
 bullet_emitter = SubResource("1")
 
 [node name="Flash" type="Sprite2D" parent="Marker2D/Visuals/Sprite2D" index="1"]

@@ -15,10 +15,13 @@ func physics_update(_delta: float) -> void:
 	if target == null && owner.last_target_position == null:
 		state_machine.transition_to("Idle")
 		return
-#	if owner.current_bodies_in_attack_range.size() > 0:
-#		state_machine.transition_to("Attack")
-#		return
 	
+	if (target != null && 
+		owner.max_shooting_distance >= 
+		(target.global_position - owner.global_position).length()):
+		state_machine.transition_to("Attack")
+		return
+
 	if owner.nav_agent.can_update_path:
 		var target_pos
 		if target == null:

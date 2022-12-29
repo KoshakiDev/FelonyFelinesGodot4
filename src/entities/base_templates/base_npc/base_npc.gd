@@ -94,6 +94,15 @@ func hurt(attacker_area):
 		set_last_position(attacker_area.global_position)
 	#Global.frame_freeze(0.5, 2)
 
+func turn_off_all():
+	super.turn_off_all()
+	vision.turn_off()
+	update_internal_force_timer.stop()
+
+func turn_on_all():
+	super.turn_on_all()
+	vision.turn_on()
+	update_internal_force_timer.start()
 
 func set_last_position(target_position):
 	last_target_position = target_position

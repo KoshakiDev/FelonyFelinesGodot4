@@ -154,7 +154,7 @@ texture = ExtResource("1")
 position = Vector2(13, -1)
 shot_delay = 0.3
 bullet_speed = 600.0
-bullet_damage_value = 25
+bullet_damage_value = 15
 knockback_value = 500
 bullet_emitter = SubResource("3")
 

@@ -242,12 +242,15 @@ _data = {
 }
 
 [node name="BaseballBat" instance=ExtResource("1_v6mej")]
-recoil = -50.0
+recoil = 1.0
 attack_delay = 0.3
 entity_name = "BAT"
 
 [node name="Marker2D" parent="." index="0"]
 position = Vector2(10, 0)
+
+[node name="ItemMonitorable" parent="Marker2D" index="0"]
+position = Vector2(17, 0)
 
 [node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
 texture = ExtResource("2_ut82f")

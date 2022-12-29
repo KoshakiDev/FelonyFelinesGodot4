@@ -1,14 +1,13 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 @onready var progress_sprite = $ProgressSprite
-@onready var timer = $Timer
+@onready var timer: Timer = $Timer
+
+signal timeout
 
 func _ready():
-	pass
+	timer.connect("timeout", Callable(self, "timer_timeout"))
+	set_physics_process(false)
 	
 # Called when the node enters the scene tree for the first time.
 func _physics_process(_delta: float) -> void:
@@ -25,6 +24,13 @@ func setup_timer(set_wait_time):
 
 func start():
 	timer.start()
+	set_physics_process(true)
+	
 
 func stop():
 	timer.stop()
+	set_physics_process(false)
+	
+
+func timer_timeout():
+	emit_signal("timeout")

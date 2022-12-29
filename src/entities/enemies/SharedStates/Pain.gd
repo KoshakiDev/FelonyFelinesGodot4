@@ -20,4 +20,6 @@ func enter(msg := {}) -> void:
 	elif msg.has("Back"):
 		owner.play_animation("Hit_Back", "Animations")
 	await owner.animation_machine.get_node("Animations").animation_finished
-	state_machine.transition_to("Idle")
+	state_machine.transition_to("Knockout")
+
+	#state_machine.transition_to("Idle")
