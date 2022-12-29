@@ -242,18 +242,12 @@ _data = {
 }
 
 [node name="BaseballBat" instance=ExtResource("1_v6mej")]
-recoil = -200.0
+recoil = -50.0
 attack_delay = 0.3
 entity_name = "BAT"
 
 [node name="Marker2D" parent="." index="0"]
 position = Vector2(10, 0)
-
-[node name="Action" type="Node" parent="Marker2D/StateMachine" index="3"]
-script = ExtResource("2_tifdt")
-
-[node name="PickUpRange" parent="Marker2D" index="1"]
-position = Vector2(17, 0)
 
 [node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
 texture = ExtResource("2_ut82f")
@@ -263,7 +257,7 @@ offset = Vector2(16, 0)
 position = Vector2(28, 0)
 collision_layer = 8
 collision_mask = 128
-damage_value = 50.0
+damage_value = 0.0
 knockback_value = 1250.0
 
 [node name="HitboxShape" parent="Marker2D/Visuals/Sprite2D/Hitbox" index="0"]
@@ -279,5 +273,8 @@ hframes = 4
 libraries = {
 "": SubResource("AnimationLibrary_rbaq1")
 }
+
+[node name="Action" type="Node" parent="Marker2D/StateMachine" index="3"]
+script = ExtResource("2_tifdt")
 
 [editable path="Marker2D/Visuals/Sprite2D/Hitbox"]

@@ -1,5 +1,7 @@
+res://src/AutoLoad
+res://src/environment/levels
+res://src/environment/base_world
 res://src/shaders
-res://src/components/CircleProgressBar
 res://src/components/effects/dust_1
 res://src/components/effects/base_effect
 res://src/entities/items/base_templates/base_range_weapon
@@ -12,4 +14,3 @@ res://src/entities/items/medkit/states
 res://src/components/dynamic_splitscreen/remkae test
 res://src/entities/items/base_templates/base_range_weapon/states
 res://src/entities/items/base_templates/base_item/states
-res://src/AutoLoad

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://egcgkllhejfm"]
 
 [ext_resource type="Script" path="res://src/components/bullet-related/BulletSpawner.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://c432r8c1hl1y7" path="res://src/components/bullet-related/bullet_type/regular_bullet/RegularBullet.tscn" id="2_xnayp"]
+[ext_resource type="PackedScene" uid="uid://dmwi1rjmaamst" path="res://src/components/bullet-related/bullet_type/regular_bullet/RegularBullet.tscn" id="2_xnayp"]
 
 [node name="BulletSpawner" type="Marker2D"]
 script = ExtResource("1")

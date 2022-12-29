@@ -1,34 +1,45 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://u26gyr5m3civ"]
 
-[ext_resource path="res://src/UI/BurglarUI/alarm-Sheet.png" type="Texture2D" id=1]
-[ext_resource path="res://src/UI/BurglarUI/BurglarUI.gd" type="Script" id=2]
+[ext_resource type="Texture2D" uid="uid://dnxru36ll0186" path="res://src/UI/BurglarUI/alarm-Sheet.png" id="1"]
+[ext_resource type="Script" path="res://src/UI/BurglarUI/BurglarUI.gd" id="2"]
 
 [node name="BurglarUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 2 )
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
 
 [node name="Alarm1" type="Sprite2D" parent="."]
-position = Vector2( 32, 32 )
-texture = ExtResource( 1 )
+position = Vector2(32, 32)
+texture = ExtResource("1")
 hframes = 2
 
 [node name="Alarm2" type="Sprite2D" parent="."]
-position = Vector2( 97, 32 )
-texture = ExtResource( 1 )
+position = Vector2(97, 32)
+texture = ExtResource("1")
 hframes = 2
 
 [node name="Alarm3" type="Sprite2D" parent="."]
-position = Vector2( 161, 32 )
-texture = ExtResource( 1 )
+position = Vector2(161, 32)
+texture = ExtResource("1")
 hframes = 2
 
 [node name="Alarm4" type="Sprite2D" parent="."]
-position = Vector2( 225, 32 )
-texture = ExtResource( 1 )
+position = Vector2(225, 32)
+texture = ExtResource("1")
 hframes = 2
 
 [node name="Alarm5" type="Sprite2D" parent="."]
-position = Vector2( 289, 32 )
-texture = ExtResource( 1 )
+position = Vector2(289, 32)
+texture = ExtResource("1")
 hframes = 2
+
+[node name="AlertTimeLeft" type="RichTextLabel" parent="."]
+offset_left = 20.0
+offset_top = 73.0
+offset_right = 60.0
+offset_bottom = 113.0
+text = "9.00"

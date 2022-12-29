@@ -75,7 +75,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Felony Felines"
-run/main_scene="res://src/environment/base_world/base_world.tscn"
+run/main_scene="res://src/environment/levels/Level1.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/image="res://splashscreen.png"
 boot_splash/fullsize=false
@@ -85,11 +85,12 @@ config/icon="res://icon.png"
 
 [autoload]
 
+Burglar="*res://src/AutoLoad/Burglar.gd"
 Global="*res://src/AutoLoad/Global.gd"
-SceneChanger="*res://src/AutoLoad/SceneChanger.tscn"
-Shake="*res://src/AutoLoad/Shake.gd"
-Ngio="res://src/AutoLoad/ngio.gd"
 VFXManager="*res://src/AutoLoad/VFXManager.gd"
+Shake="*res://src/AutoLoad/Shake.gd"
+SceneChanger="*res://src/AutoLoad/SceneChanger.tscn"
+Ngio="res://src/AutoLoad/ngio.gd"
 
 [display]
 

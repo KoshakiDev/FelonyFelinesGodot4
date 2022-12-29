@@ -1,11 +1,11 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=13 format=3 uid="uid://dh215tcgvc8ah"]
 
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://xoh5cgnlfqmd" path="res://assets/items/weapons/range/rocket_launcher/rocket_launcher.png" id="2"]
 [ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="3"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4"]
 [ext_resource type="AudioStream" uid="uid://c63tx00gcust" path="res://sounds/rocket/rocket_launch.wav" id="5"]
-[ext_resource type="PackedScene" path="res://src/components/bullet-related/bullet_type/rocket/Rocket.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://c65sghr4buays" path="res://src/components/bullet-related/bullet_type/rocket/Rocket.tscn" id="6"]
 [ext_resource type="Texture2D" uid="uid://caxvpj5ipihhg" path="res://assets/items/weapons/range/bullets/rocket.png" id="7"]
 
 [sub_resource type="Resource" id="4"]
@@ -17,7 +17,7 @@ resource_name = "Idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -29,7 +29,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -41,7 +41,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Visuals/Sprite2D/Rocket:position")
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D/Rocket:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -53,7 +53,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Visuals/Sprite2D/Rocket:rotation")
+tracks/3/path = NodePath("Marker2D/Visuals/Sprite2D/Rocket:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -65,7 +65,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Visuals/Sprite2D/Rocket:visible")
+tracks/4/path = NodePath("Marker2D/Visuals/Sprite2D/Rocket:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -81,7 +81,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -93,7 +93,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Visuals/Sprite2D/Rocket:visible")
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D/Rocket:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -105,7 +105,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Visuals/Sprite2D/Rocket:position")
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D/Rocket:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -117,7 +117,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/3/path = NodePath("Marker2D/Visuals/Sprite2D:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -129,7 +129,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../Visuals/Sprite2D/Rocket:rotation")
+tracks/4/path = NodePath("Marker2D/Visuals/Sprite2D/Rocket:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -144,7 +144,7 @@ resource_name = "Shoot"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -156,7 +156,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Visuals/Sprite2D/Rocket:visible")
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D/Rocket:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -168,7 +168,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Visuals/Sprite2D/Rocket:position")
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D/Rocket:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {

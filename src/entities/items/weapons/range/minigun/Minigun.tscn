@@ -16,7 +16,7 @@ resource_name = "Idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +28,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -40,7 +40,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Visuals/Sprite2D/Flash:visible")
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D/Flash:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -145,9 +145,6 @@ entity_name = "MINIGUN"
 
 [node name="Marker2D" parent="." index="0"]
 position = Vector2(12, -4)
-
-[node name="PickUpRange" parent="Marker2D" index="1"]
-modulate = Color(0.627451, 0, 0, 1)
 
 [node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
 texture = ExtResource("2")

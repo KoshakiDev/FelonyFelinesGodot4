@@ -17,7 +17,7 @@ var UI_layer
 var final_score
 var wave_survived
 
-var alarm_counter = 0
+var alert_counter = 0
 
 var points = 0
 var wave_num = 0
@@ -43,7 +43,7 @@ var ITEM_NAME_TO_PATH = {
 }
 
 signal all_dead
-signal update_alarm_count
+signal update_alert_count
 
 func _ready():
 	enemy_count = 0

@@ -4,6 +4,7 @@ extends "res://src/entities/base_templates/base_entity/base_entity.gd"
 @onready var vision = $Areas/VisionCone2D
 @export var vision_renderer: Polygon2D
 @export var alert_color: Color
+@export var sus_color: Color
 @onready var original_color = vision_renderer.color if vision_renderer else Color.WHITE
 
 # Non-Player Variables
@@ -14,10 +15,11 @@ signal points_effect(effect_position, points_amount)
 signal update_points(points_amount)
 signal drop_weapon(drop_position)
 signal update_board()
+signal turn_on_alert_state
 
 var targets = []
 var last_target_position
-var sus_timer = $Areas/SusTimer
+@onready var sus_timer = $Areas/SusTimer
 
 @onready var forget_timer = $ForgetTimer
 @onready var update_internal_force_timer = $UpdateInternalForceTimer
@@ -26,17 +28,25 @@ var current_facing_direction = 0
 var vector_directions = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN]
 
 
+
 func _ready():
 	super._ready()
-	connect("drop_weapon", Callable(Global, "drop_weapon"))
-	connect("points_effect", Callable(VFXManager, "create_points_effect"))
-	vision.vision_area.connect("body_entered", Callable(self, "body_entered_vision"))
-	vision.vision_area.connect("body_exited", Callable(self, "body_exited_vision"))
-	forget_timer.connect("timeout", Callable(self, "forget_last_position"))
+	setup_burglar_mode()
+	connect("drop_weapon", Callable(Global, 
+		"drop_weapon"))
+	connect("points_effect", 
+		Callable(VFXManager, "create_points_effect"))
+	forget_timer.connect("timeout", 
+		Callable(self, "forget_last_position"))
+	sus_timer.connect("timeout", Callable(self, "become_alert"))
 	
-	internal_forces = Vector2.ZERO
-	change_look_direction()
-	update_internal_force_timer.connect("timeout", Callable(self, "change_look_direction"))
+	setup_vision()
+	setup_look_direction()
+	
+func setup_burglar_mode():
+	connect("turn_on_alert_state", 
+		Callable(Burglar, "turn_on_alert_state"))
+	
 	
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -65,16 +75,16 @@ func get_target():
 func body_entered_vision(body):
 	vision_renderer.color = alert_color
 	targets.append(body)
-
-func body_exited_vision(body):	
+	emit_signal("turn_on_alert_state")
+	
+func body_exited_vision(body):
 	targets.erase(body)
 	if targets == []:
 		vision_renderer.color = original_color
 	set_last_position(body.global_position)
-	
+
 func attack(_target):
 	pass
-
 
 func hurt(attacker_area):
 	super.hurt(attacker_area)
@@ -92,6 +102,18 @@ func set_last_position(target_position):
 func forget_last_position():
 	last_target_position = null
 
+func setup_vision():
+	vision.vision_area.connect("body_entered", 
+		Callable(self, "body_entered_vision"))
+	vision.vision_area.connect("body_exited", 
+		Callable(self, "body_exited_vision"))
+	
+func setup_look_direction():
+	internal_forces = Vector2.ZERO
+	change_look_direction()
+	update_internal_force_timer.connect("timeout", 
+		Callable(self, "change_look_direction"))
+	
 func change_look_direction():
 	var random = RandomNumberGenerator.new()
 	random.randomize()

@@ -54,7 +54,7 @@ func choose_weapon():
 func add_weapon():
 	add_child(gun)
 	gun.cancel_despawn()
-	gun.ammo = 9999
+	gun.ammo = 0
 	if gun.entity_name == "RPG":
 		return
 	gun.bullet_spawner.can_hit_players = true

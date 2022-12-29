@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bpo6bqss4dr64" path="res://assets/entities/players/red_brother_sheet_96x96.png" id="10_ps3xb"]
 [ext_resource type="PackedScene" uid="uid://1y7coyhr3lqs" path="res://src/components/item_manager/ItemManager.tscn" id="11_djwxs"]
 [ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="12_cwxe7"]
-[ext_resource type="PackedScene" uid="uid://ck44ggug3q4v6" path="res://src/UI/player_healthbar/Ammo_Bar.tscn" id="13_k2i8p"]
+[ext_resource type="PackedScene" path="res://src/UI/player_healthbar/Ammo_Bar.tscn" id="13_k2i8p"]
 
 [sub_resource type="RectangleShape2D" id="23"]
 size = Vector2(24, 54)

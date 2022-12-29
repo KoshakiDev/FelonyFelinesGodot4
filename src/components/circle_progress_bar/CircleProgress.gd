@@ -11,7 +11,7 @@ func _ready():
 	pass
 	
 # Called when the node enters the scene tree for the first time.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	progress_sprite.material.set_shader_parameter("progress", 1.0 - timer.time_left / timer.wait_time)
 
 func reset_progress():
