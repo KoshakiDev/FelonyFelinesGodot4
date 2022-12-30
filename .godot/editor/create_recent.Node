@@ -1,7 +1,7 @@
 Timer
 Node
-RichTextLabel
 Sprite2D
+RichTextLabel
 Node2D
 AudioStreamPlayer2D
 Marker2D

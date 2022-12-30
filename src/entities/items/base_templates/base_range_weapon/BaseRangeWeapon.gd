@@ -9,8 +9,11 @@ signal ammo_changed(new_ammo)
 
 @onready var bullet_spawner = $Marker2D/Visuals/Sprite2D/BulletSpawner
 
+signal bullet_shell_effect
+
 func _ready() -> void:
 	super._ready()
+	connect("bullet_shell_effect", Callable(VFXManager, "create_bullet_shell"))
 	bullet_spawner.can_hit_enemies = true
 	bullet_spawner.can_hit_players = false
 	bullet_spawner.connect("shot_fired",Callable(self,"shot_fired"))

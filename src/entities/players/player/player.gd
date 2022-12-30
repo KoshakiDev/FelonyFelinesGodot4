@@ -22,9 +22,13 @@ var interacting = false
 func _ready():
 	super._ready()
 	setup_player()
+	setup_burglar_mode()
 	item_manager.init(self, ammo_bar)
 	item_monitor.connect("add_item_to_inventory", 
 		Callable(item_manager, "add_item"))
+
+func setup_burglar_mode():
+	connect("player_died", Callable(Burglar, "game_over"))
 
 func setup_player():
 	if player_id == "_1":
@@ -41,12 +45,6 @@ func setup_player():
 		player_visual_middle = Vector2(0, -50)
 	#Global.set("brother" + player_id, self)
 	#connect("player_died",Callable(Global,"player_died"))
-
-func _input(event):
-	if event.is_action_pressed("escape") && health_manager.is_dead():
-		respawn_player()
-		health_manager.heal(100)
-
 
 func adjust_rotation_to_direction(direction):
 	super.adjust_rotation_to_direction(direction)

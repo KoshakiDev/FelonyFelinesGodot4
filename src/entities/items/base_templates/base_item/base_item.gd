@@ -37,12 +37,16 @@ func pickup_item():
 	cancel_despawn()
 	sound_machine.play_sound("Pickup")
 
+var active = false
+
 func set_inactive():
+	active = false
 	visible = false
 	state_machine.transition_to("Disabled")
 	#print("set inactive")
 	
 func set_active():
+	active = true
 	visible = true
 	state_machine.transition_to("Idle")
 	#print("set active")

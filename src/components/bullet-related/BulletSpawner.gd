@@ -88,6 +88,7 @@ func shoot() -> void:
 		
 	bullet_emitter.shoot(bullet_instance, bullet_scene)
 	emit_signal("shot_fired")
+	
 	timer.start()
 	can_shoot = false
 	

@@ -5,6 +5,8 @@ func enter(_msg := {}) -> void:
 	#print("I am entering idle")
 	
 func physics_update(_delta: float) -> void:
+	if !owner.active:
+		state_machine.transition_to("Disabled")
 	if Input.is_action_pressed("action" + owner.player_id):
 		state_machine.transition_to("Action")
 	#print("I am in idle")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bt3efkir0qj5a"]
+[gd_scene load_steps=32 format=3 uid="uid://bt3efkir0qj5a"]
 
 [ext_resource type="PackedScene" path="res://src/entities/base_templates/base_entity/base_entity.tscn" id="1_u2ocy"]
 [ext_resource type="Script" path="res://src/entities/players/player/Player.gd" id="2_plh2e"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bpo6bqss4dr64" path="res://assets/entities/players/red_brother_sheet_96x96.png" id="10_ps3xb"]
 [ext_resource type="PackedScene" uid="uid://1y7coyhr3lqs" path="res://src/components/item_manager/ItemManager.tscn" id="11_djwxs"]
 [ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="12_cwxe7"]
+[ext_resource type="PackedScene" uid="uid://y83y2bnhu06c" path="res://src/entities/items/weapons/melee/bat/BaseballBat.tscn" id="12_f0ii3"]
 [ext_resource type="PackedScene" path="res://src/UI/player_healthbar/Ammo_Bar.tscn" id="13_k2i8p"]
 
 [sub_resource type="RectangleShape2D" id="23"]
@@ -586,6 +587,8 @@ vframes = 7
 
 [node name="ItemManager" parent="Visuals/Sprite2D/InventoryPosition" index="0" instance=ExtResource("11_djwxs")]
 position = Vector2(13, 13)
+
+[node name="BaseballBat" parent="Visuals/Sprite2D/InventoryPosition" index="1" instance=ExtResource("12_f0ii3")]
 
 [node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource("12_cwxe7")]
 

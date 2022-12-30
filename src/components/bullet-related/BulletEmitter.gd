@@ -19,5 +19,6 @@ func shoot_single(bullet_instance : Projectile, bullet_scene : PackedScene):
 		bullet_instance.can_hit_players,
 		)
 	
+	
 	Global.world.call_deferred("add_child", new_bullet)
 	#Global.world.add_child(new_bullet)

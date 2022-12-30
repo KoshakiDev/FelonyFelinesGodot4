@@ -13,10 +13,12 @@ func _ready():
 	knockout_timer.connect("timeout", Callable(self, "timeout"))
 
 func enter(_msg := {}) -> void:
+	owner.turn_off_all()
+	owner.forget_last_position()
+	owner.play_animation("Knockout", "Animations")
+	
 	knockout_timer.visible = true
 	knockout_timer.start()
-	owner.turn_off_all()
-	owner.play_animation("Knockout", "Animations")
 	
 
 func physics_update(_delta: float) -> void:

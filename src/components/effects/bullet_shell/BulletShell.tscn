@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://bk7n176ohfyr2"]
+
+[ext_resource type="PackedScene" path="res://src/components/effects/base_effect/Effect.tscn" id="1_ds4kg"]
+[ext_resource type="Script" path="res://src/components/effects/bullet_shell/BulletShell.gd" id="2_cjw1j"]
+[ext_resource type="Texture2D" uid="uid://c62hjmcptte6u" path="res://assets/effects/bullet_shell.png" id="3_74c5o"]
+
+[sub_resource type="Animation" id="Animation_ut1pn"]
+resource_name = "Animate"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 12.5664, 6.28319, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_n1cty"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cba01"]
+_data = {
+"Animate": SubResource("Animation_ut1pn"),
+"RESET": SubResource("Animation_n1cty")
+}
+
+[node name="BulletShell" instance=ExtResource("1_ds4kg")]
+script = ExtResource("2_cjw1j")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_74c5o")
+offset = Vector2(4, 0)
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_cba01")
+}
+
+[node name="Timer" type="Timer" parent="." index="2"]
+wait_time = 1.2
+one_shot = true
+autostart = true

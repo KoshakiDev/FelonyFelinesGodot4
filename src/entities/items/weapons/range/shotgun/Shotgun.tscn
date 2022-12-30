@@ -1,16 +1,57 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1vf3k0628qo"]
+[gd_scene load_steps=15 format=3 uid="uid://c1vf3k0628qo"]
 
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1"]
-[ext_resource type="Texture2D" uid="uid://mm7sxdatvunh" path="res://assets/items/weapons/range/shotgun/shotgun.png" id="2"]
+[ext_resource type="Script" path="res://src/entities/items/weapons/range/shotgun/Shotgun.gd" id="2_cj6ax"]
+[ext_resource type="Texture2D" uid="uid://17r8mmg4uta" path="res://assets/items/weapons/range/shotgun/shotgun-Sheet.png" id="2_wrf70"]
 [ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://b41kemf6owevt" path="res://assets/items/weapons/range/muzzle_flashes/shotgun_flash.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://b2ewl0gwplyud" path="res://sounds/guns/shotgun.wav" id="5"]
+[ext_resource type="Script" path="res://src/entities/items/weapons/range/shotgun/states/Action.gd" id="5_gvqla"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="6"]
 
 [sub_resource type="Resource" id="1"]
 script = ExtResource("3")
-amount = 6
+amount = 3
 spread_angle = 5
+
+[sub_resource type="Animation" id="Animation_kq3bh"]
+resource_name = "Click"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.309, -1.309, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_bolpj"]
 resource_name = "Idle"
@@ -50,6 +91,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D/Visuals/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="3"]
 length = 0.001
@@ -88,6 +141,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D/Visuals/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="2"]
@@ -133,12 +198,14 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ercf"]
 _data = {
+"Click": SubResource("Animation_kq3bh"),
 "Idle": SubResource("Animation_bolpj"),
 "RESET": SubResource("3"),
 "Shoot": SubResource("2")
 }
 
 [node name="Shotgun" instance=ExtResource("1")]
+script = ExtResource("2_cj6ax")
 ammo = 20
 recoil = 150
 ammo_pack_amount = 10
@@ -148,11 +215,12 @@ entity_name = "SHOTGUN"
 position = Vector2(9, -2)
 
 [node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
-texture = ExtResource("2")
+texture = ExtResource("2_wrf70")
+hframes = 3
 
 [node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0"]
 position = Vector2(24, -3)
-shot_delay = 0.5
+shot_delay = 1.1
 bullet_speed = 1200.0
 bullet_damage_value = 1
 knockback_value = 50
@@ -167,6 +235,9 @@ texture = ExtResource("4")
 libraries = {
 "": SubResource("AnimationLibrary_5ercf")
 }
+
+[node name="Action" parent="Marker2D/StateMachine" index="3"]
+script = ExtResource("5_gvqla")
 
 [node name="Shot" type="Node2D" parent="Marker2D/SoundMachine" index="1"]
 script = ExtResource("6")

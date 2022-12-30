@@ -17,9 +17,12 @@ signal drop_weapon(drop_position)
 signal update_board()
 signal turn_on_alert_state
 
+var has_seen_you = false
+
 var targets = []
 var last_target_position
 @onready var sus_timer = $Areas/SusTimer
+
 
 @onready var forget_timer = $ForgetTimer
 @onready var update_internal_force_timer = $UpdateInternalForceTimer
@@ -43,9 +46,14 @@ func _ready():
 	setup_vision()
 	setup_look_direction()
 	
+	
 func setup_burglar_mode():
 	connect("turn_on_alert_state", 
 		Callable(Burglar, "turn_on_alert_state"))
+	Burglar.connect("turn_on_alert_state_for_entities", 
+		Callable(self, "go_alert_state"))
+	Burglar.connect("turn_off_alert_state_for_entities", 
+		Callable(self, "go_normal_state"))
 	
 	
 func _physics_process(delta):
@@ -75,7 +83,8 @@ func get_target():
 func body_entered_vision(body):
 	vision_renderer.color = alert_color
 	targets.append(body)
-	emit_signal("turn_on_alert_state")
+	emit_signal("turn_on_alert_state", has_seen_you)
+	has_seen_you = true
 	
 func body_exited_vision(body):
 	targets.erase(body)
@@ -103,6 +112,18 @@ func turn_on_all():
 	super.turn_on_all()
 	vision.turn_on()
 	update_internal_force_timer.start()
+
+
+# TODO: Remove magic numbers
+func go_alert_state():
+	update_internal_force_timer.wait_time = 0.5
+	#print("went into alert state")
+
+func go_normal_state():
+	update_internal_force_timer.wait_time = 2.5
+	has_seen_you = false
+	#print("went into normal state")
+
 
 func set_last_position(target_position):
 	last_target_position = target_position

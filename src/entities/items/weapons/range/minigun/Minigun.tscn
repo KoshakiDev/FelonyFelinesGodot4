@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://danhuydml27p6"]
+[gd_scene load_steps=13 format=3 uid="uid://danhuydml27p6"]
 
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://d4ivbg4ke8xom" path="res://assets/items/weapons/range/minigun/minigun.png" id="2"]
+[ext_resource type="Script" path="res://src/entities/items/weapons/range/minigun/Minigun.gd" id="2_tdin3"]
 [ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://c8ug7fydg7dbu" path="res://assets/items/weapons/range/muzzle_flashes/minigun_flash.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://dllndwe0ip5it" path="res://sounds/guns/cg1.wav" id="5"]
@@ -138,6 +139,7 @@ _data = {
 }
 
 [node name="Minigun" instance=ExtResource("1")]
+script = ExtResource("2_tdin3")
 ammo = 500
 recoil = 400
 ammo_pack_amount = 100
@@ -147,6 +149,7 @@ entity_name = "MINIGUN"
 position = Vector2(12, -4)
 
 [node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
+position = Vector2(-5, 0)
 texture = ExtResource("2")
 
 [node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0"]

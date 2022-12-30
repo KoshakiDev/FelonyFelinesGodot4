@@ -1,5 +1,6 @@
 extends State
 
+
 func enter(_msg := {}) -> void:
 	owner.play_animation("Idle", "Animations")
 

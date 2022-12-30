@@ -4,9 +4,9 @@ var gun: Node2D
 
 var EQUIP_ITEM_WEIGHTS = {
 	"weapons/range/shotgun/Shotgun": 10,
-	"weapons/range/minigun/Minigun": 3,
-	"weapons/range/revolver/Revolver": 20,
-	"weapons/range/rocket_launcher/RocketLauncher": 1
+	"weapons/range/minigun/Minigun": 5,
+	"weapons/range/revolver/Revolver": 20
+#	"weapons/range/rocket_launcher/RocketLauncher": 1
 }
 
 var ITEM_POSITIONS = {
