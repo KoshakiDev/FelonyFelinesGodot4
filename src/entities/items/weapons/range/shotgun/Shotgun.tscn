@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c1vf3k0628qo"]
+[gd_scene load_steps=14 format=3 uid="uid://c1vf3k0628qo"]
 
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1"]
 [ext_resource type="Script" path="res://src/entities/items/weapons/range/shotgun/Shotgun.gd" id="2_cj6ax"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://b41kemf6owevt" path="res://assets/items/weapons/range/muzzle_flashes/shotgun_flash.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://b2ewl0gwplyud" path="res://sounds/guns/shotgun.wav" id="5"]
-[ext_resource type="Script" path="res://src/entities/items/weapons/range/shotgun/states/Action.gd" id="5_gvqla"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="6"]
 
 [sub_resource type="Resource" id="1"]
@@ -235,9 +234,6 @@ texture = ExtResource("4")
 libraries = {
 "": SubResource("AnimationLibrary_5ercf")
 }
-
-[node name="Action" parent="Marker2D/StateMachine" index="3"]
-script = ExtResource("5_gvqla")
 
 [node name="Shot" type="Node2D" parent="Marker2D/SoundMachine" index="1"]
 script = ExtResource("6")

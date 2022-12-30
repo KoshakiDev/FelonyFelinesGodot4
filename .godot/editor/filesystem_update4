@@ -9,3 +9,4 @@ res://src/components/bullet-related/BulletSpawner.tscn
 res://src/components/effects/bullet_shell/BulletShell.tscn
 res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn
 res://src/entities/items/weapons/range/minigun/Minigun.tscn
+res://src/entities/players/player/states/Idle.gd

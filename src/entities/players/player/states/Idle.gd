@@ -11,5 +11,10 @@ func physics_update(_delta: float) -> void:
 	if owner.interacting:
 		state_machine.transition_to("Interacting")
 	
-	if Input.is_action_pressed("left" + owner.player_id) or Input.is_action_pressed("right" + owner.player_id) or Input.is_action_just_pressed("up" + owner.player_id) or Input.is_action_pressed("down" + owner.player_id):
+	var input_direction := Vector2.ZERO
+	input_direction.x = Input.get_action_strength("right" + owner.player_id) - Input.get_action_strength("left" + owner.player_id)
+	input_direction.y = Input.get_action_strength("down" + owner.player_id) - Input.get_action_strength("up" + owner.player_id)
+	
+	
+	if input_direction.x != 0 or input_direction.y != 0:
 		state_machine.transition_to("Move")
