@@ -5,6 +5,8 @@ signal drop_specific_weapon(drop_position, weapon_name)
 @onready var update_margin_of_error_timer = $UpdateAimMarginOfError
 @export var max_shooting_distance = 500
 
+var is_shot_ready = true
+
 func _ready():
 	super._ready()
 	item_holder.init(self)

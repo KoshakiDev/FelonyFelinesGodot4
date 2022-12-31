@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkc7hsoprwy5i"]
+
+[ext_resource type="Texture2D" uid="uid://c4snhdqq8fxu6" path="res://src/environment/objects/safe/flag.png" id="1_mben8"]
+
+[node name="Flag" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = ExtResource("1_mben8")

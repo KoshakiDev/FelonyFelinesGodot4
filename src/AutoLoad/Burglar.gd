@@ -11,6 +11,7 @@ signal update_alert_count
 signal turn_on_alert_state_for_entities
 signal turn_off_alert_state_for_entities
 
+signal show_busted_screen
 
 func _ready():
 	setup_timer()
@@ -18,7 +19,7 @@ func _ready():
 func setup_timer():
 	alert_timer = Timer.new()
 	add_child(alert_timer)
-	alert_timer.wait_time = 9.0
+	alert_timer.wait_time = 6.0
 	alert_timer.one_shot = true
 	alert_timer.autostart = false
 	alert_timer.connect("timeout",Callable(self,"turn_off_alert_state"))
@@ -40,10 +41,15 @@ func _physics_process(delta):
 	if alert_time_left == null:
 		return
 	alert_time_left.text = str(snapped(alert_timer.time_left, 1))
-	
+
+
+func start_game_over():
+	emit_signal("show_busted_screen")
+
 func game_over():
 	reset_everything()
 	get_tree().reload_current_scene()
+
 
 func reset_everything():
 	alert_timer.stop()

@@ -18,5 +18,4 @@ func physics_update(_delta: float) -> void:
 	elif target == null && owner.last_target_position != null:
 		state_machine.transition_to("Chase")
 		return
-	
 	owner.attack(target)

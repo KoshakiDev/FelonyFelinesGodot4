@@ -28,7 +28,7 @@ func _ready():
 		Callable(item_manager, "add_item"))
 
 func setup_burglar_mode():
-	connect("player_died", Callable(Burglar, "game_over"))
+	connect("player_died", Callable(Burglar, "start_game_over"))
 
 func setup_player():
 	if player_id == "_1":

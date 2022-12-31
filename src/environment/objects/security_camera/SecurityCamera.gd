@@ -15,35 +15,64 @@ var targets = []
 @export var suspicion_color = Color(1, 0.796078, 0, 0.74902)
 @export var detected_color = Color(1, 0, 0, 0.74902)
 
+signal turn_on_alert_state(has_seen_you)
+var has_seen_you = false
+
 func _ready():
-	switch_timer.connect("timeout",Callable(self,"switch_view"))
-	
-	vision.vision_area.connect("body_entered", Callable(self, "body_entered_vision"))
-	vision.vision_area.connect("body_exited", Callable(self, "body_exited_vision"))
+	setup_burglar_mode()
+	setup_vision()
+	vision_renderer.color = suspicion_color
 	
 	vision_look_in_direction(Vector2(sprite.scale.x, 0))
+	switch_timer.connect("timeout", Callable(self,"switch_view"))
 	
 	animation_player.play("Normal")
 
+func setup_vision():
+	vision.vision_area.connect("body_entered", 
+		Callable(self, "body_entered_vision"))
+	vision.vision_area.connect("body_exited", 
+		Callable(self, "body_exited_vision"))
+
+
+func setup_burglar_mode():
+	connect("turn_on_alert_state", 
+		Callable(Burglar, "turn_on_alert_state"))
+	Burglar.connect("turn_on_alert_state_for_entities", 
+		Callable(self, "go_alert_state"))
+	Burglar.connect("turn_off_alert_state_for_entities", 
+		Callable(self, "go_normal_state"))
 
 func vision_look_in_direction(direction):
 	var tween = create_tween()
 	tween.tween_property(vision, "rotation", 
 		-PI / 2 + direction.angle(), 0.8)
 	
+#TODO: Switch to constant instead of magic numbers
+func go_alert_state():
+	switch_timer.wait_time = 1
+	switch_timer.stop()
+	switch_timer.start()
+	print("went into alert state")
+
+func go_normal_state():
+	switch_timer.wait_time = 3
+	switch_timer.stop()
+	switch_timer.start()
+	has_seen_you = false
+	print("went into normal state")
 
 func body_entered_vision(body):
-	vision_renderer.color = alert_color
+	emit_signal("turn_on_alert_state", has_seen_you)
+	has_seen_you = true
+	vision_renderer.color = detected_color
 	targets.append(body)
-	switch_timer.stop()
-
+	
 func body_exited_vision(body):	
 	targets.erase(body)
 	if targets == []:
-		vision_renderer.color = original_color
-		switch_timer.start()
-		vision_look_in_direction(Vector2(sprite.scale.x, 0))
-	
+		vision_renderer.color = suspicion_color
+		
 func begin_suspicion():
 	animation_player.play("Suspicion")
 
@@ -60,5 +89,5 @@ func _physics_process(_delta):
 func switch_view():
 	sprite.scale.x *= -1
 	vision_look_in_direction(Vector2(sprite.scale.x, 0))
-	switch_timer.start()
+	#switch_timer.start()
 

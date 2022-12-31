@@ -1,12 +1,6 @@
 res://src/environment/levels/Level1.tscn
 res://src/entities/enemies/EnemyGunner/states/Knockout.gd
 res://src/entities/players/player/Player_1.tscn
+res://src/environment/objects/security_camera/SecurityCamera.tscn
 res://src/entities/enemies/EnemyGunner/EnemyGunner.tscn
-res://src/UI/BurglarUI/BurglarUI.tscn
-res://src/environment/base_world/base_world.tscn
-res://src/entities/items/weapons/range/shotgun/Shotgun.tscn
-res://src/components/bullet-related/BulletSpawner.tscn
-res://src/components/effects/bullet_shell/BulletShell.tscn
-res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn
-res://src/entities/items/weapons/range/minigun/Minigun.tscn
-res://src/entities/players/player/states/Idle.gd
+res://src/environment/objects/security_camera/SecurityCamera.gd

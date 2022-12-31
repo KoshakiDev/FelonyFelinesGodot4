@@ -69,7 +69,8 @@ func setup_shot_delay_timer():
 
 func reload_timer_finished():
 	can_shoot = true
-
+	emit_signal("shot_ready")
+	
 func shoot() -> void:
 	if !can_shoot:
 		return

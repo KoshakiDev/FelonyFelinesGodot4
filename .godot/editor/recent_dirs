@@ -1,6 +1,6 @@
+res://src/UI/BustedScreen
 res://src/components/effects/bullet_shell
 res://src/components/effects/base_effect
-res://src/entities/items/weapons/range/shotgun/states
 res://src/entities/enemies/EnemyGunner/states
 res://src/AutoLoad
 res://src/environment/levels
