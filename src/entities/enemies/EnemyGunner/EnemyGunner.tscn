@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bhppar5m7rr10"]
+[gd_scene load_steps=33 format=3 uid="uid://bhppar5m7rr10"]
 
 [ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dj4imexibaje1" path="res://src/entities/base_templates/base_npc/base_npc.tscn" id="2"]
@@ -11,29 +11,30 @@
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/ItemHolder.gd" id="9_u82ke"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Idle.gd" id="10"]
 [ext_resource type="PackedScene" uid="uid://7g4bebhu8p61" path="res://src/components/circle_progress_bar/CircleProgress.tscn" id="10_2ocm0"]
+[ext_resource type="Texture2D" uid="uid://bp4qcx0a43jnq" path="res://test/Sprite-0004.png" id="10_i1kf7"]
 [ext_resource type="Texture2D" uid="uid://vvh1rme2js3x" path="res://assets/entities/enemies/gunner/sergeant_sir_giant_128x128_5x9.png" id="12"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Pain.gd" id="13"]
 [ext_resource type="Texture2D" uid="uid://boxci3w8p35da" path="res://assets/effects/part-Caution.png" id="14_q76xd"]
 [ext_resource type="Texture2D" uid="uid://bjhjgiphxco4i" path="res://assets/effects/Question.png" id="15_u6pjv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_litbu"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_py30j"]
 size = Vector2(69, 73)
 
-[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_mp5ji"]
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_mmabw"]
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_46apy"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_ra4a4"]
 source = 2
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_3g4yi"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_4ch05"]
 operator = 6
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_66qoh"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_lwug7"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_xhpsq"]
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_5i5wq"]
 parameter_name = "active"
 
-[sub_resource type="VisualShader" id="VisualShader_0ap23"]
+[sub_resource type="VisualShader" id="VisualShader_acxut"]
 code = "shader_type canvas_item;
 uniform bool active;
 
@@ -70,24 +71,24 @@ void fragment() {
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1040, 60)
-nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_46apy")
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_ra4a4")
 nodes/fragment/3/position = Vector2(600, -40)
-nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_3g4yi")
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_4ch05")
 nodes/fragment/5/position = Vector2(860, -60)
-nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_66qoh")
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_lwug7")
 nodes/fragment/6/position = Vector2(600, 100)
-nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_xhpsq")
+nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_5i5wq")
 nodes/fragment/9/position = Vector2(400, 0)
-nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_mp5ji")
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_mmabw")
 nodes/fragment/11/position = Vector2(400, 120)
 nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_okaur"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ynvpj"]
 resource_local_to_scene = true
-shader = SubResource("VisualShader_0ap23")
+shader = SubResource("VisualShader_acxut")
 shader_parameter/active = false
 
-[sub_resource type="Animation" id="Animation_txx5r"]
+[sub_resource type="Animation" id="Animation_ht7h5"]
 resource_name = "Death"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -139,7 +140,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_70tkf"]
+[sub_resource type="Animation" id="Animation_1epmj"]
 resource_name = "Hit_Back"
 length = 0.5
 tracks/0/type = "value"
@@ -155,7 +156,7 @@ tracks/0/keys = {
 "values": [27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_bgbj7"]
+[sub_resource type="Animation" id="Animation_le13q"]
 resource_name = "Hit_Front"
 length = 0.5
 tracks/0/type = "value"
@@ -171,7 +172,7 @@ tracks/0/keys = {
 "values": [18, 19, 20]
 }
 
-[sub_resource type="Animation" id="Animation_k5ots"]
+[sub_resource type="Animation" id="Animation_ecdyp"]
 resource_name = "Idle"
 length = 0.5
 loop_mode = 1
@@ -200,7 +201,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8), Vector2(0, 11), Vector2(0, 7)]
 }
 
-[sub_resource type="Animation" id="Animation_8qmoa"]
+[sub_resource type="Animation" id="Animation_tonqy"]
 resource_name = "Knockout"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -215,7 +216,7 @@ tracks/0/keys = {
 "values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 44]
 }
 
-[sub_resource type="Animation" id="Animation_crtu0"]
+[sub_resource type="Animation" id="Animation_sofuk"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -242,7 +243,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_lanaq"]
+[sub_resource type="Animation" id="Animation_0yn3m"]
 resource_name = "Run"
 length = 0.8
 loop_mode = 1
@@ -317,15 +318,15 @@ tracks/3/keys = {
 "values": [Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5), Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fgjkf"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wcx0t"]
 _data = {
-"Death": SubResource("Animation_txx5r"),
-"Hit_Back": SubResource("Animation_70tkf"),
-"Hit_Front": SubResource("Animation_bgbj7"),
-"Idle": SubResource("Animation_k5ots"),
-"Knockout": SubResource("Animation_8qmoa"),
-"RESET": SubResource("Animation_crtu0"),
-"Run": SubResource("Animation_lanaq")
+"Death": SubResource("Animation_ht7h5"),
+"Hit_Back": SubResource("Animation_1epmj"),
+"Hit_Front": SubResource("Animation_le13q"),
+"Idle": SubResource("Animation_ecdyp"),
+"Knockout": SubResource("Animation_tonqy"),
+"RESET": SubResource("Animation_sofuk"),
+"Run": SubResource("Animation_0yn3m")
 }
 
 [node name="EnemyGunner" groups=["ENEMY"] instance=ExtResource("2")]
@@ -333,6 +334,10 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("9")
 max_shooting_distance = 250
+normal_color = Color(1, 0.796078, 0, 0.74902)
+detected_color = Color(1, 0, 0, 0.74902)
+awareness_increment = 0.02
+awareness_decrement = 0.001
 acceleration = 0.2
 friction = 0.8
 
@@ -369,10 +374,14 @@ collision_mask = 8
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
 position = Vector2(2.5, 10.5)
-shape = SubResource("RectangleShape2D_litbu")
+shape = SubResource("RectangleShape2D_py30j")
 
 [node name="VisionCone2D" parent="Areas" index="1"]
 z_index = -1
+
+[node name="VisionConeRenderer" parent="Areas/VisionCone2D" index="0"]
+texture_repeat = 2
+texture = ExtResource("10_i1kf7")
 
 [node name="SusTimer" parent="Areas" index="2"]
 wait_time = 0.5
@@ -385,7 +394,7 @@ position = Vector2(0, -111)
 scale = Vector2(0.25, 0.25)
 
 [node name="Sprite2D" parent="Visuals" index="0"]
-material = SubResource("ShaderMaterial_okaur")
+material = SubResource("ShaderMaterial_ynvpj")
 position = Vector2(0, -56)
 texture = ExtResource("12")
 hframes = 9
@@ -415,7 +424,7 @@ max_health = 100.0
 [node name="Animations" type="AnimationPlayer" parent="AnimationMachine" index="0"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_fgjkf")
+"": SubResource("AnimationLibrary_wcx0t")
 }
 
 [node name="HealthBar" parent="." index="6"]
@@ -434,9 +443,11 @@ wait_time = 2.5
 [node name="UpdateInternalForceTimer" parent="." index="13"]
 wait_time = 2.5
 
-[node name="UpdateAimMarginOfError" type="Timer" parent="." index="14"]
-wait_time = 4.0
-autostart = true
+[node name="Label2" type="Label" parent="." index="14"]
+offset_left = -55.0
+offset_top = -119.0
+offset_right = 62.0
+offset_bottom = -96.0
 
 [editable path="Areas/Hurtbox"]
 [editable path="Areas/VisionCone2D"]

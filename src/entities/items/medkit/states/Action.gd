@@ -2,7 +2,8 @@ extends State
 
 
 func enter(_msg := {}) -> void:
-	owner.animation_machine.play_animation("Idle", "AnimationPlayer")
+	pass
+	#owner.animation_machine.play_animation("Idle", "AnimationPlayer")
 	#print("I am entering idle")
 
 func physics_update(_delta: float) -> void:

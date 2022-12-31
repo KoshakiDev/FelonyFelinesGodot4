@@ -2,14 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://5qj52cqyg6a" path="res://assets/items/weapons/range/revolver/Revolver.png" id="1"]
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="2"]
-[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="3"]
+[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="3_ssv41"]
 [ext_resource type="AudioStream" uid="uid://vmf6gw7j8dtx" path="res://sounds/guns/pistol.wav" id="4"]
 [ext_resource type="Texture2D" uid="uid://bl6cdejqe2dlr" path="res://assets/items/weapons/range/muzzle_flashes/revolver_flash.png" id="5"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="5_4kio4"]
 
-[sub_resource type="Resource" id="3"]
-resource_local_to_scene = true
-script = ExtResource("3")
+[sub_resource type="Resource" id="Resource_0wxkg"]
+script = ExtResource("3_ssv41")
 spread = 1
 
 [sub_resource type="Animation" id="Animation_1g5jx"]
@@ -156,7 +155,7 @@ shot_delay = 0.3
 bullet_speed = 600.0
 bullet_damage_value = 15
 knockback_value = 500
-bullet_emitter = SubResource("3")
+bullet_emitter = SubResource("Resource_0wxkg")
 
 [node name="Flash" type="Sprite2D" parent="Marker2D/Visuals/Sprite2D" index="1"]
 visible = false

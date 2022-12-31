@@ -31,14 +31,14 @@ func setup_burglar_mode():
 	connect("player_died", Callable(Burglar, "start_game_over"))
 
 func setup_player():
-	if player_id == "_1":
+	if player_id == "_2":
 		$HealthBar.position.y = -85 + 10
 		inventory_position.position.y += 10
 		sprite.set_texture(red_sprite)
 		player_visual_middle = Vector2(0, -50 + 10)
 		listener.current = true;
 	
-	elif player_id == "_2":
+	elif player_id == "_1":
 		$HealthBar.position.y = -85
 		inventory_position.position.y += 0
 		sprite.set_texture(blue_sprite)

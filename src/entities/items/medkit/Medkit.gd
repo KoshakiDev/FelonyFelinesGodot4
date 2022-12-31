@@ -10,7 +10,8 @@ signal ammo_changed(new_ammo)
 
 
 func _ready():
-	animation_machine.play_animation("Idle", "AnimationPlayer")
+	pass
+	#animation_machine.play_animation("Idle", "AnimationPlayer")
 
 func add_ammo_pack() -> void:
 	ammo = ammo + ammo_pack_amount

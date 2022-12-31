@@ -32,6 +32,8 @@ var timer: Timer
 var can_hit_players = false
 var can_hit_enemies = false
 
+var item_owner: Node2D
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
@@ -78,15 +80,21 @@ func shoot() -> void:
 	
 	var bullet_instance = bullet_scene.instantiate()
 	
+	var set_position = global_position
+	var set_sprite_y = global_position.y
+	if item_owner != null:
+		set_position.y = item_owner.global_position.y
+		
 	bullet_instance.setup(
-		global_position,
+		set_position,
+		set_sprite_y,
 		shoot_direction, 
 		bullet_speed, 
 		bullet_damage_value, 
 		knockback_value,
 		can_hit_enemies,
 		can_hit_players)
-		
+	
 	bullet_emitter.shoot(bullet_instance, bullet_scene)
 	emit_signal("shot_fired")
 	

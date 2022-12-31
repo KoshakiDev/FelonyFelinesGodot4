@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/environment/objects/security_camera/SecurityCamera.gd" id="1_e4haj"]
 [ext_resource type="Texture2D" uid="uid://ck8qk0rtafhsl" path="res://src/environment/objects/security_camera/security_camera.png" id="2_g2dn4"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="3_xows3"]
-[ext_resource type="Texture2D" uid="uid://bgmkncod0ku3q" path="res://test/download.png" id="4_t10ba"]
+[ext_resource type="Texture2D" uid="uid://bp4qcx0a43jnq" path="res://test/Sprite-0004.png" id="4_pr77w"]
 
 [sub_resource type="Animation" id="Animation_24pvq"]
 resource_name = "Detected"
@@ -28,7 +28,6 @@ _data = {
 [node name="SecurityCamera" type="Node2D" node_paths=PackedStringArray("vision_renderer")]
 script = ExtResource("1_e4haj")
 vision_renderer = NodePath("VisionCone2D/VisionConeRenderer")
-alert_color = Color(0.6, 0.270588, 0.247059, 0.368627)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
@@ -59,12 +58,21 @@ angle_deg = 90.0
 ray_count = 50
 
 [node name="VisionConeRenderer" parent="VisionCone2D" index="0"]
-texture = ExtResource("4_t10ba")
+texture_repeat = 2
+texture = ExtResource("4_pr77w")
+texture_rotation = 1.5708
 
 [node name="VisionConeArea" parent="VisionCone2D" index="1"]
 collision_mask = 3585
 
 [node name="DebugDraw" parent="VisionCone2D" index="2"]
 is_visible = false
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -81.0
+offset_top = -58.0
+offset_right = 85.0
+offset_bottom = -32.0
+text = "Awareness Meter: 1.5"
 
 [editable path="VisionCone2D"]

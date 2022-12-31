@@ -19,6 +19,10 @@ func _ready() -> void:
 	bullet_spawner.connect("shot_fired",Callable(self,"shot_fired"))
 	#print(bullet_spawner)
 
+func init(set_item_owner: Node2D) -> void:
+	super.init(set_item_owner)
+	bullet_spawner.item_owner = set_item_owner
+
 func shoot():
 	bullet_spawner.shoot()
 
@@ -40,8 +44,9 @@ func reduce_ammo() -> void:
 
 func shot_fired() -> void:
 	animation_machine.play_animation("Shoot", "AnimationPlayer")
-	if item_owner.has_method("apply_external_force"):
-		item_owner.apply_external_force(-1 * item_owner.internal_forces, recoil) 
+	if item_owner != null:
+		if item_owner.has_method("apply_external_force"):
+			item_owner.apply_external_force(-1 * item_owner.internal_forces, recoil) 
 	reduce_ammo()
 	sound_machine.play_sound("Shot")
 	Shake.shake(2.5, .5)

@@ -1,6 +1,7 @@
 extends State
 
 func enter(_msg := {}) -> void:
+	await owner.animation_machine.find("AnimationPlayer").animation_finished
 	owner.animation_machine.play_animation("Idle", "AnimationPlayer")
 	#print("I am entering idle")
 	

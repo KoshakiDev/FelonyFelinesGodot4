@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bawo57y00ukg7"]
 
-[ext_resource type="PackedScene" path="res://src/entities/items/base_templates/base_item/base_item.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://bophax1u23y7a" path="res://src/entities/items/base_templates/base_item/base_item.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://egcgkllhejfm" path="res://src/components/bullet-related/BulletSpawner.tscn" id="2"]
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.gd" id="3"]
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_range_weapon/states/Shoot.gd" id="3_8tv7v"]

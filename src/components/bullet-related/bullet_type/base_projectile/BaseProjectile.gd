@@ -11,7 +11,9 @@ var speed: float = 1.0
 # damage_value
 # knockback_value
 var can_hit_enemies = false
-var can_hit_players = false
+var can_hit_players = false 
+@onready var sprite = $Sprite2D
+var sprite_y
 
 @onready var start_position := global_position
 
@@ -19,19 +21,24 @@ signal dust_effect(effect_position)
 
 func _ready() -> void:
 	super._ready()
+	sprite.global_position.y = sprite_y
 	connect("dust_effect", Callable(VFXManager, "create_dust_effect"))
 	connect("area_entered",Callable(self,"_on_Bullet_area_entered"))
 	connect("body_entered",Callable(self,"_on_Bullet_body_entered"))
 
 func setup(
 		set_bullet_position,
+		set_sprite_y,
 		set_direction, 
 		set_speed, 
 		set_damage_value, 
 		set_knockback_value,
 		set_can_hit_enemies,
 		set_can_hit_players) -> void:
-	global_position = set_bullet_position
+	# 3 is the radius of the hitbox shape, but for some reason,
+	# Godot complains too much about it
+	global_position = set_bullet_position + set_direction * 3
+	sprite_y = set_sprite_y
 	direction = set_direction
 	speed = set_speed
 	damage_value = set_damage_value

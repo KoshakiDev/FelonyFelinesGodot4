@@ -3,10 +3,11 @@ extends "res://src/entities/base_templates/base_entity/base_entity.gd"
 @export_group("Vision Settings")
 @onready var vision = $Areas/VisionCone2D
 @export var vision_renderer: Polygon2D
-@export var alert_color: Color
-@export var sus_color: Color
-@onready var original_color = vision_renderer.color if vision_renderer else Color.WHITE
-
+@export var normal_color = Color(1, 0.796078, 0, 0.74902)
+@export var detected_color = Color(1, 0, 0, 0.74902)
+var awareness_meter = 0
+@export var awareness_increment = 0.02
+@export var awareness_decrement = 0.001
 # Non-Player Variables
 @export_group("Item Drop Variables")
 @export var ITEM_DROP_PERCENT = 50
@@ -58,6 +59,19 @@ func setup_burglar_mode():
 	
 func _physics_process(delta):
 	super._physics_process(delta)
+	awareness()
+
+func awareness():
+	if awareness_meter == 1:
+		detected()
+	if targets != []:
+		awareness_meter = clamp(awareness_meter + awareness_increment,
+								0, 1)
+	else:
+		vision_renderer.color = normal_color
+		awareness_meter = clamp(awareness_meter - awareness_decrement,
+								0, 1)
+	
 
 func adjust_rotation_to_direction(direction):
 	super.adjust_rotation_to_direction(direction)
@@ -65,14 +79,16 @@ func adjust_rotation_to_direction(direction):
 
 func vision_look_in_direction(direction):
 	var tween = create_tween()
+	tween.set_parallel()
 	tween.tween_property(vision, "rotation", 
-		-PI / 2 + direction.angle(), 0.01)
-	
-func vision_look_at(target_pos):
-	var tween = create_tween()
-	tween.tween_property(vision, "rotation", 
-		-PI / 2 + (target_pos - global_position).angle(), 0.01)
+		-PI / 2 + direction.angle(), 0.2)
+	tween.tween_property(vision_renderer, "texture_rotation", 
+		-PI / 2 + direction.angle(), 0.2)
 
+func detected():
+	vision_renderer.color = detected_color
+	emit_signal("turn_on_alert_state", has_seen_you)
+	has_seen_you = true
 
 func get_target():
 	if targets == []:
@@ -81,15 +97,10 @@ func get_target():
 		return target
 
 func body_entered_vision(body):
-	vision_renderer.color = alert_color
 	targets.append(body)
-	emit_signal("turn_on_alert_state", has_seen_you)
-	has_seen_you = true
 	
 func body_exited_vision(body):
 	targets.erase(body)
-	if targets == []:
-		vision_renderer.color = original_color
 	set_last_position(body.global_position)
 
 func attack(_target):
@@ -117,6 +128,7 @@ func turn_on_all():
 # TODO: Remove magic numbers
 func go_alert_state():
 	update_internal_force_timer.wait_time = 0.5
+	awareness_meter = 0.99
 	#print("went into alert state")
 
 func go_normal_state():
@@ -137,7 +149,9 @@ func setup_vision():
 		Callable(self, "body_entered_vision"))
 	vision.vision_area.connect("body_exited", 
 		Callable(self, "body_exited_vision"))
-	
+	vision_renderer.color = normal_color
+
+
 func setup_look_direction():
 	internal_forces = Vector2.ZERO
 	change_look_direction()
@@ -149,6 +163,8 @@ func change_look_direction():
 	random.randomize()
 	if internal_forces != Vector2.ZERO:
 		internal_forces -= vector_directions[current_facing_direction]
-	current_facing_direction = random.randi_range(0, 3)
+	var prev = current_facing_direction
+	while(current_facing_direction == prev):
+		current_facing_direction = random.randi_range(0, 3)
 	internal_forces += vector_directions[current_facing_direction]
 	

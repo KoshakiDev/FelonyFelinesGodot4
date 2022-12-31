@@ -1,6 +1,10 @@
-res://src/environment/levels/Level1.tscn
+res://src/entities/items/weapons/range/minigun/Minigun.tscn
 res://src/entities/enemies/EnemyGunner/states/Knockout.gd
+res://src/entities/items/weapons/range/shotgun/Shotgun.tscn
+res://src/entities/items/weapons/range/revolver/Revolver.tscn
+res://src/environment/levels/Level1.tscn
 res://src/entities/players/player/Player_1.tscn
-res://src/environment/objects/security_camera/SecurityCamera.tscn
 res://src/entities/enemies/EnemyGunner/EnemyGunner.tscn
-res://src/environment/objects/security_camera/SecurityCamera.gd
+res://src/entities/items/base_templates/base_item/base_item.tscn
+res://src/components/bullet-related/bullet_type/regular_bullet/RegularBullet.tscn
+res://src/components/bullet-related/bullet_type/base_projectile/BaseProjectile.tscn

@@ -1,4 +1,6 @@
 Timer
+Label
+ProgressBar
 RichTextLabel
 Node
 Sprite2D

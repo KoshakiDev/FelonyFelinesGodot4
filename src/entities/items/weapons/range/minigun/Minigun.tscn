@@ -3,17 +3,18 @@
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://d4ivbg4ke8xom" path="res://assets/items/weapons/range/minigun/minigun.png" id="2"]
 [ext_resource type="Script" path="res://src/entities/items/weapons/range/minigun/Minigun.gd" id="2_tdin3"]
-[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://c8ug7fydg7dbu" path="res://assets/items/weapons/range/muzzle_flashes/minigun_flash.png" id="4"]
+[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="4_ufwtl"]
 [ext_resource type="AudioStream" uid="uid://dllndwe0ip5it" path="res://sounds/guns/cg1.wav" id="5"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="6"]
 
-[sub_resource type="Resource" id="4"]
-script = ExtResource("3")
+[sub_resource type="Resource" id="Resource_ldgmi"]
+script = ExtResource("4_ufwtl")
 spread = 10
 
 [sub_resource type="Animation" id="Animation_l3bhe"]
 resource_name = "Idle"
+length = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -56,7 +57,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -68,7 +69,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Visuals/Sprite2D/Flash:visible")
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D/Flash:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -80,7 +81,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -149,14 +150,13 @@ entity_name = "MINIGUN"
 position = Vector2(12, -4)
 
 [node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
-position = Vector2(-5, 0)
 texture = ExtResource("2")
 
 [node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0"]
 position = Vector2(34, -1)
 bullet_speed = 800.0
 knockback_value = 250
-bullet_emitter = SubResource("4")
+bullet_emitter = SubResource("Resource_ldgmi")
 
 [node name="Flash" type="Sprite2D" parent="Marker2D/Visuals/Sprite2D" index="1"]
 visible = false
@@ -175,3 +175,6 @@ pitch_range = 0.2
 
 [node name="Shot" type="AudioStreamPlayer2D" parent="Marker2D/SoundMachine/Shot" index="0"]
 stream = ExtResource("5")
+
+[node name="Timer" type="Timer" parent="." index="1"]
+autostart = true

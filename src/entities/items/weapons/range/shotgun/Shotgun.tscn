@@ -3,13 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1"]
 [ext_resource type="Script" path="res://src/entities/items/weapons/range/shotgun/Shotgun.gd" id="2_cj6ax"]
 [ext_resource type="Texture2D" uid="uid://17r8mmg4uta" path="res://assets/items/weapons/range/shotgun/shotgun-Sheet.png" id="2_wrf70"]
-[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://b41kemf6owevt" path="res://assets/items/weapons/range/muzzle_flashes/shotgun_flash.png" id="4"]
+[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd" id="4_uw8u6"]
 [ext_resource type="AudioStream" uid="uid://b2ewl0gwplyud" path="res://sounds/guns/shotgun.wav" id="5"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="6"]
 
-[sub_resource type="Resource" id="1"]
-script = ExtResource("3")
+[sub_resource type="Resource" id="Resource_oyj1q"]
+script = ExtResource("4_uw8u6")
 amount = 3
 spread_angle = 5
 
@@ -223,7 +223,7 @@ shot_delay = 1.1
 bullet_speed = 1200.0
 bullet_damage_value = 1
 knockback_value = 50
-bullet_emitter = SubResource("1")
+bullet_emitter = SubResource("Resource_oyj1q")
 
 [node name="Flash" type="Sprite2D" parent="Marker2D/Visuals/Sprite2D" index="1"]
 visible = false

@@ -16,7 +16,6 @@ extends Node2D
 
 func _ready():
 	sound_machine.play_sound("ItemDrop")
-	#item_pickup_area.connect("area_entered", Callable(self, "pickup_item"))
 	item_monitorable.connect("despawn", Callable(self, "despawn"))
 	if despawnable:
 		item_monitorable.setup_timer(despawn_time)
@@ -49,7 +48,7 @@ func set_active():
 	active = true
 	visible = true
 	state_machine.transition_to("Idle")
-	#print("set active")
+	print("set active")
 	
 func despawn():
 	print("I was despawned")

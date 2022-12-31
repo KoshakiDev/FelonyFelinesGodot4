@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=12 format=3 uid="uid://bophax1u23y7a"]
 
 [ext_resource type="Script" path="res://src/entities/items/base_templates/base_item/base_item.gd" id="1"]
 [ext_resource type="Script" path="res://src/entities/scripts/AnimationMachine.gd" id="2"]

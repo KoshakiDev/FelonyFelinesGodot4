@@ -11,6 +11,7 @@ func shoot_single(bullet_instance : Projectile, bullet_scene : PackedScene):
 	
 	new_bullet.setup(
 		bullet_instance.global_position,
+		bullet_instance.sprite_y,
 		bullet_instance.direction, 
 		bullet_instance.speed, 
 		bullet_instance.damage_value, 

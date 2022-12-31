@@ -8,6 +8,3 @@ func shot_fired():
 		emit_signal("bullet_shell_effect", sprite.global_position)
 	
 	animation_machine.play_animation("Click", "AnimationPlayer")
-	await animation_machine.find("AnimationPlayer").animation_finished
-	
-	
