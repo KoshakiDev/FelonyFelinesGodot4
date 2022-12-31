@@ -48,7 +48,7 @@ func set_active():
 	active = true
 	visible = true
 	state_machine.transition_to("Idle")
-	print("set active")
+	#print("set active")
 	
 func despawn():
 	print("I was despawned")

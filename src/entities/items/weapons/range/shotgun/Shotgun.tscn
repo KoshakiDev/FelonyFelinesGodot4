@@ -54,6 +54,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_bolpj"]
 resource_name = "Idle"
+length = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -221,7 +222,7 @@ hframes = 3
 position = Vector2(24, -3)
 shot_delay = 1.1
 bullet_speed = 1200.0
-bullet_damage_value = 1
+bullet_damage_value = 10
 knockback_value = 50
 bullet_emitter = SubResource("Resource_oyj1q")
 

@@ -39,7 +39,6 @@ func setup_vision():
 		Callable(self, "body_exited_vision"))
 	vision_renderer.color = normal_color
 	
-
 func setup_burglar_mode():
 	connect("turn_on_alert_state", 
 		Callable(Burglar, "turn_on_alert_state"))
@@ -80,24 +79,33 @@ func body_exited_vision(body):
 func detected():
 	emit_signal("turn_on_alert_state", has_seen_you)
 	has_seen_you = true
-	vision_renderer.color = detected_color
+	#vision_renderer.color = detected_color
 
 func awareness():
+	var tween = create_tween()
+	
+	var new_color: Color
+	
 	if awareness_meter == 1:
 		detected()
 	if targets != []:
 		awareness_meter = clamp(awareness_meter + awareness_increment,
 								0, 1)
+		new_color = lerp(normal_color, detected_color, awareness_meter)
+		tween.tween_property(vision_renderer, "color", 
+			new_color, 0.2)
 	else:
-		vision_renderer.color = normal_color
+		#vision_renderer.color = normal_color
 		awareness_meter = clamp(awareness_meter - awareness_decrement,
 								0, 1)
+		new_color = lerp(normal_color, detected_color, awareness_meter)
+		tween.tween_property(vision_renderer, "color", 
+			new_color, 0.2)
 	
 
 func _physics_process(_delta):
 	awareness()
-	$Label2.text = "Awareness Meter: " + str(awareness_meter)
-	
+
 func switch_view():
 	sprite.scale.x *= -1
 	vision_look_in_direction(Vector2(sprite.scale.x, 0))

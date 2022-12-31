@@ -28,6 +28,8 @@ _data = {
 [node name="SecurityCamera" type="Node2D" node_paths=PackedStringArray("vision_renderer")]
 script = ExtResource("1_e4haj")
 vision_renderer = NodePath("VisionCone2D/VisionConeRenderer")
+normal_color = Color(1, 0.796078, 0, 0.705882)
+detected_color = Color(1, 0, 0, 0.705882)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
@@ -53,7 +55,7 @@ libraries = {
 
 [node name="VisionCone2D" parent="." instance=ExtResource("3_xows3")]
 rotation = -1.5708
-z_index = -1
+z_index = -2
 angle_deg = 90.0
 ray_count = 50
 
@@ -67,12 +69,5 @@ collision_mask = 3585
 
 [node name="DebugDraw" parent="VisionCone2D" index="2"]
 is_visible = false
-
-[node name="Label2" type="Label" parent="."]
-offset_left = -81.0
-offset_top = -58.0
-offset_right = 85.0
-offset_bottom = -32.0
-text = "Awareness Meter: 1.5"
 
 [editable path="VisionCone2D"]

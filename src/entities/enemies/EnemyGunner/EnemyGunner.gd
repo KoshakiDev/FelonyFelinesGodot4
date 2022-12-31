@@ -13,7 +13,6 @@ func _ready():
 
 func _physics_process(delta):
 	super._physics_process(delta)
-	$Label2.text = "Awareness Meter: " + str(awareness_meter)
 	#item_holder.shoot()
 
 func turn_on_all():

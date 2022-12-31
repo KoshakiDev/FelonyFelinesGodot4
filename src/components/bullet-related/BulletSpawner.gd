@@ -80,13 +80,13 @@ func shoot() -> void:
 	
 	var bullet_instance = bullet_scene.instantiate()
 	
-	var set_position = global_position
+	var set_bullet_position = global_position
 	var set_sprite_y = global_position.y
 	if item_owner != null:
-		set_position.y = item_owner.global_position.y
+		set_bullet_position.y = item_owner.global_position.y
 		
 	bullet_instance.setup(
-		set_position,
+		set_bullet_position,
 		set_sprite_y,
 		shoot_direction, 
 		bullet_speed, 

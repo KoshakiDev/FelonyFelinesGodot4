@@ -76,8 +76,10 @@ shader_parameter/active = false
 [node name="BaseNPC" node_paths=PackedStringArray("vision_renderer") groups=["NON-PLAYER CHARACTER"] instance=ExtResource("1")]
 script = ExtResource("3")
 vision_renderer = NodePath("Areas/VisionCone2D/VisionConeRenderer")
-alert_color = Color(0.6, 0.270588, 0.247059, 0.368627)
-sus_color = Color(0.815686, 0.607843, 0.196078, 0.368627)
+normal_color = Color(1, 0.796078, 0, 0.74902)
+detected_color = Color(1, 0, 0, 0.74902)
+awareness_increment = 0.02
+awareness_decrement = 0.001
 ITEM_DROP_PERCENT = 50
 
 [node name="VisionCone2D" parent="Areas" index="1" instance=ExtResource("3_hbwcn")]

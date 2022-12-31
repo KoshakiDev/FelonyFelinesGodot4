@@ -48,30 +48,30 @@ func _ready():
 	setup_look_direction()
 	
 	
-func setup_burglar_mode():
-	connect("turn_on_alert_state", 
-		Callable(Burglar, "turn_on_alert_state"))
-	Burglar.connect("turn_on_alert_state_for_entities", 
-		Callable(self, "go_alert_state"))
-	Burglar.connect("turn_off_alert_state_for_entities", 
-		Callable(self, "go_normal_state"))
-	
-	
 func _physics_process(delta):
 	super._physics_process(delta)
 	awareness()
 
 func awareness():
+	var tween = create_tween()
+	
+	var new_color: Color
+	
 	if awareness_meter == 1:
 		detected()
 	if targets != []:
 		awareness_meter = clamp(awareness_meter + awareness_increment,
 								0, 1)
+		new_color = lerp(normal_color, detected_color, awareness_meter)
+		tween.tween_property(vision_renderer, "color", 
+			new_color, 0.2)
 	else:
-		vision_renderer.color = normal_color
+		#vision_renderer.color = normal_color
 		awareness_meter = clamp(awareness_meter - awareness_decrement,
 								0, 1)
-	
+		new_color = lerp(normal_color, detected_color, awareness_meter)
+		tween.tween_property(vision_renderer, "color", 
+			new_color, 0.2)
 
 func adjust_rotation_to_direction(direction):
 	super.adjust_rotation_to_direction(direction)
@@ -86,7 +86,6 @@ func vision_look_in_direction(direction):
 		-PI / 2 + direction.angle(), 0.2)
 
 func detected():
-	vision_renderer.color = detected_color
 	emit_signal("turn_on_alert_state", has_seen_you)
 	has_seen_you = true
 
@@ -151,13 +150,21 @@ func setup_vision():
 		Callable(self, "body_exited_vision"))
 	vision_renderer.color = normal_color
 
-
 func setup_look_direction():
 	internal_forces = Vector2.ZERO
 	change_look_direction()
 	update_internal_force_timer.connect("timeout", 
 		Callable(self, "change_look_direction"))
-	
+
+func setup_burglar_mode():
+	connect("turn_on_alert_state", 
+		Callable(Burglar, "turn_on_alert_state"))
+	Burglar.connect("turn_on_alert_state_for_entities", 
+		Callable(self, "go_alert_state"))
+	Burglar.connect("turn_off_alert_state_for_entities", 
+		Callable(self, "go_normal_state"))
+
+
 func change_look_direction():
 	var random = RandomNumberGenerator.new()
 	random.randomize()

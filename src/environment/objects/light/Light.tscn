@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbx1rpyubhv4l"]
+[gd_scene load_steps=5 format=3 uid="uid://dbx1rpyubhv4l"]
 
 [ext_resource type="Script" path="res://src/environment/objects/light/Light.gd" id="1_bycbu"]
 [ext_resource type="Texture2D" uid="uid://dnxdup5tfdwvt" path="res://src/environment/objects/light/light.png" id="2_c3dje"]
 [ext_resource type="Texture2D" uid="uid://cr20rokpyp612" path="res://src/environment/objects/light/shadow.png" id="3_5ks50"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="4_qpdcn"]
-[ext_resource type="Texture2D" uid="uid://dg0u1i4ds2vlk" path="res://test/Sprite-0005.png" id="5_x0gxj"]
 
 [node name="Light" type="Node2D" node_paths=PackedStringArray("vision_renderer")]
 script = ExtResource("1_bycbu")
@@ -16,19 +15,17 @@ position = Vector2(0, -128)
 texture = ExtResource("2_c3dje")
 
 [node name="Shadow" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0.176471)
+modulate = Color(1, 1, 1, 0.74902)
 texture = ExtResource("3_5ks50")
 
 [node name="VisionCone2D" parent="." instance=ExtResource("4_qpdcn")]
 z_index = -1
 angle_deg = 359.0
-ray_count = 50
+ray_count = 45
 max_distance = 250.0
 
 [node name="VisionConeRenderer" parent="VisionCone2D" index="0"]
-texture_repeat = 2
-color = Color(1, 1, 1, 0.286275)
-texture = ExtResource("5_x0gxj")
+color = Color(1, 1, 1, 0.498039)
 
 [node name="VisionConeArea" parent="VisionCone2D" index="1"]
 collision_mask = 3
