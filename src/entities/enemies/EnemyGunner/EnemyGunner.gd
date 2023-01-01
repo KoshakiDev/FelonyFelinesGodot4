@@ -29,6 +29,12 @@ func attack(target):
 	adjust_rotation_to_direction(look_direction)
 	item_holder.shoot()
 
+func has_gun():
+	if item_holder.gun != null:
+		return true
+	else:
+		return false
+
 func adjust_rotation_to_direction(direction):
 	super.adjust_rotation_to_direction(direction)
 	

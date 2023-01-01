@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://bt3efkir0qj5a"]
 
-[ext_resource type="PackedScene" path="res://src/entities/base_templates/base_entity/base_entity.tscn" id="1_u2ocy"]
+[ext_resource type="PackedScene" uid="uid://basjxtjvg7gjt" path="res://src/entities/base_templates/base_entity/base_entity.tscn" id="1_u2ocy"]
 [ext_resource type="Script" path="res://src/entities/players/player/Player.gd" id="2_plh2e"]
 [ext_resource type="Script" path="res://src/entities/players/player/states/Interacting.gd" id="3_vnohw"]
 [ext_resource type="Script" path="res://src/entities/players/player/states/Idle.gd" id="4_rg1kp"]
@@ -9,14 +9,14 @@
 [ext_resource type="Script" path="res://src/entities/players/player/states/Pain.gd" id="7_8j86q"]
 [ext_resource type="PackedScene" uid="uid://dpknfgkr7y8fb" path="res://src/components/item_pickup_areas/monitor/ItemMonitor.tscn" id="9_4r514"]
 [ext_resource type="PackedScene" uid="uid://dtxhku5s85lf4" path="res://src/components/respawn_radius/Respawn.tscn" id="9_28dc3"]
-[ext_resource type="Texture2D" uid="uid://bpo6bqss4dr64" path="res://assets/entities/players/red_brother_sheet_96x96.png" id="10_ps3xb"]
+[ext_resource type="Texture2D" uid="uid://bj6rolkifwjlc" path="res://assets/entities/players/blue_brother_sheet_96x96.png" id="10_0r0yh"]
 [ext_resource type="PackedScene" uid="uid://1y7coyhr3lqs" path="res://src/components/item_manager/ItemManager.tscn" id="11_djwxs"]
 [ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="12_cwxe7"]
 [ext_resource type="PackedScene" uid="uid://y83y2bnhu06c" path="res://src/entities/items/weapons/melee/bat/BaseballBat.tscn" id="12_f0ii3"]
 [ext_resource type="PackedScene" path="res://src/UI/player_healthbar/Ammo_Bar.tscn" id="13_k2i8p"]
 
 [sub_resource type="RectangleShape2D" id="23"]
-size = Vector2(24, 54)
+size = Vector2(24, 8)
 
 [sub_resource type="Animation" id="8"]
 resource_name = "Accel"
@@ -566,7 +566,7 @@ collision_layer = 64
 collision_mask = 16
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
-position = Vector2(0, -27)
+position = Vector2(0, -4.5)
 shape = SubResource("23")
 
 [node name="Respawn" parent="Areas" index="1" instance=ExtResource("9_28dc3")]
@@ -579,7 +579,7 @@ respawn_time = 4.0
 
 [node name="Sprite2D" parent="Visuals" index="0"]
 position = Vector2(0, -48)
-texture = ExtResource("10_ps3xb")
+texture = ExtResource("10_0r0yh")
 hframes = 8
 vframes = 7
 
@@ -589,6 +589,7 @@ vframes = 7
 position = Vector2(13, 13)
 
 [node name="BaseballBat" parent="Visuals/Sprite2D/InventoryPosition" index="1" instance=ExtResource("12_f0ii3")]
+position = Vector2(13, 46)
 
 [node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource("12_cwxe7")]
 

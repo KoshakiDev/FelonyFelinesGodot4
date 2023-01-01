@@ -1,3 +1,5 @@
+res://src/entities/items/flashlight
+res://src/entities/items/base_templates/base_item
 res://src/UI/BustedScreen
 res://src/components/effects/bullet_shell
 res://src/components/effects/base_effect

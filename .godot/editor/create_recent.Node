@@ -1,3 +1,4 @@
+AnimationPlayer
 Timer
 Label
 ProgressBar
@@ -7,7 +8,6 @@ Sprite2D
 Node2D
 AudioStreamPlayer2D
 Marker2D
-AnimationPlayer
 CollisionShape2D
 Camera2D
 TileMap

@@ -5,5 +5,9 @@
 
 [node name="RegularBullet" instance=ExtResource("1_lpp66")]
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Shadow" parent="." index="0"]
+modulate = Color(0, 0, 0, 0.490196)
+texture = ExtResource("2_hxc5r")
+
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_hxc5r")

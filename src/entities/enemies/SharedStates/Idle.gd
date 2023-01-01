@@ -9,7 +9,7 @@ func physics_update(_delta: float) -> void:
 	if owner.health_manager.is_dead():
 		state_machine.transition_to("Death")
 		return
-	if owner.awareness_meter < 0.5:
+	if owner.awareness_meter < 0.3:
 		return
 	var target = owner.get_target()
 	if target != null:

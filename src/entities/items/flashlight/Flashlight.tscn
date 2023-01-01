@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://tosw6fmucqvk"]
+
+[ext_resource type="PackedScene" uid="uid://bophax1u23y7a" path="res://src/entities/items/base_templates/base_item/base_item.tscn" id="1_l713n"]
+[ext_resource type="Script" path="res://src/entities/items/flashlight/Flashlight.gd" id="2_2abn1"]
+[ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="3_fatq4"]
+[ext_resource type="Texture2D" uid="uid://cxjoxe3at7cdw" path="res://test/flashlight.png" id="3_tefr0"]
+
+[sub_resource type="Animation" id="Animation_pp7ij"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+
+[sub_resource type="Animation" id="Animation_tfkkt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_prj2j"]
+_data = {
+"Idle": SubResource("Animation_pp7ij"),
+"RESET": SubResource("Animation_tfkkt")
+}
+
+[node name="Flashlight" node_paths=PackedStringArray("vision_renderer") instance=ExtResource("1_l713n")]
+script = ExtResource("2_2abn1")
+vision_renderer = NodePath("Marker2D/Visuals/Sprite2D/VisionCone2D/VisionConeRenderer")
+entity_name = "FLASHLIGHT"
+despawnable = false
+
+[node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
+texture = ExtResource("3_tefr0")
+
+[node name="VisionCone2D" parent="Marker2D/Visuals/Sprite2D" index="0" instance=ExtResource("3_fatq4")]
+rotation = -1.5708
+z_index = -1
+angle_deg = 25.0
+ray_count = 50
+max_distance = 250.0
+
+[node name="VisionConeRenderer" parent="Marker2D/Visuals/Sprite2D/VisionCone2D" index="0"]
+color = Color(1, 1, 1, 0.498039)
+
+[node name="VisionConeArea" parent="Marker2D/Visuals/Sprite2D/VisionCone2D" index="1"]
+collision_mask = 3
+
+[node name="DebugDraw" parent="Marker2D/Visuals/Sprite2D/VisionCone2D" index="2"]
+is_visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Marker2D/AnimationMachine" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_prj2j")
+}
+
+[editable path="Marker2D/Visuals/Sprite2D/VisionCone2D"]

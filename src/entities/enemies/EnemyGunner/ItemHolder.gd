@@ -66,7 +66,12 @@ func _ready():
 	add_weapon()
 
 func shoot():
+	if gun == null:
+		return
 	gun.shoot()
+
+func delete_gun():
+	gun.queue_free()
 
 func init(set_parent: Node2D):
 	gun.init(set_parent)

@@ -20,6 +20,8 @@ signal turn_on_alert_state
 
 var has_seen_you = false
 
+var burglar_mode = false
+
 var targets = []
 var last_target_position
 @onready var sus_timer = $Areas/SusTimer
@@ -95,6 +97,16 @@ func get_target():
 	for target in targets:
 		return target
 
+func area_entered_vision(area):
+	set_last_position(area.global_position)
+	targets.append(area)
+	
+func area_exited_vision(area):
+	targets.erase(area)
+	#set_last_position(area.global_position)
+
+	#body_exited_vision(area)
+
 func body_entered_vision(body):
 	targets.append(body)
 	
@@ -148,6 +160,11 @@ func setup_vision():
 		Callable(self, "body_entered_vision"))
 	vision.vision_area.connect("body_exited", 
 		Callable(self, "body_exited_vision"))
+	
+	vision.vision_area.connect("area_entered", 
+		Callable(self, "area_entered_vision"))
+	vision.vision_area.connect("area_exited", 
+		Callable(self, "area_exited_vision"))
 	vision_renderer.color = normal_color
 
 func setup_look_direction():
@@ -157,6 +174,7 @@ func setup_look_direction():
 		Callable(self, "change_look_direction"))
 
 func setup_burglar_mode():
+	burglar_mode = true
 	connect("turn_on_alert_state", 
 		Callable(Burglar, "turn_on_alert_state"))
 	Burglar.connect("turn_on_alert_state_for_entities", 

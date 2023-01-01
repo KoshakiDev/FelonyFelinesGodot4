@@ -28,7 +28,7 @@ max_distance = 250.0
 color = Color(1, 1, 1, 0.498039)
 
 [node name="VisionConeArea" parent="VisionCone2D" index="1"]
-collision_mask = 3
+collision_mask = 35
 
 [node name="DebugDraw" parent="VisionCone2D" index="2"]
 is_visible = false

@@ -8,10 +8,12 @@ class_name Entity
 @onready var health_manager = $HealthManager
 
 @export_group("Movement")
-@export var base_speed: float = 500
+@export var mass = 50
+var base_speed: float = 1000
 @export_range(0, 1) var speed_percentage: float = 1
 @export var acceleration: float = 0.1
-@export var friction: float = 0.1
+var gravity: float = 9.8
+var friction_coefficient: float = 0.00025
 var internal_forces: Vector2 = Vector2.RIGHT
 var external_forces: Vector2
 @onready var physics_collider = $PhysicsCollider
@@ -72,8 +74,9 @@ func apply_external_force(force_direction: Vector2, force_magnitude):
 	external_forces += force_direction.normalized() * force_magnitude
 	
 func apply_friction():
-	external_forces = external_forces.lerp(Vector2.ZERO, friction)
-	internal_forces = internal_forces.lerp(Vector2.ZERO, friction)
+	var friction_force = friction_coefficient * mass * gravity
+	external_forces = external_forces.lerp(Vector2.ZERO, friction_force)
+	internal_forces = internal_forces.lerp(Vector2.ZERO, friction_force)
 
 func vector_to_movement_direction(input_vector : Vector2) -> Vector2:
 	if input_vector == Vector2.ZERO:

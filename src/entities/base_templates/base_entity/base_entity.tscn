@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3]
+[gd_scene load_steps=20 format=3 uid="uid://basjxtjvg7gjt"]
 
 [ext_resource type="PackedScene" uid="uid://k8jcegpswqwi" path="res://src/UI/player_healthbar/PlayerHealthBar.tscn" id="1"]
 [ext_resource type="Script" path="res://src/entities/scripts/AnimationMachine.gd" id="2"]
@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://src/entities/scripts/NavigationManager.gd" id="20"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uj4fd"]
-radius = 2.0
+radius = 4.0
 
 [node name="BaseEntity" type="CharacterBody2D" groups=["ENTITY"]]
 script = ExtResource("9")

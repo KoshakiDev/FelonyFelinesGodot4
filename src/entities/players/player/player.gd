@@ -48,11 +48,15 @@ func setup_player():
 
 func adjust_rotation_to_direction(direction):
 	super.adjust_rotation_to_direction(direction)
-	item_manager.look_at(item_manager.global_position + direction)
+	if visuals.scale.x == -1:
+		item_manager.rotation = PI - direction.angle()
+	elif visuals.scale.x == 1:
+		item_manager.rotation = direction.angle()
+	#item_manager.look_at(item_manager.global_position + direction)
 
 func _physics_process(_delta):
 	super._physics_process(_delta)
-	#print(weapon_manager.weapons)
+	#print(item_manager.rotation, " ", visuals.scale.x)
 
 func hurt(attacker_area):
 	super.hurt(attacker_area)

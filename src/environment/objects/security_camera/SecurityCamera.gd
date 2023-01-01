@@ -33,6 +33,10 @@ func _ready():
 
 
 func setup_vision():
+	vision.vision_area.connect("area_entered", 
+		Callable(self, "area_entered_vision"))
+	vision.vision_area.connect("area_exited", 
+		Callable(self, "area_exited_vision"))
 	vision.vision_area.connect("body_entered", 
 		Callable(self, "body_entered_vision"))
 	vision.vision_area.connect("body_exited", 
@@ -69,6 +73,12 @@ func go_normal_state():
 	switch_timer.start()
 	has_seen_you = false
 	print("went into normal state")
+
+func area_entered_vision(area):
+	targets.append(area)
+
+func area_exited_vision(area):
+	targets.erase(area)
 
 func body_entered_vision(body):
 	targets.append(body)

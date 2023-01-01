@@ -155,7 +155,8 @@ texture = ExtResource("2")
 [node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0"]
 position = Vector2(34, -1)
 bullet_speed = 800.0
-knockback_value = 250
+bullet_damage_value = 10
+knockback_value = 500
 bullet_emitter = SubResource("Resource_ldgmi")
 
 [node name="Flash" type="Sprite2D" parent="Marker2D/Visuals/Sprite2D" index="1"]

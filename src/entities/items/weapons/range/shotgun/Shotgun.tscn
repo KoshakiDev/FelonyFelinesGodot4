@@ -223,7 +223,7 @@ position = Vector2(24, -3)
 shot_delay = 1.1
 bullet_speed = 1200.0
 bullet_damage_value = 10
-knockback_value = 50
+knockback_value = 500
 bullet_emitter = SubResource("Resource_oyj1q")
 
 [node name="Flash" type="Sprite2D" parent="Marker2D/Visuals/Sprite2D" index="1"]
