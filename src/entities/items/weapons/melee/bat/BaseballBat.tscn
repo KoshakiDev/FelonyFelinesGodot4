@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c25kkrswu6ete" path="res://assets/items/weapons/melee/axe/axe_slash-sheet.png" id="4_dwwhw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0tcl"]
-size = Vector2(20, 8)
+size = Vector2(32, 16)
 
 [sub_resource type="Animation" id="Animation_4465f"]
 resource_name = "Attack"
@@ -19,7 +19,7 @@ tracks/0/path = NodePath("../Visuals/Sprite2D/Hitbox")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.23),
+"times": PackedFloat32Array(0, 0.1, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
@@ -63,10 +63,10 @@ tracks/3/path = NodePath("../Visuals/Sprite2D:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.14, 0.19, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.14, 0.19, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, -2.35619, 0.0, 2.35619]
+"values": [0.0, -2.35619, 0.0, 2.35619, 0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -87,10 +87,10 @@ tracks/5/path = NodePath("../Visuals/Slash:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.19, 0.21, 0.24),
+"times": PackedFloat32Array(0.19, 0.23, 0.24),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(29, -19), Vector2(29, -10), Vector2(11, -7)]
+"values": [Vector2(7, -19), Vector2(28, -14), Vector2(11, -15)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -260,9 +260,10 @@ position = Vector2(22, 0)
 collision_layer = 8
 collision_mask = 128
 damage_value = 25.0
-knockback_value = 1250.0
+knockback_value = 2500.0
 
 [node name="HitboxShape" parent="Marker2D/Visuals/Sprite2D/Hitbox" index="0"]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_v0tcl")
 
 [node name="Slash" type="Sprite2D" parent="Marker2D/Visuals" index="1"]

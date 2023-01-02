@@ -31,6 +31,5 @@ func stop():
 	timer.stop()
 	set_physics_process(false)
 	
-
 func timer_timeout():
 	emit_signal("timeout")

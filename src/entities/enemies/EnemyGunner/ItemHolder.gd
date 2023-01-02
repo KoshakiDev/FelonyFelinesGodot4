@@ -75,4 +75,5 @@ func delete_gun():
 
 func init(set_parent: Node2D):
 	gun.init(set_parent)
+	print("parent initialized")
 	

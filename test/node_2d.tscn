@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://17lbh5hmc6fa"]
+
+[ext_resource type="Shader" path="res://test/shockwave.gdshader" id="1_m4wjb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pdnin"]
+shader = ExtResource("1_m4wjb")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 1.0
+
+[node name="Node2D" type="Node2D"]
+material = SubResource("ShaderMaterial_pdnin")

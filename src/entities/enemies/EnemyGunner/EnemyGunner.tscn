@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bjhjgiphxco4i" path="res://assets/effects/Question.png" id="15_u6pjv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qw1q4"]
-size = Vector2(80, 96)
+size = Vector2(80, 56)
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_cb610"]
 
@@ -331,7 +331,6 @@ _data = {
 
 [node name="EnemyGunner" groups=["ENEMY"] instance=ExtResource("2")]
 collision_layer = 4
-collision_mask = 7
 script = ExtResource("9")
 max_shooting_distance = 250
 normal_color = Color(1, 0.796078, 0, 0.705882)
@@ -366,12 +365,11 @@ wait_time = 10.0
 script = ExtResource("9_ot546")
 
 [node name="Hurtbox" parent="Areas" index="0"]
-position = Vector2(0, -48)
+position = Vector2(0, -20)
 collision_layer = 128
 collision_mask = 8
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
-position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_qw1q4")
 
 [node name="VisionCone2D" parent="Areas" index="1"]

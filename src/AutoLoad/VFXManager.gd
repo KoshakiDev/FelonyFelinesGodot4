@@ -7,6 +7,8 @@ const bullet_shell_effect := preload("res://src/components/effects/bullet_shell/
 
 var new_effect = null
 
+signal create_shockwave_effect
+
 func create_effect(effect_instance, effect_position):
 	instantiate_effect(effect_instance)
 	add_effect_to_world(effect_position)

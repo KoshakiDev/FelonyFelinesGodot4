@@ -98,10 +98,16 @@ func get_target():
 		return target
 
 func area_entered_vision(area):
+	print(area.bullet_owner)
+	if area.bullet_owner == self:
+		print("that bullet owner is me", )
+		return
 	set_last_position(area.global_position)
 	targets.append(area)
 	
 func area_exited_vision(area):
+	if area.bullet_owner == self:
+		return
 	targets.erase(area)
 	#set_last_position(area.global_position)
 

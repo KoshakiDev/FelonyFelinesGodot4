@@ -13,9 +13,10 @@ var speed: float = 1.0
 var can_hit_enemies = false
 var can_hit_players = false 
 @onready var sprite = $Sprite2D
-var sprite_y
+var sprite_y = 0
 
 @onready var start_position := global_position
+var bullet_owner = null
 
 signal dust_effect(effect_position)
 
@@ -25,6 +26,9 @@ func _ready() -> void:
 	connect("dust_effect", Callable(VFXManager, "create_dust_effect"))
 	connect("area_entered",Callable(self,"_on_Bullet_area_entered"))
 	connect("body_entered",Callable(self,"_on_Bullet_body_entered"))
+
+func set_bullet_owner(new_bullet_owner: Node2D):
+	bullet_owner = new_bullet_owner
 
 func setup(
 		set_bullet_position,

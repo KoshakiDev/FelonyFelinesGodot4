@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://1sictimyiyhw"]
+
+[ext_resource type="Shader" path="res://test/shockwave.gdshader" id="1_3tssd"]
+[ext_resource type="Script" path="res://test/Shockwave.gd" id="1_i1p00"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_83jom"]
+shader = ExtResource("1_3tssd")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/force = 0.8
+shader_parameter/size = 0.0
+shader_parameter/thickness = 0.11
+
+[sub_resource type="Animation" id="Animation_0pxfp"]
+resource_name = "shockwave"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shockwave:material:shader_parameter/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shockwave:material:shader_parameter/force")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.8, null]
+}
+
+[sub_resource type="Animation" id="Animation_haier"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shockwave:material:shader_parameter/size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Shockwave:material:shader_parameter/force")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vlf1s"]
+_data = {
+"RESET": SubResource("Animation_haier"),
+"shockwave": SubResource("Animation_0pxfp")
+}
+
+[node name="Shockwave" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1p00")
+
+[node name="Shockwave" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_83jom")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vlf1s")
+}

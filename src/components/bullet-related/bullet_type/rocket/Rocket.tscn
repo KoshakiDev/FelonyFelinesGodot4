@@ -5,22 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://dxoiuvu76uali" path="res://src/components/bullet-related/bullet_type/explosion/Explosion.tscn" id="3_q6jne"]
 [ext_resource type="Texture2D" uid="uid://caxvpj5ipihhg" path="res://assets/items/weapons/range/bullets/rocket.png" id="4_rhygt"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8o4cv"]
-radius = 5.0
-height = 22.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a1cuf"]
+radius = 3.0
+height = 26.0
 
 [node name="Rocket" instance=ExtResource("1_jah2v")]
 script = ExtResource("2_xdqo2")
 EXPLOSION_SCENE = ExtResource("3_q6jne")
 
-[node name="HitboxShape" parent="." index="0"]
-position = Vector2(14, 0)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_8o4cv")
+[node name="Shadow" parent="." index="0"]
+modulate = Color(0, 0, 0, 0.490196)
+texture = ExtResource("4_rhygt")
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("4_rhygt")
 
+[node name="HitboxShape" parent="." index="2"]
+position = Vector2(12, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_a1cuf")
+
 [node name="Timer" type="Timer" parent="." index="3"]
-wait_time = 5.0
+wait_time = 30.0
 one_shot = true

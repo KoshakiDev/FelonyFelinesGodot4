@@ -1,10 +1,11 @@
+Sprite2D
 AnimationPlayer
+ColorRect
 Timer
 Label
 ProgressBar
 RichTextLabel
 Node
-Sprite2D
 Node2D
 AudioStreamPlayer2D
 Marker2D

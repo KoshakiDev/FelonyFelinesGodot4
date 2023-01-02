@@ -43,7 +43,14 @@ scale = Vector2(2, 2)
 texture = ExtResource("1")
 hframes = 2
 
+[node name="Alarm6" type="Sprite2D" parent="."]
+position = Vector2(712, 65)
+scale = Vector2(2, 2)
+texture = ExtResource("1")
+hframes = 2
+
 [node name="AlertTimeLeft" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 20.0
 offset_top = 152.0
 offset_right = 392.0

@@ -52,13 +52,13 @@ func setup_animation_player():
 				% [owner.name, shoot_anim_player_p])
 			return
 		var anim_length := shoot_anim_player.get_animation("Shoot").length / shoot_anim_player.playback_speed
-		if shot_delay < anim_length:
-			# TODO: Don't use the shot delay checked a timer, use the animation ending
-			# signal instead.
-			# Adjust the shot delay if it does not fit in the animation with a small buffer
-			shot_delay = anim_length + .0001
-			printerr("The shot delay in %s is to short for the animation length. It was adujusted from %s to %s"
-				% [owner.name, shot_delay, anim_length])
+#		if shot_delay < anim_length:
+#			# TODO: Don't use the shot delay checked a timer, use the animation ending
+#			# signal instead.
+#			# Adjust the shot delay if it does not fit in the animation with a small buffer
+#			shot_delay = anim_length + .0001
+#			printerr("The shot delay in %s is to short for the animation length. It was adujusted from %s to %s"
+#				% [owner.name, shot_delay, anim_length])
 	
 
 func setup_shot_delay_timer():
@@ -94,6 +94,8 @@ func shoot() -> void:
 		knockback_value,
 		can_hit_enemies,
 		can_hit_players)
+	
+	bullet_instance.set_bullet_owner(item_owner)
 	
 	bullet_emitter.shoot(bullet_instance, bullet_scene)
 	emit_signal("shot_fired")

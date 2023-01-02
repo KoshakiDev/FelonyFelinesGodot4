@@ -538,7 +538,6 @@ _data = {
 
 [node name="Player1" groups=["PLAYER"] instance=ExtResource("1_u2ocy")]
 collision_layer = 2
-collision_mask = 5
 script = ExtResource("2_plh2e")
 player_id = "_1"
 entity_type = "PLAYER"

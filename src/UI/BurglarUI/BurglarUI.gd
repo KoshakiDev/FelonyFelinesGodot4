@@ -11,9 +11,9 @@ func _ready():
 	connect("game_over", Callable(Burglar, "start_game_over"))
 
 func update_alert_count():
-	if Burglar.alert_counter >= 5:
+	if Burglar.alert_counter >= 6:
 		emit_signal("game_over")
 	var children = get_children()
-	for i in range(0, min(Burglar.alert_counter, 5)):
+	for i in range(0, min(Burglar.alert_counter, 6)):
 		children[i].frame = 1
 	

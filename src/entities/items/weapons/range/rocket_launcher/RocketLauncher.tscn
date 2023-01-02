@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dh215tcgvc8ah"]
+[gd_scene load_steps=14 format=3 uid="uid://dh215tcgvc8ah"]
 
 [ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://xoh5cgnlfqmd" path="res://assets/items/weapons/range/rocket_launcher/rocket_launcher.png" id="2"]
+[ext_resource type="Script" path="res://src/entities/items/weapons/range/rocket_launcher/RocketLauncher.gd" id="2_xs3dk"]
 [ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="3"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4"]
 [ext_resource type="AudioStream" uid="uid://c63tx00gcust" path="res://sounds/rocket/rocket_launch.wav" id="5"]
@@ -186,6 +187,7 @@ _data = {
 }
 
 [node name="RocketLauncher" instance=ExtResource("1")]
+script = ExtResource("2_xs3dk")
 ammo = 30
 recoil = 1000
 ammo_pack_amount = 10
@@ -196,7 +198,7 @@ position = Vector2(-11, -3)
 texture = ExtResource("2")
 
 [node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0"]
-position = Vector2(57, -3)
+position = Vector2(50, -2)
 bullet_scene = ExtResource("6")
 shot_delay = 1.0
 bullet_speed = 500.0

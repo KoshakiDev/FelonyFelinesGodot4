@@ -65,14 +65,14 @@ func go_alert_state():
 	switch_timer.stop()
 	switch_timer.start()
 	awareness_meter = 0.99
-	print("went into alert state")
+	#print("went into alert state")
 
 func go_normal_state():
 	switch_timer.wait_time = 3
 	switch_timer.stop()
 	switch_timer.start()
 	has_seen_you = false
-	print("went into normal state")
+	#print("went into normal state")
 
 func area_entered_vision(area):
 	targets.append(area)
