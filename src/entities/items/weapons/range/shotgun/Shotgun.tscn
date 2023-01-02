@@ -223,6 +223,7 @@ ammo = 20
 recoil = 150
 ammo_pack_amount = 10
 entity_name = "SHOTGUN"
+item_mass = 4
 
 [node name="Marker2D" parent="." index="0"]
 position = Vector2(9, -2)
@@ -235,7 +236,7 @@ hframes = 3
 position = Vector2(24, -3)
 shot_delay = 1.1
 bullet_speed = 1200.0
-bullet_damage_value = 10
+bullet_damage_value = 25
 knockback_value = 500
 bullet_emitter = SubResource("Resource_oyj1q")
 

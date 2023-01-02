@@ -24,6 +24,10 @@ var burglar_mode = false
 
 var targets = []
 var last_target_position
+
+var path_points = []
+
+
 @onready var sus_timer = $Areas/SusTimer
 
 
@@ -49,7 +53,7 @@ func _ready():
 	setup_vision()
 	setup_look_direction()
 	
-	
+
 func _physics_process(delta):
 	super._physics_process(delta)
 	awareness()
@@ -97,17 +101,31 @@ func get_target():
 	for target in targets:
 		return target
 
-func area_entered_vision(area):
-	print(area.bullet_owner)
-	if area.bullet_owner == self:
-		print("that bullet owner is me", )
+func get_path_point():
+	if path_points == []:
 		return
+	return path_points[path_points.size() - 1]
+
+func area_entered_vision(area):
+	if area.is_in_group("PATH_POINT"):
+		if (area.global_position - global_position).length() >= 1:
+			path_points.append(area)
+		return
+	
+	if area.get("bullet_owner"):
+		if area.bullet_owner == self:
+			return
 	set_last_position(area.global_position)
 	targets.append(area)
 	
 func area_exited_vision(area):
-	if area.bullet_owner == self:
+	if area.is_in_group("PATH_POINT"):
+		path_points.erase(area)
 		return
+	
+	if area.get("bullet_owner"):
+		if area.bullet_owner == self:
+			return
 	targets.erase(area)
 	#set_last_position(area.global_position)
 
@@ -157,6 +175,9 @@ func go_normal_state():
 func set_last_position(target_position):
 	last_target_position = target_position
 	forget_timer.start()
+
+func forget_this_path_point(forget_path_point):
+	path_points.erase(forget_path_point)
 
 func forget_last_position():
 	last_target_position = null

@@ -5,7 +5,7 @@ extends Control
 signal game_over
 
 func _ready():
-	print(alert_time_left)
+#	print(alert_time_left)
 	Burglar.set("alert_time_left", alert_time_left)
 	Burglar.connect("update_alert_count",Callable(self,"update_alert_count"))
 	connect("game_over", Callable(Burglar, "start_game_over"))

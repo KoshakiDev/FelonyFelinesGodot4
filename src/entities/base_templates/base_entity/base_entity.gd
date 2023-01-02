@@ -9,6 +9,7 @@ class_name Entity
 
 @export_group("Movement")
 @export var mass = 50
+var total_mass = 0
 var base_speed: float = 1000
 @export_range(0, 1) var speed_percentage: float = 1
 @export var acceleration: float = 0.1
@@ -65,7 +66,14 @@ func adjust_rotation_to_direction(direction):
 		visuals.scale.x = -1
 	else:
 		visuals.scale.x = 1
-	
+
+
+func add_mass(new_mass):
+	total_mass += new_mass
+
+func subtract_mass(new_mass):
+	total_mass -= new_mass
+
 
 func apply_internal_force(force_direction: Vector2):
 	internal_forces = internal_forces.lerp(force_direction.normalized() * base_speed * speed_percentage, acceleration)
@@ -74,7 +82,7 @@ func apply_external_force(force_direction: Vector2, force_magnitude):
 	external_forces += force_direction.normalized() * force_magnitude
 	
 func apply_friction():
-	var friction_force = friction_coefficient * mass * gravity
+	var friction_force = friction_coefficient * total_mass * gravity
 	external_forces = external_forces.lerp(Vector2.ZERO, friction_force)
 	internal_forces = internal_forces.lerp(Vector2.ZERO, friction_force)
 

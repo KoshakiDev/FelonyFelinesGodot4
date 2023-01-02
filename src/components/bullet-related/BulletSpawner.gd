@@ -86,6 +86,7 @@ func shoot() -> void:
 		set_bullet_position.y = item_owner.physics_collider.global_position.y
 		
 	bullet_instance.setup(
+		item_owner,
 		set_bullet_position,
 		set_sprite_y,
 		shoot_direction, 
@@ -94,8 +95,6 @@ func shoot() -> void:
 		knockback_value,
 		can_hit_enemies,
 		can_hit_players)
-	
-	bullet_instance.set_bullet_owner(item_owner)
 	
 	bullet_emitter.shoot(bullet_instance, bullet_scene)
 	emit_signal("shot_fired")

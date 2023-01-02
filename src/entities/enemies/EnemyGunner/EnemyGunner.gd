@@ -8,13 +8,14 @@ var is_shot_ready = true
 
 func _ready():
 	super._ready()
-	connect("drop_specific_weapon", Callable(Global, "drop_specific_weapon"))
-	item_holder.connect("ready", Callable(self, "setup_gun_owner"))
-
-func setup_gun_owner():
 	item_holder.init(self)
+	connect("drop_specific_weapon", Callable(Global, "drop_specific_weapon"))
+
 
 func _physics_process(delta):
+	total_mass = mass
+	if has_gun():
+		total_mass += item_holder.gun.item_mass
 	super._physics_process(delta)
 	#item_holder.shoot()
 

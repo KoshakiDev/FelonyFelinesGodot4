@@ -27,10 +27,8 @@ func _ready() -> void:
 	connect("area_entered",Callable(self,"_on_Bullet_area_entered"))
 	connect("body_entered",Callable(self,"_on_Bullet_body_entered"))
 
-func set_bullet_owner(new_bullet_owner: Node2D):
-	bullet_owner = new_bullet_owner
-
 func setup(
+		set_item_owner,
 		set_bullet_position,
 		set_sprite_y,
 		set_direction, 
@@ -41,6 +39,7 @@ func setup(
 		set_can_hit_players) -> void:
 	# 3 is the radius of the hitbox shape, but for some reason,
 	# Godot complains too much about it
+	bullet_owner = set_item_owner
 	global_position = set_bullet_position + set_direction * 3
 	sprite_y = set_sprite_y
 	direction = set_direction

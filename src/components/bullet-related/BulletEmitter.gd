@@ -10,6 +10,7 @@ func shoot_single(bullet_instance : Projectile, bullet_scene : PackedScene):
 	var new_bullet = bullet_scene.instantiate()
 	
 	new_bullet.setup(
+		bullet_instance.bullet_owner,
 		bullet_instance.global_position,
 		bullet_instance.sprite_y,
 		bullet_instance.direction, 

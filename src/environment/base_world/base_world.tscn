@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c650qlfktosck"]
+[gd_scene load_steps=29 format=3 uid="uid://c650qlfktosck"]
 
 [ext_resource type="Script" path="res://src/environment/base_world/base_world.gd" id="1_8sg6m"]
 [ext_resource type="PackedScene" uid="uid://dh215tcgvc8ah" path="res://src/entities/items/weapons/range/rocket_launcher/RocketLauncher.tscn" id="2_8dc8r"]
@@ -8,15 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://c1vf3k0628qo" path="res://src/entities/items/weapons/range/shotgun/Shotgun.tscn" id="6_kj0xf"]
 [ext_resource type="PackedScene" path="res://src/entities/items/medkit/Medkit.tscn" id="7_yrpxr"]
 [ext_resource type="PackedScene" uid="uid://y83y2bnhu06c" path="res://src/entities/items/weapons/melee/bat/BaseballBat.tscn" id="8_hhgiv"]
-[ext_resource type="PackedScene" path="res://src/environment/objects/box/box_small/TestBox.tscn" id="9_63v1q"]
-[ext_resource type="PackedScene" path="res://src/environment/objects/box/box_tall/TestTallBox.tscn" id="10_u0bwh"]
+[ext_resource type="PackedScene" uid="uid://cdeawyqj5l5gr" path="res://src/entities/items/weapons/range/uzi/Uzi.tscn" id="9_la3tv"]
 [ext_resource type="PackedScene" uid="uid://bt3efkir0qj5a" path="res://src/entities/players/player/Player_1.tscn" id="11_4jwpr"]
 [ext_resource type="PackedScene" uid="uid://dhn2bcuyl51ko" path="res://src/entities/players/player/Player_2.tscn" id="12_yl7g8"]
 [ext_resource type="PackedScene" uid="uid://bhppar5m7rr10" path="res://src/entities/enemies/EnemyGunner/EnemyGunner.tscn" id="13_on4sr"]
 [ext_resource type="PackedScene" uid="uid://csxsxlroto2c2" path="res://src/environment/objects/security_camera/SecurityCamera.tscn" id="14_tvgma"]
-[ext_resource type="PackedScene" uid="uid://b688jx7i2fdwq" path="res://src/environment/objects/floor/Floor.tscn" id="15_cfnkf"]
 [ext_resource type="PackedScene" uid="uid://dbx1rpyubhv4l" path="res://src/environment/objects/light/Light.tscn" id="16_7dlqq"]
+[ext_resource type="PackedScene" uid="uid://5fx8ose3rmii" path="res://test/PathPoint.tscn" id="16_s17md"]
 [ext_resource type="Texture2D" uid="uid://cgahngqvpti2k" path="res://test/tilemap_color_packed.png" id="17_eefxk"]
+[ext_resource type="PackedScene" uid="uid://bkc7hsoprwy5i" path="res://src/environment/objects/safe/Flag.tscn" id="17_eevua"]
 [ext_resource type="Script" path="res://src/environment/base_world/UILayer.gd" id="17_oyw46"]
 [ext_resource type="PackedScene" uid="uid://u26gyr5m3civ" path="res://src/UI/BurglarUI/BurglarUI.tscn" id="18_3djpd"]
 [ext_resource type="PackedScene" uid="uid://c8o8vd78s6ix3" path="res://src/UI/pause/Pause.tscn" id="19_af5dx"]
@@ -30,11 +30,7 @@ scenes/4/scene = ExtResource("5_5m2br")
 scenes/5/scene = ExtResource("6_kj0xf")
 scenes/6/scene = ExtResource("7_yrpxr")
 scenes/7/scene = ExtResource("8_hhgiv")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vn3kh"]
-resource_name = "Boxes"
-scenes/1/scene = ExtResource("9_63v1q")
-scenes/2/scene = ExtResource("10_u0bwh")
+scenes/8/scene = ExtResource("9_la3tv")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ex3vh"]
 resource_name = "Player"
@@ -45,10 +41,6 @@ scenes/3/scene = ExtResource("12_yl7g8")
 resource_name = "Enemies"
 scenes/1/scene = ExtResource("13_on4sr")
 scenes/2/scene = ExtResource("14_tvgma")
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_j106o"]
-resource_name = "Navigation"
-scenes/1/scene = ExtResource("15_cfnkf")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rykx7"]
 resource_name = "Light"
@@ -154,6 +146,7 @@ texture_region_size = Vector2i(64, 64)
 5:3/0 = 0
 5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:3/0/physics_layer_0/angular_velocity = 0.0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(32, -32, -32, -32, -32, 32, 32, 32)
 6:3/0 = 0
 6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:3/0/physics_layer_0/angular_velocity = 0.0
@@ -257,17 +250,21 @@ texture_region_size = Vector2i(64, 64)
 7:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:7/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_p877y"]
+resource_name = "Markers"
+scenes/1/scene = ExtResource("16_s17md")
+scenes/2/scene = ExtResource("17_eevua")
+
 [sub_resource type="TileSet" id="TileSet_aq6jc"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
-sources/1 = SubResource("TileSetScenesCollectionSource_vn3kh")
 sources/3 = SubResource("TileSetScenesCollectionSource_woe85")
 sources/0 = SubResource("TileSetScenesCollectionSource_4nxuh")
 sources/2 = SubResource("TileSetScenesCollectionSource_ex3vh")
-sources/4 = SubResource("TileSetScenesCollectionSource_j106o")
 sources/5 = SubResource("TileSetScenesCollectionSource_rykx7")
 sources/6 = SubResource("TileSetAtlasSource_8tw4l")
+sources/7 = SubResource("TileSetScenesCollectionSource_p877y")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8sg6m")
@@ -285,6 +282,13 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = -3
 layer_1/tile_data = PackedInt32Array()
+layer_2/name = "PatrolPaths"
+layer_2/enabled = true
+layer_2/modulate = Color(1, 1, 1, 1)
+layer_2/y_sort_enabled = false
+layer_2/y_sort_origin = 0
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array()
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 script = ExtResource("17_oyw46")

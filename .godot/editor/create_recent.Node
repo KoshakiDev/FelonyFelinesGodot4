@@ -1,7 +1,10 @@
+CollisionShape2D
+Area2D
+Timer
+Polygon2D
 Sprite2D
 AnimationPlayer
 ColorRect
-Timer
 Label
 ProgressBar
 RichTextLabel
@@ -9,7 +12,6 @@ Node
 Node2D
 AudioStreamPlayer2D
 Marker2D
-CollisionShape2D
 Camera2D
 TileMap
 VisionCone2D (vision_cone_2d.gd)

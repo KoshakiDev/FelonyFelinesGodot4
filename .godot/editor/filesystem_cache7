@@ -1,5 +1,5 @@
 0b7126e0c6e86d3ec295a72f5aa6e0bd
-::res://::1672646050
+::res://::1672646171
 export_presets.cfg::TextFile::-1::1671814117::0::1::::<><>::
 icon.png::CompressedTexture2D::282672130955889680::1672310327::1672310333::1::::<><>::
 README.md::TextFile::-1::1671814117::0::1::::<><>::
@@ -297,10 +297,10 @@ AttackBall.gd::GDScript::-1::1672051313::0::1::::<>State<>::
 EnemyGunner.gd::GDScript::-1::1672643995::0::1::::<>CharacterBody2D<>::
 EnemyGunner.tscn::PackedScene::2909619950191482841::1672643995::0::1::::<><>::res://src/components/spawners/dust/DustSpawner.tscn<>uid://dj4imexibaje1<>res://src/entities/enemies/EnemyGunner/states/AttackGunner.gd<>res://src/entities/enemies/SharedStates/Chase.gd<>res://src/entities/enemies/SharedStates/Death.gd<>res://src/entities/enemies/EnemyGunner/states/Knockout.gd<>res://src/entities/enemies/EnemyGunner/EnemyGunner.gd<>res://src/entities/enemies/EnemyGunner/states/Alert.gd<>res://src/entities/enemies/EnemyGunner/ItemHolder.gd<>res://src/entities/enemies/SharedStates/Idle.gd<>uid://7g4bebhu8p61<>uid://bp4qcx0a43jnq<>uid://vvh1rme2js3x<>res://src/entities/enemies/SharedStates/Pain.gd<>uid://boxci3w8p35da<>uid://bjhjgiphxco4i
 ItemHolder.gd::GDScript::-1::1672643904::0::1::::<>Marker2D<>::
-::res://src/entities/enemies/EnemyGunner/states/::1672569765
+::res://src/entities/enemies/EnemyGunner/states/::1672646070
 Alert.gd::GDScript::-1::1672333788::0::1::::<>State<>::
 AttackGunner.gd::GDScript::-1::1672399553::0::1::::<>State<>::
-Knockout.gd::GDScript::-1::1672569765::0::1::::<>State<>::
+Knockout.gd::GDScript::-1::1672646070::0::1::::<>State<>::
 ::res://src/entities/enemies/EnemyImp/::1672289877
 EnemyImp.gd::GDScript::-1::1671814409::0::1::::<><>::
 EnemyImp.tscn::PackedScene::-1::1672289877::0::1::::<><>::uid://dj4imexibaje1<>res://src/entities/enemies/EnemyImp/EnemyImp.gd<>res://src/entities/enemies/EnemyImp/states/AttackImp.gd<>res://src/entities/enemies/SharedStates/Death.gd<>res://src/entities/enemies/SharedStates/Chase.gd<>res://src/entities/enemies/SharedStates/Idle.gd<>uid://c23oqlmpgtqk3<>res://src/entities/enemies/SharedStates/Pain.gd<>res://src/components/spawners/dust/DustSpawner.tscn<>uid://diudbgaarx5fv<>uid://coa5jmpt2k58v<>uid://k8bvo4y6ng0
@@ -373,9 +373,9 @@ Attack.gd::GDScript::-1::1671814409::0::1::::<>State<>::
 Death.gd::GDScript::-1::1671814409::0::1::::<>State<>::
 Idle.gd::GDScript::-1::1671814409::0::1::::<>State<>::
 Move.gd::GDScript::-1::1671814409::0::1::::<>State<>::
-::res://src/entities/players/player/::1672643995
+::res://src/entities/players/player/::1672646121
 Player.gd::GDScript::-1::1672561962::0::1::::<>CharacterBody2D<>::
-Player_1.tscn::PackedScene::3778063625268368080::1672643995::0::1::::<><>::uid://basjxtjvg7gjt<>res://src/entities/players/player/Player.gd<>res://src/entities/players/player/states/Interacting.gd<>res://src/entities/players/player/states/Idle.gd<>res://src/entities/players/player/states/Move.gd<>res://src/entities/players/player/states/Death.gd<>res://src/entities/players/player/states/Pain.gd<>uid://dpknfgkr7y8fb<>uid://dtxhku5s85lf4<>uid://bj6rolkifwjlc<>uid://1y7coyhr3lqs<>res://src/components/spawners/dust/DustSpawner.tscn<>uid://y83y2bnhu06c<>res://src/UI/player_healthbar/Ammo_Bar.tscn
+Player_1.tscn::PackedScene::3778063625268368080::1672646121::0::1::::<><>::uid://basjxtjvg7gjt<>res://src/entities/players/player/Player.gd<>res://src/entities/players/player/states/Interacting.gd<>res://src/entities/players/player/states/Idle.gd<>res://src/entities/players/player/states/Move.gd<>res://src/entities/players/player/states/Death.gd<>res://src/entities/players/player/states/Pain.gd<>uid://dpknfgkr7y8fb<>uid://dtxhku5s85lf4<>uid://bj6rolkifwjlc<>uid://1y7coyhr3lqs<>res://src/components/spawners/dust/DustSpawner.tscn<>uid://y83y2bnhu06c<>res://src/UI/player_healthbar/Ammo_Bar.tscn
 Player_2.tscn::PackedScene::7679062148996054378::1672490573::0::1::::<><>::uid://bt3efkir0qj5a<>uid://bpo6bqss4dr64
 ::res://src/entities/players/player/states/::1672399106
 Death.gd::GDScript::-1::1672071495::0::1::::<>State<>::
@@ -394,9 +394,9 @@ SoundMachine.gd::GDScript::-1::1671963993::0::1::::<>Node<>::
 State.gd::GDScript::-1::1671963993::0::1::::State<>Node<>::
 StatesMachine.gd::GDScript::-1::1671963993::0::1::::StateMachine<>Node<>::
 ::res://src/environment/::1672292139
-::res://src/environment/base_world/::1672646019
+::res://src/environment/base_world/::1672646121
 base_world.gd::GDScript::-1::1672072669::0::1::::<>Node2D<>::
-base_world.tscn::PackedScene::7012173936269828662::1672646019::0::1::::<><>::res://src/environment/base_world/base_world.gd<>uid://dh215tcgvc8ah<>uid://cj4fplft47vvo<>uid://danhuydml27p6<>uid://cl126ejxkbqj7<>uid://c1vf3k0628qo<>res://src/entities/items/medkit/Medkit.tscn<>uid://y83y2bnhu06c<>res://src/environment/objects/box/box_small/TestBox.tscn<>res://src/environment/objects/box/box_tall/TestTallBox.tscn<>uid://bt3efkir0qj5a<>uid://dhn2bcuyl51ko<>uid://bhppar5m7rr10<>uid://csxsxlroto2c2<>uid://b688jx7i2fdwq<>uid://dbx1rpyubhv4l<>uid://cgahngqvpti2k<>res://src/environment/base_world/UILayer.gd<>uid://u26gyr5m3civ<>uid://c8o8vd78s6ix3
+base_world.tscn::PackedScene::7012173936269828662::1672646121::0::1::::<><>::res://src/environment/base_world/base_world.gd<>uid://dh215tcgvc8ah<>uid://cj4fplft47vvo<>uid://danhuydml27p6<>uid://cl126ejxkbqj7<>uid://c1vf3k0628qo<>res://src/entities/items/medkit/Medkit.tscn<>uid://y83y2bnhu06c<>res://src/environment/objects/box/box_small/TestBox.tscn<>res://src/environment/objects/box/box_tall/TestTallBox.tscn<>uid://bt3efkir0qj5a<>uid://dhn2bcuyl51ko<>uid://bhppar5m7rr10<>uid://csxsxlroto2c2<>uid://b688jx7i2fdwq<>uid://dbx1rpyubhv4l<>uid://cgahngqvpti2k<>res://src/environment/base_world/UILayer.gd<>uid://u26gyr5m3civ<>uid://c8o8vd78s6ix3
 UILayer.gd::GDScript::-1::1671963993::0::1::::<>CanvasLayer<>::
 ::res://src/environment/base_world/minigames/::1671814117
 ::res://src/environment/base_world/minigames/base/::1672285011
@@ -408,8 +408,8 @@ LockMinigame.tscn::PackedScene::-1::1672292139::0::1::::<><>::res://src/environm
 ::res://src/environment/base_world/minigames/note/::1672292139
 NoteMinigame.gd::GDScript::-1::1671814409::0::1::::<><>::
 NoteMinigame.tscn::PackedScene::-1::1672292139::0::1::::<><>::res://src/environment/base_world/minigames/base/Base.tscn<>res://src/environment/base_world/minigames/note/NoteMinigame.gd<>uid://dj2yehclmy7hg
-::res://src/environment/levels/::1672646019
-Level1.tscn::PackedScene::7581706480558458700::1672646019::0::1::::<><>::uid://c650qlfktosck<>uid://i7mnju3tkjkw<>uid://cdeawyqj5l5gr<>uid://1sictimyiyhw
+::res://src/environment/levels/::1672646121
+Level1.tscn::PackedScene::7581706480558458700::1672646121::0::1::::<><>::uid://c650qlfktosck<>uid://i7mnju3tkjkw<>uid://cdeawyqj5l5gr<>uid://1sictimyiyhw
 ::res://src/environment/objects/::1672311669
 tilesheet_temp.png::CompressedTexture2D::7925129070685467727::1671814117::1672292139::1::::<><>::
 vision.png::CompressedTexture2D::7848164565453089364::1671814117::1672292139::1::::<><>::

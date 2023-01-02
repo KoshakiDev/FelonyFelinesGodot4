@@ -17,24 +17,24 @@
 [ext_resource type="Texture2D" uid="uid://boxci3w8p35da" path="res://assets/effects/part-Caution.png" id="14_q76xd"]
 [ext_resource type="Texture2D" uid="uid://bjhjgiphxco4i" path="res://assets/effects/Question.png" id="15_u6pjv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qw1q4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3gqk"]
 size = Vector2(80, 56)
 
-[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_cb610"]
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_2gcs6"]
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_gxapo"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hatmt"]
 source = 2
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_tr27v"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_6fwuh"]
 operator = 6
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_oinqb"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_7ixx8"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_xi7ey"]
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_ijbiu"]
 parameter_name = "active"
 
-[sub_resource type="VisualShader" id="VisualShader_j05wa"]
+[sub_resource type="VisualShader" id="VisualShader_wqsb0"]
 code = "shader_type canvas_item;
 uniform bool active;
 
@@ -71,24 +71,24 @@ void fragment() {
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1040, 60)
-nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_gxapo")
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_hatmt")
 nodes/fragment/3/position = Vector2(600, -40)
-nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_tr27v")
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_6fwuh")
 nodes/fragment/5/position = Vector2(860, -60)
-nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_oinqb")
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_7ixx8")
 nodes/fragment/6/position = Vector2(600, 100)
-nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_xi7ey")
+nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_ijbiu")
 nodes/fragment/9/position = Vector2(400, 0)
-nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_cb610")
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_2gcs6")
 nodes/fragment/11/position = Vector2(400, 120)
 nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y6ses"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lac0a"]
 resource_local_to_scene = true
-shader = SubResource("VisualShader_j05wa")
+shader = SubResource("VisualShader_wqsb0")
 shader_parameter/active = false
 
-[sub_resource type="Animation" id="Animation_0xss3"]
+[sub_resource type="Animation" id="Animation_57p8c"]
 resource_name = "Death"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -140,7 +140,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_2l8a0"]
+[sub_resource type="Animation" id="Animation_y4e1b"]
 resource_name = "Hit_Back"
 length = 0.5
 tracks/0/type = "value"
@@ -156,7 +156,7 @@ tracks/0/keys = {
 "values": [27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_8o5u1"]
+[sub_resource type="Animation" id="Animation_63eb8"]
 resource_name = "Hit_Front"
 length = 0.5
 tracks/0/type = "value"
@@ -172,7 +172,7 @@ tracks/0/keys = {
 "values": [18, 19, 20]
 }
 
-[sub_resource type="Animation" id="Animation_bhngf"]
+[sub_resource type="Animation" id="Animation_0up7l"]
 resource_name = "Idle"
 length = 0.5
 loop_mode = 1
@@ -201,7 +201,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8), Vector2(0, 11), Vector2(0, 7)]
 }
 
-[sub_resource type="Animation" id="Animation_3hm8k"]
+[sub_resource type="Animation" id="Animation_ompm5"]
 resource_name = "Knockout"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -216,7 +216,7 @@ tracks/0/keys = {
 "values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 44]
 }
 
-[sub_resource type="Animation" id="Animation_p3q1d"]
+[sub_resource type="Animation" id="Animation_soyh1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -243,7 +243,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_cpil0"]
+[sub_resource type="Animation" id="Animation_psb2u"]
 resource_name = "Run"
 length = 0.8
 loop_mode = 1
@@ -318,15 +318,15 @@ tracks/3/keys = {
 "values": [Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5), Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_obmov"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6x3b4"]
 _data = {
-"Death": SubResource("Animation_0xss3"),
-"Hit_Back": SubResource("Animation_2l8a0"),
-"Hit_Front": SubResource("Animation_8o5u1"),
-"Idle": SubResource("Animation_bhngf"),
-"Knockout": SubResource("Animation_3hm8k"),
-"RESET": SubResource("Animation_p3q1d"),
-"Run": SubResource("Animation_cpil0")
+"Death": SubResource("Animation_57p8c"),
+"Hit_Back": SubResource("Animation_y4e1b"),
+"Hit_Front": SubResource("Animation_63eb8"),
+"Idle": SubResource("Animation_0up7l"),
+"Knockout": SubResource("Animation_ompm5"),
+"RESET": SubResource("Animation_soyh1"),
+"Run": SubResource("Animation_psb2u")
 }
 
 [node name="EnemyGunner" groups=["ENEMY"] instance=ExtResource("2")]
@@ -343,6 +343,10 @@ initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" index="0"]
 script = ExtResource("10")
+
+[node name="StandTimer" type="Timer" parent="StateMachine/Idle" index="0"]
+wait_time = 1.5
+one_shot = true
 
 [node name="Chase" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("6")
@@ -370,7 +374,7 @@ collision_layer = 128
 collision_mask = 8
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
-shape = SubResource("RectangleShape2D_qw1q4")
+shape = SubResource("RectangleShape2D_i3gqk")
 
 [node name="VisionCone2D" parent="Areas" index="1"]
 z_index = -2
@@ -380,7 +384,7 @@ texture_repeat = 2
 texture = ExtResource("10_i1kf7")
 
 [node name="VisionConeArea" parent="Areas/VisionCone2D" index="1"]
-collision_mask = 3585
+collision_mask = 11777
 
 [node name="SusTimer" parent="Areas" index="2"]
 wait_time = 0.5
@@ -393,7 +397,7 @@ position = Vector2(0, -111)
 scale = Vector2(0.25, 0.25)
 
 [node name="Sprite2D" parent="Visuals" index="0"]
-material = SubResource("ShaderMaterial_y6ses")
+material = SubResource("ShaderMaterial_lac0a")
 position = Vector2(0, -56)
 texture = ExtResource("12")
 hframes = 9
@@ -423,7 +427,7 @@ max_health = 100.0
 [node name="Animations" type="AnimationPlayer" parent="AnimationMachine" index="0"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_obmov")
+"": SubResource("AnimationLibrary_6x3b4")
 }
 
 [node name="HealthBar" parent="." index="6"]

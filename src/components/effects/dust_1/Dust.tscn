@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" path="res://src/components/effects/base_effect/Effect.tscn" id="1_pc3wv"]
 [ext_resource type="Texture2D" uid="uid://dg16ku7qcsfak" path="res://assets/effects/Dust.png" id="2_7pguw"]
 
-[sub_resource type="Animation" id="Animation_767ex"]
+[sub_resource type="Animation" id="Animation_65f6y"]
 resource_name = "Animate"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -15,10 +15,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(4, 4), Vector2(1e-05, 1e-05)]
+"values": [Vector2(1e-05, 1e-05), Vector2(6, 6), Vector2(1e-05, 1e-05)]
 }
 
-[sub_resource type="Animation" id="Animation_1ged7"]
+[sub_resource type="Animation" id="Animation_l6ayl"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -33,10 +33,10 @@ tracks/0/keys = {
 "values": [Vector2(1e-05, 1e-05)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8njh"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ckypi"]
 _data = {
-"Animate": SubResource("Animation_767ex"),
-"RESET": SubResource("Animation_1ged7")
+"Animate": SubResource("Animation_65f6y"),
+"RESET": SubResource("Animation_l6ayl")
 }
 
 [node name="Dust" instance=ExtResource("1_pc3wv")]
@@ -47,5 +47,5 @@ texture = ExtResource("2_7pguw")
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_a8njh")
+"": SubResource("AnimationLibrary_ckypi")
 }

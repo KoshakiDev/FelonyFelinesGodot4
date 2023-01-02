@@ -15,7 +15,6 @@ func timeout():
 	explode()
 
 func _on_Bullet_area_entered(_area):
-	print("entered area: ", _area)
 	explode()
 	super._on_Bullet_area_entered(_area)
 	
@@ -25,6 +24,5 @@ func explode():
 	Global.world.call_deferred("add_child", boom)
 
 func _on_Bullet_body_entered(_body):
-	print("entered body: ", _body)
 	explode()
 	super._on_Bullet_body_entered(_body)

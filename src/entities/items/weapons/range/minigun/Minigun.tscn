@@ -145,6 +145,7 @@ ammo = 500
 recoil = 400
 ammo_pack_amount = 100
 entity_name = "MINIGUN"
+item_mass = 40
 
 [node name="Marker2D" parent="." index="0"]
 position = Vector2(12, -4)
@@ -155,7 +156,7 @@ texture = ExtResource("2")
 [node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0"]
 position = Vector2(34, -1)
 bullet_speed = 800.0
-bullet_damage_value = 10
+bullet_damage_value = 20
 knockback_value = 500
 bullet_emitter = SubResource("Resource_ldgmi")
 

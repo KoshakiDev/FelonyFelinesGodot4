@@ -4,6 +4,7 @@ extends Node2D
 @export var entity_type = "ITEM"
 @export var item_type = "WEAPON"
 @export var entity_name = "NAME"
+@export var item_mass = 1
 
 @export var despawnable: bool = true
 @export var despawn_time: int = 5
@@ -51,7 +52,6 @@ func set_active():
 	#print("set active")
 	
 func despawn():
-	print("I was despawned")
 	queue_free()
 
 func cancel_despawn():

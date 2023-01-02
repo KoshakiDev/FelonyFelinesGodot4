@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://5fx8ose3rmii"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6tdtn"]
+
+[node name="PathPoint" type="Area2D" groups=["PATH_POINT"]]
+collision_layer = 8192
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6tdtn")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0, 1, 1)
+polygon = PackedVector2Array(7, 8, -7, 8, -7, -7, 7, -7)

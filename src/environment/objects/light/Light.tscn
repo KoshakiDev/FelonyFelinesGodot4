@@ -1,18 +1,130 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbx1rpyubhv4l"]
+[gd_scene load_steps=8 format=3 uid="uid://dbx1rpyubhv4l"]
 
 [ext_resource type="Script" path="res://src/environment/objects/light/Light.gd" id="1_bycbu"]
 [ext_resource type="Texture2D" uid="uid://dnxdup5tfdwvt" path="res://src/environment/objects/light/light.png" id="2_c3dje"]
 [ext_resource type="Texture2D" uid="uid://cr20rokpyp612" path="res://src/environment/objects/light/shadow.png" id="3_5ks50"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="4_qpdcn"]
 
+[sub_resource type="Animation" id="Animation_05h4h"]
+resource_name = "Sway"
+length = 4.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisionCone2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-50, 0), Vector2(0, 0), Vector2(50, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.523599, 0.0, -0.523599]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bvyf2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VisionCone2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Shadow:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_27rj6"]
+_data = {
+"RESET": SubResource("Animation_bvyf2"),
+"Sway": SubResource("Animation_05h4h")
+}
+
 [node name="Light" type="Node2D" node_paths=PackedStringArray("vision_renderer")]
 script = ExtResource("1_bycbu")
 vision_renderer = NodePath("VisionCone2D/VisionConeRenderer")
+metadata/_edit_vertical_guides_ = [-9.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.498039)
 position = Vector2(0, -128)
 texture = ExtResource("2_c3dje")
+offset = Vector2(0, 12)
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.74902)
@@ -21,8 +133,8 @@ texture = ExtResource("3_5ks50")
 [node name="VisionCone2D" parent="." instance=ExtResource("4_qpdcn")]
 z_index = -1
 angle_deg = 359.0
-ray_count = 45
-max_distance = 250.0
+ray_count = 50
+max_distance = 300.0
 
 [node name="VisionConeRenderer" parent="VisionCone2D" index="0"]
 color = Color(1, 1, 1, 0.498039)
@@ -32,5 +144,10 @@ collision_mask = 35
 
 [node name="DebugDraw" parent="VisionCone2D" index="2"]
 is_visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_27rj6")
+}
 
 [editable path="VisionCone2D"]

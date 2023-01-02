@@ -267,6 +267,7 @@ escape={
 2d_physics/layer_10="in_light_1"
 2d_physics/layer_11="in_light_2"
 2d_physics/layer_12="in_light_3"
+2d_physics/layer_14="path_points"
 
 [physics]
 
@@ -274,6 +275,7 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+environment/defaults/default_clear_color=Color(0.0784314, 0.0784314, 0.0784314, 1)
 textures/canvas_textures/default_texture_filter=0
 quality/driver/driver_name="GLES2"
 2d/snapping/use_gpu_pixel_snap=true

@@ -20,6 +20,7 @@ signal player_died
 var interacting = false
 
 func _ready():
+	$Camera.current = true
 	super._ready()
 	setup_player()
 	setup_burglar_mode()
@@ -55,6 +56,10 @@ func adjust_rotation_to_direction(direction):
 	#item_manager.look_at(item_manager.global_position + direction)
 
 func _physics_process(_delta):
+	#item_manager.get_total_weight() 
+	total_mass = mass
+	if item_manager.cur_item != null:
+		total_mass += item_manager.cur_item.item_mass
 	super._physics_process(_delta)
 	#print(item_manager.rotation, " ", visuals.scale.x)
 
