@@ -4,7 +4,7 @@ const hit_effect = preload("res://src/components/effects/hit/HitEffect.tscn")
 const dust_effect = preload("res://src/components/effects/dust_1/Dust.tscn")
 const points_effect := preload("res://src/components/effects/point_effect/PointEffect.tscn")
 const bullet_shell_effect := preload("res://src/components/effects/bullet_shell/BulletShell.tscn")
-
+const intruder_effect := preload("res://src/components/effects/Intruder/Intruder.tscn")
 var new_effect = null
 
 signal create_shockwave_effect
@@ -33,3 +33,6 @@ func create_points_effect(effect_position, points_amount):
 
 func create_bullet_shell(effect_position):
 	create_effect(bullet_shell_effect, effect_position)
+
+func create_intruder_effect(effect_position):
+	create_effect(intruder_effect, effect_position)

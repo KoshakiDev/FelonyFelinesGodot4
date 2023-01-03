@@ -17,6 +17,7 @@ signal update_points(points_amount)
 signal drop_weapon(drop_position)
 signal update_board()
 signal turn_on_alert_state
+signal intruder_effect(effect_position)
 
 var has_seen_you = false
 
@@ -57,7 +58,7 @@ func awareness():
 	
 	var new_color: Color
 	
-	if awareness_meter == 1:
+	if awareness_meter == 1 && !has_seen_you:
 		detected()
 	if targets != []:
 		awareness_meter = clamp(awareness_meter + awareness_increment,
@@ -86,6 +87,8 @@ func vision_look_in_direction(direction):
 		-PI / 2 + direction.angle(), 0.2)
 
 func detected():
+	emit_signal("intruder_effect", global_position)
+	sound_machine.play_sound("Intruder")
 	emit_signal("turn_on_alert_state", has_seen_you)
 	has_seen_you = true
 
@@ -195,6 +198,8 @@ func setup_look_direction():
 		Callable(self, "change_look_direction"))
 
 func setup_burglar_mode():
+	connect("intruder_effect", 
+		Callable(VFXManager, "create_intruder_effect"))
 	burglar_mode = true
 	connect("turn_on_alert_state", 
 		Callable(Burglar, "turn_on_alert_state"))

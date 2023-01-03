@@ -8,19 +8,17 @@ func enter(_msg := {}) -> void:
 	owner.play_animation("Run", "Animations")
 
 func physics_update(_delta: float) -> void:
-	if owner.health_manager.is_dead():
-		state_machine.transition_to("Death")
-		return
 	next_position = null
 	
-	if owner.awareness_meter < 0.3:
-		path_point_detection()
-	else:
-		target_detection()
-
-	if next_position == null:
-		state_machine.transition_to("Idle")
+	if check_death():
 		return
+	
+	if owner.awareness_meter < 0.3:
+		if check_path_point_detection():
+			return
+	else:
+		if check_target_detection():
+			return
 	
 	if owner.nav_agent.can_update_path:
 		owner.nav_agent.set_target_location(next_position)
@@ -37,26 +35,29 @@ func physics_update(_delta: float) -> void:
 	owner.apply_internal_force(direction)
 	owner.nav_agent.set_velocity(owner.internal_forces)
 
-
+func check_death():
+	if owner.health_manager.is_dead():
+		state_machine.transition_to("Death")
+		return true
 	
-func path_point_detection():
+func check_path_point_detection():
 	var path_point = owner.get_path_point()
 	if path_point == null:
 		state_machine.transition_to("Idle")
-		return
+		return true
 	next_position = path_point.global_position + owner.get_normalized_internal_forces_direction() * 25
 	
-func target_detection():
+func check_target_detection():
 	var target = owner.get_target()
 	if target == null && owner.last_target_position == null:
 		state_machine.transition_to("Idle")
-		return
+		return true
 	
 	if (target != null && 
 		owner.max_shooting_distance >= 
 		(target.global_position - owner.global_position).length()):
 		state_machine.transition_to("Attack")
-		return
+		return true
 		
 	if target == null:
 		next_position = owner.last_target_position

@@ -61,7 +61,9 @@ func _physics_process(_delta):
 	total_mass = mass
 	if item_manager.cur_item != null:
 		total_mass += item_manager.cur_item.item_mass
-	if get_collision_layer_value(10):
+	
+	if (get_collision_layer_value(10) || get_collision_layer_value(11)
+		|| get_collision_layer_value(12)):
 		sprite.set_texture(blue_sprite)
 	else:
 		sprite.set_texture(blue_sprite_dark)
@@ -95,8 +97,9 @@ func turn_off_all():
 		item_manager.cur_item.set_inactive()
 	item_manager.visible = false
 	respawn_radius.activate_respawn_radius()
-	collision_layer -= pow(2, 2-1)
-	emit_signal("player_died")
+	#collision_layer -= pow(2, 2-1)
+	#set_collision_layer_value(2, false)
+	
 
 func turn_on_all():
 	super.turn_on_all()
@@ -105,5 +108,7 @@ func turn_on_all():
 		item_manager.cur_item.set_active()
 	item_manager.visible = true
 	respawn_radius.deactivate_respawn_radius()
-	collision_layer += pow(2, 2-1)
+	set_collision_layer_value(2, true)
+	
+	#collision_layer += pow(2, 2-1)
 	ammo_bar.update_ammo_bar(item_manager.return_ammo_count())

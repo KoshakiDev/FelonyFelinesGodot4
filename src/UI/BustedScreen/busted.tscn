@@ -14,6 +14,7 @@ mouse_filter = 2
 script = ExtResource("1_sgna3")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -25,10 +26,32 @@ offset_right = 526.0
 offset_bottom = 112.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 120
 theme_override_fonts/normal_font = ExtResource("1_rxbsj")
 theme_override_font_sizes/normal_font_size = 240
 bbcode_enabled = true
 text = "[center]BUSTED!"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -526.0
+offset_top = -112.5
+offset_right = 526.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 120
+theme_override_fonts/normal_font = ExtResource("1_rxbsj")
+theme_override_font_sizes/normal_font_size = 240
+bbcode_enabled = true
+text = "[center][tornado radius=2 freq=10]BUSTED![/tornado]"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

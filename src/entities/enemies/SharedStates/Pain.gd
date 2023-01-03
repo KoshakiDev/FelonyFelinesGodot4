@@ -15,6 +15,7 @@ func pain(attack_direction, facing_direction):
 
 
 func enter(msg := {}) -> void:
+	owner.sound_machine.play_sound("Pain")
 	if msg.has("Front"):
 		owner.play_animation("Hit_Front", "Animations")
 	elif msg.has("Back"):

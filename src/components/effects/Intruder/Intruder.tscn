@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://ct7jwehdinvro"]
+
+[ext_resource type="PackedScene" path="res://src/components/effects/base_effect/Effect.tscn" id="1_00if6"]
+[ext_resource type="FontFile" uid="uid://bjsgu6uxa313b" path="res://assets/fonts/windows_command_font.tres" id="2_kh5n2"]
+
+[sub_resource type="Animation" id="Animation_e1vv1"]
+resource_name = "Animate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.65, 1),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 2, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(2, 2), Vector2(3, 3), Vector2(2.4, 2.4), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.65, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4o688"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5am0"]
+_data = {
+"Animate": SubResource("Animation_e1vv1"),
+"RESET": SubResource("Animation_4o688")
+}
+
+[node name="IntruderEffect" instance=ExtResource("1_00if6")]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(1e-05, 1e-05)
+z_index = 1000
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." index="0"]
+clip_contents = false
+offset_left = -62.0
+offset_top = -15.0
+offset_right = 67.0
+offset_bottom = 35.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("2_kh5n2")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[tornado radius=2 freq=10]INTRUDER![/tornado]"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="1"]
+clip_contents = false
+offset_left = -62.0
+offset_top = -15.0
+offset_right = 67.0
+offset_bottom = 27.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("2_kh5n2")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "INTRUDER!
+"
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_u5am0")
+}

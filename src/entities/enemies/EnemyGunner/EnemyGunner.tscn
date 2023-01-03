@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bhppar5m7rr10"]
+[gd_scene load_steps=39 format=3 uid="uid://bhppar5m7rr10"]
 
 [ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dj4imexibaje1" path="res://src/entities/base_templates/base_npc/base_npc.tscn" id="2"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Death.gd" id="8"]
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/states/Knockout.gd" id="8_ua4bu"]
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/EnemyGunner.gd" id="9"]
-[ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/states/Alert.gd" id="9_ot546"]
 [ext_resource type="Script" path="res://src/entities/enemies/EnemyGunner/ItemHolder.gd" id="9_u82ke"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Idle.gd" id="10"]
 [ext_resource type="PackedScene" uid="uid://7g4bebhu8p61" path="res://src/components/circle_progress_bar/CircleProgress.tscn" id="10_2ocm0"]
@@ -16,25 +15,32 @@
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Pain.gd" id="13"]
 [ext_resource type="Texture2D" uid="uid://boxci3w8p35da" path="res://assets/effects/part-Caution.png" id="14_q76xd"]
 [ext_resource type="Texture2D" uid="uid://bjhjgiphxco4i" path="res://assets/effects/Question.png" id="15_u6pjv"]
+[ext_resource type="AudioStream" uid="uid://bdybdl7pg12il" path="res://sounds/gunner_barks/pain/pain_1.mp3" id="16_ymdnl"]
+[ext_resource type="AudioStream" uid="uid://brguol5lv61gb" path="res://sounds/gunner_barks/pain/pain_2.mp3" id="17_shmrd"]
+[ext_resource type="AudioStream" uid="uid://cgg0lwmn584d0" path="res://sounds/gunner_barks/pain/pain_3.mp3" id="18_kkiga"]
+[ext_resource type="AudioStream" uid="uid://c3js8a6txg8o7" path="res://sounds/gunner_barks/attack/Attack_4.mp3" id="19_5grux"]
+[ext_resource type="AudioStream" uid="uid://df6ku8hdgl2uo" path="res://sounds/gunner_barks/attack/Attack_2.mp3" id="20_7y2k4"]
+[ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="22_abm3h"]
+[ext_resource type="AudioStream" uid="uid://bycp1fbihwlaj" path="res://sounds/gunner_barks/target_detected/Intruder.mp3" id="23_2uww2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3gqk"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxvyy"]
 size = Vector2(80, 56)
 
-[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_2gcs6"]
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_h3fwb"]
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hatmt"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_lfnin"]
 source = 2
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_6fwuh"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_0m357"]
 operator = 6
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_7ixx8"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_4qquw"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_ijbiu"]
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_1kkbw"]
 parameter_name = "active"
 
-[sub_resource type="VisualShader" id="VisualShader_wqsb0"]
+[sub_resource type="VisualShader" id="VisualShader_356r8"]
 code = "shader_type canvas_item;
 uniform bool active;
 
@@ -71,24 +77,24 @@ void fragment() {
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1040, 60)
-nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_hatmt")
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_lfnin")
 nodes/fragment/3/position = Vector2(600, -40)
-nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_6fwuh")
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_0m357")
 nodes/fragment/5/position = Vector2(860, -60)
-nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_7ixx8")
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_4qquw")
 nodes/fragment/6/position = Vector2(600, 100)
-nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_ijbiu")
+nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_1kkbw")
 nodes/fragment/9/position = Vector2(400, 0)
-nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_2gcs6")
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_h3fwb")
 nodes/fragment/11/position = Vector2(400, 120)
 nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lac0a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofahi"]
 resource_local_to_scene = true
-shader = SubResource("VisualShader_wqsb0")
+shader = SubResource("VisualShader_356r8")
 shader_parameter/active = false
 
-[sub_resource type="Animation" id="Animation_57p8c"]
+[sub_resource type="Animation" id="Animation_65nto"]
 resource_name = "Death"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -140,7 +146,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_y4e1b"]
+[sub_resource type="Animation" id="Animation_o6a13"]
 resource_name = "Hit_Back"
 length = 0.5
 tracks/0/type = "value"
@@ -156,7 +162,7 @@ tracks/0/keys = {
 "values": [27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_63eb8"]
+[sub_resource type="Animation" id="Animation_inmax"]
 resource_name = "Hit_Front"
 length = 0.5
 tracks/0/type = "value"
@@ -172,7 +178,7 @@ tracks/0/keys = {
 "values": [18, 19, 20]
 }
 
-[sub_resource type="Animation" id="Animation_0up7l"]
+[sub_resource type="Animation" id="Animation_oiwiy"]
 resource_name = "Idle"
 length = 0.5
 loop_mode = 1
@@ -201,7 +207,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8), Vector2(0, 11), Vector2(0, 7)]
 }
 
-[sub_resource type="Animation" id="Animation_ompm5"]
+[sub_resource type="Animation" id="Animation_phlie"]
 resource_name = "Knockout"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -216,7 +222,7 @@ tracks/0/keys = {
 "values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 44]
 }
 
-[sub_resource type="Animation" id="Animation_soyh1"]
+[sub_resource type="Animation" id="Animation_ljrxh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -243,7 +249,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_psb2u"]
+[sub_resource type="Animation" id="Animation_yjx27"]
 resource_name = "Run"
 length = 0.8
 loop_mode = 1
@@ -318,15 +324,15 @@ tracks/3/keys = {
 "values": [Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5), Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6x3b4"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ac74"]
 _data = {
-"Death": SubResource("Animation_57p8c"),
-"Hit_Back": SubResource("Animation_y4e1b"),
-"Hit_Front": SubResource("Animation_63eb8"),
-"Idle": SubResource("Animation_0up7l"),
-"Knockout": SubResource("Animation_ompm5"),
-"RESET": SubResource("Animation_soyh1"),
-"Run": SubResource("Animation_psb2u")
+"Death": SubResource("Animation_65nto"),
+"Hit_Back": SubResource("Animation_o6a13"),
+"Hit_Front": SubResource("Animation_inmax"),
+"Idle": SubResource("Animation_oiwiy"),
+"Knockout": SubResource("Animation_phlie"),
+"RESET": SubResource("Animation_ljrxh"),
+"Run": SubResource("Animation_yjx27")
 }
 
 [node name="EnemyGunner" groups=["ENEMY"] instance=ExtResource("2")]
@@ -365,16 +371,13 @@ script = ExtResource("8_ua4bu")
 knockout_timer = NodePath("../../Areas/CircleProgressBar")
 wait_time = 10.0
 
-[node name="Alert" type="Node" parent="StateMachine" index="6"]
-script = ExtResource("9_ot546")
-
 [node name="Hurtbox" parent="Areas" index="0"]
 position = Vector2(0, -20)
 collision_layer = 128
 collision_mask = 8
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
-shape = SubResource("RectangleShape2D_i3gqk")
+shape = SubResource("RectangleShape2D_mxvyy")
 
 [node name="VisionCone2D" parent="Areas" index="1"]
 z_index = -2
@@ -393,7 +396,7 @@ position = Vector2(0, -111)
 scale = Vector2(0.25, 0.25)
 
 [node name="Sprite2D" parent="Visuals" index="0"]
-material = SubResource("ShaderMaterial_lac0a")
+material = SubResource("ShaderMaterial_ofahi")
 position = Vector2(0, -56)
 texture = ExtResource("12")
 hframes = 9
@@ -423,8 +426,39 @@ max_health = 100.0
 [node name="Animations" type="AnimationPlayer" parent="AnimationMachine" index="0"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_6x3b4")
+"": SubResource("AnimationLibrary_3ac74")
 }
+
+[node name="Pain" parent="SoundMachine" index="1"]
+pitch_range = 0.2
+
+[node name="Pain_1" type="AudioStreamPlayer2D" parent="SoundMachine/Pain" index="0"]
+stream = ExtResource("16_ymdnl")
+volume_db = 6.0
+
+[node name="Pain_2" type="AudioStreamPlayer2D" parent="SoundMachine/Pain" index="1"]
+stream = ExtResource("17_shmrd")
+volume_db = 6.0
+
+[node name="Pain_3" type="AudioStreamPlayer2D" parent="SoundMachine/Pain" index="2"]
+stream = ExtResource("18_kkiga")
+volume_db = 6.0
+
+[node name="Attack_1" type="AudioStreamPlayer2D" parent="SoundMachine/Attack" index="0"]
+stream = ExtResource("19_5grux")
+volume_db = 6.0
+
+[node name="Attack_2" type="AudioStreamPlayer2D" parent="SoundMachine/Attack" index="1"]
+stream = ExtResource("20_7y2k4")
+volume_db = 6.0
+
+[node name="Intruder" type="Node2D" parent="SoundMachine" index="5"]
+script = ExtResource("22_abm3h")
+
+[node name="Intruder" type="AudioStreamPlayer2D" parent="SoundMachine/Intruder" index="0"]
+stream = ExtResource("23_2uww2")
+volume_db = 6.0
+max_distance = 3000.0
 
 [node name="HealthBar" parent="." index="6"]
 position = Vector2(0, -133)

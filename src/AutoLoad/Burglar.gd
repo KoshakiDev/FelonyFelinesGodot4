@@ -30,7 +30,7 @@ func setup_alert_buffer_timer():
 func setup_timer():
 	alert_timer = Timer.new()
 	add_child(alert_timer)
-	alert_timer.wait_time = 6.0
+	alert_timer.wait_time = 30.0
 	alert_timer.one_shot = true
 	alert_timer.autostart = false
 	alert_timer.connect("timeout",Callable(self,"turn_off_alert_state"))

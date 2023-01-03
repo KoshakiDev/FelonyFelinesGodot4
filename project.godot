@@ -87,7 +87,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Felony Felines"
-run/main_scene="res://src/environment/levels/Level1.tscn"
+run/main_scene="res://src/environment/levels/Level2.tscn"
 config/features=PackedStringArray("4.0")
 boot_splash/image="res://splashscreen.png"
 boot_splash/fullsize=false

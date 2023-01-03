@@ -25,3 +25,16 @@ func body_entered_vision(body):
 
 func body_exited_vision(body):
 	body.collision_layer -= pow(2, 10-1)
+
+#
+#func area_entered_vision(area):
+#	area.set_collision_layer_value(10, true)
+#
+#func area_exited_vision(area):
+#	area.set_collision_layer_value(10, false)
+#
+#func body_entered_vision(body):
+#	body.set_collision_layer_value(10, true)
+#
+#func body_exited_vision(body):
+#	body.set_collision_layer_value(10, false)

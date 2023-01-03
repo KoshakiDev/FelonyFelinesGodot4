@@ -9,33 +9,41 @@ func enter(_msg := {}) -> void:
 	owner.update_internal_force_timer.start()
 
 func exit() -> void:
-	stand_timer.stop()
 	owner.update_internal_force_timer.stop()
 
 func physics_update(_delta: float) -> void:
-	if owner.health_manager.is_dead():
-		state_machine.transition_to("Death")
+	if check_death():
 		return
+	
 	if owner.last_target_position != null:
 		owner.forget_all_path_points()
 		state_machine.transition_to("Chase")
 		return
 	
 	if owner.awareness_meter >= 0.3 || !stand_timer.is_stopped():
-		target_detection()
+		if check_target_detection():
+			return
 	else:
-		path_point_detection()
+		if check_path_point_detection():
+			return
 
-func path_point_detection():
+func check_death():
+	if owner.health_manager.is_dead():
+		state_machine.transition_to("Death")
+		return true
+	
+
+func check_path_point_detection():
 	var path_point = owner.get_path_point()
 	if path_point != null:
 		state_machine.transition_to("Chase")
-		return
+		return true
 	
 
-func target_detection():
+func check_target_detection():
 	var target = owner.get_target()
 	if target != null:
 		owner.forget_all_path_points()
+		stand_timer.stop()
 		state_machine.transition_to("Attack")
-		return
+		return true
