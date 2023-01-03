@@ -6,10 +6,19 @@ extends State
 func enter(_msg := {}) -> void:
 	owner.play_animation("Idle", "Animations")
 	stand_timer.start()
+	owner.update_internal_force_timer.start()
+
+func exit() -> void:
+	stand_timer.stop()
+	owner.update_internal_force_timer.stop()
 
 func physics_update(_delta: float) -> void:
 	if owner.health_manager.is_dead():
 		state_machine.transition_to("Death")
+		return
+	if owner.last_target_position != null:
+		owner.forget_all_path_points()
+		state_machine.transition_to("Chase")
 		return
 	
 	if owner.awareness_meter >= 0.3 || !stand_timer.is_stopped():
@@ -27,9 +36,6 @@ func path_point_detection():
 func target_detection():
 	var target = owner.get_target()
 	if target != null:
+		owner.forget_all_path_points()
 		state_machine.transition_to("Attack")
 		return
-	if owner.last_target_position != null:
-		state_machine.transition_to("Chase")
-		return
-	

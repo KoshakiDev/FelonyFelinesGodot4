@@ -95,11 +95,18 @@ func vector_to_movement_direction(input_vector : Vector2) -> Vector2:
 		result[int(aspect > 1.0)] = 0
 	return result
 
+
+func get_normalized_internal_forces_direction() -> Vector2:
+	return vector_to_movement_direction(internal_forces)
+
 # Hitbox-Hurtbox Code
 func hurt(attacker_area):
+	var hitbox_data: HitboxData = attacker_area.get_hitbox_data()
+	
 	if health_manager.is_dead() or !can_get_hit:
 		return
-	var knockback_direction = global_position - attacker_area.global_position
+	var knockback_direction = (global_position - 
+		attacker_area.global_position)
 	
 	apply_external_force(knockback_direction, 
 		attacker_area.knockback_value)

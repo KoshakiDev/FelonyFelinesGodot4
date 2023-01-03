@@ -2,7 +2,8 @@ extends "res://src/entities/base_templates/base_entity/base_entity.gd"
 
 @export var player_id = "_1"
 const red_sprite = preload("res://assets/entities/players/red_brother_sheet_96x96.png")
-const blue_sprite = preload("res://assets/entities/players/blue_brother_sheet_96x96.png")
+const blue_sprite = preload("res://assets/entities/players/Blue_Movement_Coloring-Sheet.png")
+const blue_sprite_dark = preload("res://assets/entities/players/Blue_Movement_Coloring_Dark-Sheet.png")
 
 @onready var inventory_position = $Visuals/Sprite2D/InventoryPosition
 @onready var item_manager := $Visuals/Sprite2D/InventoryPosition/ItemManager
@@ -60,6 +61,11 @@ func _physics_process(_delta):
 	total_mass = mass
 	if item_manager.cur_item != null:
 		total_mass += item_manager.cur_item.item_mass
+	if get_collision_layer_value(10):
+		sprite.set_texture(blue_sprite)
+	else:
+		sprite.set_texture(blue_sprite_dark)
+	
 	super._physics_process(_delta)
 	#print(item_manager.rotation, " ", visuals.scale.x)
 

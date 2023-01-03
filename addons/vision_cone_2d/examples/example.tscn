@@ -136,7 +136,6 @@ collision_layer = 4
 color = Color(0.545098, 0.803922, 0.882353, 0.572549)
 
 [node name="Explanation" type="Label" parent="Level/Window"]
-visible = false
 offset_left = 18.0
 offset_top = 13.0
 offset_right = 260.0

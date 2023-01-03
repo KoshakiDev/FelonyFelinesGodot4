@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://da11ie34jq6lh"]
+
+[ext_resource type="Script" path="res://src/components/bullet-related/bullet_resources/BulletData.gd" id="1_0qpw4"]
+
+[resource]
+script = ExtResource("1_0qpw4")
+speed = 1.0
+damage_value = 1.0
+knockback_value = 1.0
+can_hit_enemies = false
+can_hit_players = false
+can_hit_projectiles = false

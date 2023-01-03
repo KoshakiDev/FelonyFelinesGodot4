@@ -1,9 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://4nx021u6of4m"]
+[gd_scene load_steps=5 format=3 uid="uid://4nx021u6of4m"]
 
 [ext_resource type="PackedScene" uid="uid://cg6meevnmlfp1" path="res://src/components/bullet-related/bullet_type/base_projectile/BaseProjectile.tscn" id="1_lpp66"]
+[ext_resource type="Script" path="res://src/components/bullet-related/bullet_resources/BulletData.gd" id="2_6bxoy"]
 [ext_resource type="Texture2D" uid="uid://ch1hxfjmjnj3q" path="res://assets/items/weapons/range/bullets/bullet_regular.png" id="2_hxc5r"]
 
+[sub_resource type="Resource" id="Resource_clmtg"]
+script = ExtResource("2_6bxoy")
+speed = 1.0
+damage_value = 1.0
+knockback_value = 1.0
+can_hit_enemies = false
+can_hit_players = false
+can_hit_projectiles = false
+
 [node name="RegularBullet" instance=ExtResource("1_lpp66")]
+bullet_data = SubResource("Resource_clmtg")
 
 [node name="Shadow" parent="." index="0"]
 modulate = Color(0, 0, 0, 0.490196)

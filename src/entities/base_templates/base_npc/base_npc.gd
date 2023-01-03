@@ -27,10 +27,6 @@ var last_target_position
 
 var path_points = []
 
-
-@onready var sus_timer = $Areas/SusTimer
-
-
 @onready var forget_timer = $ForgetTimer
 @onready var update_internal_force_timer = $UpdateInternalForceTimer
 
@@ -48,8 +44,6 @@ func _ready():
 		Callable(VFXManager, "create_points_effect"))
 	forget_timer.connect("timeout", 
 		Callable(self, "forget_last_position"))
-	sus_timer.connect("timeout", Callable(self, "become_alert"))
-	
 	setup_vision()
 	setup_look_direction()
 	
@@ -108,8 +102,7 @@ func get_path_point():
 
 func area_entered_vision(area):
 	if area.is_in_group("PATH_POINT"):
-		if (area.global_position - global_position).length() >= 1:
-			path_points.append(area)
+		path_points.append(area)
 		return
 	
 	if area.get("bullet_owner"):
@@ -146,7 +139,8 @@ func hurt(attacker_area):
 	if attacker_area is Projectile:
 		set_last_position(attacker_area.start_position)
 	else:
-		set_last_position(attacker_area.global_position)
+		set_last_position(attacker_area.global_position 
+			+ (attacker_area.global_position - global_position) * 5)
 	#Global.frame_freeze(0.5, 2)
 
 func turn_off_all():
@@ -176,11 +170,11 @@ func set_last_position(target_position):
 	last_target_position = target_position
 	forget_timer.start()
 
-func forget_this_path_point(forget_path_point):
-	path_points.erase(forget_path_point)
-
 func forget_last_position():
 	last_target_position = null
+
+func forget_all_path_points():
+	path_points = []
 
 func setup_vision():
 	vision.vision_area.connect("body_entered", 
@@ -208,7 +202,6 @@ func setup_burglar_mode():
 		Callable(self, "go_alert_state"))
 	Burglar.connect("turn_off_alert_state_for_entities", 
 		Callable(self, "go_normal_state"))
-
 
 func change_look_direction():
 	var random = RandomNumberGenerator.new()

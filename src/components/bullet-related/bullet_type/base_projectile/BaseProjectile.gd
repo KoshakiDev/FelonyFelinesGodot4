@@ -3,6 +3,7 @@ class_name Projectile
 
 const MAX_DISTANCE := 2000
 
+@export var bullet_data: BulletData
 # Internal state
 
 # global_position
@@ -26,6 +27,10 @@ func _ready() -> void:
 	connect("dust_effect", Callable(VFXManager, "create_dust_effect"))
 	connect("area_entered",Callable(self,"_on_Bullet_area_entered"))
 	connect("body_entered",Callable(self,"_on_Bullet_body_entered"))
+
+func set_bullet_data(new_bullet_data: BulletData):
+	bullet_data = new_bullet_data
+	
 
 func setup(
 		set_item_owner,

@@ -1,3 +1,6 @@
+res://src/components/bullet-related/bullet_resources/
+res://src/environment/levels
+res://src/environment/base_world
 res://test
 res://src/entities/items/weapons/range/uzi
 res://src/entities/items/base_templates/base_range_weapon
@@ -8,8 +11,6 @@ res://src/components/effects/bullet_shell
 res://src/components/effects/base_effect
 res://src/entities/enemies/EnemyGunner/states
 res://src/AutoLoad
-res://src/environment/levels
-res://src/environment/base_world
 res://src/shaders
 res://src/components/effects/dust_1
 res://src/entities/items/weapons/melee/bat/states
@@ -19,4 +20,3 @@ res://src/entities/players/player
 res://src/entities/items/weapons/melee/axe/states
 res://src/entities/items/medkit/states
 res://src/components/dynamic_splitscreen/remkae test
-res://src/entities/items/base_templates/base_range_weapon/states

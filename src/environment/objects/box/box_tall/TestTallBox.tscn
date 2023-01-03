@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://dpsakk2dvayat"]
 
 [ext_resource type="Texture2D" uid="uid://cj86x70auuwnb" path="res://assets/environment/objects/box/cardboard_box_tall.png" id="1"]
-[ext_resource type="PackedScene" path="res://src/environment/objects/box/box_small/TestBox.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://cod0f0mk6x2mq" path="res://src/environment/objects/box/box_small/TestBox.tscn" id="2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6iw15"]
 size = Vector2(64, 128)

@@ -3,6 +3,9 @@ extends Area2D
 
 @onready var collision_shape = $HitboxShape
 
+@export var hitbox_data: HitboxData
+
+
 @export_group("Damage Variables")
 @export var damage_value: float = 1
 @export var knockback_value: float  = 1
@@ -21,3 +24,6 @@ func turn_off():
 func turn_on():
 	monitorable = true
 	monitoring = true
+
+func get_hitbox_data() -> HitboxData: 
+	return hitbox_data

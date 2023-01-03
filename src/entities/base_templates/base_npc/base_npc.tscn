@@ -94,9 +94,6 @@ collision_mask = 3617
 [node name="DebugDraw" parent="Areas/VisionCone2D" index="2"]
 is_visible = false
 
-[node name="SusTimer" type="Timer" parent="Areas" index="2"]
-wait_time = 2.0
-
 [node name="Sprite2D" parent="Visuals" index="0"]
 material = SubResource("7")
 

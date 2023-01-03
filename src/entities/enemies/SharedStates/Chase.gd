@@ -44,7 +44,7 @@ func path_point_detection():
 	if path_point == null:
 		state_machine.transition_to("Idle")
 		return
-	next_position = path_point.global_position
+	next_position = path_point.global_position + owner.get_normalized_internal_forces_direction() * 25
 	
 func target_detection():
 	var target = owner.get_target()
