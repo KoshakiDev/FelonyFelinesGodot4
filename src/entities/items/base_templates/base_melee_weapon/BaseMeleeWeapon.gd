@@ -20,6 +20,10 @@ func set_inactive():
 	super.set_inactive()
 	hitbox.turn_off()
 
+func init(set_item_owner: Node2D) -> void:
+	super.init(set_item_owner)
+	hitbox.hitbox_owner = item_owner
+
 func setup_attack_delay_timer():
 	timer = Timer.new()
 	add_child(timer)

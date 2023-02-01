@@ -99,6 +99,7 @@ stream = ExtResource("18")
 volume_db = -10.0
 
 [node name="HealthBar" parent="." instance=ExtResource("1")]
+visible = false
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 

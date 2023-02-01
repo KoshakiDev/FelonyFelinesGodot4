@@ -1,0 +1,256 @@
+[gd_scene load_steps=14 format=3 uid="uid://h8ykeymdf2if"]
+
+[ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1_40xyj"]
+[ext_resource type="Script" path="res://src/entities/items/weapons/range/shotgun/Shotgun.gd" id="2_o07px"]
+[ext_resource type="Texture2D" uid="uid://b56s174xu1ujp" path="res://assets/items/weapons/range/shotgun/silenced_shotgun-Sheet.png" id="3_lqa57"]
+[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSpread.gd" id="4_f2f6w"]
+[ext_resource type="Texture2D" uid="uid://b41kemf6owevt" path="res://assets/items/weapons/range/muzzle_flashes/shotgun_flash.png" id="5_d7w4g"]
+[ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="6_2s27c"]
+[ext_resource type="AudioStream" uid="uid://ckqa8nk37gnef" path="res://sounds/guns/silenced_shotgun.wav" id="7_h04t2"]
+
+[sub_resource type="Resource" id="Resource_oyj1q"]
+script = ExtResource("4_f2f6w")
+amount = 4
+spread_angle = 2.5
+
+[sub_resource type="Animation" id="Animation_kq3bh"]
+resource_name = "Click"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 2, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.309, -1.309, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bolpj"]
+resource_name = "Idle"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D/Flash:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D/Visuals/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D/Flash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D/Visuals/Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="2"]
+resource_name = "Shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-12, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D/Flash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Visuals/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0523599, 0.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_click_animation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ercf"]
+_data = {
+"Click": SubResource("Animation_kq3bh"),
+"Idle": SubResource("Animation_bolpj"),
+"RESET": SubResource("3"),
+"Shoot": SubResource("2")
+}
+
+[node name="SilencedShotgun" instance=ExtResource("1_40xyj")]
+script = ExtResource("2_o07px")
+ammo = 24
+recoil = 150
+entity_name = "SHOTGUN"
+item_mass = 4
+
+[node name="Marker2D" parent="." index="0"]
+position = Vector2(9, -2)
+
+[node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
+texture = ExtResource("3_lqa57")
+hframes = 3
+
+[node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0"]
+position = Vector2(20, -3)
+shot_delay = 1.1
+bullet_speed = 1500.0
+bullet_damage_value = 50
+knockback_value = 500
+bullet_emitter = SubResource("Resource_oyj1q")
+
+[node name="Flash" type="Sprite2D" parent="Marker2D/Visuals/Sprite2D" index="1"]
+visible = false
+position = Vector2(48, -2)
+texture = ExtResource("5_d7w4g")
+
+[node name="AnimationPlayer" parent="Marker2D/AnimationMachine" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_5ercf")
+}
+
+[node name="Shot" type="Node2D" parent="Marker2D/SoundMachine" index="1"]
+script = ExtResource("6_2s27c")
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="Marker2D/SoundMachine/Shot" index="0"]
+stream = ExtResource("7_h04t2")

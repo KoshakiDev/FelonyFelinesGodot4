@@ -7,8 +7,6 @@
 [sub_resource type="Resource" id="Resource_clmtg"]
 script = ExtResource("2_6bxoy")
 speed = 1.0
-damage_value = 1.0
-knockback_value = 1.0
 can_hit_enemies = false
 can_hit_players = false
 can_hit_projectiles = false

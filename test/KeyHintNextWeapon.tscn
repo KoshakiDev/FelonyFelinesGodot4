@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://caqoo3m3vk01a"]
+
+[ext_resource type="PackedScene" uid="uid://dsh6bn6acmjbk" path="res://test/KeyHint.tscn" id="1_pgngu"]
+
+[node name="KeyHint" instance=ExtResource("1_pgngu")]
+current_key = "next_weapon_1"

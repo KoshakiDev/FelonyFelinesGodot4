@@ -10,8 +10,8 @@ radius = 4.0
 damage_value = 10.0
 knockback_value = 1000.0
 
-[node name="HitboxShape" parent="." index="0"]
-shape = SubResource("CircleShape2D_nobdv")
-
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_dil1t")
+
+[node name="HitboxShape" parent="." index="2"]
+shape = SubResource("CircleShape2D_nobdv")

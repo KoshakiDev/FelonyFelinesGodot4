@@ -4,6 +4,8 @@ signal drop_specific_weapon(drop_position, weapon_name)
 @onready var item_holder = $Visuals/Sprite2D/ItemHolder
 @export var max_shooting_distance = 500
 
+@export var is_stationary = false
+
 var is_shot_ready = true
 
 func _ready():

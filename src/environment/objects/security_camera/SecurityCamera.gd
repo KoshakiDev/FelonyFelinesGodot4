@@ -19,6 +19,8 @@ var awareness_increment = 0.02
 var awareness_decrement = 0.001
 
 signal turn_on_alert_state(has_seen_you)
+signal intruder_effect(effect_position)
+
 var has_seen_you = false
 
 func _ready():
@@ -44,6 +46,9 @@ func setup_vision():
 	vision_renderer.color = normal_color
 	
 func setup_burglar_mode():
+	connect("intruder_effect", 
+		Callable(VFXManager, "create_intruder_effect"))
+	
 	connect("turn_on_alert_state", 
 		Callable(Burglar, "turn_on_alert_state"))
 	Burglar.connect("turn_on_alert_state_for_entities", 
@@ -87,6 +92,8 @@ func body_exited_vision(body):
 	targets.erase(body)
 
 func detected():
+	emit_signal("intruder_effect", global_position)
+	
 	emit_signal("turn_on_alert_state", has_seen_you)
 	has_seen_you = true
 	#vision_renderer.color = detected_color
@@ -96,7 +103,7 @@ func awareness():
 	
 	var new_color: Color
 	
-	if awareness_meter == 1:
+	if awareness_meter == 1 && !has_seen_you:
 		detected()
 	if targets != []:
 		awareness_meter = clamp(awareness_meter + awareness_increment,

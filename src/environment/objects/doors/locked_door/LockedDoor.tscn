@@ -1,18 +1,63 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=8 format=3 uid="uid://cpkdjautjqpgi"]
 
-[ext_resource type="PackedScene" path="res://src/environment/objects/doors/base_door/BaseDoor.tscn" id="1"]
-[ext_resource type="PackedScene" path="res://src/environment/objects/interaction_zone/InteractionZone.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://biextgedqdqjw" path="res://src/environment/objects/doors/base_door/BaseDoor.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cyig2m7ib36gx" path="res://src/environment/objects/interaction_zone/InteractionZone.tscn" id="2"]
 [ext_resource type="Script" path="res://src/environment/objects/doors/locked_door/LockedDoor.gd" id="3"]
-[ext_resource type="PackedScene" path="res://src/environment/base_world/minigames/lock_minigame/LockMinigame.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://dkhv4o1fytnqo" path="res://test/hidden-Sheet.png" id="4_ae318"]
+[ext_resource type="FontFile" uid="uid://bjsgu6uxa313b" path="res://assets/fonts/windows_command_font.tres" id="5_16xcw"]
 
-[node name="LockedDoor" instance=ExtResource( 1 )]
-script = ExtResource( 3 )
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p1dx"]
+resource_local_to_scene = true
+size = Vector2(48, 7)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_plwem"]
+resource_local_to_scene = true
+height = 74.0
+
+[node name="LockedDoor" instance=ExtResource("1")]
+script = ExtResource("3")
+unlock_amount = 1
+
+[node name="Door" parent="." index="3"]
+shape = SubResource("RectangleShape2D_2p1dx")
 
 [node name="InteractFront" parent="." index="4"]
 visible = false
 
+[node name="CollisionShape2D" parent="InteractFront" index="0"]
+shape = SubResource("CapsuleShape2D_plwem")
+
 [node name="InteractBack" parent="." index="5"]
 visible = false
 
-[node name="InteractionZone" parent="." index="6" instance=ExtResource( 2 )]
-WINDOW = ExtResource( 4 )
+[node name="CollisionShape2D" parent="InteractBack" index="0"]
+shape = SubResource("CapsuleShape2D_plwem")
+
+[node name="InteractionZone" parent="." index="6" instance=ExtResource("2")]
+
+[node name="Hint" type="Node2D" parent="." index="7"]
+
+[node name="Eye" type="Sprite2D" parent="Hint" index="0"]
+position = Vector2(-32, -131)
+texture = ExtResource("4_ae318")
+hframes = 2
+
+[node name="HintText" type="RichTextLabel" parent="Hint" index="1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -146.0
+offset_right = 45.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("5_16xcw")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = "
+[center]x3"

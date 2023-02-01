@@ -1,19 +1,12 @@
-res://src/entities/enemies/EnemyGunner/EnemyGunner.tscn
-res://src/entities/enemies/EnemyGunner/states/Knockout.gd
 res://src/environment/levels/Level1.tscn
-res://src/environment/base_world/base_world.tscn
+res://addons/dialogic/Editor/Events/styles/InputFieldsStyle.tres
+res://addons/dialogic/Editor/Events/styles/ResourceMenuPanelBackground.tres
+res://test/Dialogic assets/Isa.dch
+res://test/Dialogic assets/timelines/Test.dtl
+res://src/entities/enemies/EnemyGunner/states/Knockout.gd
 res://src/environment/levels/Level2.tscn
-res://src/entities/players/player/Player_1.tscn
-res://src/entities/enemies/SharedStates/Chase.gd
-res://src/entities/enemies/SharedStates/Idle.gd
-res://src/entities/scripts/SoundMachine.gd
-res://src/components/effects/Intruder/Intruder.tscn
-res://src/entities/base_templates/base_npc/base_npc.gd
-res://src/AutoLoad/VFXManager.gd
-res://src/components/effects/point_effect/PointEffect.tscn
-res://src/AutoLoad/Burglar.gd
-res://src/UI/BurglarUI/BurglarUI.tscn
-res://src/entities/players/player/Player.gd
-res://src/environment/objects/light/Light.tscn
-res://src/environment/objects/light/Light.gd
-res://src/UI/BustedScreen/busted.tscn
+res://src/environment/levels/Level3.tscn
+res://src/environment/objects/doors/base_door/BaseDoor.tscn
+res://src/environment/objects/doors/locked_door/LockedDoor.tscn
+res://src/entities/enemies/EnemyGunner/EnemyGunner.tscn
+res://test/Shockwave.tscn

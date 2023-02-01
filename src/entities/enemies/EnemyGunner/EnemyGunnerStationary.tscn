@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmc7jegt7sp0d"]
+
+[ext_resource type="PackedScene" uid="uid://b5m18k3ui14sh" path="res://src/entities/enemies/EnemyGunner/EnemyGunner.tscn" id="1_tgq61"]
+[ext_resource type="Texture2D" uid="uid://d0c4gaws5j1re" path="res://assets/entities/enemies/gunner/sergeant_sir_giant_coloring_blue-Sheet.png" id="2_wnbby"]
+
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_xqvaj"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_sk4l0"]
+source = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_cnxm2"]
+operator = 6
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ih361"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_tuans"]
+parameter_name = "active"
+
+[sub_resource type="VisualShader" id="VisualShader_1k7mg"]
+code = "shader_type canvas_item;
+uniform bool active;
+
+
+
+void fragment() {
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(TEXTURE, UV);
+
+
+// BooleanParameter:9
+	bool n_out9p0 = active;
+
+
+// ColorConstant:11
+	vec4 n_out11p0 = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+
+
+// VectorOp:6
+	vec3 n_out6p0 = vec3(n_out9p0 ? 1.0 : 0.0) * vec3(n_out11p0.xyz);
+
+
+// VectorOp:5
+	vec3 n_out5p0 = max(vec3(n_out3p0.xyz), n_out6p0);
+
+
+// Output:0
+	COLOR.rgb = n_out5p0;
+
+
+}
+"
+mode = 1
+flags/light_only = false
+nodes/fragment/0/position = Vector2(1040, 60)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_sk4l0")
+nodes/fragment/3/position = Vector2(600, -40)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_cnxm2")
+nodes/fragment/5/position = Vector2(860, -60)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_ih361")
+nodes/fragment/6/position = Vector2(600, 100)
+nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_tuans")
+nodes/fragment/9/position = Vector2(400, 0)
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_xqvaj")
+nodes/fragment/11/position = Vector2(400, 120)
+nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6myw"]
+resource_local_to_scene = true
+shader = SubResource("VisualShader_1k7mg")
+shader_parameter/active = false
+
+[node name="EnemyGunner" instance=ExtResource("1_tgq61")]
+is_stationary = true
+
+[node name="Sprite2D" parent="Visuals" index="0"]
+material = SubResource("ShaderMaterial_u6myw")
+texture = ExtResource("2_wnbby")
+
+[editable path="Areas/Hurtbox"]
+[editable path="Areas/VisionCone2D"]

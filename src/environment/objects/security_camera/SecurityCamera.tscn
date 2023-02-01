@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://csxsxlroto2c2"]
+[gd_scene load_steps=11 format=3 uid="uid://csxsxlroto2c2"]
 
 [ext_resource type="Script" path="res://src/environment/objects/security_camera/SecurityCamera.gd" id="1_e4haj"]
 [ext_resource type="Texture2D" uid="uid://ck8qk0rtafhsl" path="res://src/environment/objects/security_camera/security_camera.png" id="2_g2dn4"]
+[ext_resource type="Texture2D" uid="uid://dj2yehclmy7hg" path="res://src/environment/objects/vision.png" id="2_xthdw"]
 [ext_resource type="PackedScene" uid="uid://kf8tqdlm8c5t" path="res://addons/vision_cone_2d/vision_cone_2d_template.tscn" id="3_xows3"]
 [ext_resource type="Texture2D" uid="uid://bp4qcx0a43jnq" path="res://test/Sprite-0004.png" id="4_pr77w"]
 
@@ -28,11 +29,16 @@ _data = {
 [node name="SecurityCamera" type="Node2D" node_paths=PackedStringArray("vision_renderer")]
 script = ExtResource("1_e4haj")
 vision_renderer = NodePath("VisionCone2D/VisionConeRenderer")
-normal_color = Color(1, 0.796078, 0, 0.705882)
-detected_color = Color(1, 0, 0, 0.705882)
+normal_color = Color(0.952941, 0.12549, 0.0745098, 0.333333)
+detected_color = Color(0.576471, 0.0431373, 0, 0.87451)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.4, 0.4, 0.4, 1)
+position = Vector2(0, -57)
+scale = Vector2(0.101562, 1.71875)
+texture = ExtResource("2_xthdw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.498039)
 position = Vector2(0, -115)
 z_index = 1
 texture = ExtResource("2_g2dn4")
@@ -55,7 +61,7 @@ libraries = {
 
 [node name="VisionCone2D" parent="." instance=ExtResource("3_xows3")]
 rotation = -1.5708
-z_index = -2
+z_index = -1
 angle_deg = 90.0
 ray_count = 50
 
@@ -69,5 +75,9 @@ collision_mask = 3585
 
 [node name="DebugDraw" parent="VisionCone2D" index="2"]
 is_visible = false
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="VisionCone2D"]
+rect = Rect2(-250, -250, 500, 500)
+enable_mode = 1
 
 [editable path="VisionCone2D"]

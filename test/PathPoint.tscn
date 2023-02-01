@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://5fx8ose3rmii"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6tdtn"]
-radius = 5.0
+radius = 2.0
 
 [node name="PathPoint" type="Area2D" groups=["PATH_POINT"]]
 collision_layer = 8192
@@ -12,7 +12,7 @@ monitoring = false
 shape = SubResource("CircleShape2D_6tdtn")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-1.19209e-07, -0.333333)
-scale = Vector2(0.714286, 0.666667)
+position = Vector2(-4.76837e-07, 4.76837e-07)
+scale = Vector2(0.285714, 0.266667)
 color = Color(1, 0, 1, 1)
 polygon = PackedVector2Array(7, 8, -7, 8, -7, -7, 1.66893e-07, -7, 7, -7)

@@ -7,6 +7,7 @@ signal player_reached_flag
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	connect("player_reached_flag", Callable(Burglar, "pass_level"))
 	connect("player_reached_flag", Callable(Global.main, "transition_to_next_scene"))
 	win_area.connect("body_entered", Callable(self, "win"))
 

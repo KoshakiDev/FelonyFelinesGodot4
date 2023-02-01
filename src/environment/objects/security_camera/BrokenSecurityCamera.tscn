@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhut703s63d4i"]
+
+[ext_resource type="PackedScene" uid="uid://csxsxlroto2c2" path="res://src/environment/objects/security_camera/SecurityCamera.tscn" id="1_y8hr6"]
+[ext_resource type="Script" path="res://src/environment/objects/security_camera/BrokenSecurityCamera.gd" id="2_51edm"]
+[ext_resource type="Texture2D" uid="uid://cqgo70t33skfp" path="res://src/environment/objects/security_camera/broken_security_camera.png" id="3_8vvt4"]
+
+[node name="SecurityCamera" instance=ExtResource("1_y8hr6")]
+script = ExtResource("2_51edm")
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_8vvt4")
+
+[node name="FlickerTimer" type="Timer" parent="." index="5"]
+wait_time = 0.25
+autostart = true
+
+[editable path="VisionCone2D"]

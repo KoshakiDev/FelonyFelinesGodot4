@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bhppar5m7rr10"]
+[gd_scene load_steps=37 format=3 uid="uid://b5m18k3ui14sh"]
 
 [ext_resource type="PackedScene" path="res://src/components/spawners/dust/DustSpawner.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dj4imexibaje1" path="res://src/entities/base_templates/base_npc/base_npc.tscn" id="2"]
@@ -11,10 +11,8 @@
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Idle.gd" id="10"]
 [ext_resource type="PackedScene" uid="uid://7g4bebhu8p61" path="res://src/components/circle_progress_bar/CircleProgress.tscn" id="10_2ocm0"]
 [ext_resource type="Texture2D" uid="uid://bp4qcx0a43jnq" path="res://test/Sprite-0004.png" id="10_i1kf7"]
-[ext_resource type="Texture2D" uid="uid://vvh1rme2js3x" path="res://assets/entities/enemies/gunner/sergeant_sir_giant_128x128_5x9.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://c53ij5sdok4di" path="res://assets/entities/enemies/gunner/sergeant_sir_giant_128x128_5x9.png" id="12"]
 [ext_resource type="Script" path="res://src/entities/enemies/SharedStates/Pain.gd" id="13"]
-[ext_resource type="Texture2D" uid="uid://boxci3w8p35da" path="res://assets/effects/part-Caution.png" id="14_q76xd"]
-[ext_resource type="Texture2D" uid="uid://bjhjgiphxco4i" path="res://assets/effects/Question.png" id="15_u6pjv"]
 [ext_resource type="AudioStream" uid="uid://bdybdl7pg12il" path="res://sounds/gunner_barks/pain/pain_1.mp3" id="16_ymdnl"]
 [ext_resource type="AudioStream" uid="uid://brguol5lv61gb" path="res://sounds/gunner_barks/pain/pain_2.mp3" id="17_shmrd"]
 [ext_resource type="AudioStream" uid="uid://cgg0lwmn584d0" path="res://sounds/gunner_barks/pain/pain_3.mp3" id="18_kkiga"]
@@ -23,24 +21,24 @@
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="22_abm3h"]
 [ext_resource type="AudioStream" uid="uid://bycp1fbihwlaj" path="res://sounds/gunner_barks/target_detected/Intruder.mp3" id="23_2uww2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxvyy"]
-size = Vector2(80, 56)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3py1"]
+size = Vector2(80, 81)
 
-[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_h3fwb"]
+[sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_r42n1"]
 
-[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_lfnin"]
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_xck0d"]
 source = 2
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_0m357"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_qu0lq"]
 operator = 6
 
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_4qquw"]
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_74qhv"]
 operator = 2
 
-[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_1kkbw"]
+[sub_resource type="VisualShaderNodeBooleanParameter" id="VisualShaderNodeBooleanParameter_fv6tf"]
 parameter_name = "active"
 
-[sub_resource type="VisualShader" id="VisualShader_356r8"]
+[sub_resource type="VisualShader" id="VisualShader_m11x1"]
 code = "shader_type canvas_item;
 uniform bool active;
 
@@ -77,24 +75,24 @@ void fragment() {
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(1040, 60)
-nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_lfnin")
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_xck0d")
 nodes/fragment/3/position = Vector2(600, -40)
-nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_0m357")
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_qu0lq")
 nodes/fragment/5/position = Vector2(860, -60)
-nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_4qquw")
+nodes/fragment/6/node = SubResource("VisualShaderNodeVectorOp_74qhv")
 nodes/fragment/6/position = Vector2(600, 100)
-nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_1kkbw")
+nodes/fragment/9/node = SubResource("VisualShaderNodeBooleanParameter_fv6tf")
 nodes/fragment/9/position = Vector2(400, 0)
-nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_h3fwb")
+nodes/fragment/11/node = SubResource("VisualShaderNodeColorConstant_r42n1")
 nodes/fragment/11/position = Vector2(400, 120)
 nodes/fragment/connections = PackedInt32Array(3, 0, 5, 0, 6, 0, 5, 1, 5, 0, 0, 0, 9, 0, 6, 0, 11, 0, 6, 1)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ofahi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6f1u6"]
 resource_local_to_scene = true
-shader = SubResource("VisualShader_356r8")
+shader = SubResource("VisualShader_m11x1")
 shader_parameter/active = false
 
-[sub_resource type="Animation" id="Animation_65nto"]
+[sub_resource type="Animation" id="Animation_xdkof"]
 resource_name = "Death"
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -146,7 +144,7 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_o6a13"]
+[sub_resource type="Animation" id="Animation_v7y1g"]
 resource_name = "Hit_Back"
 length = 0.5
 tracks/0/type = "value"
@@ -162,7 +160,7 @@ tracks/0/keys = {
 "values": [27, 28, 29]
 }
 
-[sub_resource type="Animation" id="Animation_inmax"]
+[sub_resource type="Animation" id="Animation_o6feu"]
 resource_name = "Hit_Front"
 length = 0.5
 tracks/0/type = "value"
@@ -178,7 +176,7 @@ tracks/0/keys = {
 "values": [18, 19, 20]
 }
 
-[sub_resource type="Animation" id="Animation_oiwiy"]
+[sub_resource type="Animation" id="Animation_4x4jo"]
 resource_name = "Idle"
 length = 0.5
 loop_mode = 1
@@ -207,7 +205,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8), Vector2(0, 11), Vector2(0, 7)]
 }
 
-[sub_resource type="Animation" id="Animation_phlie"]
+[sub_resource type="Animation" id="Animation_xe3xu"]
 resource_name = "Knockout"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -222,7 +220,7 @@ tracks/0/keys = {
 "values": [36, 37, 38, 39, 40, 41, 42, 43, 44, 44]
 }
 
-[sub_resource type="Animation" id="Animation_ljrxh"]
+[sub_resource type="Animation" id="Animation_darpd"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -249,7 +247,7 @@ tracks/1/keys = {
 "values": [Vector2(0, 8)]
 }
 
-[sub_resource type="Animation" id="Animation_yjx27"]
+[sub_resource type="Animation" id="Animation_guajd"]
 resource_name = "Run"
 length = 0.8
 loop_mode = 1
@@ -324,25 +322,27 @@ tracks/3/keys = {
 "values": [Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5), Vector2(0, 2), Vector2(0, 5), Vector2(0, 8), Vector2(0, 5)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ac74"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2hfrp"]
 _data = {
-"Death": SubResource("Animation_65nto"),
-"Hit_Back": SubResource("Animation_o6a13"),
-"Hit_Front": SubResource("Animation_inmax"),
-"Idle": SubResource("Animation_oiwiy"),
-"Knockout": SubResource("Animation_phlie"),
-"RESET": SubResource("Animation_ljrxh"),
-"Run": SubResource("Animation_yjx27")
+"Death": SubResource("Animation_xdkof"),
+"Hit_Back": SubResource("Animation_v7y1g"),
+"Hit_Front": SubResource("Animation_o6feu"),
+"Idle": SubResource("Animation_4x4jo"),
+"Knockout": SubResource("Animation_xe3xu"),
+"RESET": SubResource("Animation_darpd"),
+"Run": SubResource("Animation_guajd")
 }
 
 [node name="EnemyGunner" groups=["ENEMY"] instance=ExtResource("2")]
 collision_layer = 4
 script = ExtResource("9")
 max_shooting_distance = 250
-normal_color = Color(1, 0.796078, 0, 0.705882)
-detected_color = Color(1, 0, 0, 0.705882)
-mass = 250
-speed_percentage = 0.8
+is_stationary = false
+normal_color = Color(1, 0, 0, 0.196078)
+detected_color = Color(0.576471, 0.0431373, 0, 0.87451)
+awareness_increment = 0.15
+awareness_decrement = 0.01
+mass = 150
 
 [node name="StateMachine" parent="." index="0"]
 initial_state = NodePath("Idle")
@@ -351,11 +351,15 @@ initial_state = NodePath("Idle")
 script = ExtResource("10")
 
 [node name="StandTimer" type="Timer" parent="StateMachine/Idle" index="0"]
-wait_time = 2.5
+wait_time = 0.5
 one_shot = true
 
 [node name="Chase" type="Node" parent="StateMachine" index="1"]
 script = ExtResource("6")
+
+[node name="ChaseTimer" type="Timer" parent="StateMachine/Chase" index="0"]
+wait_time = 30.0
+one_shot = true
 
 [node name="Attack" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("5")
@@ -377,10 +381,11 @@ collision_layer = 128
 collision_mask = 8
 
 [node name="HurtboxShape" parent="Areas/Hurtbox" index="0"]
-shape = SubResource("RectangleShape2D_mxvyy")
+position = Vector2(0, -12.5)
+shape = SubResource("RectangleShape2D_a3py1")
 
 [node name="VisionCone2D" parent="Areas" index="1"]
-z_index = -2
+z_index = -1
 
 [node name="VisionConeRenderer" parent="Areas/VisionCone2D" index="0"]
 texture_repeat = 2
@@ -389,6 +394,11 @@ texture = ExtResource("10_i1kf7")
 [node name="VisionConeArea" parent="Areas/VisionCone2D" index="1"]
 collision_mask = 11777
 
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="Areas/VisionCone2D" index="3"]
+visible = false
+rect = Rect2(-500, -500, 1000, 1000)
+enable_mode = 1
+
 [node name="CircleProgressBar" parent="Areas" index="2" instance=ExtResource("10_2ocm0")]
 visible = false
 modulate = Color(0.878431, 0, 0.105882, 1)
@@ -396,7 +406,7 @@ position = Vector2(0, -111)
 scale = Vector2(0.25, 0.25)
 
 [node name="Sprite2D" parent="Visuals" index="0"]
-material = SubResource("ShaderMaterial_ofahi")
+material = SubResource("ShaderMaterial_6f1u6")
 position = Vector2(0, -56)
 texture = ExtResource("12")
 hframes = 9
@@ -408,25 +418,13 @@ script = ExtResource("9_u82ke")
 
 [node name="DustSpawner" parent="Visuals" index="1" instance=ExtResource("1")]
 
-[node name="Alert" type="Sprite2D" parent="Visuals" index="2"]
-visible = false
-position = Vector2(45, -95)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("14_q76xd")
-
-[node name="Question" type="Sprite2D" parent="Visuals" index="3"]
-visible = false
-position = Vector2(46, -100)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("15_u6pjv")
-
 [node name="HealthManager" parent="." index="3"]
 max_health = 100.0
 
 [node name="Animations" type="AnimationPlayer" parent="AnimationMachine" index="0"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_3ac74")
+"": SubResource("AnimationLibrary_2hfrp")
 }
 
 [node name="Pain" parent="SoundMachine" index="1"]
@@ -464,13 +462,15 @@ max_distance = 3000.0
 position = Vector2(0, -133)
 
 [node name="NavigationAgent2D" parent="." index="10"]
+path_desired_distance = 1.0
+target_desired_distance = 1.0
 radius = 200.0
 
 [node name="ForgetTimer" parent="." index="11"]
-wait_time = 3.0
+wait_time = 10.0
 
 [node name="UpdateInternalForceTimer" parent="." index="12"]
-wait_time = 2.5
+wait_time = 0.75
 
 [editable path="Areas/Hurtbox"]
 [editable path="Areas/VisionCone2D"]

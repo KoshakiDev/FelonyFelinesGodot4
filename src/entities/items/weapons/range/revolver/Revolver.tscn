@@ -139,9 +139,10 @@ _data = {
 }
 
 [node name="Revolver" instance=ExtResource("2")]
-ammo = 18
+ammo = 6
 ammo_pack_amount = 6
 entity_name = "REVOLVER"
+despawn_time = 120
 
 [node name="Marker2D" parent="." index="0"]
 position = Vector2(15, -2)

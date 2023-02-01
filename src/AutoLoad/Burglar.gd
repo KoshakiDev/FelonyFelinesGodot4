@@ -1,5 +1,9 @@
 extends Node
 
+var player: Node2D
+
+var stealth_points = 6
+
 var alert_state = false
 var alert_counter = 0
 
@@ -30,7 +34,7 @@ func setup_alert_buffer_timer():
 func setup_timer():
 	alert_timer = Timer.new()
 	add_child(alert_timer)
-	alert_timer.wait_time = 30.0
+	alert_timer.wait_time = 5.0
 	alert_timer.one_shot = true
 	alert_timer.autostart = false
 	alert_timer.connect("timeout",Callable(self,"turn_off_alert_state"))
@@ -50,12 +54,6 @@ func turn_off_alert_state():
 	alert_state = false
 	emit_signal("turn_off_alert_state_for_entities")
 	
-	
-func _physics_process(delta):
-	if alert_time_left == null:
-		return
-	alert_time_left.text = str(snapped(alert_timer.time_left, 1))
-
 
 func start_game_over():
 	emit_signal("show_busted_screen")
@@ -64,6 +62,11 @@ func game_over():
 	reset_everything()
 	get_tree().reload_current_scene()
 
+
+func pass_level():
+	stealth_points += 3 - alert_counter
+	reset_everything()
+	
 
 func reset_everything():
 	alert_timer.stop()

@@ -22,5 +22,5 @@ func enter(msg := {}) -> void:
 		owner.play_animation("Hit_Back", "Animations")
 	await owner.animation_machine.get_node("Animations").animation_finished
 	owner.forget_all_path_points()
-	owner.awareness_meter += 0.3
+	owner.awareness_meter = max(0.5, owner.awareness_meter)
 	state_machine.transition_to("Idle")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://go1loxy8eewn"]
+
+[ext_resource type="PackedScene" uid="uid://csxsxlroto2c2" path="res://src/environment/objects/security_camera/SecurityCamera.tscn" id="1_4owqt"]
+[ext_resource type="Script" path="res://src/environment/objects/security_camera/FrozenSecurityCamera.gd" id="2_m8lnc"]
+
+[node name="SecurityCamera" instance=ExtResource("1_4owqt")]
+script = ExtResource("2_m8lnc")
+normal_color = Color(1, 0.796078, 0, 0.74902)
+detected_color = Color(1, 0, 0, 0.74902)
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(-1, 1)
+
+[editable path="VisionCone2D"]

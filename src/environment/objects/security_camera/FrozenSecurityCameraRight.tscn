@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmnsgavja30fm"]
+
+[ext_resource type="PackedScene" uid="uid://csxsxlroto2c2" path="res://src/environment/objects/security_camera/SecurityCamera.tscn" id="1_6w0wg"]
+[ext_resource type="Script" path="res://src/environment/objects/security_camera/FrozenSecurityCamera.gd" id="2_07gls"]
+
+[node name="SecurityCamera" instance=ExtResource("1_6w0wg")]
+script = ExtResource("2_07gls")
+
+[editable path="VisionCone2D"]

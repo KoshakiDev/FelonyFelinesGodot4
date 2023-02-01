@@ -17,7 +17,10 @@ func physics_update(_delta: float) -> void:
 		state_machine.transition_to("Idle")
 		return
 	elif target == null && owner.last_target_position != null:
-		state_machine.transition_to("Chase")
+		if owner.is_stationary:
+			state_machine.transition_to("Idle")
+		else:
+			state_machine.transition_to("Chase")
 		return
 	owner.attack(target)
 

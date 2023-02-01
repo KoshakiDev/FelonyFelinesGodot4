@@ -1,22 +1,25 @@
-res://src/components/effects/Intruder
-res://src/components/effects/base_effect
+/Users/zhangirnurmukhambetov/Documents/Godot Projects/untitled folder/export/windows
+/Users/zhangirnurmukhambetov/Downloads
+/Users/zhangirnurmukhambetov/Documents/Godot Projects/untitled folder/export/html
+res://src/environment/objects/doors/base_door
+res://src/environment/objects/doors/locked_door
+res://src/entities/items/weapons/melee/nothing
+res://src/entities/items/base_templates/base_melee_weapon
+res://src/entities/enemies/EnemyGunner
+res://test/Dialogic assets/timelines
+res://test/Dialogic assets
+res://test/Dialogic assets/Musa Sounds
+res://test
+res://addons/dialogic/Example Assets/backgrounds
+res://test/Dialogic assets/isa
+res://src/components/dialog_trigger
+res://src/entities/items/weapons/range/gatling
+res://src/entities/items/base_templates/base_range_weapon
 res://src/environment/levels
+res://src/components/effects/ouch_effect
+res://src/components/effects/base_effect
+res://src/components/effects/hit_2
+res://src/environment/objects/security_camera
+res://src/components/effects/Intruder
 res://src/components/bullet-related/bullet_resources/
 res://src/environment/base_world
-res://test
-res://src/entities/items/weapons/range/uzi
-res://src/entities/items/base_templates/base_range_weapon
-res://src/entities/items/flashlight
-res://src/entities/items/base_templates/base_item
-res://src/UI/BustedScreen
-res://src/components/effects/bullet_shell
-res://src/entities/enemies/EnemyGunner/states
-res://src/AutoLoad
-res://src/shaders
-res://src/components/effects/dust_1
-res://src/entities/items/weapons/melee/bat/states
-res://src/entities/items/weapons/melee/bat
-res://src/entities/items/base_templates/base_melee_weapon
-res://src/entities/players/player
-res://src/entities/items/weapons/melee/axe/states
-res://src/entities/items/medkit/states

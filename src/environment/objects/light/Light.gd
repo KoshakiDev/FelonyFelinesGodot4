@@ -5,7 +5,6 @@ extends Node2D
 @onready var anim_player = $AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	anim_player.play("Sway")
 	#vision_renderer.color = Color(255, 255, 255, 73)
 	light.vision_area.connect("body_entered", Callable(self, "body_entered_vision"))
 	light.vision_area.connect("body_exited", Callable(self, "body_exited_vision"))

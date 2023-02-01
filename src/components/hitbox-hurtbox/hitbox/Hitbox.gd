@@ -10,6 +10,8 @@ extends Area2D
 @export var damage_value: float = 1
 @export var knockback_value: float  = 1
 
+var hitbox_owner = null
+# To-do: merge bullet_owner and hitbox_owner
 
 const empty_bitmask = 0b00000000000000000000
 

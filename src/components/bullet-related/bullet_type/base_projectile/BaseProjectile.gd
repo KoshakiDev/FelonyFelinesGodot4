@@ -24,7 +24,7 @@ signal dust_effect(effect_position)
 func _ready() -> void:
 	super._ready()
 	sprite.global_position.y = sprite_y
-	connect("dust_effect", Callable(VFXManager, "create_dust_effect"))
+	connect("dust_effect", Callable(VFXManager, "create_hit_effect"))
 	connect("area_entered",Callable(self,"_on_Bullet_area_entered"))
 	connect("body_entered",Callable(self,"_on_Bullet_body_entered"))
 
@@ -66,11 +66,11 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func _on_Bullet_area_entered(_area):
-	emit_signal("dust_effect", global_position)
+	emit_signal("dust_effect", Vector2(global_position.x, sprite.global_position.y))
 	queue_free()
 
 func _on_Bullet_body_entered(_body):
-	emit_signal("dust_effect", global_position)
+	emit_signal("dust_effect", Vector2(global_position.x, sprite.global_position.y))
 	queue_free()
 
 

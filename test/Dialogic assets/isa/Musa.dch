@@ -1,0 +1,37 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {
+"": {
+"name": "",
+"pitch_base": 1.0,
+"pitch_variance": 0.05,
+"sound_folder": "res://test/Dialogic assets/Musa Sounds",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
+"style": ""
+},
+"default_portrait": "Default Musa",
+"description": "",
+"display_name": "Musa",
+"mirror": false,
+"nicknames": ["bro"],
+"offset": Vector2(0, 0),
+"portraits": {
+"Default Musa": {
+"image": "res://test/Dialogic assets/Brother Big.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "",
+"sound_mood": "",
+"sound_mood_default": ""
+}
+},
+"scale": 0.2
+}

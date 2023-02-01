@@ -1,0 +1,117 @@
+[gd_scene load_steps=12 format=3 uid="uid://dungsqhw3fx8c"]
+
+[ext_resource type="PackedScene" uid="uid://bawo57y00ukg7" path="res://src/entities/items/base_templates/base_range_weapon/BaseRangeWeapon.tscn" id="1_nybf3"]
+[ext_resource type="Script" path="res://src/components/bullet-related/bullet_emitters/BulletEmitterSingle.gd" id="2_qrwxl"]
+[ext_resource type="Script" path="res://src/entities/items/weapons/range/gatling/Gatling.gd" id="2_ykxwa"]
+[ext_resource type="Texture2D" uid="uid://d4ivbg4ke8xom" path="res://assets/items/weapons/range/minigun/minigun.png" id="3_jlxk1"]
+[ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4_ko7cm"]
+[ext_resource type="Texture2D" uid="uid://c8ug7fydg7dbu" path="res://assets/items/weapons/range/muzzle_flashes/minigun_flash.png" id="5_h3fro"]
+[ext_resource type="AudioStream" uid="uid://vmf6gw7j8dtx" path="res://sounds/guns/pistol.wav" id="5_sqvgj"]
+
+[sub_resource type="Resource" id="Resource_gkfy5"]
+script = ExtResource("2_qrwxl")
+spread = 60
+
+[sub_resource type="Animation" id="Animation_7fgb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D/Flash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_biaye"]
+resource_name = "Shoot"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Visuals/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, -12), Vector2(-5, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Visuals/Sprite2D/Flash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6rt52"]
+_data = {
+"RESET": SubResource("Animation_7fgb4"),
+"Shoot": SubResource("Animation_biaye")
+}
+
+[node name="Gatling" instance=ExtResource("1_nybf3")]
+script = ExtResource("2_ykxwa")
+ammo = 9999
+recoil = 100
+ammo_pack_amount = 9999
+
+[node name="Marker2D" parent="." index="0"]
+position = Vector2(9, 8)
+
+[node name="ItemMonitorable" parent="Marker2D" index="0"]
+position = Vector2(5, -9)
+
+[node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
+position = Vector2(4, -12)
+texture = ExtResource("3_jlxk1")
+
+[node name="BulletSpawner" parent="Marker2D/Visuals/Sprite2D" index="0"]
+position = Vector2(33, -1)
+shot_delay = 0.005
+bullet_speed = 800.0
+bullet_damage_value = 50
+knockback_value = 100
+bullet_emitter = SubResource("Resource_gkfy5")
+
+[node name="Flash" type="Sprite2D" parent="Marker2D/Visuals/Sprite2D" index="1"]
+visible = false
+show_behind_parent = true
+position = Vector2(57, -1)
+texture = ExtResource("5_h3fro")
+
+[node name="AnimationPlayer" parent="Marker2D/AnimationMachine" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_6rt52")
+}
+
+[node name="Shot" type="Node2D" parent="Marker2D/SoundMachine" index="3"]
+position = Vector2(-14, 3)
+script = ExtResource("4_ko7cm")
+pitch_range = 0.2
+
+[node name="Shot" type="AudioStreamPlayer2D" parent="Marker2D/SoundMachine/Shot" index="0"]
+stream = ExtResource("5_sqvgj")

@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://y83y2bnhu06c"]
+[gd_scene load_steps=13 format=3 uid="uid://y83y2bnhu06c"]
 
 [ext_resource type="PackedScene" uid="uid://dogomrmgfmpeb" path="res://src/entities/items/base_templates/base_melee_weapon/BaseMeleeWeapon.tscn" id="1_v6mej"]
+[ext_resource type="Script" path="res://src/entities/items/weapons/melee/bat/BaseballBat.gd" id="2_es2q0"]
 [ext_resource type="Script" path="res://src/entities/items/weapons/melee/bat/states/Action.gd" id="2_tifdt"]
 [ext_resource type="Texture2D" uid="uid://bnugb6mpdh6cf" path="res://assets/items/weapons/melee/baseball bat/bat.png" id="2_ut82f"]
 [ext_resource type="Texture2D" uid="uid://c25kkrswu6ete" path="res://assets/items/weapons/melee/axe/axe_slash-sheet.png" id="4_dwwhw"]
+[ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="6_37ink"]
+[ext_resource type="AudioStream" uid="uid://cywisuavj0chr" path="res://sounds/hit/352199__inspectorj__snapping-wooden-fence-q.wav" id="7_mgydu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0tcl"]
 size = Vector2(32, 16)
@@ -241,7 +244,8 @@ _data = {
 }
 
 [node name="BaseballBat" instance=ExtResource("1_v6mej")]
-recoil = 1.0
+script = ExtResource("2_es2q0")
+hit_maximum = 50
 attack_delay = 0.3
 entity_name = "BAT"
 
@@ -259,8 +263,8 @@ offset = Vector2(10, 0)
 position = Vector2(22, 0)
 collision_layer = 8
 collision_mask = 128
-damage_value = 25.0
-knockback_value = 2500.0
+damage_value = 15.0
+knockback_value = 3000.0
 
 [node name="HitboxShape" parent="Marker2D/Visuals/Sprite2D/Hitbox" index="0"]
 position = Vector2(0.5, 0)
@@ -279,5 +283,12 @@ libraries = {
 
 [node name="Action" type="Node" parent="Marker2D/StateMachine" index="3"]
 script = ExtResource("2_tifdt")
+
+[node name="Break" type="Node2D" parent="Marker2D/SoundMachine" index="3"]
+script = ExtResource("6_37ink")
+pitch_range = 0.2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Marker2D/SoundMachine/Break" index="0"]
+stream = ExtResource("7_mgydu")
 
 [editable path="Marker2D/Visuals/Sprite2D/Hitbox"]

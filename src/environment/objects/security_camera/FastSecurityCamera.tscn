@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://jufklww1jes7"]
+
+[ext_resource type="PackedScene" uid="uid://csxsxlroto2c2" path="res://src/environment/objects/security_camera/SecurityCamera.tscn" id="1_6l1jc"]
+
+[node name="SecurityCamera" instance=ExtResource("1_6l1jc")]
+
+[node name="SwitchTimer" parent="." index="2"]
+wait_time = 1.0
+
+[editable path="VisionCone2D"]

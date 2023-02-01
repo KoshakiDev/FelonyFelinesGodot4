@@ -192,6 +192,7 @@ ammo = 30
 recoil = 1000
 ammo_pack_amount = 10
 entity_name = "RPG"
+despawnable = false
 
 [node name="Sprite2D" parent="Marker2D/Visuals" index="0"]
 position = Vector2(-11, -3)
@@ -201,7 +202,7 @@ texture = ExtResource("2")
 position = Vector2(50, -2)
 bullet_scene = ExtResource("6")
 shot_delay = 1.0
-bullet_speed = 500.0
+bullet_speed = 1200.0
 bullet_damage_value = 0
 knockback_value = 0
 bullet_emitter = SubResource("4")

@@ -105,7 +105,6 @@ func switch_to_item_slot(slot_ind: int):
 	if cur_item.has_signal("ammo_changed"):
 		cur_item.connect("ammo_changed",Callable(ammo_bar,"update_ammo_bar"))
 		cur_item.emit_signal("ammo_changed", return_ammo_count())
-	
 	ammo_bar.update_ammo_bar(return_ammo_count())
 
 func disable_all_items():

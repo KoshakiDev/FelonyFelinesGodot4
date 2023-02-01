@@ -108,6 +108,7 @@ script = ExtResource("2_8fdvq")
 ammo = 60
 recoil = 25
 ammo_pack_amount = 30
+despawnable = false
 
 [node name="Marker2D" parent="." index="0"]
 position = Vector2(11, 2)

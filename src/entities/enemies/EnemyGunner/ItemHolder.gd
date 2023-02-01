@@ -74,5 +74,7 @@ func delete_gun():
 	gun.queue_free()
 
 func init(set_parent: Node2D):
-	gun.init(set_parent)
-	
+	if !set_parent.is_stationary:
+		gun.init(set_parent)
+	else:
+		delete_gun()

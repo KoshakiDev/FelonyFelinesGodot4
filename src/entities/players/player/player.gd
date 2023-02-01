@@ -30,6 +30,7 @@ func _ready():
 		Callable(item_manager, "add_item"))
 
 func setup_burglar_mode():
+	Burglar.set("player", self)
 	connect("player_died", Callable(Burglar, "start_game_over"))
 
 func setup_player():
@@ -64,8 +65,10 @@ func _physics_process(_delta):
 	
 	if (get_collision_layer_value(10) || get_collision_layer_value(11)
 		|| get_collision_layer_value(12)):
+		Global.UI_layer.set_vignette_visibility(false)
 		sprite.set_texture(blue_sprite)
 	else:
+		Global.UI_layer.set_vignette_visibility(true)
 		sprite.set_texture(blue_sprite_dark)
 	
 	super._physics_process(_delta)
@@ -75,7 +78,7 @@ func hurt(attacker_area):
 	super.hurt(attacker_area)
 	Shake.shake(4.0, .5)
 	
-	
+
 # func frame_freeze(time_scale, duration):
 # 	Engine.time_scale = time_scale
 # 	await get_tree().create_timer(duration * time_scale).timeout

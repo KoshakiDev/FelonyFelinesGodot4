@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://k8bvo4y6ng0" path="res://src/components/hitbox-hurtbox/hitbox/Hitbox.tscn" id="1"]
 [ext_resource type="Script" path="res://src/components/bullet-related/bullet_type/explosion/Explosion.gd" id="3"]
-[ext_resource type="PackedScene" path="res://src/components/effects/explosion/ExplosionEffect.tscn" id="3_aaf84"]
+[ext_resource type="PackedScene" uid="uid://cwxqj1bhrp36g" path="res://src/components/effects/explosion/ExplosionEffect.tscn" id="3_aaf84"]
 [ext_resource type="Script" path="res://addons/mixing-desk/sound/2d/ran_cont.gd" id="4"]
 [ext_resource type="AudioStream" uid="uid://4a07818wbxdr" path="res://sounds/rocket/boom.wav" id="5"]
 [ext_resource type="PackedScene" uid="uid://egcgkllhejfm" path="res://src/components/bullet-related/BulletSpawner.tscn" id="6_wn1cm"]
@@ -85,7 +85,7 @@ amount = 36
 collision_layer = 56
 collision_mask = 224
 script = ExtResource("3")
-damage_value = 25.0
+damage_value = 100.0
 knockback_value = 2150.0
 
 [node name="Effect" parent="." index="0" instance=ExtResource("3_aaf84")]

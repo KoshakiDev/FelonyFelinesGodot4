@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://balu4oxextlup"]
+
+[ext_resource type="PackedScene" uid="uid://biextgedqdqjw" path="res://src/environment/objects/doors/base_door/BaseDoor.tscn" id="1_b0mob"]
+[ext_resource type="Script" path="res://src/environment/objects/doors/base_door/OpenedDoor.gd" id="2_etglq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jyek"]
+resource_local_to_scene = true
+size = Vector2(48, 7)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a2u1y"]
+resource_local_to_scene = true
+radius = 40.0
+height = 128.0
+
+[node name="BaseDoor" instance=ExtResource("1_b0mob")]
+script = ExtResource("2_etglq")
+
+[node name="Sprite2D" parent="." index="0"]
+frame = 1
+
+[node name="Door" parent="." index="3"]
+shape = SubResource("RectangleShape2D_7jyek")
+
+[node name="CollisionShape2D" parent="InteractFront" index="0"]
+shape = SubResource("CapsuleShape2D_a2u1y")
+
+[node name="CollisionShape2D" parent="InteractBack" index="0"]
+shape = SubResource("CapsuleShape2D_a2u1y")

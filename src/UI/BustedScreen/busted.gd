@@ -10,4 +10,5 @@ func _ready():
 
 func start_timer():
 	visible = true
-	timer.start()
+	if timer.is_stopped():
+		timer.start()

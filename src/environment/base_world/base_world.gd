@@ -16,3 +16,4 @@ func back_to_menu():
 
 func transition_to_next_scene():
 	SceneChanger.change_scene_to_file(next_scene_path, "fade")
+

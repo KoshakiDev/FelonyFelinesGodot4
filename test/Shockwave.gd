@@ -4,6 +4,7 @@ extends Control
 @onready var anim_player = $AnimationPlayer
 
 func _ready():
+	anim_player.play("RESET")
 	VFXManager.connect("create_shockwave_effect", 
 		Callable(self, "create_shockwave"))
 

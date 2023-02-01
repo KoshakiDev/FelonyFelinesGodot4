@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://cwxqj1bhrp36g"]
 
-[ext_resource type="PackedScene" path="res://src/components/effects/base_effect/Effect.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dpoipd6hjejia" path="res://src/components/effects/base_effect/Effect.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://4x2u6pwll6ij" path="res://assets/effects/ExplosionEffect.png" id="2"]
 
 [sub_resource type="Animation" id="1"]

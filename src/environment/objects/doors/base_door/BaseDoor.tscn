@@ -1,53 +1,55 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=6 format=3 uid="uid://biextgedqdqjw"]
 
 [ext_resource type="Texture2D" uid="uid://c8yubgil12lnn" path="res://src/environment/objects/doors/base_door/door1-Sheet.png" id="1"]
 [ext_resource type="Script" path="res://src/environment/objects/doors/base_door/BaseDoor.gd" id="2"]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 4, 3.5 )
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(8, 20)
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 24, 3.5 )
+[sub_resource type="RectangleShape2D" id="2"]
+resource_local_to_scene = true
+size = Vector2(48, 15)
 
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 20.0
-height = 42.0
+[sub_resource type="CapsuleShape2D" id="3"]
+resource_local_to_scene = true
+radius = 40.0
+height = 128.0
 
 [node name="BaseDoor" type="StaticBody2D"]
-script = ExtResource( 2 )
+script = ExtResource("2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2( 0, -46 )
-texture = ExtResource( 1 )
+position = Vector2(0, -46)
+texture = ExtResource("1")
 hframes = 2
 
 [node name="Frame1" type="CollisionShape2D" parent="."]
-position = Vector2( -28, -4 )
-shape = SubResource( 1 )
+position = Vector2(-28, -4)
+shape = SubResource("1")
 
 [node name="Frame2" type="CollisionShape2D" parent="."]
-position = Vector2( 28, -4 )
-shape = SubResource( 1 )
+position = Vector2(28, -4)
+shape = SubResource("1")
 
 [node name="Door" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -4 )
-shape = SubResource( 2 )
-disabled = true
+position = Vector2(0, -4)
+shape = SubResource("2")
+debug_color = Color(0.988235, 0.0980392, 0, 0.419608)
 
 [node name="InteractFront" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractFront"]
-position = Vector2( 0, 20 )
+position = Vector2(0, 48)
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource("3")
 
 [node name="InteractBack" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBack"]
-position = Vector2( 0, -28 )
+position = Vector2(-3.63798e-12, -56)
 rotation = 1.5708
-shape = SubResource( 3 )
+shape = SubResource("3")

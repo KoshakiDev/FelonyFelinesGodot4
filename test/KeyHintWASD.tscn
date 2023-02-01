@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b026or487xjp2"]
+
+[ext_resource type="PackedScene" uid="uid://dsh6bn6acmjbk" path="res://test/KeyHint.tscn" id="1_ytqnq"]
+
+[node name="KeyHintWASD" type="Node2D"]
+
+[node name="KeyHint" parent="." instance=ExtResource("1_ytqnq")]
+position = Vector2(0, -40)
+current_key = "up_1"
+
+[node name="KeyHint2" parent="." instance=ExtResource("1_ytqnq")]
+current_key = "down_1"
+
+[node name="KeyHint3" parent="." instance=ExtResource("1_ytqnq")]
+position = Vector2(40, 0)
+current_key = "right_1"
+
+[node name="KeyHint4" parent="." instance=ExtResource("1_ytqnq")]
+position = Vector2(-40, 0)
+current_key = "left_1"

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmyjcyabxo613"]
+
+[ext_resource type="PackedScene" uid="uid://dpoipd6hjejia" path="res://src/components/effects/base_effect/Effect.tscn" id="1_ibtio"]
+[ext_resource type="Texture2D" uid="uid://dhodrvl2d6gjp" path="res://test/PNG Spritesheets/white_directional3_100x100px.png" id="2_5u6pt"]
+
+[node name="Effect" instance=ExtResource("1_ibtio")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_5u6pt")
+hframes = 8
+vframes = 8

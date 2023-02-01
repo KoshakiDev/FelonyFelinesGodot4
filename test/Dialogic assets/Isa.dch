@@ -1,0 +1,36 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"color": Color(1, 1, 1, 1),
+"custom_info": {
+"sound_mood_default": "",
+"sound_moods": {
+"": {
+"name": "",
+"pitch_base": 1.0,
+"pitch_variance": 0.05,
+"sound_folder": "res://test/Dialogic assets/Isa Sounds",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
+"style": ""
+},
+"default_portrait": "Default Isa",
+"description": "",
+"display_name": "Isa",
+"mirror": false,
+"nicknames": ["dude"],
+"offset": Vector2(0, 0),
+"portraits": {
+"Default Isa": {
+"image": "res://test/Dialogic assets/Brother Small.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": "",
+"sound_mood": ""
+}
+},
+"scale": 0.2
+}

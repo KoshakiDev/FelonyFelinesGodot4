@@ -1,23 +1,26 @@
+Timer
+Sprite2D
+Node2D
 AnimationPlayer
-RigidBody2D
+AnimatedSprite2D
+TextureRect
+Control
+RichTextLabel
 CollisionShape2D
 Area2D
-Timer
+Node
+VisibleOnScreenEnabler2D
+RigidBody2D
 Polygon2D
-Sprite2D
 ColorRect
 Label
 ProgressBar
-RichTextLabel
-Node
-Node2D
 AudioStreamPlayer2D
 Marker2D
 Camera2D
 TileMap
 VisionCone2D (vision_cone_2d.gd)
 SubViewport
-TextureRect
 RemoteTransform2D
 State (State.gd)
 StateMachine (StatesMachine.gd)
